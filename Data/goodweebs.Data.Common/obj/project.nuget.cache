@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "2E7rEz+xGp+c0NJMdY3eHdwq09SOBr1NJ0aFMzSvjQ1bVexeUzLnE6p/kCpSa0XDFw9wO6pVhz5LZE4SnkH5hg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data.Common\\goodweebs.Data.Common.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gunex\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.205\\stylecop.analyzers.1.2.0-beta.205.nupkg.sha512",
+    "C:\\Users\\gunex\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.205\\stylecop.analyzers.unstable.1.2.0.205.nupkg.sha512",
+    "C:\\Users\\gunex\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

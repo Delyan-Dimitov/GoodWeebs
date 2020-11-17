@@ -1,0 +1,9 @@
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Messaging\bin\Debug\netstandard2.1\goodweebs.Services.Messaging.deps.json
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Messaging\bin\Debug\netstandard2.1\goodweebs.Services.Messaging.dll
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Messaging\bin\Debug\netstandard2.1\goodweebs.Services.Messaging.pdb
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Messaging\obj\Debug\netstandard2.1\goodweebs.Services.Messaging.csprojAssemblyReference.cache
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Messaging\obj\Debug\netstandard2.1\goodweebs.Services.Messaging.AssemblyInfoInputs.cache
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Messaging\obj\Debug\netstandard2.1\goodweebs.Services.Messaging.AssemblyInfo.cs
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Messaging\obj\Debug\netstandard2.1\goodweebs.Services.Messaging.dll
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Messaging\obj\Debug\netstandard2.1\goodweebs.Services.Messaging.pdb
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Messaging\obj\Debug\netstandard2.1\goodweebs.Services.Messaging.csproj.CoreCompileInputs.cache

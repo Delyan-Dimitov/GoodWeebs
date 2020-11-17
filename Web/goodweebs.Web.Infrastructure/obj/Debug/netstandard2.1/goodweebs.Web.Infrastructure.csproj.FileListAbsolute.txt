@@ -1,0 +1,9 @@
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\bin\Debug\netstandard2.1\goodweebs.Web.Infrastructure.deps.json
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\bin\Debug\netstandard2.1\goodweebs.Web.Infrastructure.dll
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\bin\Debug\netstandard2.1\goodweebs.Web.Infrastructure.pdb
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\obj\Debug\netstandard2.1\goodweebs.Web.Infrastructure.csprojAssemblyReference.cache
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\obj\Debug\netstandard2.1\goodweebs.Web.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\obj\Debug\netstandard2.1\goodweebs.Web.Infrastructure.AssemblyInfo.cs
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\obj\Debug\netstandard2.1\goodweebs.Web.Infrastructure.dll
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\obj\Debug\netstandard2.1\goodweebs.Web.Infrastructure.pdb
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\obj\Debug\netstandard2.1\goodweebs.Web.Infrastructure.csproj.CoreCompileInputs.cache

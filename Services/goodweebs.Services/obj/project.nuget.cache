@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "HeG1muqF4t6tHVnP0mHcifRviUOZnmh6YiGQ1oali7cwFWbkR9s+A8B0jxn5eZt/yRHcM5/nM/OXrZR0bf2/0A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services\\goodweebs.Services.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gunex\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.205\\stylecop.analyzers.1.2.0-beta.205.nupkg.sha512",
+    "C:\\Users\\gunex\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.205\\stylecop.analyzers.unstable.1.2.0.205.nupkg.sha512"
+  ],
+  "logs": []
+}
