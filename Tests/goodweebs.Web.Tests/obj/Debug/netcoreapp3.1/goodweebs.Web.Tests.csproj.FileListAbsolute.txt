@@ -526,3 +526,4 @@ C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.pdb
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.genruntimeconfig.cache
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.csproj.CoreCompileInputs.cache
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\wwwroot\css\LoginStyles.css

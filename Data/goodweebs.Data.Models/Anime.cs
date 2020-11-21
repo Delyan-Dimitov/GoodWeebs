@@ -5,15 +5,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Entities
 {
-    public class AnimeHelperTable : Series
+    public class Anime : Series
     {
-        public AnimeHelperTable()
-        {
-            this.Id = Guid.NewGuid().ToString();
-        }
-
-        [Key]
-        public string Id { get; set; }
 
         public ICollection<CurrentlyWatchingMap> CurrentlyWatching { get; set; }
 

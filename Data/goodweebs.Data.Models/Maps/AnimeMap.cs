@@ -14,9 +14,9 @@
 
         public ApplicationUser User { get; set; }
 
-        public string AnimeId { get; set; }
+        public int AnimeId { get; set; }
 
-        public AnimeHelperTable Anime { get; set; }
+        public Anime Anime { get; set; }
 
     }
 }

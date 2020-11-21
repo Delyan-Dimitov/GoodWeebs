@@ -12,7 +12,7 @@
 
         public ApplicationUser User { get; set; }
 
-        public string MangaId { get; set; }
+        public int MangaId { get; set; }
 
         public Manga Manga { get; set; }
     }

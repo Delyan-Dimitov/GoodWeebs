@@ -28,6 +28,8 @@
                               new RolesSeeder(),
                               new SettingsSeeder(),
                               new AnimeSeeder(),
+                              new UserSeeder(),
+                              new WatchedSeeder(),
                           };
 
             foreach (var seeder in seeders)

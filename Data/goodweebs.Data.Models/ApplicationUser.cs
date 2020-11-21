@@ -27,24 +27,19 @@ namespace goodweebs.Data.Models
             this.WantToRead = new HashSet<WantToReadMap>();
         }
 
-        [Required]
+        [PersonalData]
+        [Column (TypeName="nvarchar(100)")]
         public string FirstName { get; set; }
 
-        [Required]
+        [PersonalData]
+        [Column(TypeName = "nvarchar(100)")]
         public string LastName { get; set; }
 
-        [Required]
         public DateTime DateOfBirth { get; set; }
 
-        [Required]
         public int Gender { get; set; }
 
-        [Required]
-        [ForeignKey(nameof(Country))]
         public string Country { get; set; }
-
-        [Required]
-        public string UserName { get; set; }
 
         public bool LikesAnime { get; set; }
 

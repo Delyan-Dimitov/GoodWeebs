@@ -19,10 +19,12 @@ namespace goodweebs.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Entities.AnimeHelperTable", b =>
+            modelBuilder.Entity("Entities.Anime", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CurrentCount")
                         .HasColumnType("int");
@@ -90,8 +92,10 @@ namespace goodweebs.Data.Migrations
 
             modelBuilder.Entity("Entities.Manga", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CurrentCount")
                         .HasColumnType("int");
@@ -124,8 +128,8 @@ namespace goodweebs.Data.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("MangaId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("MangaId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateStarted")
                         .HasColumnType("datetime2");
@@ -142,8 +146,8 @@ namespace goodweebs.Data.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("AnimeId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("AnimeId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateStarted")
                         .HasColumnType("datetime2");
@@ -160,8 +164,8 @@ namespace goodweebs.Data.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("MangaId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("MangaId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateFinished")
                         .HasColumnType("datetime2");
@@ -181,8 +185,8 @@ namespace goodweebs.Data.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("MangaId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("MangaId")
+                        .HasColumnType("int");
 
                     b.HasKey("UserId", "MangaId");
 
@@ -196,8 +200,8 @@ namespace goodweebs.Data.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("AnimeId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("AnimeId")
+                        .HasColumnType("int");
 
                     b.HasKey("UserId", "AnimeId");
 
@@ -211,8 +215,8 @@ namespace goodweebs.Data.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("AnimeId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("AnimeId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateFinished")
                         .HasColumnType("datetime2");
@@ -430,7 +434,6 @@ namespace goodweebs.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Country")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedOn")
@@ -450,8 +453,7 @@ namespace goodweebs.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("Gender")
                         .HasColumnType("int");
@@ -460,8 +462,7 @@ namespace goodweebs.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<bool>("LikesAnime")
                         .HasColumnType("bit");
@@ -502,7 +503,6 @@ namespace goodweebs.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("UserName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
@@ -573,7 +573,7 @@ namespace goodweebs.Data.Migrations
                     b.HasOne("Entities.Manga", "Manga")
                         .WithMany("CurrentlyReading")
                         .HasForeignKey("MangaId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("goodweebs.Data.Models.ApplicationUser", "User")
@@ -585,10 +585,10 @@ namespace goodweebs.Data.Migrations
 
             modelBuilder.Entity("Entities.Maps.CurrentlyWatchingMap", b =>
                 {
-                    b.HasOne("Entities.AnimeHelperTable", "Anime")
+                    b.HasOne("Entities.Anime", "Anime")
                         .WithMany("CurrentlyWatching")
                         .HasForeignKey("AnimeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("goodweebs.Data.Models.ApplicationUser", "User")
@@ -603,7 +603,7 @@ namespace goodweebs.Data.Migrations
                     b.HasOne("Entities.Manga", "Manga")
                         .WithMany("Read")
                         .HasForeignKey("MangaId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("goodweebs.Data.Models.ApplicationUser", "User")
@@ -618,7 +618,7 @@ namespace goodweebs.Data.Migrations
                     b.HasOne("Entities.Manga", "Manga")
                         .WithMany("WantToRead")
                         .HasForeignKey("MangaId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("goodweebs.Data.Models.ApplicationUser", "User")
@@ -630,10 +630,10 @@ namespace goodweebs.Data.Migrations
 
             modelBuilder.Entity("Entities.Maps.WantToWatchMap", b =>
                 {
-                    b.HasOne("Entities.AnimeHelperTable", "Anime")
+                    b.HasOne("Entities.Anime", "Anime")
                         .WithMany("WantToWatch")
                         .HasForeignKey("AnimeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("goodweebs.Data.Models.ApplicationUser", "User")
@@ -645,10 +645,10 @@ namespace goodweebs.Data.Migrations
 
             modelBuilder.Entity("Entities.Maps.WatchedMap", b =>
                 {
-                    b.HasOne("Entities.AnimeHelperTable", "Anime")
+                    b.HasOne("Entities.Anime", "Anime")
                         .WithMany("WatchedAnime")
                         .HasForeignKey("AnimeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("goodweebs.Data.Models.ApplicationUser", "User")

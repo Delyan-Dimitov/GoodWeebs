@@ -29,7 +29,7 @@
 
         public DbSet<ApplicationUser> Users { get; set; }
 
-        public DbSet<AnimeHelperTable> Animes { get; set; }
+        public DbSet<Anime> Animes { get; set; }
 
         public DbSet<Country> Countries { get; set; }
 

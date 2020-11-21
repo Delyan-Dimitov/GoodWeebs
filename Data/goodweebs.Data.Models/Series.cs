@@ -7,9 +7,7 @@ namespace Entities
 {
     public class Series : ISeries
     {
-        [Key]
-        public string Id { get; }
-
+        public int Id { get; set; }
         public string Title { get; set; }
         
         public int Genre { get; set; }

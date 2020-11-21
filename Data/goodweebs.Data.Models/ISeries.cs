@@ -6,28 +6,24 @@ namespace Entities
 {
     public interface ISeries
     {
-        
-         string Id { get; }
+        int Id { set; }
+        string Title { set; }
 
-        
-         string Title {  set; }
+        int Genre { set; }
 
-        
-         int Genre {set; }
 
-        
-         int CurrentCount { set; } 
+        int CurrentCount { set; }
 
-        
-         int FinishedCount { set; } 
 
-        
-         bool IsFinished {  set; }
+        int FinishedCount { set; }
 
-        
-         DateTime DateStarted { set; }
 
-         DateTime DateFinished {  set; }
+        bool IsFinished { set; }
+
+
+        DateTime DateStarted { set; }
+
+        DateTime DateFinished { set; }
 
     }
 }
