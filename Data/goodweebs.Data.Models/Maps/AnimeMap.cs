@@ -5,7 +5,7 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Text;
 
-    using goodweebs.Data.Models;
+    using GoodWeebs.Data.Models;
 
     public class AnimeMap : IMap
 

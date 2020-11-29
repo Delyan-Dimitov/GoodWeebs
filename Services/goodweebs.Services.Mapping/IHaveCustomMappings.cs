@@ -1,4 +1,4 @@
-﻿namespace goodweebs.Services.Mapping
+﻿namespace GoodWeebs.Services.Mapping
 {
     using AutoMapper;
 

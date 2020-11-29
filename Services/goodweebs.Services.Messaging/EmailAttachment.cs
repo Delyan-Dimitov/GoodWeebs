@@ -1,4 +1,4 @@
-﻿namespace goodweebs.Services.Messaging
+﻿namespace GoodWeebs.Services.Messaging
 {
     public class EmailAttachment
     {

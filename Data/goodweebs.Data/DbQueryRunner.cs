@@ -1,9 +1,9 @@
-﻿namespace goodweebs.Data
+﻿namespace GoodWeebs.Data
 {
     using System;
     using System.Threading.Tasks;
 
-    using goodweebs.Data.Common;
+    using GoodWeebs.Data.Common;
 
     using Microsoft.EntityFrameworkCore;
 

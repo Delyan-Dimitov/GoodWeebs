@@ -1,4 +1,4 @@
-﻿namespace goodweebs.Data
+﻿namespace GoodWeebs.Data
 {
     using System;
     using System.Linq;
@@ -7,8 +7,8 @@
     using System.Threading.Tasks;
     using Entities;
     using Entities.Maps;
-    using goodweebs.Data.Common.Models;
-    using goodweebs.Data.Models;
+    using GoodWeebs.Data.Common.Models;
+    using GoodWeebs.Data.Models;
     using Goodweebs.Data.Models;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
@@ -50,7 +50,7 @@
         public DbSet<Friends> Friends { get; set; }
 
         public DbSet<HelperAnime> HelperAnimes { get; set; }
-
+        public object Anime { get; internal set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 

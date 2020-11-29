@@ -1,5 +1,5 @@
 ﻿// ReSharper disable VirtualMemberCallInConstructor
-namespace goodweebs.Data.Models
+namespace GoodWeebs.Data.Models
 {
     using System;
     using System.Collections.Generic;
@@ -7,7 +7,7 @@ namespace goodweebs.Data.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using Entities;
     using Entities.Maps;
-    using goodweebs.Data.Common.Models;
+    using GoodWeebs.Data.Common.Models;
 
     using Microsoft.AspNetCore.Identity;
 

@@ -1,6 +1,6 @@
-﻿namespace goodweebs.Data.Configurations
+﻿namespace GoodWeebs.Data.Configurations
 {
-    using goodweebs.Data.Models;
+    using GoodWeebs.Data.Models;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

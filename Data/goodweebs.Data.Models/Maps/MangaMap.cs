@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Text;
 
-    using goodweebs.Data.Models;
+    using GoodWeebs.Data.Models;
 
   public class MangaMap :IMap
     {

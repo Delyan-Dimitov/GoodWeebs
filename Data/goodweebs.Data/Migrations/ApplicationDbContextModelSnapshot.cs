@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using goodweebs.Data;
+using GoodWeebs.Data;
 
-namespace goodweebs.Data.Migrations
+namespace GoodWeebs.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -26,25 +26,49 @@ namespace goodweebs.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Aired")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("CurrentCount")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DateFinished")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("EpisodeDuration")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DateStarted")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Episodes")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("FinishedCount")
                         .HasColumnType("int");
 
-                    b.Property<int>("Genre")
-                        .HasColumnType("int");
+                    b.Property<string>("Genres")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsFinished")
-                        .HasColumnType("bit");
+                    b.Property<string>("Picture")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Rating")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Studios")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Synonyms")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Synopsis")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Trailer")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -380,7 +404,7 @@ namespace goodweebs.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("goodweebs.Data.Models.ApplicationRole", b =>
+            modelBuilder.Entity("GoodWeebs.Data.Models.ApplicationRole", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -421,7 +445,7 @@ namespace goodweebs.Data.Migrations
                     b.ToTable("AspNetRoles");
                 });
 
-            modelBuilder.Entity("goodweebs.Data.Models.ApplicationUser", b =>
+            modelBuilder.Entity("GoodWeebs.Data.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -521,7 +545,7 @@ namespace goodweebs.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("goodweebs.Data.Models.Setting", b =>
+            modelBuilder.Entity("GoodWeebs.Data.Models.Setting", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -555,13 +579,13 @@ namespace goodweebs.Data.Migrations
 
             modelBuilder.Entity("Entities.Friends", b =>
                 {
-                    b.HasOne("goodweebs.Data.Models.ApplicationUser", "FriendUser")
+                    b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "FriendUser")
                         .WithMany("Friends")
                         .HasForeignKey("FriendUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("goodweebs.Data.Models.ApplicationUser", "MainUser")
+                    b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "MainUser")
                         .WithMany("MainUserFriends")
                         .HasForeignKey("MainUserId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -576,7 +600,7 @@ namespace goodweebs.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("goodweebs.Data.Models.ApplicationUser", "User")
+                    b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "User")
                         .WithMany("CurrentlyReading")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -591,7 +615,7 @@ namespace goodweebs.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("goodweebs.Data.Models.ApplicationUser", "User")
+                    b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "User")
                         .WithMany("CurrentlyWatching")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -606,7 +630,7 @@ namespace goodweebs.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("goodweebs.Data.Models.ApplicationUser", "User")
+                    b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "User")
                         .WithMany("Read")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -621,7 +645,7 @@ namespace goodweebs.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("goodweebs.Data.Models.ApplicationUser", "User")
+                    b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "User")
                         .WithMany("WantToRead")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -636,7 +660,7 @@ namespace goodweebs.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("goodweebs.Data.Models.ApplicationUser", "User")
+                    b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "User")
                         .WithMany("WantToWatch")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -651,7 +675,7 @@ namespace goodweebs.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("goodweebs.Data.Models.ApplicationUser", "User")
+                    b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "User")
                         .WithMany("Watched")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -660,7 +684,7 @@ namespace goodweebs.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.HasOne("goodweebs.Data.Models.ApplicationRole", null)
+                    b.HasOne("GoodWeebs.Data.Models.ApplicationRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -669,7 +693,7 @@ namespace goodweebs.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("goodweebs.Data.Models.ApplicationUser", null)
+                    b.HasOne("GoodWeebs.Data.Models.ApplicationUser", null)
                         .WithMany("Claims")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -678,7 +702,7 @@ namespace goodweebs.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("goodweebs.Data.Models.ApplicationUser", null)
+                    b.HasOne("GoodWeebs.Data.Models.ApplicationUser", null)
                         .WithMany("Logins")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -687,13 +711,13 @@ namespace goodweebs.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.HasOne("goodweebs.Data.Models.ApplicationRole", null)
+                    b.HasOne("GoodWeebs.Data.Models.ApplicationRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("goodweebs.Data.Models.ApplicationUser", null)
+                    b.HasOne("GoodWeebs.Data.Models.ApplicationUser", null)
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -702,7 +726,7 @@ namespace goodweebs.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("goodweebs.Data.Models.ApplicationUser", null)
+                    b.HasOne("GoodWeebs.Data.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)

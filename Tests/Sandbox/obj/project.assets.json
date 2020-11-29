@@ -1642,7 +1642,7 @@
       },
       "goodweebs.Common/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
+        "framework": ".NETCoreApp,Version=v3.1",
         "compile": {
           "bin/placeholder/goodweebs.Common.dll": {}
         },
@@ -1671,7 +1671,7 @@
       },
       "goodweebs.Data.Common/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
+        "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "System.ComponentModel.Annotations": "4.7.0"
         },
@@ -1684,7 +1684,7 @@
       },
       "goodweebs.Data.Models/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
+        "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.9",
           "Newtonsoft.Json": "12.0.3",
@@ -1699,7 +1699,12 @@
       },
       "goodweebs.Services/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "goodweebs.Data": "1.0.0",
+          "goodweebs.Data.Common": "1.0.0",
+          "goodweebs.Data.Models": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/goodweebs.Services.dll": {}
         },
@@ -1709,7 +1714,7 @@
       },
       "goodweebs.Services.Data/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
+        "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "goodweebs.Data.Common": "1.0.0",
           "goodweebs.Data.Models": "1.0.0",
@@ -1724,7 +1729,7 @@
       },
       "goodweebs.Services.Mapping/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
+        "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "AutoMapper": "10.1.1"
         },
@@ -1737,7 +1742,7 @@
       },
       "goodweebs.Services.Messaging/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
+        "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "Sendgrid": "9.21.0"
         },
@@ -6224,29 +6229,29 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data.Common\\goodweebs.Data.Common.csproj": {
-              "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data.Common\\goodweebs.Data.Common.csproj"
+            "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\GoodWeebs.Data.Common\\GoodWeebs.Data.Common.csproj": {
+              "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\GoodWeebs.Data.Common\\GoodWeebs.Data.Common.csproj"
             },
-            "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data.Models\\goodweebs.Data.Models.csproj": {
-              "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data.Models\\goodweebs.Data.Models.csproj"
+            "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\GoodWeebs.Data.Models\\GoodWeebs.Data.Models.csproj": {
+              "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\GoodWeebs.Data.Models\\GoodWeebs.Data.Models.csproj"
             },
-            "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data\\goodweebs.Data.csproj": {
-              "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data\\goodweebs.Data.csproj"
+            "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\GoodWeebs.Data\\GoodWeebs.Data.csproj": {
+              "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\GoodWeebs.Data\\GoodWeebs.Data.csproj"
             },
-            "C:\\Users\\gunex\\Desktop\\GoodWeebs\\goodweebs.Common\\goodweebs.Common.csproj": {
-              "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\goodweebs.Common\\goodweebs.Common.csproj"
+            "C:\\Users\\gunex\\Desktop\\GoodWeebs\\GoodWeebs.Common\\GoodWeebs.Common.csproj": {
+              "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\GoodWeebs.Common\\GoodWeebs.Common.csproj"
             },
-            "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Data\\goodweebs.Services.Data.csproj": {
-              "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Data\\goodweebs.Services.Data.csproj"
+            "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\GoodWeebs.Services.Data\\GoodWeebs.Services.Data.csproj": {
+              "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\GoodWeebs.Services.Data\\GoodWeebs.Services.Data.csproj"
             },
-            "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Mapping\\goodweebs.Services.Mapping.csproj": {
-              "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Mapping\\goodweebs.Services.Mapping.csproj"
+            "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\GoodWeebs.Services.Mapping\\GoodWeebs.Services.Mapping.csproj": {
+              "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\GoodWeebs.Services.Mapping\\GoodWeebs.Services.Mapping.csproj"
             },
-            "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Messaging\\goodweebs.Services.Messaging.csproj": {
-              "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Messaging\\goodweebs.Services.Messaging.csproj"
+            "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\GoodWeebs.Services.Messaging\\GoodWeebs.Services.Messaging.csproj": {
+              "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\GoodWeebs.Services.Messaging\\GoodWeebs.Services.Messaging.csproj"
             },
-            "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services\\goodweebs.Services.csproj": {
-              "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services\\goodweebs.Services.csproj"
+            "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\GoodWeebs.Services\\GoodWeebs.Services.csproj": {
+              "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\GoodWeebs.Services\\GoodWeebs.Services.csproj"
             }
           }
         }

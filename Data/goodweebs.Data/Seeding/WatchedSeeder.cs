@@ -1,29 +1,24 @@
 ﻿using Entities;
 using Entities.Maps;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace goodweebs.Data.Seeding
+namespace GoodWeebs.Data.Seeding
 {
     public class WatchedSeeder : ISeeder
     {
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
 
-            if (dbContext.Animes.Any())
+            if (dbContext.WatchedMaps.Any())
             {
                 return;
             }
-            List<Anime> anime = new List<Anime>();
-            anime.Add(new Anime { Title = "Naruto" });
-            anime.Add(new Anime { Title = "Bleach" });
-            anime.Add(new Anime { Title = "DBZ" });
-            anime.Add(new Anime { Title = "Cory in The House" });
-            dbContext.Animes.AddRange(anime);
-            await dbContext.SaveChangesAsync();
+
             List<WatchedMap> map = new List<WatchedMap>();
             foreach (var user in dbContext.Users)
             {
@@ -31,31 +26,32 @@ namespace goodweebs.Data.Seeding
                 {
                     User = user,
                     UserId = user.Id,
-                    Anime = dbContext.Animes.FirstOrDefault(x => x.Title == "Naruto"),
-                    AnimeId = dbContext.Animes.FirstOrDefault(x => x.Title == "Naruto").Id,
+                    Anime = dbContext.Animes.FirstOrDefault(x => EF.Functions.Like(x.Title, "%Naruto%")),
+                    AnimeId = dbContext.Animes.FirstOrDefault(x => EF.Functions.Like(x.Title, "%Naruto%")).Id,
                 });
                 map.Add(new WatchedMap()
                 {
                     User = user,
                     UserId = user.Id,
-                    Anime = dbContext.Animes.FirstOrDefault(x => x.Title == "Bleach"),
-                    AnimeId = dbContext.Animes.FirstOrDefault(x => x.Title == "Bleach").Id,
+                    Anime = dbContext.Animes.FirstOrDefault(x => EF.Functions.Like(x.Title, "%Bleach%")),
+                    AnimeId = dbContext.Animes.FirstOrDefault(x => EF.Functions.Like(x.Title, "%Bleach%")).Id,
                 });
                 map.Add(new WatchedMap()
                 {
                     User = user,
                     UserId = user.Id,
-                    Anime = dbContext.Animes.FirstOrDefault(x => x.Title == "DBZ"),
-                    AnimeId = dbContext.Animes.FirstOrDefault(x => x.Title == "DBZ").Id,
+                    Anime = dbContext.Animes.FirstOrDefault(x => EF.Functions.Like(x.Title, "%Trigun%")),
+                    AnimeId = dbContext.Animes.FirstOrDefault(x => EF.Functions.Like(x.Title, "%Trigun%")).Id,
                 });
                 map.Add(new WatchedMap()
                 {
                     User = user,
                     UserId = user.Id,
-                    Anime = dbContext.Animes.FirstOrDefault(x => x.Title == "Cory in The House"),
-                    AnimeId = dbContext.Animes.FirstOrDefault(x => x.Title == "Cory in the House").Id,
+                    Anime = dbContext.Animes.FirstOrDefault(x => EF.Functions.Like(x.Title, "%Coboy Bebop%")),
+                    AnimeId = dbContext.Animes.FirstOrDefault(x => EF.Functions.Like(x.Title, "%Cowboy Bebop%")).Id,
                 });
             }
+
             dbContext.WatchedMaps.AddRange(map);
             await dbContext.SaveChangesAsync();
         }

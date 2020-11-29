@@ -1,4 +1,4 @@
-﻿namespace goodweebs.Services.Messaging
+﻿namespace GoodWeebs.Services.Messaging
 {
     using System;
     using System.Collections.Generic;

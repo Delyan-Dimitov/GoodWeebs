@@ -1,4 +1,4 @@
-﻿namespace goodweebs.Web.ViewModels
+﻿namespace GoodWeebs.Web.ViewModels
 {
     public class ErrorViewModel
     {

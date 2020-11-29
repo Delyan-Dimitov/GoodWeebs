@@ -7,3 +7,8 @@ C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services\obj\Debug\netstanda
 C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services\obj\Debug\netstandard2.1\goodweebs.Services.dll
 C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services\obj\Debug\netstandard2.1\goodweebs.Services.pdb
 C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services\obj\Debug\netstandard2.1\goodweebs.Services.csproj.CoreCompileInputs.cache
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services\bin\Debug\netstandard2.1\goodweebs.Data.Common.dll
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services\bin\Debug\netstandard2.1\goodweebs.Data.Models.dll
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services\bin\Debug\netstandard2.1\goodweebs.Data.Common.pdb
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services\bin\Debug\netstandard2.1\goodweebs.Data.Models.pdb
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services\obj\Debug\netstandard2.1\goodweebs.Services.csproj.CopyComplete

@@ -1,6 +1,6 @@
 ﻿using System;
-using goodweebs.Data;
-using goodweebs.Data.Models;
+using GoodWeebs.Data;
+using GoodWeebs.Data.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-[assembly: HostingStartup(typeof(goodweebs.Web.Areas.Identity.IdentityHostingStartup))]
-namespace goodweebs.Web.Areas.Identity
+[assembly: HostingStartup(typeof(GoodWeebs.Web.Areas.Identity.IdentityHostingStartup))]
+namespace GoodWeebs.Web.Areas.Identity
 {
     public class IdentityHostingStartup : IHostingStartup
     {

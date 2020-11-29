@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "goodweebs.Web.Tests": {
+    "GoodWeebs.Web.Tests": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

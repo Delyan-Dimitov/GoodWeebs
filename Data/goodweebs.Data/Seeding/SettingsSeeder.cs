@@ -1,10 +1,10 @@
-﻿namespace goodweebs.Data.Seeding
+﻿namespace GoodWeebs.Data.Seeding
 {
     using System;
     using System.Linq;
     using System.Threading.Tasks;
 
-    using goodweebs.Data.Models;
+    using GoodWeebs.Data.Models;
 
     internal class SettingsSeeder : ISeeder
     {

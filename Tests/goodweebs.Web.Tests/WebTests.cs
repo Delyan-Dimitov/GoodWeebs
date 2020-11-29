@@ -1,4 +1,4 @@
-﻿namespace goodweebs.Web.Tests
+﻿namespace GoodWeebs.Web.Tests
 {
     using System.Net;
     using System.Threading.Tasks;

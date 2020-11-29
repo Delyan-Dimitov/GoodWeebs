@@ -1,6 +1,6 @@
-﻿namespace goodweebs.Data.Models
+﻿namespace GoodWeebs.Data.Models
 {
-    using goodweebs.Data.Common.Models;
+    using GoodWeebs.Data.Common.Models;
 
     public class Setting : BaseDeletableModel<int>
     {

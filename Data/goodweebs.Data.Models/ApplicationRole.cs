@@ -1,9 +1,9 @@
 ﻿// ReSharper disable VirtualMemberCallInConstructor
-namespace goodweebs.Data.Models
+namespace GoodWeebs.Data.Models
 {
     using System;
 
-    using goodweebs.Data.Common.Models;
+    using GoodWeebs.Data.Common.Models;
 
     using Microsoft.AspNetCore.Identity;
 

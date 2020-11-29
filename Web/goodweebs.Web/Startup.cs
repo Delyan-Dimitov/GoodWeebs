@@ -1,17 +1,19 @@
-﻿namespace goodweebs.Web
+﻿namespace GoodWeebs.Web
 {
     using System.Reflection;
 
-    using goodweebs.Data;
-    using goodweebs.Data.Common;
-    using goodweebs.Data.Common.Repositories;
-    using goodweebs.Data.Models;
-    using goodweebs.Data.Repositories;
-    using goodweebs.Data.Seeding;
-    using goodweebs.Services.Data;
-    using goodweebs.Services.Mapping;
-    using goodweebs.Services.Messaging;
-    using goodweebs.Web.ViewModels;
+    using GoodWeebs.Data;
+    using GoodWeebs.Data.Common;
+    using GoodWeebs.Data.Common.Repositories;
+    using GoodWeebs.Data.Models;
+    using GoodWeebs.Data.Repositories;
+    using GoodWeebs.Data.Seeding;
+    using GoodWeebs.Services;
+    using GoodWeebs.Services.Data;
+    using GoodWeebs.Services.GoodWeebs.Services.AnimeServices;
+    using GoodWeebs.Services.Mapping;
+    using GoodWeebs.Services.Messaging;
+    using GoodWeebs.Web.ViewModels;
 
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -72,6 +74,7 @@
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
             services.AddTransient<ISettingsService, SettingsService>();
+            services.AddTransient<IAnimeService, AnimeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

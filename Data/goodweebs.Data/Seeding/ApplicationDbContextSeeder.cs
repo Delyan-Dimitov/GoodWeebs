@@ -1,4 +1,4 @@
-﻿namespace goodweebs.Data.Seeding
+﻿namespace GoodWeebs.Data.Seeding
 {
     using System;
     using System.Collections.Generic;

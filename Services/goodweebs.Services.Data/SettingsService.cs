@@ -1,11 +1,11 @@
-﻿namespace goodweebs.Services.Data
+﻿namespace GoodWeebs.Services.Data
 {
     using System.Collections.Generic;
     using System.Linq;
 
-    using goodweebs.Data.Common.Repositories;
-    using goodweebs.Data.Models;
-    using goodweebs.Services.Mapping;
+    using GoodWeebs.Data.Common.Repositories;
+    using GoodWeebs.Data.Models;
+    using GoodWeebs.Services.Mapping;
 
     public class SettingsService : ISettingsService
     {

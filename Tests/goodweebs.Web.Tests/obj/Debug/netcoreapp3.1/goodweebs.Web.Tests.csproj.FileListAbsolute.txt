@@ -217,7 +217,6 @@ C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\refs\System.Runtime.Serialization.Json.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\refs\System.Runtime.Serialization.Primitives.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\refs\System.Runtime.Serialization.Xml.dll
-C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\refs\System.Security.AccessControl.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\refs\System.Security.Claims.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\refs\System.Security.Cryptography.Algorithms.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\refs\System.Security.Cryptography.Cng.dll
@@ -227,9 +226,7 @@ C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\refs\System.Security.Cryptography.X509Certificates.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\refs\System.Security.Cryptography.Xml.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\refs\System.Security.dll
-C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\refs\System.Security.Permissions.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\refs\System.Security.Principal.dll
-C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\refs\System.Security.Principal.Windows.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\refs\System.Security.SecureString.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\refs\System.ServiceModel.Web.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\refs\System.ServiceProcess.dll
@@ -254,7 +251,6 @@ C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\refs\System.Web.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\refs\System.Web.HttpUtility.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\refs\System.Windows.dll
-C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\refs\System.Windows.Extensions.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\refs\System.Xml.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\refs\System.Xml.Linq.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\refs\System.Xml.ReaderWriter.dll
@@ -514,8 +510,6 @@ C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\goodweebs.Web.Infrastructure.pdb
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\goodweebs.Web.ViewModels.pdb
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.csprojAssemblyReference.cache
-C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.AssemblyInfoInputs.cache
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.AssemblyInfo.cs
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.RazorTargetAssemblyInfo.cache
@@ -525,5 +519,21 @@ C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.pdb
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.genruntimeconfig.cache
-C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.csproj.CoreCompileInputs.cache
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\wwwroot\css\LoginStyles.css
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\wwwroot\final.json
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.csproj.CoreCompileInputs.cache
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\System.Security.AccessControl.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\System.Security.Permissions.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\System.Security.Principal.Windows.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\System.Windows.Extensions.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Security.AccessControl.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.MvcApplicationPartsAssemblyInfo.cs

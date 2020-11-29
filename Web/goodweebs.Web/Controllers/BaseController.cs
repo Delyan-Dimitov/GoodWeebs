@@ -1,4 +1,4 @@
-﻿namespace goodweebs.Web.Controllers
+﻿namespace GoodWeebs.Web.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
 

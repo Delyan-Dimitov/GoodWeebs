@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace goodweebs.Data.Models
+namespace GoodWeebs.Data.Models
 {
     public class AnimeDTO
     {
-        [JsonProperty("sources")]
-        public string[] Sources { get; set; }
+        //[JsonProperty("sources")]
+        //public string[] Sources { get; set; }
 
         [JsonProperty("title")]
         public string Title { get; set; }
@@ -16,39 +16,40 @@ namespace goodweebs.Data.Models
         [JsonProperty("type")]
         public string Type { get; set; }
 
+        [JsonProperty("synopsis")]
+        public string Synopsis { get; set; }
+
         [JsonProperty("episodes")]
-        public int Episodes { get; set; }
+        public string Episodes { get; set; }
 
         [JsonProperty("status")]
         public string Status { get; set; }
 
-        [JsonProperty("animeSeason")]
-        public AnimeSeason AnimeSeason { get; set; }
+        [JsonProperty("aired")]
+        public string Aired { get; set; }
 
         [JsonProperty("picture")]
         public string Picture { get; set; }
 
-        [JsonProperty("thumbnail")]
-        public string Thumbnail { get; set; }
-
         [JsonProperty("synonyms")]
         public string[] Synonyms { get; set; }
 
-        [JsonProperty("Relations")]
-        public string[] Relations { get; set; }
+        [JsonProperty("genres")]
+        public string[] Genres { get; set; }
 
-        [JsonProperty("tags")]
-        public string[] Tags { get; set; }
+        [JsonProperty("trailer")]
+        public string Trailer { get; set; }
 
+        [JsonProperty("duration")]
+        public string EpisodeDuration { get; set; }
 
-    }
+        [JsonProperty("rating")]
+        public string Rating { get; set; }
 
-    public class AnimeSeason
-    {
-        [JsonProperty("season")]
-        public string Season { get; set; }
-
-        [JsonProperty("year")]
-        public int? Year { get; set; }
+        [JsonProperty("studios")]
+        public string[] Studios { get; set; }
     }
 }
+
+
+    

@@ -1,8 +1,8 @@
-﻿namespace goodweebs.Data
+﻿namespace GoodWeebs.Data
 {
     using System.Linq;
 
-    using goodweebs.Data.Common.Models;
+    using GoodWeebs.Data.Common.Models;
 
     using Microsoft.EntityFrameworkCore;
 

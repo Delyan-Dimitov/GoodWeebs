@@ -1,13 +1,13 @@
-﻿namespace goodweebs.Services.Data.Tests
+﻿namespace GoodWeebs.Services.Data.Tests
 {
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
-    using goodweebs.Data;
-    using goodweebs.Data.Common.Repositories;
-    using goodweebs.Data.Models;
-    using goodweebs.Data.Repositories;
+    using GoodWeebs.Data;
+    using GoodWeebs.Data.Common.Repositories;
+    using GoodWeebs.Data.Models;
+    using GoodWeebs.Data.Repositories;
 
     using Microsoft.EntityFrameworkCore;
 

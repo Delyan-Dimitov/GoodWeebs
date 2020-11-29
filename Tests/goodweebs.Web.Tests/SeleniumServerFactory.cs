@@ -1,14 +1,16 @@
-﻿namespace goodweebs.Web.Tests
+﻿namespace GoodWeebs.Web.Tests
 {
     using System;
+    using System.Configuration;
     using System.Diagnostics;
     using System.Linq;
-
+    using GoodWeebs.Data;
     using Microsoft.AspNetCore;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Hosting.Server.Features;
     using Microsoft.AspNetCore.Mvc.Testing;
     using Microsoft.AspNetCore.TestHost;
+    using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
 
     public sealed class SeleniumServerFactory<TStartup> : WebApplicationFactory<TStartup>
@@ -67,6 +69,8 @@
         {
             public void ConfigureServices(IServiceCollection services)
             {
+                services.AddDbContext<ApplicationDbContext>(options =>
+      options.UseSqlServer("Server=.;Database=GoodWeebs;Trusted_Connection=True"));
             }
 
             public void Configure()

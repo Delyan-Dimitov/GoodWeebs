@@ -1,10 +1,10 @@
-﻿namespace goodweebs.Data.Repositories
+﻿namespace GoodWeebs.Data.Repositories
 {
     using System;
     using System.Linq;
     using System.Threading.Tasks;
 
-    using goodweebs.Data.Common.Repositories;
+    using GoodWeebs.Data.Common.Repositories;
 
     using Microsoft.EntityFrameworkCore;
 

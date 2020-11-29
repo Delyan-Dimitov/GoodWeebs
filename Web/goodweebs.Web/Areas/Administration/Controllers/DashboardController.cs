@@ -1,7 +1,7 @@
-﻿namespace goodweebs.Web.Areas.Administration.Controllers
+﻿namespace GoodWeebs.Web.Areas.Administration.Controllers
 {
-    using goodweebs.Services.Data;
-    using goodweebs.Web.ViewModels.Administration.Dashboard;
+    using GoodWeebs.Services.Data;
+    using GoodWeebs.Web.ViewModels.Administration.Dashboard;
 
     using Microsoft.AspNetCore.Mvc;
 

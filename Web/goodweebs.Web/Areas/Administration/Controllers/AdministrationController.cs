@@ -1,7 +1,7 @@
-﻿namespace goodweebs.Web.Areas.Administration.Controllers
+﻿namespace GoodWeebs.Web.Areas.Administration.Controllers
 {
-    using goodweebs.Common;
-    using goodweebs.Web.Controllers;
+    using GoodWeebs.Common;
+    using GoodWeebs.Web.Controllers;
 
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;

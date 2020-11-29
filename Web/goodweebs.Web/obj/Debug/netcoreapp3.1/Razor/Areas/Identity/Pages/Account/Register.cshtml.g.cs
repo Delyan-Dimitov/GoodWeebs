@@ -21,35 +21,35 @@ using Microsoft.AspNetCore.Identity;
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\Areas\Identity\Pages\_ViewImports.cshtml"
-using goodweebs.Web.Areas.Identity;
+using GoodWeebs.Web.Areas.Identity;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 3 "C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\Areas\Identity\Pages\_ViewImports.cshtml"
-using goodweebs.Web.Areas.Identity.Pages;
+using GoodWeebs.Web.Areas.Identity.Pages;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 5 "C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\Areas\Identity\Pages\_ViewImports.cshtml"
-using goodweebs.Data.Models;
+using GoodWeebs.Data.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 1 "C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\Areas\Identity\Pages\Account\_ViewImports.cshtml"
-using goodweebs.Web.Areas.Identity.Pages.Account;
+using GoodWeebs.Web.Areas.Identity.Pages.Account;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"590ec89c8baf98547c6731bdaeaeece13e716a7f", @"/Areas/Identity/Pages/Account/Register.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a46242497988f1a4fb213f79f725ae22a8081d2a", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2a0134ffe105c4f6482f2ec9b2714713b18fbaf9", @"/Areas/Identity/Pages/Account/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ddcb51c456cea37bbabeb4d6046d1416f9dfee57", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dd80d3ddcf6c932fa49e103a78f9e4f9e00aa8c0", @"/Areas/Identity/Pages/Account/_ViewImports.cshtml")]
     public class Areas_Identity_Pages_Account_Register : global::Microsoft.AspNetCore.Mvc.RazorPages.Page
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("text-danger"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);

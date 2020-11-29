@@ -16,6 +16,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7A731632-6714-44E2-A9E4-069EBA9E666C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "goodweebs.Services", "Services\goodweebs.Services\goodweebs.Services.csproj", "{8522212F-F01E-4E20-9975-FCF5E10D71DB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E} = {4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}
+		{A2288C46-0FBF-43B6-80B6-3072FD65BC32} = {A2288C46-0FBF-43B6-80B6-3072FD65BC32}
+		{4B844ECB-E845-49A6-8B31-85E577933598} = {4B844ECB-E845-49A6-8B31-85E577933598}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "goodweebs.Services.Messaging", "Services\goodweebs.Services.Messaging\goodweebs.Services.Messaging.csproj", "{43FDC0C4-F250-45DE-93F8-3CA8A9247CC9}"
 EndProject

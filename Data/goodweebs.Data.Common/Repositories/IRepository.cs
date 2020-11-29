@@ -1,4 +1,4 @@
-﻿namespace goodweebs.Data.Common.Repositories
+﻿namespace GoodWeebs.Data.Common.Repositories
 {
     using System;
     using System.Linq;

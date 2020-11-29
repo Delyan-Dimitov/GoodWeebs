@@ -1,11 +1,11 @@
-﻿namespace goodweebs.Data.Seeding
+﻿namespace GoodWeebs.Data.Seeding
 {
     using System;
     using System.Linq;
     using System.Threading.Tasks;
 
-    using goodweebs.Common;
-    using goodweebs.Data.Models;
+    using GoodWeebs.Common;
+    using GoodWeebs.Data.Models;
 
     using Microsoft.AspNetCore.Identity;
     using Microsoft.Extensions.DependencyInjection;

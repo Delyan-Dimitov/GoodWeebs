@@ -1,4 +1,4 @@
-﻿namespace goodweebs.Services.Data
+﻿namespace GoodWeebs.Services.Data
 {
     using System.Collections.Generic;
 

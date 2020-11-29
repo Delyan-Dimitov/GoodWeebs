@@ -1,0 +1,16 @@
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\bin\Debug\netcoreapp3.1\goodweebs.Services.Data.deps.json
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\bin\Debug\netcoreapp3.1\goodweebs.Services.Data.dll
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\bin\Debug\netcoreapp3.1\goodweebs.Services.Data.pdb
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\bin\Debug\netcoreapp3.1\goodweebs.Data.Common.dll
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\bin\Debug\netcoreapp3.1\goodweebs.Data.Models.dll
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\bin\Debug\netcoreapp3.1\goodweebs.Services.Mapping.dll
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\bin\Debug\netcoreapp3.1\goodweebs.Data.Common.pdb
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\bin\Debug\netcoreapp3.1\goodweebs.Data.Models.pdb
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\bin\Debug\netcoreapp3.1\goodweebs.Services.Mapping.pdb
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\obj\Debug\netcoreapp3.1\goodweebs.Services.Data.csprojAssemblyReference.cache
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\obj\Debug\netcoreapp3.1\goodweebs.Services.Data.AssemblyInfoInputs.cache
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\obj\Debug\netcoreapp3.1\goodweebs.Services.Data.AssemblyInfo.cs
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\obj\Debug\netcoreapp3.1\goodweebs.Services.Data.csproj.CoreCompileInputs.cache
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\obj\Debug\netcoreapp3.1\goodweebs.Services.Data.csproj.CopyComplete
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\obj\Debug\netcoreapp3.1\goodweebs.Services.Data.dll
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\obj\Debug\netcoreapp3.1\goodweebs.Services.Data.pdb

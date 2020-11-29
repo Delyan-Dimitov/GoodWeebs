@@ -5,14 +5,14 @@
     using System.IO;
     using System.Threading.Tasks;
 
-    using goodweebs.Data;
-    using goodweebs.Data.Common;
-    using goodweebs.Data.Common.Repositories;
-    using goodweebs.Data.Models;
-    using goodweebs.Data.Repositories;
-    using goodweebs.Data.Seeding;
-    using goodweebs.Services.Data;
-    using goodweebs.Services.Messaging;
+    using GoodWeebs.Data;
+    using GoodWeebs.Data.Common;
+    using GoodWeebs.Data.Common.Repositories;
+    using GoodWeebs.Data.Models;
+    using GoodWeebs.Data.Repositories;
+    using GoodWeebs.Data.Seeding;
+    using GoodWeebs.Services.Data;
+    using GoodWeebs.Services.Messaging;
 
     using CommandLine;
 
@@ -31,7 +31,7 @@
         {
 
             string json = null;
-            using (StreamReader r = new StreamReader(@"C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\wwwroot\anime-offline-database.json"))
+            using (StreamReader r = new StreamReader(@"C:\Users\gunex\Desktop\GoodWeebs\Web\GoodWeebs.Web\wwwroot\anime-offline-database.json"))
             {
                 json = r.ReadToEnd();
             }

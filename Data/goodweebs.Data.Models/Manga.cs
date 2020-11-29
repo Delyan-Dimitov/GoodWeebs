@@ -5,12 +5,31 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Entities
 {
-    public class Manga : Series
+    public class Manga : ISeries
     {
+
+        public int Id { get; set; }
+
+        public string Title { get; set; }
+
+        public int Genre { get; set; }
+
+        public int CurrentCount { get; set; }
+
+        public int FinishedCount { get; set; }
+
+        public bool IsFinished { get; set; }
+
+        public DateTime DateStarted { get; set; }
+
+        public DateTime DateFinished { get; set; }
+
         public ICollection<CurrentlyReadingMap> CurrentlyReading { get; set; }
 
         public ICollection<ReadMap> Read { get; set; }
 
         public ICollection<WantToReadMap> WantToRead { get; set; }
+
+
     }
 }

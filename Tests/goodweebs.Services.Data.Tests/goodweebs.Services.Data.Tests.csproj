@@ -27,8 +27,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Data\goodweebs.Data\goodweebs.Data.csproj" />
-    <ProjectReference Include="..\..\Services\goodweebs.Services.Data\goodweebs.Services.Data.csproj" />
+    <ProjectReference Include="..\..\Data\GoodWeebs.Data\GoodWeebs.Data.csproj" />
+    <ProjectReference Include="..\..\Services\GoodWeebs.Services.Data\GoodWeebs.Services.Data.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace goodweebs.Web
+﻿namespace GoodWeebs.Web
 {
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Hosting;

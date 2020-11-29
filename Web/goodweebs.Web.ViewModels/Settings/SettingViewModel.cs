@@ -1,7 +1,7 @@
-﻿namespace goodweebs.Web.ViewModels.Settings
+﻿namespace GoodWeebs.Web.ViewModels.Settings
 {
-    using goodweebs.Data.Models;
-    using goodweebs.Services.Mapping;
+    using GoodWeebs.Data.Models;
+    using GoodWeebs.Services.Mapping;
 
     using AutoMapper;
 

@@ -1,4 +1,4 @@
-﻿namespace goodweebs.Data.Common.Models
+﻿namespace GoodWeebs.Data.Common.Models
 {
     using System;
 

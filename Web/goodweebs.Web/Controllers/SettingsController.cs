@@ -1,12 +1,12 @@
-﻿namespace goodweebs.Web.Controllers
+﻿namespace GoodWeebs.Web.Controllers
 {
     using System;
     using System.Threading.Tasks;
 
-    using goodweebs.Data.Common.Repositories;
-    using goodweebs.Data.Models;
-    using goodweebs.Services.Data;
-    using goodweebs.Web.ViewModels.Settings;
+    using GoodWeebs.Data.Common.Repositories;
+    using GoodWeebs.Data.Models;
+    using GoodWeebs.Services.Data;
+    using GoodWeebs.Web.ViewModels.Settings;
 
     using Microsoft.AspNetCore.Mvc;
 

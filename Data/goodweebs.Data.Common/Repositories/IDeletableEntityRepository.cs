@@ -1,9 +1,9 @@
-﻿namespace goodweebs.Data.Common.Repositories
+﻿namespace GoodWeebs.Data.Common.Repositories
 {
     using System.Linq;
     using System.Threading.Tasks;
 
-    using goodweebs.Data.Common.Models;
+    using GoodWeebs.Data.Common.Models;
 
     public interface IDeletableEntityRepository<TEntity> : IRepository<TEntity>
         where TEntity : class, IDeletableEntity

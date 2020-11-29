@@ -1183,7 +1183,7 @@
       },
       "goodweebs.Common/1.0.0": {
         "runtime": {
-          "goodweebs.Common.dll": {}
+          "GoodWeebs.Common.dll": {}
         }
       },
       "goodweebs.Data/1.0.0": {
@@ -1219,6 +1219,11 @@
         }
       },
       "goodweebs.Services/1.0.0": {
+        "dependencies": {
+          "goodweebs.Data": "1.0.0",
+          "goodweebs.Data.Common": "1.0.0",
+          "goodweebs.Data.Models": "1.0.0"
+        },
         "runtime": {
           "goodweebs.Services.dll": {}
         }

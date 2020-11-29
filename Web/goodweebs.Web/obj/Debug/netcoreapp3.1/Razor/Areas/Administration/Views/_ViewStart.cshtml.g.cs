@@ -14,20 +14,20 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
 #line 1 "C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\Areas\Administration\Views\_ViewImports.cshtml"
-using goodweebs.Web;
+using GoodWeebs.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\Areas\Administration\Views\_ViewImports.cshtml"
-using goodweebs.Web.ViewModels;
+using GoodWeebs.Web.ViewModels;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"342af83da59706cb592aeee3caf1a3d3f70039e0", @"/Areas/Administration/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"15c85fb9aa7030f6a96ca0fcc5b4cf69573dc738", @"/Areas/Administration/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1540139dc578fd88aa692dae140857466376be7e", @"/Areas/Administration/Views/_ViewImports.cshtml")]
     public class Areas_Administration_Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

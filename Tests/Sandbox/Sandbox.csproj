@@ -33,14 +33,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\goodweebs.Common\goodweebs.Common.csproj" />
-    <ProjectReference Include="..\..\Data\goodweebs.Data.Common\goodweebs.Data.Common.csproj" />
-    <ProjectReference Include="..\..\Data\goodweebs.Data.Models\goodweebs.Data.Models.csproj" />
-    <ProjectReference Include="..\..\Data\goodweebs.Data\goodweebs.Data.csproj" />
-    <ProjectReference Include="..\..\Services\goodweebs.Services.Data\goodweebs.Services.Data.csproj" />
-    <ProjectReference Include="..\..\Services\goodweebs.Services.Mapping\goodweebs.Services.Mapping.csproj" />
-    <ProjectReference Include="..\..\Services\goodweebs.Services.Messaging\goodweebs.Services.Messaging.csproj" />
-    <ProjectReference Include="..\..\Services\goodweebs.Services\goodweebs.Services.csproj" />
+    <ProjectReference Include="..\..\GoodWeebs.Common\GoodWeebs.Common.csproj" />
+    <ProjectReference Include="..\..\Data\GoodWeebs.Data.Common\GoodWeebs.Data.Common.csproj" />
+    <ProjectReference Include="..\..\Data\GoodWeebs.Data.Models\GoodWeebs.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Data\GoodWeebs.Data\GoodWeebs.Data.csproj" />
+    <ProjectReference Include="..\..\Services\GoodWeebs.Services.Data\GoodWeebs.Services.Data.csproj" />
+    <ProjectReference Include="..\..\Services\GoodWeebs.Services.Mapping\GoodWeebs.Services.Mapping.csproj" />
+    <ProjectReference Include="..\..\Services\GoodWeebs.Services.Messaging\GoodWeebs.Services.Messaging.csproj" />
+    <ProjectReference Include="..\..\Services\GoodWeebs.Services\GoodWeebs.Services.csproj" />
   </ItemGroup>
 
 </Project>

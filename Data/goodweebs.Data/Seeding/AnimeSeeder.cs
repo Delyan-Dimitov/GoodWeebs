@@ -4,36 +4,34 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Entities;
-using goodweebs.Data.Models;
+using GoodWeebs.Data.Models;
 using Goodweebs.Data.Models;
 using Newtonsoft.Json;
 
-namespace goodweebs.Data.Seeding
+namespace GoodWeebs.Data.Seeding
 {
     public class AnimeSeeder : ISeeder
     {
-        private const string Path = @"C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\wwwroot\anime-offline-database.json";
+        private const string Path = @"C:\Users\gunex\Desktop\GoodWeebs\Web\GoodWeebs.Web\wwwroot\anime-offline-database.json";
 
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
 
-            if (dbContext.HelperAnimes.Any())
+            if (dbContext.Animes.Any())
             {
                 return;
             }
             string json = null;
-            using (StreamReader r = new StreamReader(@"C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\wwwroot\anime-offline-database.json"))
+            using (StreamReader r = new StreamReader(@"C:\Users\gunex\Desktop\GoodWeebs\Web\GoodWeebs.Web\wwwroot\final.json"))
             {
                 json = r.ReadToEnd();
             }
             var animeDTOs = JsonConvert.DeserializeObject<AnimeDTO[]>(json);
-            List<HelperAnime> helperAnime = new List<HelperAnime>();
+            List<Anime> animes = new List<Anime>();
             foreach (var aDto in animeDTOs)
             {
-                var anime = new HelperAnime()
+                var anime = new Anime()
                 {
-                    Sources = string.Join(", ", aDto.Sources),
-
                     Title = aDto.Title,
 
                     Type = aDto.Type,
@@ -42,21 +40,31 @@ namespace goodweebs.Data.Seeding
 
                     Status = aDto.Status,
 
-                    AnimeSeason = string.Join(", ", aDto.AnimeSeason),
+                    Aired = aDto.Aired,
 
                     Picture = aDto.Picture,
 
-                    Thumbnail = aDto.Thumbnail,
-
                     Synonyms = string.Join(", ", aDto.Synonyms),
 
-                    Relations = string.Join(", ", aDto.Relations),
+                    Genres = string.Join(", ", aDto.Genres),
 
-                    Tags = string.Join(", ", aDto.Tags),
+                    Synopsis = aDto.Synopsis,
+
+                    Studios = string.Join(", ", aDto.Studios),
+
+                    EpisodeDuration = aDto.EpisodeDuration,
+
+                    Trailer = aDto.Trailer,
+
+
+
+
+
+
                 };
-                helperAnime.Add(anime);
+                animes.Add(anime);
             }
-            dbContext.HelperAnimes.AddRange(helperAnime);
+            dbContext.Animes.AddRange(animes);
             dbContext.SaveChanges();
 
         }

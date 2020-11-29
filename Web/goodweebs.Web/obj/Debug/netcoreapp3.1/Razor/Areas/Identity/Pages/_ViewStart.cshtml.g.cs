@@ -21,27 +21,27 @@ using Microsoft.AspNetCore.Identity;
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\Areas\Identity\Pages\_ViewImports.cshtml"
-using goodweebs.Web.Areas.Identity;
+using GoodWeebs.Web.Areas.Identity;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 3 "C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\Areas\Identity\Pages\_ViewImports.cshtml"
-using goodweebs.Web.Areas.Identity.Pages;
+using GoodWeebs.Web.Areas.Identity.Pages;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 5 "C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\Areas\Identity\Pages\_ViewImports.cshtml"
-using goodweebs.Data.Models;
+using GoodWeebs.Data.Models;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"27614b1dbc7ec860502963b2c30d27790f312063", @"/Areas/Identity/Pages/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a46242497988f1a4fb213f79f725ae22a8081d2a", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ddcb51c456cea37bbabeb4d6046d1416f9dfee57", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
     public class Areas_Identity_Pages__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

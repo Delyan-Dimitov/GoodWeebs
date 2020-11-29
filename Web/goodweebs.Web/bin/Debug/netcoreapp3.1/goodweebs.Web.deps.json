@@ -327,8 +327,8 @@
       "Microsoft.AspNetCore.Cryptography.Internal/3.1.10": {
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.Internal.dll": {
-            "assemblyVersion": "3.1.9.0",
-            "fileVersion": "3.100.920.47309"
+            "assemblyVersion": "3.1.10.0",
+            "fileVersion": "3.100.1020.52004"
           }
         },
         "compile": {
@@ -341,8 +341,8 @@
         },
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {
-            "assemblyVersion": "3.1.9.0",
-            "fileVersion": "3.100.920.47309"
+            "assemblyVersion": "3.1.10.0",
+            "fileVersion": "3.100.1020.52004"
           }
         },
         "compile": {
@@ -375,8 +375,8 @@
         },
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {
-            "assemblyVersion": "3.1.9.0",
-            "fileVersion": "3.100.920.47309"
+            "assemblyVersion": "3.1.10.0",
+            "fileVersion": "3.100.1020.52004"
           }
         },
         "compile": {
@@ -391,16 +391,16 @@
         },
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V3.dll": {
-            "assemblyVersion": "3.1.9.0",
-            "fileVersion": "3.100.920.47309"
+            "assemblyVersion": "3.1.10.0",
+            "fileVersion": "3.100.1020.52004"
           },
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V4.dll": {
-            "assemblyVersion": "3.1.9.0",
-            "fileVersion": "3.100.920.47309"
+            "assemblyVersion": "3.1.10.0",
+            "fileVersion": "3.100.1020.52004"
           },
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.dll": {
-            "assemblyVersion": "3.1.9.0",
-            "fileVersion": "3.100.920.47309"
+            "assemblyVersion": "3.1.10.0",
+            "fileVersion": "3.100.1020.52004"
           }
         },
         "compile": {
@@ -806,6 +806,12 @@
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
           "Microsoft.EntityFrameworkCore.Relational": "3.1.10"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.dll": {
+            "assemblyVersion": "3.1.10.0",
+            "fileVersion": "3.100.1020.52002"
+          }
         }
       },
       "Microsoft.EntityFrameworkCore.Relational/3.1.10": {
@@ -1004,8 +1010,8 @@
         },
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.dll": {
-            "assemblyVersion": "3.1.9.0",
-            "fileVersion": "3.100.920.47302"
+            "assemblyVersion": "3.1.10.0",
+            "fileVersion": "3.100.1020.51904"
           }
         },
         "compile": {
@@ -1018,8 +1024,8 @@
         },
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Embedded.dll": {
-            "assemblyVersion": "3.1.9.0",
-            "fileVersion": "3.100.920.47302"
+            "assemblyVersion": "3.1.10.0",
+            "fileVersion": "3.100.1020.51904"
           }
         },
         "compile": {
@@ -1060,8 +1066,8 @@
         },
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.Extensions.Identity.Core.dll": {
-            "assemblyVersion": "3.1.9.0",
-            "fileVersion": "3.100.920.47309"
+            "assemblyVersion": "3.1.10.0",
+            "fileVersion": "3.100.1020.52004"
           }
         },
         "compile": {
@@ -1076,8 +1082,8 @@
         },
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.Extensions.Identity.Stores.dll": {
-            "assemblyVersion": "3.1.9.0",
-            "fileVersion": "3.100.920.47309"
+            "assemblyVersion": "3.1.10.0",
+            "fileVersion": "3.100.1020.52004"
           }
         },
         "compile": {
@@ -2516,10 +2522,10 @@
       },
       "goodweebs.Common/1.0.0": {
         "runtime": {
-          "goodweebs.Common.dll": {}
+          "GoodWeebs.Common.dll": {}
         },
         "compile": {
-          "goodweebs.Common.dll": {}
+          "GoodWeebs.Common.dll": {}
         }
       },
       "goodweebs.Data/1.0.0": {
@@ -2564,6 +2570,11 @@
         }
       },
       "goodweebs.Services/1.0.0": {
+        "dependencies": {
+          "goodweebs.Data": "1.0.0",
+          "goodweebs.Data.Common": "1.0.0",
+          "goodweebs.Data.Models": "1.0.0"
+        },
         "runtime": {
           "goodweebs.Services.dll": {}
         },

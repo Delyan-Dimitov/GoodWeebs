@@ -12,8 +12,20 @@ using System;
 using System.Reflection;
 
 [assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("goodweebs.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\Users\\gunex\\Desktop\\GoodWeebs\\goodweebs.Common", "goodweebs.Common.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("goodweebs.Data.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data.Common", "goodweebs.Data.Common.csproj", "0")]
 [assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("goodweebs.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data", "goodweebs.Data.csproj", "0")]
-[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("goodweebs.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web", "goodweebs.Web.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("goodweebs.Data.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data.Models", "goodweebs.Data.Models.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("goodweebs.Services.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Data", "goodweebs.Services.Data.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("goodweebs.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services", "goodweebs.Services.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("goodweebs.Services.Mapping, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" +
+    "", "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Mapping", "goodweebs.Services.Mapping.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("goodweebs.Services.Messaging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=nu" +
+    "ll", "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Messaging", "goodweebs.Services.Messaging.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("goodweebs.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\GoodWeebs.Web", "GoodWeebs.Web.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("goodweebs.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=nu" +
+    "ll", "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web.Infrastructure", "goodweebs.Web.Infrastructure.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("goodweebs.Web.ViewModels, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web.ViewModels", "goodweebs.Web.ViewModels.csproj", "0")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("goodweebs.Web.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]

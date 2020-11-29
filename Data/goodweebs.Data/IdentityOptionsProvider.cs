@@ -1,4 +1,4 @@
-﻿namespace goodweebs.Data
+﻿namespace GoodWeebs.Data
 {
     using Microsoft.AspNetCore.Identity;
 

@@ -1,4 +1,4 @@
-﻿namespace goodweebs.Web.ViewModels.Administration.Dashboard
+﻿namespace GoodWeebs.Web.ViewModels.Administration.Dashboard
 {
     public class IndexViewModel
     {

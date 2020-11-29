@@ -1819,7 +1819,7 @@
       "xunit.runner.visualstudio/2.4.3": {},
       "goodweebs.Common/1.0.0": {
         "runtime": {
-          "goodweebs.Common.dll": {}
+          "GoodWeebs.Common.dll": {}
         }
       },
       "goodweebs.Data/1.0.0": {

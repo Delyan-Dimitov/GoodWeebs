@@ -1,4 +1,4 @@
-﻿namespace goodweebs.Web.ViewModels.Settings
+﻿namespace GoodWeebs.Web.ViewModels.Settings
 {
     using System.Collections.Generic;
 

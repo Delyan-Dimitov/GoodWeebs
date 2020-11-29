@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\goodweebs.Data.Common\goodweebs.Data.Common.csproj" />
+    <ProjectReference Include="..\GoodWeebs.Data.Common\GoodWeebs.Data.Common.csproj" />
   </ItemGroup>
   
 </Project>

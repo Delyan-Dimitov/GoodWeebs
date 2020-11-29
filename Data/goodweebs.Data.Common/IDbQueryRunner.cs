@@ -1,4 +1,4 @@
-﻿namespace goodweebs.Data.Common
+﻿namespace GoodWeebs.Data.Common
 {
     using System;
     using System.Threading.Tasks;
