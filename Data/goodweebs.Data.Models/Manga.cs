@@ -10,6 +10,7 @@ namespace Entities
 
         public int Id { get; set; }
 
+        [Required]
         public string Title { get; set; }
 
         public int Genre { get; set; }

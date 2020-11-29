@@ -35,6 +35,9 @@ namespace GoodWeebs.Data.Models
         [Column(TypeName = "nvarchar(100)")]
         public string LastName { get; set; }
 
+        [Required]
+        public string Username { get; set; }
+
         public DateTime DateOfBirth { get; set; }
 
         public int Gender { get; set; }
