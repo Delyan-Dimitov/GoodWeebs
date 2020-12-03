@@ -9,6 +9,7 @@
     using Entities.Maps;
     using global::GoodWeebs.Data;
     using global::GoodWeebs.Data.Common.Repositories;
+    using goodweebs.Web.ViewModels.AnimeViewModels;
     using Microsoft.EntityFrameworkCore;
 
     public class AnimeService : IAnimeService
@@ -25,14 +26,23 @@
             this.dbContext = dbContext;
         }
 
-        public async Task<IEnumerable<Entities.Anime>> GetAllAsync()
+        public IEnumerable<AnimeInListViewModel> GetAll(int page, int itemsPerPage = 12)
         {
-            IQueryable<Anime> query =
-                this.animes
-                .All()
-                .OrderBy(x => x.Id);
+            var animes = this.animes.AllAsNoTracking()
+                .OrderByDescending(x => x.Id)
 
-            return await query.Cast<Anime>().ToListAsync();
+                .Skip((page - 1) * itemsPerPage)
+
+                .Take(itemsPerPage)
+                  .Select(x => new AnimeInListViewModel
+                  {
+                      AnimeId = x.Id,
+                      Title = x.Title,
+                      Genre = x.Genres,
+                      PictureUrl = x.Picture,
+                      Synposis = x.Synopsis,
+                  }).ToList();
+            return animes;
         }
 
 
@@ -55,11 +65,74 @@
                 topAnime.Add(this.dbContext.Animes.FirstOrDefault(x => x.Id == item.Key));
             }
 
-            //var query = this.dbContext.Animes.Select(x => x.WatchedAnime).Max(bu => bu.Count);
-
             return topAnime;
+        }
 
-            // TODO: Write it to get most popular anime  when you seed dummy users
+        public int GetCount() => this.animes.All().Count();
+
+        public AnimeViewModel GetById(int id)
+        {
+            var anime = this.dbContext.Animes.Where(x => x.Id == id).Select(x => new AnimeViewModel
+            {
+                Title = x.Title,
+                Studios = x.Studios,
+                Synopsis = x.Synopsis,
+                Rating = x.Rating,
+                Episodes = x.Episodes,
+                Duration = x.EpisodeDuration,
+                Aired = x.Aired,
+                PictureUrl = x.Picture,
+                Genres = x.Genres,
+            }).ToList();
+            return anime[0];
+        }
+
+        public IEnumerable<AnimeViewModel> GetSimilar(int id, int amount)
+
+        {
+            var anime = this.GetById(id);
+            var genres = anime.Genres.Split(", ").ToList();
+            var vaguelySimilar = new List<AnimeViewModel>();
+            foreach (var genre in genres)
+            {
+                vaguelySimilar.AddRange(this.animes
+                    .AllAsNoTracking()
+                    .Where(x => x.Genres.Contains(genre) && x.Id != id)
+                    .Select(x => new AnimeViewModel
+                    {
+                        Id = x.Id,
+                        Title = x.Title,
+                        Synopsis = x.Synopsis,
+                        PictureUrl = x.Picture,
+                    }).ToList());
+            }
+
+            var bestMatches = this.GetBestHits(genres, vaguelySimilar, amount); // Linter made me put "THIS"
+            return bestMatches;
+        }
+
+        public IEnumerable<AnimeViewModel> GetBestHits(IEnumerable<string> targets, IEnumerable<AnimeViewModel> collection, int amount) // TODO: MAKE THIS GENERIC
+        {
+            var result = new List<AnimeViewModel>();
+            var leaderBoard = new Dictionary<AnimeViewModel,int>();
+            foreach (var item in collection)
+            {
+                var hits = 0;
+                foreach (var target in targets)
+                {
+                    if (item.Genres.Contains(target))
+                    {
+                        hits++;
+                    }
+                }
+
+                leaderBoard.Add(item, hits);
+            }
+
+            var leaderBoardSorted = leaderBoard.OrderByDescending(x => x.Value);
+            result.AddRange(leaderBoard.Keys.Take(amount));
+
+            return result;
         }
     }
 }

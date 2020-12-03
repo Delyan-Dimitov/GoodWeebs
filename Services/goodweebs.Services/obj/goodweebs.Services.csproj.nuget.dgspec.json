@@ -298,6 +298,70 @@
         }
       }
     },
+    "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Mapping\\goodweebs.Services.Mapping.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Mapping\\goodweebs.Services.Mapping.csproj",
+        "projectName": "goodweebs.Services.Mapping",
+        "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Mapping\\goodweebs.Services.Mapping.csproj",
+        "packagesPath": "C:\\Users\\gunex\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Mapping\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\gunex\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services\\goodweebs.Services.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -329,6 +393,76 @@
               },
               "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data\\goodweebs.Data.csproj": {
                 "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data\\goodweebs.Data.csproj"
+              },
+              "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web.ViewModels\\goodweebs.Web.ViewModels.csproj": {
+                "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web.ViewModels\\goodweebs.Web.ViewModels.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web.ViewModels\\goodweebs.Web.ViewModels.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web.ViewModels\\goodweebs.Web.ViewModels.csproj",
+        "projectName": "goodweebs.Web.ViewModels",
+        "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web.ViewModels\\goodweebs.Web.ViewModels.csproj",
+        "packagesPath": "C:\\Users\\gunex\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web.ViewModels\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\gunex\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\GoodWeebs.Data.Models\\GoodWeebs.Data.Models.csproj": {
+                "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\GoodWeebs.Data.Models\\GoodWeebs.Data.Models.csproj"
+              },
+              "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\GoodWeebs.Services.Mapping\\GoodWeebs.Services.Mapping.csproj": {
+                "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\GoodWeebs.Services.Mapping\\GoodWeebs.Services.Mapping.csproj"
               }
             }
           }

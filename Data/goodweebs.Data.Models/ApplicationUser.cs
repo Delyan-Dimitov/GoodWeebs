@@ -27,16 +27,9 @@ namespace GoodWeebs.Data.Models
             this.WantToRead = new HashSet<WantToReadMap>();
         }
 
-        [PersonalData]
-        [Column (TypeName="nvarchar(100)")]
         public string FirstName { get; set; }
 
-        [PersonalData]
-        [Column(TypeName = "nvarchar(100)")]
         public string LastName { get; set; }
-
-        [Required]
-        public string Username { get; set; }
 
         public DateTime DateOfBirth { get; set; }
 
@@ -47,6 +40,8 @@ namespace GoodWeebs.Data.Models
         public bool LikesAnime { get; set; }
 
         public bool LikesManga { get; set; }
+
+        public string AvatarUrl { get; set; }
 
         public virtual ICollection<CurrentlyWatchingMap> CurrentlyWatching { get; set; }
 

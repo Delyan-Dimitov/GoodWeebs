@@ -18,7 +18,7 @@
 
         public async Task<IActionResult> HomeLoggedOut()
         {
-            var topAnimes = await this.animeService.GetTopGlobalAsync(4);
+            var topAnimes = await this.animeService.GetTopGlobalAsync(6);
             HomeAnimeViewModel model = new HomeAnimeViewModel { TopAnimes = topAnimes };
 
             return this.View(model);

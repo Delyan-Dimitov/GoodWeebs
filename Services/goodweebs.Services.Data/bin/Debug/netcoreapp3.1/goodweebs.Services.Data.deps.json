@@ -299,7 +299,7 @@
           "System.ComponentModel.Annotations": "4.7.0"
         },
         "runtime": {
-          "goodweebs.Data.Common.dll": {}
+          "GoodWeebs.Data.Common.dll": {}
         }
       },
       "goodweebs.Data.Models/1.0.0": {
@@ -309,7 +309,7 @@
           "goodweebs.Data.Common": "1.0.0"
         },
         "runtime": {
-          "goodweebs.Data.Models.dll": {}
+          "GoodWeebs.Data.Models.dll": {}
         }
       },
       "goodweebs.Services.Mapping/1.0.0": {
@@ -317,7 +317,7 @@
           "AutoMapper": "10.1.1"
         },
         "runtime": {
-          "goodweebs.Services.Mapping.dll": {}
+          "GoodWeebs.Services.Mapping.dll": {}
         }
       }
     }

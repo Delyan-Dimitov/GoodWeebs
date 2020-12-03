@@ -21,8 +21,9 @@ namespace GoodWeebs.Data.Seeding
             {
                 return;
             }
+
             var password = "password";
-            ApplicationUser user = new ApplicationUser() { UserName = "Guneto1", Email = "fucku1@gmail.com", LikesAnime = true, LikesManga = true, };
+            ApplicationUser user = new ApplicationUser() { UserName = "Guneto1", Email = "fucku1@gmail.com", AvatarUrl= "https://static.wikia.nocookie.net/eroninja/images/b/be/Tobirama_Senju.png/revision/latest?cb=20180208004826", LikesAnime = true, LikesManga = true, };
             await userManager.CreateAsync(user, password);
 
             ApplicationUser user1 = new ApplicationUser() { UserName = "Guneto2", Email = "fucku2@gmail.com", LikesAnime = true, LikesManga = true, };

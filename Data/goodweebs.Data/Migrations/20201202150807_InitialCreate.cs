@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace GoodWeebs.Data.Migrations
+namespace goodweebs.Data.Migrations
 {
     public partial class InitialCreate : Migration
     {
@@ -13,7 +13,7 @@ namespace GoodWeebs.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: false),
                     Genres = table.Column<string>(nullable: true),
                     Picture = table.Column<string>(nullable: true),
                     CurrentCount = table.Column<int>(nullable: false),
@@ -71,13 +71,14 @@ namespace GoodWeebs.Data.Migrations
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar(100)", nullable: true),
-                    LastName = table.Column<string>(type: "nvarchar(100)", nullable: true),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
                     DateOfBirth = table.Column<DateTime>(nullable: false),
                     Gender = table.Column<int>(nullable: false),
                     Country = table.Column<string>(nullable: true),
                     LikesAnime = table.Column<bool>(nullable: false),
                     LikesManga = table.Column<bool>(nullable: false),
+                    AvatarUrl = table.Column<string>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
@@ -130,7 +131,7 @@ namespace GoodWeebs.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: false),
                     Genre = table.Column<int>(nullable: false),
                     CurrentCount = table.Column<int>(nullable: false),
                     FinishedCount = table.Column<int>(nullable: false),
@@ -289,7 +290,7 @@ namespace GoodWeebs.Data.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -299,7 +300,10 @@ namespace GoodWeebs.Data.Migrations
                     MainUserId = table.Column<string>(nullable: false),
                     FriendUserId = table.Column<string>(nullable: false),
                     Id = table.Column<string>(nullable: true),
-                    FriendsSince = table.Column<DateTime>(nullable: false)
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedOn = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -339,7 +343,7 @@ namespace GoodWeebs.Data.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -365,7 +369,7 @@ namespace GoodWeebs.Data.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -390,7 +394,7 @@ namespace GoodWeebs.Data.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -416,7 +420,7 @@ namespace GoodWeebs.Data.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -440,7 +444,7 @@ namespace GoodWeebs.Data.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -506,6 +510,11 @@ namespace GoodWeebs.Data.Migrations
                 name: "IX_Friends_FriendUserId",
                 table: "Friends",
                 column: "FriendUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Friends_IsDeleted",
+                table: "Friends",
+                column: "IsDeleted");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ReadMaps_MangaId",

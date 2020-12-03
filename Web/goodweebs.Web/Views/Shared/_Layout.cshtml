@@ -9,43 +9,54 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true" />
     <link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true" />
     <link rel="stylesheet" href="/css/Styles.css" asp-append-version="true">
-
+    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script>
 </head>
 <body>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark static-top">
-        <div class="container">
-            <a asp-area="" asp-controller="Home" asp-action="Index">
-                <img src="/Images/Logo2.png" height="50px" >
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a asp-area="" asp-controller="Home" asp-action="HomeLoggedOut">
-                            Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
-                    </li>
-                    <li>
-                        <a class="nav-link"  asp-area="Identity" asp-page="/Account/Register">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
+    <header>
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark static-top">
+            <div class="container">
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="/Images/Logo2.png" height="50px">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item ">
+                            <a asp-area="" asp-controller="Home" asp-action="HomeLoggedOut" class="nav-link">
+                                Home
+                                
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" asp-area="" asp-controller="Anime" asp-action="All">Anime</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </nav>
+    </header>
+    
+            @this.RenderBody()
+    
+    <footer class="ranna-bg-dark">
+        <div class="container">
+            &copy; @DateTime.Now.Year - @GlobalConstants.SystemName - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
-    </nav>
-    @this.RenderBody();
-
+    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js" asp-append-version="true"></script>

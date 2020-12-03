@@ -1703,7 +1703,8 @@
         "dependencies": {
           "goodweebs.Data": "1.0.0",
           "goodweebs.Data.Common": "1.0.0",
-          "goodweebs.Data.Models": "1.0.0"
+          "goodweebs.Data.Models": "1.0.0",
+          "goodweebs.Web.ViewModels": "1.0.0"
         },
         "compile": {
           "bin/placeholder/goodweebs.Services.dll": {}
@@ -1751,6 +1752,20 @@
         },
         "runtime": {
           "bin/placeholder/goodweebs.Services.Messaging.dll": {}
+        }
+      },
+      "goodweebs.Web.ViewModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "goodweebs.Data.Models": "1.0.0",
+          "goodweebs.Services.Mapping": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/goodweebs.Web.ViewModels.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/goodweebs.Web.ViewModels.dll": {}
         }
       }
     }
@@ -6182,6 +6197,11 @@
       "type": "project",
       "path": "../../Services/goodweebs.Services.Messaging/goodweebs.Services.Messaging.csproj",
       "msbuildProject": "../../Services/goodweebs.Services.Messaging/goodweebs.Services.Messaging.csproj"
+    },
+    "goodweebs.Web.ViewModels/1.0.0": {
+      "type": "project",
+      "path": "../../Web/goodweebs.Web.ViewModels/goodweebs.Web.ViewModels.csproj",
+      "msbuildProject": "../../Web/goodweebs.Web.ViewModels/goodweebs.Web.ViewModels.csproj"
     }
   },
   "projectFileDependencyGroups": {

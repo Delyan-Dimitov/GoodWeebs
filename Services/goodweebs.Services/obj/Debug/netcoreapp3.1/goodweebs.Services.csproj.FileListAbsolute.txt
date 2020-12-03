@@ -17,3 +17,7 @@ C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services\obj\Debug\netcoreap
 C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services\obj\Debug\netcoreapp3.1\goodweebs.Services.csproj.CopyComplete
 C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services\obj\Debug\netcoreapp3.1\goodweebs.Services.dll
 C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services\obj\Debug\netcoreapp3.1\goodweebs.Services.pdb
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services\bin\Debug\netcoreapp3.1\goodweebs.Services.Mapping.dll
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services\bin\Debug\netcoreapp3.1\goodweebs.Web.ViewModels.dll
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services\bin\Debug\netcoreapp3.1\goodweebs.Web.ViewModels.pdb
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services\bin\Debug\netcoreapp3.1\goodweebs.Services.Mapping.pdb

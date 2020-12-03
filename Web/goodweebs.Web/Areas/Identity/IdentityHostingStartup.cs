@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-[assembly: HostingStartup(typeof(GoodWeebs.Web.Areas.Identity.IdentityHostingStartup))]
-namespace GoodWeebs.Web.Areas.Identity
+[assembly: HostingStartup(typeof(goodweebs.Web.Areas.Identity.IdentityHostingStartup))]
+namespace goodweebs.Web.Areas.Identity
 {
     public class IdentityHostingStartup : IHostingStartup
     {

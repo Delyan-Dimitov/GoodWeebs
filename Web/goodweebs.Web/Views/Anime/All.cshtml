@@ -1,0 +1,45 @@
+﻿@model goodweebs.Web.ViewModels.AnimeViewModels.AnimeListViewModel
+@{
+    this.ViewData["Title"] = $"All Anime Page";
+}
+<style>
+    .media {
+        margin: 0px
+    }
+
+    .row {
+        margin: 0;
+    }
+</style>
+<div class="row ">
+    @foreach (var anime in Model.Animes)
+    {
+
+        <div class="media col-md-4 bg-info text-white border ">
+            <img src="@anime.PictureUrl" class="mr-3 img-responsive border-0 width=" 100"">
+            <div class="media-body ">
+                <a asp-action="AnimeInfo" asp-route-id="@anime.AnimeId" class="text-white">  <h5 class="mt-0">@anime.Title</h5></a>
+                <p class="text-white">@(anime.Synposis.Length >= 150 ? anime.Synposis.Substring(0, 150) : anime.Synposis)...</p>
+
+            </div>
+
+        </div>
+    }
+</div>
+<nav aria-label="..." style="margin-top:10px">
+    <ul class="pagination justify-content-center ">
+        <li class="page-item ">
+            <a class="page-link" asp-action="All" asp-route-id="@Model.PreviousPage">Previous</a>
+        </li>
+        <li class="page-item ">
+            <a class="page-link" href="#" tabindex="-1">@Model.PreviousPage</a>
+        </li>
+        <li class="page-item active">
+            <a class="page-link" href="#">@Model.Page <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">@Model.NextPage</a></li>
+        <li class="page-item">
+            <a class="page-link" asp-action="All" asp-route-id="@Model.NextPage">Next</a>
+        </li>
+    </ul>
+</nav>
