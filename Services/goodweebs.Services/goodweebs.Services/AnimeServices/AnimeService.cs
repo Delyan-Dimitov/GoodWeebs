@@ -10,6 +10,7 @@
     using global::GoodWeebs.Data;
     using global::GoodWeebs.Data.Common.Repositories;
     using goodweebs.Web.ViewModels.AnimeViewModels;
+    using Goodweebs.Data.Models;
     using Microsoft.EntityFrameworkCore;
 
     public class AnimeService : IAnimeService
@@ -18,12 +19,14 @@
         private readonly IRepository<Anime> animes;
         private readonly IRepository<WatchedMap> watchedMaps;
         private readonly ApplicationDbContext dbContext;
+        private readonly IRepository<AnimeSumbission> animeSubmissions;
 
-        public AnimeService(IRepository<Anime> anime, IRepository<WatchedMap> watchedMaps, ApplicationDbContext dbContext)
+        public AnimeService(IRepository<Anime> anime, IRepository<WatchedMap> watchedMaps, ApplicationDbContext dbContext, IRepository<AnimeSumbission> animeSubmissions)
         {
             this.animes = anime;
             this.watchedMaps = watchedMaps;
             this.dbContext = dbContext;
+            this.animeSubmissions = animeSubmissions;
         }
 
         public IEnumerable<AnimeInListViewModel> GetAll(int page, int itemsPerPage = 12)
@@ -133,6 +136,36 @@
             result.AddRange(leaderBoard.Keys.Take(amount));
 
             return result;
+        }
+   
+
+        public async Task CreateAsync(AnimeSubmissionInputModel anime, string userId, string subType)
+        {
+            if (subType == "UrlSubmission")
+            {
+                var animeSubmission = new AnimeSumbission() { Picture = anime.PictureUrl, Title = anime.Title };
+                await this.animeSubmissions.AddAsync(animeSubmission);
+            }
+            else
+            {
+                var animeSubmission = new AnimeSumbission()
+                {
+                    Title = anime.Title,
+                    SubmitterId = userId,
+                    Submitter = await this.dbContext.Users.FirstOrDefaultAsync(x => x.Id == userId),
+                    Genres = string.Join(" ", anime.Genres),
+                    Picture = anime.PictureUrl,
+                    Type = anime.Type,
+                    Synopsis = anime.Synopsis,
+                    Episodes = anime.Episodes,
+                    Status = anime.Status,
+                    Aired = anime.Aired,
+                    EpisodeDuration = anime.Duration,
+                    Rating = anime.Rating,
+                    Studios = string.Join(" ", anime.Studios ),
+                };
+                await this.animeSubmissions.AddAsync(animeSubmission);
+            }
         }
     }
 }

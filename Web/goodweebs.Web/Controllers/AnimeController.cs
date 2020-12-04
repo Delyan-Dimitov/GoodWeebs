@@ -1,6 +1,7 @@
 ﻿using goodweebs.Web.ViewModels.AnimeViewModels;
 using GoodWeebs.Services;
 using GoodWeebs.Web.Controllers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,19 @@ namespace goodweebs.Web.Controllers
             var model = new AnimeInfoViewModel { Anime = anime, SimilarAnime = similar };
          
             return this.View(model);
+        }
+
+        //[HttpPost]
+        //[Authorize]
+        //public IActionResult SubmitWithUrl(string url)
+        //{
+        //    return this.RedirectToAction(SubmitFull(null));
+        //}
+        public IActionResult SubmitFull()
+        {
+            var viewModel = new AnimeSubmissionInputModel();
+            viewModel.GenresInput = new List<string> { "action", "romance", "sports" };
+            return this.View();
         }
     }
 }

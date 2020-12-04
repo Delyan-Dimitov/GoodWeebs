@@ -1109,7 +1109,7 @@
           "AutoMapper": "10.1.1"
         },
         "runtime": {
-          "goodweebs.Services.Mapping.dll": {}
+          "GoodWeebs.Services.Mapping.dll": {}
         }
       },
       "goodweebs.Web.ViewModels/1.0.0": {

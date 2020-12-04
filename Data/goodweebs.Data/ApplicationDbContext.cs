@@ -50,6 +50,9 @@
         public DbSet<Friends> Friends { get; set; }
 
         public DbSet<HelperAnime> HelperAnimes { get; set; }
+
+        public DbSet<AnimeSumbission> AnimeSumbissions { get; set; }
+
         public object Anime { get; internal set; }
 
         public override int SaveChanges() => this.SaveChanges(true);

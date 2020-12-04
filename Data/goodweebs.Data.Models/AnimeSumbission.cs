@@ -1,0 +1,55 @@
+﻿namespace Goodweebs.Data.Models
+{
+    using GoodWeebs.Data.Common.Models;
+    using GoodWeebs.Data.Models;
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.Text;
+
+    public class AnimeSumbission : IAuditInfo, IDeletableEntity
+    {
+        public int Id { get; set; }
+
+        public string SubmissionType { get; set; }
+
+        public string SubmitterId { get; set; }
+        public ApplicationUser Submitter { get; set; }
+
+        [Required]
+        public string Title { get; set; }
+
+        public string Genres { get; set; }
+
+        public string Picture { get; set; }
+
+        public string Type { get; set; }
+
+        public string Synopsis { get; set; }
+
+        public string Episodes { get; set; }
+
+        public string Status { get; set; }
+
+        public string Aired { get; set; }
+
+        public string Synonyms { get; set; }
+
+        public string Trailer { get; set; }
+
+        public string EpisodeDuration { get; set; }
+
+        public string Rating { get; set; }
+
+        public string Studios { get; set; }
+
+
+        public DateTime CreatedOn { get; set; }
+
+        public DateTime? ModifiedOn { get; set; }
+
+        public bool IsDeleted { get; set; }
+
+        public DateTime? DeletedOn { get; set; }
+    }
+}

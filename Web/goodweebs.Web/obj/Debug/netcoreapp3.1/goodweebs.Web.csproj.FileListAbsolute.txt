@@ -468,3 +468,6 @@ C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\Razor
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\Razor\Views\Anime\SubmitFull.cshtml.g.cs
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll

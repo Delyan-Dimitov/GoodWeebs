@@ -9,6 +9,7 @@ namespace goodweebs.Web.ViewModels.AnimeViewModels
         public string Title { get; set; }
 
         public int Id { get; set; }
+
         public string PictureUrl { get; set; }
 
         public string Synopsis { get; set; }
@@ -26,5 +27,6 @@ namespace goodweebs.Web.ViewModels.AnimeViewModels
         public string Rating { get; set; } = "Unknown";
 
         public string Genres { get; set; } = "Unknown";
+        public string Status { get; set; }
     }
 }

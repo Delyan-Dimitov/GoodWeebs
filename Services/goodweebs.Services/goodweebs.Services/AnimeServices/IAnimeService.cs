@@ -10,7 +10,7 @@ namespace GoodWeebs.Services
 {
     public interface IAnimeService
     {
-        IEnumerable<AnimeInListViewModel>GetAll(int page, int itemsPerPage);
+        IEnumerable<AnimeInListViewModel> GetAll(int page, int itemsPerPage);
 
         Task<IEnumerable<Anime>> GetTopGlobalAsync(int amount);
 
@@ -21,5 +21,7 @@ namespace GoodWeebs.Services
         IEnumerable<AnimeViewModel> GetSimilar(int id, int amount);
 
         IEnumerable<AnimeViewModel> GetBestHits(IEnumerable<string> targets, IEnumerable<AnimeViewModel> collection, int amount);
+
+        Task CreateAsync(AnimeSubmissionInputModel anime, string userId, string subType);
     }
 }
