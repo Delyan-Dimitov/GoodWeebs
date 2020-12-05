@@ -184,6 +184,44 @@ namespace goodweebs.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "AnimeSumbissions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SubmissionType = table.Column<string>(nullable: true),
+                    SubmitterId = table.Column<string>(nullable: true),
+                    SubmissionUrl = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    Genres = table.Column<string>(nullable: true),
+                    Picture = table.Column<string>(nullable: true),
+                    Type = table.Column<string>(nullable: true),
+                    Synopsis = table.Column<string>(nullable: true),
+                    Episodes = table.Column<string>(nullable: true),
+                    Status = table.Column<string>(nullable: true),
+                    Aired = table.Column<string>(nullable: true),
+                    Synonyms = table.Column<string>(nullable: true),
+                    Trailer = table.Column<string>(nullable: true),
+                    EpisodeDuration = table.Column<string>(nullable: true),
+                    Rating = table.Column<string>(nullable: true),
+                    Studios = table.Column<string>(nullable: true),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedOn = table.Column<DateTime>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AnimeSumbissions", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AnimeSumbissions_AspNetUsers_SubmitterId",
+                        column: x => x.SubmitterId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetUserClaims",
                 columns: table => new
                 {
@@ -274,7 +312,7 @@ namespace goodweebs.Data.Migrations
                 {
                     UserId = table.Column<string>(nullable: false),
                     AnimeId = table.Column<int>(nullable: false),
-                    DateStarted = table.Column<DateTime>(nullable: false)
+                    DateStarted = table.Column<DateTime>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -448,6 +486,16 @@ namespace goodweebs.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_AnimeSumbissions_IsDeleted",
+                table: "AnimeSumbissions",
+                column: "IsDeleted");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AnimeSumbissions_SubmitterId",
+                table: "AnimeSumbissions",
+                column: "SubmitterId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
                 column: "RoleId");
@@ -544,6 +592,9 @@ namespace goodweebs.Data.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "AnimeSumbissions");
+
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 

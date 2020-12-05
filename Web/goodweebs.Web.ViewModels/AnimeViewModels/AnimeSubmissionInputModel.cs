@@ -3,10 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace goodweebs.Web.ViewModels.AnimeViewModels
+namespace GoodWeebs.Web.ViewModels.AnimeViewModels
 {
     public class AnimeSubmissionInputModel
     {
+        public string SubmissionUrl { get; set; }
+
         public string Title { get; set; }
 
         public int Id { get; set; }
@@ -23,14 +25,14 @@ namespace goodweebs.Web.ViewModels.AnimeViewModels
 
         public string Aired { get; set; }
 
-        public IEnumerable<string> Studios { get; set; }
+        public string Studios { get; set; }
 
         public string Rating { get; set; }
 
-        public IEnumerable<string> Genres { get; set; }
+        public string Genres { get; set; }
 
         public string Status { get; set; }
 
-        public IEnumerable<string> GenresInput { get; set; }
+        public string GenresInput { get; set; }
     }
 }

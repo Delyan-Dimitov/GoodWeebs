@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Entities.Enums
+﻿namespace Entities.Enums
 {
     public enum Gender
 
     {
-        male = 1,
-        female = 2,
-        not_specified = 3
+        Male = 1,
+
+        Female = 2,
+
+        Not_specified = 3,
     }
 }

@@ -1,15 +1,12 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GoodWeebs.Data.Models
+﻿namespace GoodWeebs.Data.Models
 {
+
+    using Newtonsoft.Json;
+
     public class AnimeDTO
     {
-        //[JsonProperty("sources")]
-        //public string[] Sources { get; set; }
-
+        // [JsonProperty("sources")]
+        // public string[] Sources { get; set; }
         [JsonProperty("title")]
         public string Title { get; set; }
 
@@ -50,6 +47,3 @@ namespace GoodWeebs.Data.Models
         public string[] Studios { get; set; }
     }
 }
-
-
-    

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace goodweebs.Web.ViewModels.AnimeViewModels
+﻿namespace GoodWeebs.Web.ViewModels.AnimeViewModels
 {
     public class AnimeInListViewModel
     {
@@ -15,7 +11,5 @@ namespace goodweebs.Web.ViewModels.AnimeViewModels
         public string Synposis { get; set; }
 
         public string Genre { get; set; }
-
-
     }
 }

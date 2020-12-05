@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace goodweebs.Web.ViewModels.UserViewModels
+namespace GoodWeebs.Web.ViewModels.UserViewModels
 {
     public class ProfileViewModel
     {

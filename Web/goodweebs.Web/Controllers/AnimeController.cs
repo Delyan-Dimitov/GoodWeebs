@@ -1,22 +1,22 @@
-﻿using goodweebs.Web.ViewModels.AnimeViewModels;
-using GoodWeebs.Services;
-using GoodWeebs.Web.Controllers;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace goodweebs.Web.Controllers
+﻿namespace GoodWeebs.Web.Controllers
 {
+    using System.Threading.Tasks;
+
+    using GoodWeebs.Data.Models;
+    using GoodWeebs.Services;
+    using GoodWeebs.Web.ViewModels.AnimeViewModels;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Mvc;
+
     public class AnimeController : BaseController
     {
         private readonly IAnimeService animeService;
+        private readonly UserManager<ApplicationUser> userManager;
 
-        public AnimeController(IAnimeService animeService)
+        public AnimeController(IAnimeService animeService, UserManager<ApplicationUser> userManager)
         {
             this.animeService = animeService;
+            this.userManager = userManager;
         }
 
         public IActionResult All(int id = 1)
@@ -28,7 +28,6 @@ namespace goodweebs.Web.Controllers
                 Animes = this.animeService.GetAll(id, ItemsPerPAge),
                 AnimeCount = this.animeService.GetCount(),
                 AnimePerPage = ItemsPerPAge,
-
             };
             return this.View(viewModel);
         }
@@ -38,21 +37,20 @@ namespace goodweebs.Web.Controllers
             var anime = this.animeService.GetById(id);
             var similar = this.animeService.GetSimilar(id, 3);
             var model = new AnimeInfoViewModel { Anime = anime, SimilarAnime = similar };
-         
             return this.View(model);
         }
 
-        //[HttpPost]
-        //[Authorize]
-        //public IActionResult SubmitWithUrl(string url)
-        //{
-        //    return this.RedirectToAction(SubmitFull(null));
-        //}
         public IActionResult SubmitFull()
         {
-            var viewModel = new AnimeSubmissionInputModel();
-            viewModel.GenresInput = new List<string> { "action", "romance", "sports" };
             return this.View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SubmitFull(AnimeSubmissionInputModel model)
+        {
+            var user = await this.userManager.GetUserAsync(this.User);
+            await this.animeService.CreateAsync(model, user.Id, "FullSumbit");
+            return this.RedirectToAction("All");
         }
     }
 }

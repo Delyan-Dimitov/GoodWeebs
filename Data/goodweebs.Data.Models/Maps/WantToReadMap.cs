@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Entities.Maps
+﻿namespace Entities.Maps
 {
-   public class WantToReadMap: MangaMap
+    public class WantToReadMap : MangaMap
     {
-
     }
 }

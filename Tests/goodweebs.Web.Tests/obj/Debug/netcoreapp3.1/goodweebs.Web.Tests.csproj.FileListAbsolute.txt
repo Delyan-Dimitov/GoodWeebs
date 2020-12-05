@@ -537,3 +537,5 @@ C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll

@@ -93,3 +93,7 @@ C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\obj\Debug\netcoreapp3.1\Sandbox.g
 C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\obj\Debug\netcoreapp3.1\Sandbox.csproj.CoreCompileInputs.cache
 C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\bin\Debug\netcoreapp3.1\goodweebs.Web.ViewModels.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\bin\Debug\netcoreapp3.1\goodweebs.Web.ViewModels.pdb
+C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll

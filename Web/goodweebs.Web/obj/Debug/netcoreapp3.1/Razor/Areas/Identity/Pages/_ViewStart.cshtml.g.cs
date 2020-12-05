@@ -21,14 +21,14 @@ using Microsoft.AspNetCore.Identity;
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\Areas\Identity\Pages\_ViewImports.cshtml"
-using goodweebs.Web.Areas.Identity;
+using GoodWeebs.Web.Areas.Identity;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 3 "C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\Areas\Identity\Pages\_ViewImports.cshtml"
-using goodweebs.Web.Areas.Identity.Pages;
+using GoodWeebs.Web.Areas.Identity.Pages;
 
 #line default
 #line hidden
@@ -41,7 +41,7 @@ using GoodWeebs.Data.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"43e0bf0d61f9a553d2f59156ad2cdff9b3bdd158", @"/Areas/Identity/Pages/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6664f7c7bd0311b599883f4b43dfc4805cc779d5", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ddcb51c456cea37bbabeb4d6046d1416f9dfee57", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
     public class Areas_Identity_Pages__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

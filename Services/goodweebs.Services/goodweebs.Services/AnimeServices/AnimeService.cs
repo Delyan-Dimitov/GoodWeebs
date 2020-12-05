@@ -9,12 +9,11 @@
     using Entities.Maps;
     using global::GoodWeebs.Data;
     using global::GoodWeebs.Data.Common.Repositories;
-    using goodweebs.Web.ViewModels.AnimeViewModels;
-    using Goodweebs.Data.Models;
+    using global::GoodWeebs.Data.Models;
+    using global::GoodWeebs.Web.ViewModels.AnimeViewModels;
     using Microsoft.EntityFrameworkCore;
 
     public class AnimeService : IAnimeService
-
     {
         private readonly IRepository<Anime> animes;
         private readonly IRepository<WatchedMap> watchedMaps;
@@ -47,8 +46,6 @@
                   }).ToList();
             return animes;
         }
-
-
         public async Task<IEnumerable<Entities.Anime>> GetTopGlobalAsync(int amount)
         {
             var query = from p in this.dbContext.Set<WatchedMap>()
@@ -65,7 +62,7 @@
 
             foreach (var item in query)
             {
-                topAnime.Add(this.dbContext.Animes.FirstOrDefault(x => x.Id == item.Key));
+                topAnime.Add(await this.dbContext.Animes.FirstOrDefaultAsync(x => x.Id == item.Key));
             }
 
             return topAnime;
@@ -117,7 +114,7 @@
         public IEnumerable<AnimeViewModel> GetBestHits(IEnumerable<string> targets, IEnumerable<AnimeViewModel> collection, int amount) // TODO: MAKE THIS GENERIC
         {
             var result = new List<AnimeViewModel>();
-            var leaderBoard = new Dictionary<AnimeViewModel,int>();
+            var leaderBoard = new Dictionary<AnimeViewModel, int>();
             foreach (var item in collection)
             {
                 var hits = 0;
@@ -137,13 +134,12 @@
 
             return result;
         }
-   
 
         public async Task CreateAsync(AnimeSubmissionInputModel anime, string userId, string subType)
         {
             if (subType == "UrlSubmission")
             {
-                var animeSubmission = new AnimeSumbission() { Picture = anime.PictureUrl, Title = anime.Title };
+                var animeSubmission = new AnimeSumbission() { SubmissionUrl = anime.SubmissionUrl };
                 await this.animeSubmissions.AddAsync(animeSubmission);
             }
             else
@@ -153,7 +149,7 @@
                     Title = anime.Title,
                     SubmitterId = userId,
                     Submitter = await this.dbContext.Users.FirstOrDefaultAsync(x => x.Id == userId),
-                    Genres = string.Join(" ", anime.Genres),
+                    Genres = anime.Genres,
                     Picture = anime.PictureUrl,
                     Type = anime.Type,
                     Synopsis = anime.Synopsis,
@@ -162,7 +158,7 @@
                     Aired = anime.Aired,
                     EpisodeDuration = anime.Duration,
                     Rating = anime.Rating,
-                    Studios = string.Join(" ", anime.Studios ),
+                    Studios = anime.Studios,
                 };
                 await this.animeSubmissions.AddAsync(animeSubmission);
             }

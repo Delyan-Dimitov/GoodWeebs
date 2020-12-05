@@ -1,19 +1,17 @@
-﻿using Entities;
-using Entities.Maps;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GoodWeebs.Data.Seeding
+﻿namespace GoodWeebs.Data.Seeding
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using Entities.Maps;
+    using Microsoft.EntityFrameworkCore;
+
     public class WatchedSeeder : ISeeder
     {
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
-
             if (dbContext.WatchedMaps.Any())
             {
                 return;

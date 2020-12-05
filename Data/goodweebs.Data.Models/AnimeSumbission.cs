@@ -1,4 +1,4 @@
-﻿namespace Goodweebs.Data.Models
+﻿namespace GoodWeebs.Data.Models
 {
     using GoodWeebs.Data.Common.Models;
     using GoodWeebs.Data.Models;
@@ -14,9 +14,11 @@
         public string SubmissionType { get; set; }
 
         public string SubmitterId { get; set; }
+
+        public string SubmissionUrl { get; set; }
+
         public ApplicationUser Submitter { get; set; }
 
-        [Required]
         public string Title { get; set; }
 
         public string Genres { get; set; }

@@ -1,13 +1,11 @@
-﻿using Entities;
-using goodweebs.Web.ViewModels.AnimeViewModels;
-using GoodWeebs.Data.Common.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GoodWeebs.Services
+﻿namespace GoodWeebs.Services
 {
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+
+    using Entities;
+    using global::GoodWeebs.Web.ViewModels.AnimeViewModels;
+
     public interface IAnimeService
     {
         IEnumerable<AnimeInListViewModel> GetAll(int page, int itemsPerPage);

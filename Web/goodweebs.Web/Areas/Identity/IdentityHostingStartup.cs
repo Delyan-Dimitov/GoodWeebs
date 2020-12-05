@@ -1,16 +1,7 @@
-﻿using System;
-using GoodWeebs.Data;
-using GoodWeebs.Data.Models;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-
-[assembly: HostingStartup(typeof(goodweebs.Web.Areas.Identity.IdentityHostingStartup))]
-namespace goodweebs.Web.Areas.Identity
+﻿namespace GoodWeebs.Web.Areas.Identity
 {
+    using Microsoft.AspNetCore.Hosting;
+
     public class IdentityHostingStartup : IHostingStartup
     {
         public void Configure(IWebHostBuilder builder)

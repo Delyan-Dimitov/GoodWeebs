@@ -1,10 +1,7 @@
-﻿using GoodWeebs.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace goodweebs.Services.goodweebs.Services.UserServices
+﻿namespace GoodWeebs.Services.GoodWeebs.Services.UserServices
 {
+    using global::GoodWeebs.Data.Models;
+
     public interface IUserService
     {
         string GetUserAvatarByUsername(string username);

@@ -1,9 +1,9 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-
-namespace Entities
+﻿namespace Entities
 {
-    public class Country 
+    using System;
+    using System.ComponentModel.DataAnnotations;
+
+    public class Country
     {
         public Country()
         {
@@ -12,10 +12,10 @@ namespace Entities
 
         [Key]
         public string Id { get; set; }
+
         [Required]
         public string Name { get; set; }
 
         public int UserCount { get; set; }
-        
     }
 }

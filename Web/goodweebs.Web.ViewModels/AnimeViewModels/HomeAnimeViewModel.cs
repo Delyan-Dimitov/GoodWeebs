@@ -1,13 +1,13 @@
-﻿using Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GoodWeebs.Web.ViewModels.AnimeViewModels
+﻿namespace GoodWeebs.Web.ViewModels.AnimeViewModels
 {
+    using System.Collections.Generic;
+
+    using Entities;
+
     public class HomeAnimeViewModel
     {
-        public IEnumerable<Anime> TopAnimes { get; set; }
-        //public IEnumerable<Article> TopArticles { get; set; }
+        public IEnumerable<Anime> TopAnimes { get; set; } // TODO don't use anime as T
+
+        // public IEnumerable<Article> TopArticles { get; set; }
     }
 }

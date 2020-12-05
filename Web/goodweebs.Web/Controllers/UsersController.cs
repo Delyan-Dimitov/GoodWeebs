@@ -1,5 +1,5 @@
-﻿using goodweebs.Services.goodweebs.Services.UserServices;
-using goodweebs.Web.ViewModels.UserViewModels;
+﻿using GoodWeebs.Services.GoodWeebs.Services.UserServices;
+using GoodWeebs.Web.ViewModels.UserViewModels;
 using GoodWeebs.Web.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace goodweebs.Web.Controllers
+namespace GoodWeebs.Web.Controllers
 {
     public class UsersController : BaseController
     {

@@ -1,17 +1,15 @@
-﻿using GoodWeebs.Data;
-using GoodWeebs.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace goodweebs.Services.goodweebs.Services.UserServices
+﻿namespace GoodWeebs.Services.GoodWeebs.Services.UserServices
 {
+    using System.Linq;
+
+    using global::GoodWeebs.Data;
+    using global::GoodWeebs.Data.Models;
+
     public class UserService : IUserService
     {
         private readonly ApplicationDbContext dbContext;
 
-        public UserService(GoodWeebs.Data.ApplicationDbContext dbContext)
+        public UserService(ApplicationDbContext dbContext)
         {
             this.dbContext = dbContext;
         }

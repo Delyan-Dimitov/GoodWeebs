@@ -1,10 +1,11 @@
-﻿using Entities.Maps;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-
-namespace Entities
+﻿namespace Entities
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+
+    using Entities.Maps;
+
     public class Manga : ISeries
     {
 
@@ -30,7 +31,5 @@ namespace Entities
         public ICollection<ReadMap> Read { get; set; }
 
         public ICollection<WantToReadMap> WantToRead { get; set; }
-
-
     }
 }

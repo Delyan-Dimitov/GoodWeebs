@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Entities;
-using GoodWeebs.Data.Models;
-using Goodweebs.Data.Models;
-using Newtonsoft.Json;
-
-namespace GoodWeebs.Data.Seeding
+﻿namespace GoodWeebs.Data.Seeding
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using Entities;
+    using GoodWeebs.Data.Models;
+    using Newtonsoft.Json;
+
     public class AnimeSeeder : ISeeder
     {
         private const string Path = @"C:\Users\gunex\Desktop\GoodWeebs\Web\GoodWeebs.Web\wwwroot\anime-offline-database.json";
@@ -28,7 +28,7 @@ namespace GoodWeebs.Data.Seeding
             }
             var animeDTOs = JsonConvert.DeserializeObject<AnimeDTO[]>(json);
             List<Anime> animes = new List<Anime>();
-            foreach (var aDto in animeDTOs)
+            foreach (AnimeDTO aDto in animeDTOs)
             {
                 var anime = new Anime()
                 {
@@ -55,19 +55,12 @@ namespace GoodWeebs.Data.Seeding
                     EpisodeDuration = aDto.EpisodeDuration,
 
                     Trailer = aDto.Trailer,
-
-
-
-
-
-
                 };
                 animes.Add(anime);
             }
+
             dbContext.Animes.AddRange(animes);
             dbContext.SaveChanges();
-
         }
     }
 }
-

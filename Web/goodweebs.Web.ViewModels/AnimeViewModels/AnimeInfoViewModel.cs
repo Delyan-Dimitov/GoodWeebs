@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace goodweebs.Web.ViewModels.AnimeViewModels
+namespace GoodWeebs.Web.ViewModels.AnimeViewModels
 {
     public class AnimeInfoViewModel
     {

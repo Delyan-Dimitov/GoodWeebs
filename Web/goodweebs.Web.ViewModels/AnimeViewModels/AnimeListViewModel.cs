@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace goodweebs.Web.ViewModels.AnimeViewModels
+﻿namespace GoodWeebs.Web.ViewModels.AnimeViewModels
 {
+    using System;
+    using System.Collections.Generic;
+
     public class AnimeListViewModel
     {
         public IEnumerable<AnimeInListViewModel> Animes { get; set; }
@@ -19,11 +18,9 @@ namespace goodweebs.Web.ViewModels.AnimeViewModels
         public bool HasNxtPage => this.Page < this.PagesCount;
 
         public int NextPage => this.Page + 1;
+
         public int PreviousPage => this.Page - 1;
-        
 
         public int PagesCount => (int)Math.Ceiling((double)this.AnimeCount / this.AnimePerPage);
-
-
     }
 }

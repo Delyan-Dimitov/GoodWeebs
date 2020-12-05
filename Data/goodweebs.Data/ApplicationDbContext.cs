@@ -5,11 +5,12 @@
     using System.Reflection;
     using System.Threading;
     using System.Threading.Tasks;
+
     using Entities;
     using Entities.Maps;
     using GoodWeebs.Data.Common.Models;
     using GoodWeebs.Data.Models;
-    using Goodweebs.Data.Models;
+    using GoodWeebs.Data.Models;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
 
@@ -26,8 +27,6 @@
         }
 
         public DbSet<Setting> Settings { get; set; }
-
-        public DbSet<ApplicationUser> Users { get; set; }
 
         public DbSet<Anime> Animes { get; set; }
 
@@ -103,7 +102,7 @@
             }
 
             builder.Entity<WatchedMap>()
-               .HasKey(wm => new {wm.UserId, wm.AnimeId});
+               .HasKey(wm => new { wm.UserId, wm.AnimeId });
             builder.Entity<WatchedMap>()
                 .HasOne(wm => wm.User)
                 .WithMany(u => u.Watched)
@@ -112,7 +111,6 @@
                 .HasOne(wm => wm.Anime)
                 .WithMany(a => a.WatchedAnime)
                 .HasForeignKey(wm => wm.AnimeId);
-            //
 
             builder.Entity<CurrentlyWatchingMap>()
                 .HasKey(cw => new { cw.UserId, cw.AnimeId });
@@ -124,7 +122,6 @@
                 .HasOne(cw => cw.Anime)
                 .WithMany(a => a.CurrentlyWatching)
                 .HasForeignKey(cw => cw.AnimeId);
-            //
 
             builder.Entity<WantToWatchMap>()
                 .HasKey(ww => new { ww.UserId, ww.AnimeId });
@@ -136,7 +133,6 @@
                 .HasOne(ww => ww.Anime)
                 .WithMany(a => a.WantToWatch)
                 .HasForeignKey(ww => ww.AnimeId);
-            //
 
             builder.Entity<CurrentlyReadingMap>()
                 .HasKey(cr => new { cr.UserId, cr.MangaId });
@@ -148,7 +144,7 @@
             .HasOne(cr => cr.Manga)
             .WithMany(m => m.CurrentlyReading)
             .HasForeignKey(cr => cr.MangaId);
-            //
+
             builder.Entity<WantToReadMap>()
                 .HasKey(cr => new { cr.UserId, cr.MangaId });
             builder.Entity<WantToReadMap>()
@@ -159,7 +155,7 @@
             .HasOne(cr => cr.Manga)
             .WithMany(m => m.WantToRead)
             .HasForeignKey(cr => cr.MangaId);
-            //
+
             builder.Entity<ReadMap>()
               .HasKey(cr => new { cr.UserId, cr.MangaId });
             builder.Entity<ReadMap>()
@@ -170,7 +166,6 @@
             .HasOne(cr => cr.Manga)
             .WithMany(m => m.Read)
             .HasForeignKey(cr => cr.MangaId);
-            //
 
             builder.Entity<Friends>()
       .HasKey(f => new { f.MainUserId, f.FriendUserId });
@@ -184,7 +179,6 @@
                 .HasOne(f => f.FriendUser)
                 .WithMany(mu => mu.Friends)
                 .HasForeignKey(f => f.FriendUserId);
-
         }
 
         private static void SetIsDeletedQueryFilter<T>(ModelBuilder builder)

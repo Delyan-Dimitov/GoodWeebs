@@ -10,24 +10,17 @@
     using GoodWeebs.Data.Common.Repositories;
     using GoodWeebs.Data.Models;
     using GoodWeebs.Data.Repositories;
-    using GoodWeebs.Data.Seeding;
     using GoodWeebs.Services.Data;
     using GoodWeebs.Services.Messaging;
-
-    using CommandLine;
-
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
-    using Entities;
     using Newtonsoft.Json;
-    using System.Linq;
-    using System.Collections.Generic;
 
     public static class Program
     {
-        public static async Task Main(string[] args)
+        public static void Main(string[] args)
         {
 
             string json = null;
@@ -35,7 +28,8 @@
             {
                 json = r.ReadToEnd();
             }
-            //WORKS!!!!
+
+            // WORKS!!!!
             var animeDTOs = JsonConvert.DeserializeObject<AnimeDTO[]>(json);
             Console.WriteLine(json);
 
@@ -44,23 +38,6 @@
             var serviceCollection = new ServiceCollection();
             ConfigureServices(serviceCollection);
             IServiceProvider serviceProvider = serviceCollection.BuildServiceProvider(true);
-
-            // Seed data on application startup
-            //    using (var serviceScope = serviceProvider.CreateScope())
-            //    {
-            //        var dbContext = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-            //        dbContext.Database.Migrate();
-            //        new ApplicationDbContextSeeder().SeedAsync(dbContext, serviceScope.ServiceProvider).GetAwaiter().GetResult();
-            //    }
-
-            //    using (var serviceScope = serviceProvider.CreateScope())
-            //    {
-            //        serviceProvider = serviceScope.ServiceProvider;
-
-            //        return Parser.Default.ParseArguments<SandboxOptions>(args).MapResult(
-            //            opts => SandboxCode(opts, serviceProvider).GetAwaiter().GetResult(),
-            //            _ => 255);
-            //    }
         }
 
         private static async Task<int> SandboxCode(SandboxOptions options, IServiceProvider serviceProvider)
