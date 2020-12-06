@@ -30,6 +30,7 @@
                               new AnimeSeeder(),
                               new UserSeeder(),
                               new WatchedSeeder(),
+                              new MangaSeeder(),
                           };
 
             foreach (var seeder in seeders)

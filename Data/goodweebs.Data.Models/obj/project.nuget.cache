@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ro6vLoVoRZ9F5g9wrjhZalUIikFlOO8iOfjKY/Dq2lo8LhbrpdYuz9KAffQYBicADk2wDz6jyQwPViTeDgATMQ==",
+  "dgSpecHash": "F3PmVciwfqsPu5PLM0oBUrfz+AeGalz5tZdXrlx9M0KuZw1AyIjWs2WEFKnLYQliSsPHaPuLPEtcq6nPpNqtCQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data.Models\\goodweebs.Data.Models.csproj",
+  "projectFilePath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\GoodWeebs.Data.Models\\GoodWeebs.Data.Models.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gunex\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.9\\microsoft.aspnetcore.cryptography.internal.3.1.9.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.9\\microsoft.aspnetcore.cryptography.keyderivation.3.1.9.nupkg.sha512",

@@ -22,7 +22,7 @@
                 return;
             }
             string json = null;
-            using (StreamReader r = new StreamReader(@"C:\Users\gunex\Desktop\GoodWeebs\Web\GoodWeebs.Web\wwwroot\final.json"))
+            using (StreamReader r = new StreamReader(@"C:\Users\gunex\Desktop\GoodWeebs\Web\GoodWeebs.Web\wwwroot\animes.json"))
             {
                 json = r.ReadToEnd();
             }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Goodweebs.Data.Migrations
+namespace goodweebs.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -79,8 +79,10 @@ namespace Goodweebs.Data.Migrations
 
             modelBuilder.Entity("Entities.Country", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -133,8 +135,11 @@ namespace Goodweebs.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CurrentCount")
-                        .HasColumnType("int");
+                    b.Property<string>("Authors")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Chapters")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateFinished")
                         .HasColumnType("datetime2");
@@ -142,17 +147,29 @@ namespace Goodweebs.Data.Migrations
                     b.Property<DateTime>("DateStarted")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("FinishedCount")
-                        .HasColumnType("int");
+                    b.Property<string>("Genres")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Genre")
-                        .HasColumnType("int");
+                    b.Property<string>("PictureUrl")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsFinished")
-                        .HasColumnType("bit");
+                    b.Property<string>("Published")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Synopsis")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Volumes")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -266,6 +283,82 @@ namespace Goodweebs.Data.Migrations
                     b.HasIndex("AnimeId");
 
                     b.ToTable("WatchedMaps");
+                });
+
+            modelBuilder.Entity("GoodWeebs.Data.Models.AnimeSumbission", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Aired")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EpisodeDuration")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Episodes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Genres")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Picture")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Rating")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Studios")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SubmissionType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SubmissionUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SubmitterId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Synonyms")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Synopsis")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Trailer")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.HasIndex("SubmitterId");
+
+                    b.ToTable("AnimeSumbissions");
                 });
 
             modelBuilder.Entity("GoodWeebs.Data.Models.ApplicationRole", b =>
@@ -412,6 +505,51 @@ namespace Goodweebs.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("GoodWeebs.Data.Models.HelperAnime", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AnimeSeason")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Episodes")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Picture")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Relations")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sources")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Synonyms")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Tags")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Thumbnail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("HelperAnimes");
+                });
+
             modelBuilder.Entity("GoodWeebs.Data.Models.Setting", b =>
                 {
                     b.Property<int>("Id")
@@ -444,7 +582,33 @@ namespace Goodweebs.Data.Migrations
                     b.ToTable("Settings");
                 });
 
-            modelBuilder.Entity("GoodWeebs.Data.Models.AnimeSumbission", b =>
+            modelBuilder.Entity("Goodweebs.Data.Models.Submissions.ArticleSubmission", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SubbmiterId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SubmitterId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SubmitterId");
+
+                    b.ToTable("ArticleSubmissions");
+                });
+
+            modelBuilder.Entity("Goodweebs.Data.Models.Submissions.MangaSubmission", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -517,52 +681,7 @@ namespace Goodweebs.Data.Migrations
 
                     b.HasIndex("SubmitterId");
 
-                    b.ToTable("AnimeSumbissions");
-                });
-
-            modelBuilder.Entity("GoodWeebs.Data.Models.HelperAnime", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AnimeSeason")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Episodes")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Picture")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Relations")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Sources")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Synonyms")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Tags")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Thumbnail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Type")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("HelperAnimes");
+                    b.ToTable("MangaSubmissions");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -777,7 +896,21 @@ namespace Goodweebs.Data.Migrations
             modelBuilder.Entity("GoodWeebs.Data.Models.AnimeSumbission", b =>
                 {
                     b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "Submitter")
-                        .WithMany()
+                        .WithMany("AnimeSubmissions")
+                        .HasForeignKey("SubmitterId");
+                });
+
+            modelBuilder.Entity("Goodweebs.Data.Models.Submissions.ArticleSubmission", b =>
+                {
+                    b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "Submitter")
+                        .WithMany("ArticleSubmissions")
+                        .HasForeignKey("SubmitterId");
+                });
+
+            modelBuilder.Entity("Goodweebs.Data.Models.Submissions.MangaSubmission", b =>
+                {
+                    b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "Submitter")
+                        .WithMany("MangaSubmissions")
                         .HasForeignKey("SubmitterId");
                 });
 

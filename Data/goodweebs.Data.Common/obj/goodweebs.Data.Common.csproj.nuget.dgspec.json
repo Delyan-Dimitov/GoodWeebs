@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data.Common\\goodweebs.Data.Common.csproj": {}
+    "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\GoodWeebs.Data.Common\\GoodWeebs.Data.Common.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data.Common\\goodweebs.Data.Common.csproj": {
+    "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\GoodWeebs.Data.Common\\GoodWeebs.Data.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data.Common\\goodweebs.Data.Common.csproj",
-        "projectName": "goodweebs.Data.Common",
-        "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data.Common\\goodweebs.Data.Common.csproj",
+        "projectUniqueName": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\GoodWeebs.Data.Common\\GoodWeebs.Data.Common.csproj",
+        "projectName": "GoodWeebs.Data.Common",
+        "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\GoodWeebs.Data.Common\\GoodWeebs.Data.Common.csproj",
         "packagesPath": "C:\\Users\\gunex\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data.Common\\obj\\",
+        "outputPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\GoodWeebs.Data.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gunex\\AppData\\Roaming\\NuGet\\NuGet.Config",

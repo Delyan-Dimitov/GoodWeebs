@@ -453,7 +453,6 @@ C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\goodw
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\goodweebs.Web.pdb
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\goodweebs.Web.genruntimeconfig.cache
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\wwwroot\css\LoginStyles.css
-C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\wwwroot\final.json
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\Razor\Views\Home\HomeLoggedOut.cshtml.g.cs
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\Razor\Views\Anime\All.cshtml.g.cs

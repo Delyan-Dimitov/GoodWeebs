@@ -1462,7 +1462,7 @@
           "goodweebs.Data.Common": "1.0.0"
         },
         "runtime": {
-          "GoodWeebs.Data.Models.dll": {}
+          "goodweebs.Data.Models.dll": {}
         }
       },
       "goodweebs.Services.Mapping/1.0.0": {
@@ -1470,7 +1470,7 @@
           "AutoMapper": "10.1.1"
         },
         "runtime": {
-          "GoodWeebs.Services.Mapping.dll": {}
+          "goodweebs.Services.Mapping.dll": {}
         }
       }
     }

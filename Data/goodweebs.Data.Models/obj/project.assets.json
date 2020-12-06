@@ -308,17 +308,17 @@
           "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {}
         }
       },
-      "goodweebs.Data.Common/1.0.0": {
+      "GoodWeebs.Data.Common/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "System.ComponentModel.Annotations": "4.7.0"
         },
         "compile": {
-          "bin/placeholder/goodweebs.Data.Common.dll": {}
+          "bin/placeholder/GoodWeebs.Data.Common.dll": {}
         },
         "runtime": {
-          "bin/placeholder/goodweebs.Data.Common.dll": {}
+          "bin/placeholder/GoodWeebs.Data.Common.dll": {}
         }
       }
     }
@@ -906,18 +906,18 @@
         "version.txt"
       ]
     },
-    "goodweebs.Data.Common/1.0.0": {
+    "GoodWeebs.Data.Common/1.0.0": {
       "type": "project",
-      "path": "../goodweebs.Data.Common/goodweebs.Data.Common.csproj",
-      "msbuildProject": "../goodweebs.Data.Common/goodweebs.Data.Common.csproj"
+      "path": "../GoodWeebs.Data.Common/GoodWeebs.Data.Common.csproj",
+      "msbuildProject": "../GoodWeebs.Data.Common/GoodWeebs.Data.Common.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "GoodWeebs.Data.Common >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.1.9",
       "Newtonsoft.Json >= 12.0.3",
-      "StyleCop.Analyzers >= 1.2.0-beta.205",
-      "goodweebs.Data.Common >= 1.0.0"
+      "StyleCop.Analyzers >= 1.2.0-beta.205"
     ]
   },
   "packageFolders": {
@@ -926,11 +926,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data.Models\\goodweebs.Data.Models.csproj",
-      "projectName": "goodweebs.Data.Models",
-      "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data.Models\\goodweebs.Data.Models.csproj",
+      "projectUniqueName": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\GoodWeebs.Data.Models\\GoodWeebs.Data.Models.csproj",
+      "projectName": "GoodWeebs.Data.Models",
+      "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\GoodWeebs.Data.Models\\GoodWeebs.Data.Models.csproj",
       "packagesPath": "C:\\Users\\gunex\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data.Models\\obj\\",
+      "outputPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\GoodWeebs.Data.Models\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\gunex\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -14,13 +14,23 @@
         [Required]
         public string Title { get; set; }
 
-        public int Genre { get; set; }
+        public string Synopsis { get; set; }
 
-        public int CurrentCount { get; set; }
+        public string Genres { get; set; }
 
-        public int FinishedCount { get; set; }
+        public string Type { get; set; }
 
-        public bool IsFinished { get; set; }
+        public string Volumes { get; set; }
+
+        public string Chapters { get; set; }
+
+        public string Published { get; set; }
+
+        public string Authors { get; set; }
+
+        public string Status { get; set; }
+
+        public string PictureUrl { get; set; }
 
         public DateTime DateStarted { get; set; }
 
@@ -31,5 +41,6 @@
         public ICollection<ReadMap> Read { get; set; }
 
         public ICollection<WantToReadMap> WantToRead { get; set; }
+
     }
 }

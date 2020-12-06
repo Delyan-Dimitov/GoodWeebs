@@ -10,8 +10,6 @@
 
         string Title { set; }
 
-        int CurrentCount { set; }
-
-        int FinishedCount { set; }
+       
     }
 }
