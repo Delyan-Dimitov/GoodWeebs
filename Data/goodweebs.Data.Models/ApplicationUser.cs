@@ -7,6 +7,7 @@ namespace GoodWeebs.Data.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using Entities;
     using Entities.Maps;
+    using Goodweebs.Data.Models.Submissions;
     using GoodWeebs.Data.Common.Models;
 
     using Microsoft.AspNetCore.Identity;
@@ -58,6 +59,12 @@ namespace GoodWeebs.Data.Models
         public virtual ICollection<Friends> MainUserFriends { get; set; }
 
         public virtual ICollection<Friends> Friends { get; set; }
+
+        public virtual ICollection<AnimeSumbission> ArticleSumbissions { get; set; }
+
+        public virtual ICollection<MangaSubmission>MangaSumbissions { get; set; }
+
+        public virtual ICollection<ArticleSumbission> AnimeSumbissions { get; set; }
 
         // Audit info
         public DateTime CreatedOn { get; set; }
