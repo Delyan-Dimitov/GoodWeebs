@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace goodweebs.Data.Migrations
+namespace Goodweebs.Data.Migrations
 {
     public partial class InitialCreate : Migration
     {

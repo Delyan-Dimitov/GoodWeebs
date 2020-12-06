@@ -1,14 +1,13 @@
 ﻿namespace GoodWeebs.Data.Models
 {
-    using GoodWeebs.Data.Common.Models;
-    using GoodWeebs.Data.Models;
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Text;
+
+    using GoodWeebs.Data.Common.Models;
 
     public class AnimeSumbission : IAuditInfo, IDeletableEntity
     {
+        [Key]
         public int Id { get; set; }
 
         public string SubmissionType { get; set; }

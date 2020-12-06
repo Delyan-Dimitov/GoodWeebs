@@ -285,7 +285,7 @@
           "System.ComponentModel.Annotations": "4.7.0"
         },
         "runtime": {
-          "GoodWeebs.Data.Common.dll": {}
+          "goodweebs.Data.Common.dll": {}
         }
       }
     }

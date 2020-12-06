@@ -1,6 +1,5 @@
 ﻿namespace GoodWeebs.Data.Models
 {
-
     using Newtonsoft.Json;
 
     public class AnimeDTO

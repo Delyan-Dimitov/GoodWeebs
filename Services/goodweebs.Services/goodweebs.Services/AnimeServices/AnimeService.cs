@@ -46,6 +46,7 @@
                   }).ToList();
             return animes;
         }
+
         public async Task<IEnumerable<Entities.Anime>> GetTopGlobalAsync(int amount)
         {
             var query = from p in this.dbContext.Set<WatchedMap>()

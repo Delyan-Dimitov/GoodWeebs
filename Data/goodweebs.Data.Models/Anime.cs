@@ -1,10 +1,10 @@
-﻿using Entities.Maps;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-
-namespace Entities
+﻿namespace Entities
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+
+    using Entities.Maps;
+
     public class Anime : ISeries
     {
         public int Id { get; set; }

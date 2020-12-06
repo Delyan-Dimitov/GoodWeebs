@@ -33,6 +33,7 @@
           "Microsoft.EntityFrameworkCore.Tools": "3.1.10",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.4",
           "Microsoft.Web.LibraryManager.Build": "2.1.113",
+          "RichTextEditor": "8.2.0.9",
           "StyleCop.Analyzers": "1.2.0-beta.205",
           "goodweebs.Common": "1.0.0",
           "goodweebs.Data": "1.0.0",
@@ -1677,6 +1678,17 @@
           "lib/netstandard1.6/NuGet.Frameworks.dll": {}
         }
       },
+      "RichTextEditor/8.2.0.9": {
+        "runtime": {
+          "lib/RichTextEditor.dll": {
+            "assemblyVersion": "8.2.0.0",
+            "fileVersion": "8.2.0.0"
+          }
+        },
+        "compile": {
+          "lib/RichTextEditor.dll": {}
+        }
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.fedora.23-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.fedora.24-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
@@ -2752,10 +2764,10 @@
       },
       "goodweebs.Common/1.0.0": {
         "runtime": {
-          "GoodWeebs.Common.dll": {}
+          "goodweebs.Common.dll": {}
         },
         "compile": {
-          "GoodWeebs.Common.dll": {}
+          "goodweebs.Common.dll": {}
         }
       },
       "goodweebs.Data/1.0.0": {
@@ -2793,10 +2805,10 @@
           "goodweebs.Data.Common": "1.0.0"
         },
         "runtime": {
-          "GoodWeebs.Data.Models.dll": {}
+          "goodweebs.Data.Models.dll": {}
         },
         "compile": {
-          "GoodWeebs.Data.Models.dll": {}
+          "goodweebs.Data.Models.dll": {}
         }
       },
       "goodweebs.Services/1.0.0": {
@@ -2820,10 +2832,10 @@
           "goodweebs.Services.Mapping": "1.0.0"
         },
         "runtime": {
-          "GoodWeebs.Services.Data.dll": {}
+          "goodweebs.Services.Data.dll": {}
         },
         "compile": {
-          "GoodWeebs.Services.Data.dll": {}
+          "goodweebs.Services.Data.dll": {}
         }
       },
       "goodweebs.Services.Mapping/1.0.0": {
@@ -2831,10 +2843,10 @@
           "AutoMapper": "10.1.1"
         },
         "runtime": {
-          "GoodWeebs.Services.Mapping.dll": {}
+          "goodweebs.Services.Mapping.dll": {}
         },
         "compile": {
-          "GoodWeebs.Services.Mapping.dll": {}
+          "goodweebs.Services.Mapping.dll": {}
         }
       },
       "goodweebs.Services.Messaging/1.0.0": {
@@ -2842,18 +2854,18 @@
           "SendGrid": "9.21.0"
         },
         "runtime": {
-          "GoodWeebs.Services.Messaging.dll": {}
+          "goodweebs.Services.Messaging.dll": {}
         },
         "compile": {
-          "GoodWeebs.Services.Messaging.dll": {}
+          "goodweebs.Services.Messaging.dll": {}
         }
       },
       "goodweebs.Web.Infrastructure/1.0.0": {
         "runtime": {
-          "GoodWeebs.Web.Infrastructure.dll": {}
+          "goodweebs.Web.Infrastructure.dll": {}
         },
         "compile": {
-          "GoodWeebs.Web.Infrastructure.dll": {}
+          "goodweebs.Web.Infrastructure.dll": {}
         }
       },
       "goodweebs.Web.ViewModels/1.0.0": {
@@ -5146,6 +5158,13 @@
       "sha512": "sha512-qbXaB76XYUVLocLBs8Z9TS/ERGK2wm797feO+0JEPFvT7o7MRadOR77mqaSD4J1k8G+DlZQyq+MlkCuxrkr3ag==",
       "path": "nuget.frameworks/4.7.0",
       "hashPath": "nuget.frameworks.4.7.0.nupkg.sha512"
+    },
+    "RichTextEditor/8.2.0.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VwQXj6VSPtCsOrm9uZFq9NLkY7KpYwzr+VHwd7XRrpMgO4Rv2dVeu+OUFYaBrQv9nU5Dw7XUHCCzks3SryqBwg==",
+      "path": "richtexteditor/8.2.0.9",
+      "hashPath": "richtexteditor.8.2.0.9.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",

@@ -40,6 +40,22 @@
       "provider": "cdnjs",
       "library": "jquery-ajax-unobtrusive@3.2.6",
       "destination": "wwwroot/lib/jquery-ajax-unobtrusive/"
+    },
+    {
+      "library": "tinymce@5.6.1",
+      "destination": "wwwroot/tinymce",
+      "files": [ "tinymce.min.js",
+        "themes/silver/theme.min.js",
+        "skins/ui/oxide/content.min.css",
+        "skins/ui/oxide/skin.min.css",
+        "skins/content/default/content.css",
+        "plugins/image/plugin.js",
+        "plugins/paste/plugin.js",
+        "plugins/table/plugin.js",
+        "plugins/code/plugin.js",
+        "plugins/link/plugin.js",
+        "plugins/media/plugin.js"
+      ]
     }
   ]
 }

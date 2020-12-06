@@ -1,10 +1,11 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using GoodWeebs.Data.Common.Models;
-using GoodWeebs.Data.Models;
-
-namespace goodweebs.Data.Models.Submissions
+﻿namespace Goodweebs.Data.Models.Submissions
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;
+
+    using GoodWeebs.Data.Common.Models;
+    using GoodWeebs.Data.Models;
+
     public class MangaSubmission : IAuditInfo, IDeletableEntity
     {
         [Key]

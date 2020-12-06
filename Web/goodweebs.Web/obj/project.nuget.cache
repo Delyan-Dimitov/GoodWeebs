@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "f1kOsdjFzpT7/7dplvIb9NM1DQU5b3ha0dr8Jil4McpFtgX594JG2C+2WM6clO4LUQ5cJZ4bRFqtuY6gPT5fEw==",
+  "dgSpecHash": "Xp0llAuPSb89RrKRzT3wpLRsFukZPe2FCOCDmCbVbEBUV71GS90ErCtPblW95m4kJO/NsgujmsDv+zg6EW44VA==",
   "success": true,
   "projectFilePath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web\\goodweebs.Web.csproj",
   "expectedPackageFiles": [
@@ -108,6 +108,7 @@
     "C:\\Users\\gunex\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\newtonsoft.json.bson\\1.0.1\\newtonsoft.json.bson.1.0.1.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\nuget.frameworks\\4.7.0\\nuget.frameworks.4.7.0.nupkg.sha512",
+    "C:\\Users\\gunex\\.nuget\\packages\\richtexteditor\\8.2.0.9\\richtexteditor.8.2.0.9.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
@@ -223,5 +224,16 @@
     "C:\\Users\\gunex\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'RichTextEditor 8.2.0.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "RichTextEditor",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

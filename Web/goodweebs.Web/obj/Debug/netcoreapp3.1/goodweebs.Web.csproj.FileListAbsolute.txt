@@ -452,9 +452,6 @@ C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\stati
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\goodweebs.Web.dll
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\goodweebs.Web.pdb
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\goodweebs.Web.genruntimeconfig.cache
-C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\goodweebs.Web.csproj.CoreCompileInputs.cache
-C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\goodweebs.Web.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\goodweebs.Web.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\wwwroot\css\LoginStyles.css
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\wwwroot\final.json
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
@@ -471,3 +468,7 @@ C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\Razor
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\Razor\Views\Anime\SubmitFull.cshtml.g.cs
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\RichTextEditor.dll
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\goodweebs.Web.csproj.CoreCompileInputs.cache
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\goodweebs.Web.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\goodweebs.Web.MvcApplicationPartsAssemblyInfo.cache

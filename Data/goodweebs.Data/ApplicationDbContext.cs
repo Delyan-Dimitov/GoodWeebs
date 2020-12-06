@@ -8,6 +8,8 @@
 
     using Entities;
     using Entities.Maps;
+    using Goodweebs.Data.Models.Submissions;
+    using Goodweebs.Data.Models.Submissions;
     using GoodWeebs.Data.Common.Models;
     using GoodWeebs.Data.Models;
     using GoodWeebs.Data.Models;
@@ -51,6 +53,10 @@
         public DbSet<HelperAnime> HelperAnimes { get; set; }
 
         public DbSet<AnimeSumbission> AnimeSumbissions { get; set; }
+
+        public DbSet<MangaSubmission> MangaSubmissions { get; set; }
+
+        public DbSet<ArticleSubmission> ArticleSubmissions { get; set; }
 
         public object Anime { get; internal set; }
 
