@@ -1,11 +1,5 @@
-﻿namespace Goodweebs.Web.Controllers
+﻿namespace GoodWeebs.Web.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-
-    using GoodWeebs.Web.Controllers;
     using GoodWeebs.Web.ViewModels.AnimeViewModels;
     using Microsoft.AspNetCore.Mvc;
 
@@ -68,5 +62,16 @@
         }
 
         // aritcle
+
+        public IActionResult SubmitArticle()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        public IActionResult SubmitArticle(string url)
+        {
+            return this.Redirect("Home/Index");
+        }
     }
 }
