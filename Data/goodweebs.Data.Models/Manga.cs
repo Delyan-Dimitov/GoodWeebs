@@ -8,7 +8,6 @@
 
     public class Manga : ISeries
     {
-
         public int Id { get; set; }
 
         [Required]
@@ -41,6 +40,5 @@
         public ICollection<ReadMap> Read { get; set; }
 
         public ICollection<WantToReadMap> WantToRead { get; set; }
-
     }
 }

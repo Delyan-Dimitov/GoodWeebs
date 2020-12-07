@@ -1934,7 +1934,7 @@
           "goodweebs.Data.Common": "1.0.0"
         },
         "runtime": {
-          "GoodWeebs.Data.Models.dll": {}
+          "goodweebs.Data.Models.dll": {}
         }
       },
       "goodweebs.Services.Mapping/1.0.0": {
@@ -1942,7 +1942,7 @@
           "AutoMapper": "10.1.1"
         },
         "runtime": {
-          "goodweebs.Services.Mapping.dll": {}
+          "GoodWeebs.Services.Mapping.dll": {}
         }
       },
       "goodweebs.Web.ViewModels/1.0.0": {
@@ -1952,7 +1952,7 @@
           "goodweebs.Services.Mapping": "1.0.0"
         },
         "runtime": {
-          "GoodWeebs.Web.ViewModels.dll": {}
+          "goodweebs.Web.ViewModels.dll": {}
         }
       }
     }

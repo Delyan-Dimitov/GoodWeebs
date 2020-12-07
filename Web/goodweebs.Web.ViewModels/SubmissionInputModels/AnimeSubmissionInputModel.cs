@@ -34,5 +34,9 @@ namespace GoodWeebs.Web.ViewModels.AnimeViewModels
         public string Status { get; set; }
 
         public string GenresInput { get; set; }
+
+        public string Synonyms { get; set; }
+
+        public string Trailer { get; set; }
     }
 }

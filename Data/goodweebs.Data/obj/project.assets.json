@@ -1531,42 +1531,42 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "GoodWeebs.Common/1.0.0": {
+      "goodweebs.Common/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "compile": {
-          "bin/placeholder/GoodWeebs.Common.dll": {}
+          "bin/placeholder/goodweebs.Common.dll": {}
         },
         "runtime": {
-          "bin/placeholder/GoodWeebs.Common.dll": {}
+          "bin/placeholder/goodweebs.Common.dll": {}
         }
       },
-      "GoodWeebs.Data.Common/1.0.0": {
+      "goodweebs.Data.Common/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "System.ComponentModel.Annotations": "4.7.0"
         },
         "compile": {
-          "bin/placeholder/GoodWeebs.Data.Common.dll": {}
+          "bin/placeholder/goodweebs.Data.Common.dll": {}
         },
         "runtime": {
-          "bin/placeholder/GoodWeebs.Data.Common.dll": {}
+          "bin/placeholder/goodweebs.Data.Common.dll": {}
         }
       },
-      "GoodWeebs.Data.Models/1.0.0": {
+      "goodweebs.Data.Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "GoodWeebs.Data.Common": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.9",
-          "Newtonsoft.Json": "12.0.3"
+          "Newtonsoft.Json": "12.0.3",
+          "goodweebs.Data.Common": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/GoodWeebs.Data.Models.dll": {}
+          "bin/placeholder/goodweebs.Data.Models.dll": {}
         },
         "runtime": {
-          "bin/placeholder/GoodWeebs.Data.Models.dll": {}
+          "bin/placeholder/goodweebs.Data.Models.dll": {}
         }
       }
     }
@@ -5729,34 +5729,34 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
-    "GoodWeebs.Common/1.0.0": {
+    "goodweebs.Common/1.0.0": {
       "type": "project",
-      "path": "../../GoodWeebs.Common/GoodWeebs.Common.csproj",
-      "msbuildProject": "../../GoodWeebs.Common/GoodWeebs.Common.csproj"
+      "path": "../../goodweebs.Common/goodweebs.Common.csproj",
+      "msbuildProject": "../../goodweebs.Common/goodweebs.Common.csproj"
     },
-    "GoodWeebs.Data.Common/1.0.0": {
+    "goodweebs.Data.Common/1.0.0": {
       "type": "project",
-      "path": "../GoodWeebs.Data.Common/GoodWeebs.Data.Common.csproj",
-      "msbuildProject": "../GoodWeebs.Data.Common/GoodWeebs.Data.Common.csproj"
+      "path": "../goodweebs.Data.Common/goodweebs.Data.Common.csproj",
+      "msbuildProject": "../goodweebs.Data.Common/goodweebs.Data.Common.csproj"
     },
-    "GoodWeebs.Data.Models/1.0.0": {
+    "goodweebs.Data.Models/1.0.0": {
       "type": "project",
-      "path": "../GoodWeebs.Data.Models/GoodWeebs.Data.Models.csproj",
-      "msbuildProject": "../GoodWeebs.Data.Models/GoodWeebs.Data.Models.csproj"
+      "path": "../goodweebs.Data.Models/goodweebs.Data.Models.csproj",
+      "msbuildProject": "../goodweebs.Data.Models/goodweebs.Data.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "GoodWeebs.Common >= 1.0.0",
-      "GoodWeebs.Data.Common >= 1.0.0",
-      "GoodWeebs.Data.Models >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.1.9",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.9",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.9",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.9",
       "Microsoft.Extensions.Configuration.UserSecrets >= 3.1.9",
       "Newtonsoft.Json >= 12.0.3",
-      "StyleCop.Analyzers >= 1.2.0-beta.205"
+      "StyleCop.Analyzers >= 1.2.0-beta.205",
+      "goodweebs.Common >= 1.0.0",
+      "goodweebs.Data.Common >= 1.0.0",
+      "goodweebs.Data.Models >= 1.0.0"
     ]
   },
   "packageFolders": {

@@ -1,10 +1,27 @@
 ﻿namespace GoodWeebs.Web.Controllers
 {
+    using System.Security.Claims;
+    using System.Threading.Tasks;
+
+    using GoodWeebs.Data.Models;
+    using goodweebs.Services.GoodWeebs.Services.SubmissionsServices;
     using GoodWeebs.Web.ViewModels.AnimeViewModels;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
 
+    [Authorize]
     public class SubmissionController : BaseController
     {
+        private readonly ISubmissionsService subService;
+        private readonly UserManager<ApplicationUser> userManager;
+
+        public SubmissionController(ISubmissionsService subService, UserManager<ApplicationUser> userManager)
+        {
+            this.subService = subService;
+            this.userManager = userManager;
+        }
+
         // anime
         public IActionResult SubmitAnime()
         {
@@ -17,8 +34,10 @@
         }
 
         [HttpPost]
-        public IActionResult SubmitAnimeWithUrl(string url)
+        public async Task<IActionResult> SubmitAnimeWithUrlAsync(string url)
         {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            await this.subService.SubmitAnimeAsync(new AnimeSubmissionInputModel() { SubmissionUrl = url }, userId, "Url");
             return this.Redirect("Home/Index");
         }
 
@@ -30,6 +49,8 @@
         [HttpPost]
         public IActionResult SubmitAnimeFull(AnimeSubmissionInputModel model)
         {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            this.subService.SubmitAnimeAsync(model, userId, "Full");
             return this.Redirect("Home/Index");
         }
 

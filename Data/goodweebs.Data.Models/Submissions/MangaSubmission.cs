@@ -29,22 +29,17 @@
 
         public string Synopsis { get; set; }
 
-        public string Episodes { get; set; }
+        public string Volumes { get; set; }
+
+        public string Chapters { get; set; }
+
+        public string Authors { get; set; }
 
         public string Status { get; set; }
 
-        public string Aired { get; set; }
-
-        public string Synonyms { get; set; }
-
-        public string Trailer { get; set; }
-
-        public string EpisodeDuration { get; set; }
+        public string Published { get; set; }
 
         public string Rating { get; set; }
-
-        public string Studios { get; set; }
-
 
         public DateTime CreatedOn { get; set; }
 

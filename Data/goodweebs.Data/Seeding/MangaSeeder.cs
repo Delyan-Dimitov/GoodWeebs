@@ -41,6 +41,8 @@
 
                     Status = mDto.Status,
 
+                    Published = mDto.Published,
+
                     PictureUrl = mDto.PictureUrl,
 
                     Genres = string.Join(", ", mDto.Genres),
