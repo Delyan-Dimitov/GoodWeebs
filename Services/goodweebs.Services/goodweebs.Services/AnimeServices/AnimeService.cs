@@ -31,7 +31,7 @@
         public IEnumerable<AnimeInListViewModel> GetAll(int page, int itemsPerPage = 12)
         {
             var animes = this.animes.AllAsNoTracking()
-                .OrderByDescending(x => x.Id)
+                .OrderBy(x => x.Id)
 
                 .Skip((page - 1) * itemsPerPage)
 
@@ -69,7 +69,7 @@
             return topAnime;
         }
 
-        public int GetCount() => this.animes.All().Count();
+        public int GetCount() => this.animes.AllAsNoTracking().Count();
 
         public AnimeViewModel GetById(int id)
         {
@@ -89,7 +89,6 @@
         }
 
         public IEnumerable<AnimeViewModel> GetSimilar(int id, int amount)
-
         {
             var anime = this.GetById(id);
             var genres = anime.Genres.Split(", ").ToList();

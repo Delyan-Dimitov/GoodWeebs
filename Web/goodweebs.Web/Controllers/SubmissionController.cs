@@ -4,7 +4,7 @@
     using System.Threading.Tasks;
 
     using GoodWeebs.Data.Models;
-    using goodweebs.Services.GoodWeebs.Services.SubmissionsServices;
+    using GoodWeebs.Services.GoodWeebs.Services.SubmissionsServices;
     using GoodWeebs.Web.ViewModels.AnimeViewModels;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;

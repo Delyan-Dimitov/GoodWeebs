@@ -1,25 +1,30 @@
-﻿namespace goodweebs.Services.GoodWeebs.Services.SubmissionsServices
+﻿using GoodWeebs.Services.GoodWeebs.Services.SubmissionsServices;
+using Goodweebs.Data.Models.Submissions;
+using GoodWeebs.Data.Common.Repositories;
+using GoodWeebs.Data.Models;
+using GoodWeebs.Web.ViewModels.AnimeViewModels;
+using GoodWeebs.Web.ViewModels.SubmissionInputModels;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace GoodWeebs.Services.GoodWeebs.Services.SubmissionsServices
 {
-    using System.Linq;
-    using System.Threading.Tasks;
-
-    using GoodWeebs.Data.Common.Repositories;
-    using GoodWeebs.Data.Models;
-    using Goodweebs.Data.Models.Submissions;
-    using goodweebs.Services.GoodWeebs.Services.SubmissionsServices;
-    using GoodWeebs.Web.ViewModels.AnimeViewModels;
-    using GoodWeebs.Web.ViewModels.SubmissionInputModels;
-
     public class SubmissionsService : ISubmissionsService
     {
         private readonly IDeletableEntityRepository<AnimeSumbission> asubRepo;
         private readonly IDeletableEntityRepository<MangaSubmission> mSubRepo;
+        private readonly IDeletableEntityRepository<ArticleSubmission> articleSubRepo;
         private readonly IDeletableEntityRepository<ApplicationUser> userRepo;
 
-        public SubmissionsService(IDeletableEntityRepository<AnimeSumbission> asubRepo, IDeletableEntityRepository<MangaSubmission> mSubRepo, IDeletableEntityRepository<ApplicationUser> userRepo)
+        public SubmissionsService(
+            IDeletableEntityRepository<AnimeSumbission> asubRepo,
+            IDeletableEntityRepository<MangaSubmission> mSubRepo,
+            IDeletableEntityRepository<ArticleSubmission> articleSubRepo,
+            IDeletableEntityRepository<ApplicationUser> userRepo)
         {
             this.asubRepo = asubRepo;
             this.mSubRepo = mSubRepo;
+            this.articleSubRepo = articleSubRepo;
             this.userRepo = userRepo;
         }
 
@@ -68,6 +73,7 @@
         {
             var user = this.userRepo.All().FirstOrDefault(x => x.Id == userId);
             var articleSub = new ArticleSubmission() { SubbmiterId = userId, Submitter = user, Title = model.Title, Content = model.Content };
+            await this.articleSubRepo.AddAsync(articleSub);
 
 
         }

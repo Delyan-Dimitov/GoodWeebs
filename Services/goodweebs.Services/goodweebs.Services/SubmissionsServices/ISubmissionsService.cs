@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace goodweebs.Services.GoodWeebs.Services.SubmissionsServices
+namespace GoodWeebs.Services.GoodWeebs.Services.SubmissionsServices
 {
    public interface ISubmissionsService
     {
