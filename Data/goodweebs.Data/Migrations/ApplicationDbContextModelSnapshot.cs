@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace GoodWeebs.Data.Migrations
+namespace goodweebs.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -141,14 +141,26 @@ namespace GoodWeebs.Data.Migrations
                     b.Property<string>("Chapters")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("DateFinished")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DateStarted")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Genres")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("PictureUrl")
                         .HasColumnType("nvarchar(max)");
@@ -173,6 +185,8 @@ namespace GoodWeebs.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
 
                     b.ToTable("Mangas");
                 });
@@ -592,6 +606,18 @@ namespace GoodWeebs.Data.Migrations
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("SubbmiterId")
                         .HasColumnType("nvarchar(max)");
 
@@ -602,6 +628,8 @@ namespace GoodWeebs.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
 
                     b.HasIndex("SubmitterId");
 
@@ -615,7 +643,10 @@ namespace GoodWeebs.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Aired")
+                    b.Property<string>("Authors")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Chapters")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedOn")
@@ -623,12 +654,6 @@ namespace GoodWeebs.Data.Migrations
 
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("EpisodeDuration")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Episodes")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Genres")
                         .HasColumnType("nvarchar(max)");
@@ -642,13 +667,13 @@ namespace GoodWeebs.Data.Migrations
                     b.Property<string>("Picture")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Published")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Rating")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Studios")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SubmissionType")
@@ -660,19 +685,16 @@ namespace GoodWeebs.Data.Migrations
                     b.Property<string>("SubmitterId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Synonyms")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Synopsis")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Trailer")
+                    b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Type")
+                    b.Property<string>("Volumes")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

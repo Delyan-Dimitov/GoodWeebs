@@ -1,0 +1,57 @@
+﻿@model GoodWeebs.Web.ViewModels.AnimeViewModels.AnimeSubmissionInputModel
+
+
+
+<form method="post" class="col-md-6 offset-md-3" enctype="multipart/form-data">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Synopsis"></label>
+        <input asp-for="Synopsis" class="form-control" />
+        <span asp-validation-for="Synopsis" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PictureUrl"></label>
+        <input asp-for="PictureUrl" class="form-control" />
+        <span asp-validation-for="PictureUrl" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Type"></label>
+        <input asp-for="Type" class="form-control" />
+        <span asp-validation-for="Type" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Episodes"></label>
+        <input asp-for="Episodes" class="form-control" />
+        <span asp-validation-for="Episodes" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Duration"></label>
+        <input asp-for="Duration" class="form-control" />
+        <span asp-validation-for="Duration" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Aired"></label>
+        <input asp-for="Aired" class="form-control" />
+        <span asp-validation-for="Aired" class="text-danger"></span>
+    </div><div class="form-group">
+        <label asp-for="Rating"></label>
+        <input asp-for="Rating" class="form-control" />
+        <span asp-validation-for="Rating" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Status"></label>
+        <input asp-for="Status" class="form-control" />
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Genres"></label>
+        <input asp-for="Genres" class="form-control" />
+        <span asp-validation-for="Genres" class="text-danger"></span>
+    </div>
+    <input type="submit" class="btn btn-primary" />
+</form>

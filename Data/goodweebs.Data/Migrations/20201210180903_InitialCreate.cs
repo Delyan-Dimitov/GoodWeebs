@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace GoodWeebs.Data.Migrations
+namespace goodweebs.Data.Migrations
 {
     public partial class InitialCreate : Migration
     {
@@ -143,7 +143,11 @@ namespace GoodWeebs.Data.Migrations
                     Status = table.Column<string>(nullable: true),
                     PictureUrl = table.Column<string>(nullable: true),
                     DateStarted = table.Column<DateTime>(nullable: false),
-                    DateFinished = table.Column<DateTime>(nullable: false)
+                    DateFinished = table.Column<DateTime>(nullable: false),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedOn = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -236,7 +240,11 @@ namespace GoodWeebs.Data.Migrations
                     SubmitterId = table.Column<string>(nullable: true),
                     SubbmiterId = table.Column<string>(nullable: true),
                     Title = table.Column<string>(nullable: true),
-                    Content = table.Column<string>(nullable: true)
+                    Content = table.Column<string>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedOn = table.Column<DateTime>(nullable: true),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -402,14 +410,12 @@ namespace GoodWeebs.Data.Migrations
                     Picture = table.Column<string>(nullable: true),
                     Type = table.Column<string>(nullable: true),
                     Synopsis = table.Column<string>(nullable: true),
-                    Episodes = table.Column<string>(nullable: true),
+                    Volumes = table.Column<string>(nullable: true),
+                    Chapters = table.Column<string>(nullable: true),
+                    Authors = table.Column<string>(nullable: true),
                     Status = table.Column<string>(nullable: true),
-                    Aired = table.Column<string>(nullable: true),
-                    Synonyms = table.Column<string>(nullable: true),
-                    Trailer = table.Column<string>(nullable: true),
-                    EpisodeDuration = table.Column<string>(nullable: true),
+                    Published = table.Column<string>(nullable: true),
                     Rating = table.Column<string>(nullable: true),
-                    Studios = table.Column<string>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
@@ -562,6 +568,11 @@ namespace GoodWeebs.Data.Migrations
                 column: "SubmitterId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ArticleSubmissions_IsDeleted",
+                table: "ArticleSubmissions",
+                column: "IsDeleted");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ArticleSubmissions_SubmitterId",
                 table: "ArticleSubmissions",
                 column: "SubmitterId");
@@ -633,6 +644,11 @@ namespace GoodWeebs.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Friends_IsDeleted",
                 table: "Friends",
+                column: "IsDeleted");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Mangas_IsDeleted",
+                table: "Mangas",
                 column: "IsDeleted");
 
             migrationBuilder.CreateIndex(

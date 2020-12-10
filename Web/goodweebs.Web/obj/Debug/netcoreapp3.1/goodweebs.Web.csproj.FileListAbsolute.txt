@@ -471,3 +471,6 @@ C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\RichT
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\goodweebs.Web.csproj.CoreCompileInputs.cache
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\goodweebs.Web.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\goodweebs.Web.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\Razor\Views\Manga\All.cshtml.g.cs
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\Razor\Views\Manga\SubmitFull.cshtml.g.cs
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\Razor\Views\Manga\Info.cshtml.g.cs

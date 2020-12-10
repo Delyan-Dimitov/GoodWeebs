@@ -31,7 +31,7 @@
         {
             var manga = this.mangaService.GetInfoById(id);
             var similar = this.mangaService.GetSimilar(id, 3);
-            var model = new MangaInfoViewModel { Manga = manga, SimilarAnime = similar };
+            var model = new MangaInfoViewModel { Manga = manga, SimilarManga = similar };
             return this.View(model);
         }
     }

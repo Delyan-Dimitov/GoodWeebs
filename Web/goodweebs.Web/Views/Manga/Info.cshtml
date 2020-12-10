@@ -1,0 +1,52 @@
+﻿@model GoodWeebs.Web.ViewModels.MangaViewModels.MangaInfoViewModel
+@{
+    this.ViewData["Title"] = $"Anime";
+}
+<style>
+    .card {
+        display: inline-block;
+    }
+</style>
+<div class="row">
+    <div class="col-md-1"> </div>
+    <div class="col-md-2 border-bottom">
+        <img src="@Model.Manga.PictureUrl" alt="">
+        <div class=" text-justify-left">
+            <p class="lead text-center">Add To Watched</p>
+            <hr>
+            <p class="lead text-center">Want To Watch</p>
+            <hr>
+            <p>Type: @Model.Manga.Type</p>
+            <p>Genre: @Model.Manga.Genres</p>
+            <p>Aired: @Model.Manga.Published</p>
+            <p>Volumes: @Model.Manga.Volumes</p>
+            <p>Chapters: @Model.Manga.Chapters</p>
+            <p>Authors: @Model.Manga.Authors</p>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <h3>@Model.Manga.Title</h3>
+        <hr>
+        <p>@Model.Manga.Synopsis</p>
+
+        <hr>
+        <h1 class="display-4 text-center">Similar Manga</h1>
+        <div class="row display-flex justify-content-center">
+            @foreach (var manga in Model.SimilarManga)
+            {
+                <div class="card" style=" width: 12rem;">
+                    <img class="card-img-top img-fluid" src="@manga.PictureUrl">
+                    <div class="card-body ">
+                        <a asp-action="Info" asp-route-id="@manga.Id"> <h5 class="card-title">@manga.Title</h5></a>
+                        <p class="card-text">@manga.Synopsis.Substring(0, 80)...</p>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="col-md-1"> </div>
+        
+        </div>
+        
+        <div class="col-md-2"></div>
+    </div>
+</div>
