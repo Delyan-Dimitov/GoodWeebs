@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GoodWeebs.Web.ViewModels.AnimeViewModels
+﻿namespace GoodWeebs.Web.ViewModels.AnimeViewModels
 {
+    using System.Collections.Generic;
+
     public class AnimeInfoViewModel
     {
         public AnimeViewModel Anime { get; set; }
+
         public IEnumerable<AnimeViewModel> SimilarAnime { get; set; }
+
     }
 }

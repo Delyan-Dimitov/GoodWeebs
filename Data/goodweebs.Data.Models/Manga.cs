@@ -5,8 +5,9 @@
     using System.ComponentModel.DataAnnotations;
 
     using Entities.Maps;
+    using GoodWeebs.Data.Common.Models;
 
-    public class Manga : ISeries
+    public class Manga : IDeletableEntity, IAuditInfo
     {
         public int Id { get; set; }
 
@@ -40,5 +41,13 @@
         public ICollection<ReadMap> Read { get; set; }
 
         public ICollection<WantToReadMap> WantToRead { get; set; }
+
+        public DateTime CreatedOn { get; set; }
+
+        public DateTime? ModifiedOn { get; set; }
+
+        public bool IsDeleted { get; set; }
+
+        public DateTime? DeletedOn { get; set; }
     }
 }
