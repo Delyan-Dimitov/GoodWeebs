@@ -12,6 +12,7 @@
     using GoodWeebs.Services.Data;
     using GoodWeebs.Services.GoodWeebs.Services.AnimeServices;
     using GoodWeebs.Services.GoodWeebs.Services.MangaServices;
+    using GoodWeebs.Services.GoodWeebs.Services.SubmissionsServices;
     using GoodWeebs.Services.Mapping;
     using GoodWeebs.Services.Messaging;
     using GoodWeebs.Web.ViewModels;
@@ -80,6 +81,7 @@
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<IAnimeService, AnimeService>();
             services.AddTransient<IMangaService, MangaService>();
+            services.AddTransient<ISubmissionsService, SubmissionsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

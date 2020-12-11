@@ -39,18 +39,5 @@
             var model = new AnimeInfoViewModel { Anime = anime, SimilarAnime = similar };
             return this.View(model);
         }
-
-        public IActionResult SubmitFull()
-        {
-            return this.View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> SubmitFull(AnimeSubmissionInputModel model)
-        {
-            var user = await this.userManager.GetUserAsync(this.User);
-            await this.animeService.CreateAsync(model, user.Id, "FullSumbit");
-            return this.RedirectToAction("All");
-        }
     }
 }

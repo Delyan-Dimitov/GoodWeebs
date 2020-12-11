@@ -1,4 +1,4 @@
-﻿@model GoodWeebs.Web.ViewModels.AnimeViewModels.AnimeSubmissionInputModel
+﻿@model GoodWeebs.Web.ViewModels.SubmissionInputModels.AnimeSubmissionInputModel
 
 
 
@@ -52,6 +52,11 @@
         <label asp-for="Genres"></label>
         <input asp-for="Genres" class="form-control" />
         <span asp-validation-for="Genres" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Studios"></label>
+        <input asp-for="Studios" class="form-control" />
+        <span asp-validation-for="Studios" class="text-danger"></span>
     </div>
     <input type="submit" class="btn btn-primary" />
 </form>

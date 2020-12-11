@@ -1,11 +1,12 @@
 ﻿namespace GoodWeebs.Web.Controllers
 {
+    using System;
     using System.Security.Claims;
     using System.Threading.Tasks;
 
     using GoodWeebs.Data.Models;
     using GoodWeebs.Services.GoodWeebs.Services.SubmissionsServices;
-    using GoodWeebs.Web.ViewModels.AnimeViewModels;
+    using GoodWeebs.Web.ViewModels.SubmissionInputModels;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
@@ -37,7 +38,7 @@
         public async Task<IActionResult> SubmitAnimeWithUrlAsync(string url)
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            await this.subService.SubmitAnimeAsync(new AnimeSubmissionInputModel() { SubmissionUrl = url }, userId, "Url");
+            await this.subService.SubmitAnimeWithUrlAsync(url, userId);
             return this.Redirect("Home/Index");
         }
 
@@ -47,10 +48,25 @@
         }
 
         [HttpPost]
-        public IActionResult SubmitAnimeFull(AnimeSubmissionInputModel model)
+        public async Task<IActionResult> SubmitAnimeFullAsync(AnimeSubmissionInputModel model)
         {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(model);
+            }
+
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            this.subService.SubmitAnimeAsync(model, userId, "Full");
+
+            try
+            {
+                await this.subService.SubmitMangaFullAsync(model, userId, "Full");
+            }
+            catch (Exception ex)
+            {
+                this.ModelState.AddModelError(string.Empty, ex.Message);
+                return this.View(model);
+            }
+
             return this.Redirect("Home/Index");
         }
 
@@ -66,8 +82,10 @@
         }
 
         [HttpPost]
-        public IActionResult SubmitMangaWithUrl(string url)
+        public async Task<IActionResult> SubmitMangaWithUrlAsync(string url)
         {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            await this.subService.SubmitMangaWithUrlAsync(url, userId);
             return this.Redirect("Home/Index");
         }
 
@@ -79,6 +97,23 @@
         [HttpPost]
         public IActionResult SubmitMangaFull(AnimeSubmissionInputModel model)
         {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(model);
+            }
+
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            try
+            {
+                await this.subService.SubmitMangaFullAsync(model, userId, "Full");
+            }
+            catch (Exception ex)
+            {
+                this.ModelState.AddModelError(string.Empty, ex.Message);
+                return this.View(model);
+            }
+
             return this.Redirect("Home/Index");
         }
 

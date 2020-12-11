@@ -1,20 +1,18 @@
-﻿using GoodWeebs.Data.Common.Repositories;
-using GoodWeebs.Data.Models;
-using GoodWeebs.Web.ViewModels.AnimeViewModels;
-using GoodWeebs.Web.ViewModels.SubmissionInputModels;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using GoodWeebs.Web.ViewModels.SubmissionInputModels;
 using System.Threading.Tasks;
 
 namespace GoodWeebs.Services.GoodWeebs.Services.SubmissionsServices
 {
-   public interface ISubmissionsService
+    public interface ISubmissionsService
     {
-        Task SubmitAnimeAsync(AnimeSubmissionInputModel model, string userID, string submissionType);
+        Task SubmitMangaFullAsync(AnimeSubmissionInputModel model, string userID, string submissionType);
 
-        Task SubmitMangaAsync(MangaSubmissionInputModel model, string userID, string submissionType);
+        Task SubmitMangaFullAsync(MangaSubmissionInputModel model, string userID, string submissionType);
 
         Task SubmitArticleAsync(ArticleSubmissionInputModel model, string userID);
+
+        Task SubmitAnimeWithUrlAsync(string url, string userId);
+
+        Task SubmitMangaWithUrlAsync(string url, string userId);
     }
 }

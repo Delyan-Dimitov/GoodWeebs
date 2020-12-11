@@ -11,6 +11,7 @@
     using global::GoodWeebs.Data.Common.Repositories;
     using global::GoodWeebs.Data.Models;
     using global::GoodWeebs.Web.ViewModels.AnimeViewModels;
+    using global::GoodWeebs.Web.ViewModels.SubmissionInputModels;
     using Microsoft.EntityFrameworkCore;
 
     public class AnimeService : IAnimeService
@@ -133,35 +134,6 @@
             result.AddRange(leaderBoard.Keys.Take(amount));
 
             return result;
-        }
-
-        public async Task CreateAsync(AnimeSubmissionInputModel anime, string userId, string subType)
-        {
-            if (subType == "UrlSubmission")
-            {
-                var animeSubmission = new AnimeSumbission() { SubmissionUrl = anime.SubmissionUrl };
-                await this.animeSubmissions.AddAsync(animeSubmission);
-            }
-            else
-            {
-                var animeSubmission = new AnimeSumbission()
-                {
-                    Title = anime.Title,
-                    SubmitterId = userId,
-                    Submitter = await this.dbContext.Users.FirstOrDefaultAsync(x => x.Id == userId),
-                    Genres = anime.Genres,
-                    Picture = anime.PictureUrl,
-                    Type = anime.Type,
-                    Synopsis = anime.Synopsis,
-                    Episodes = anime.Episodes,
-                    Status = anime.Status,
-                    Aired = anime.Aired,
-                    EpisodeDuration = anime.Duration,
-                    Rating = anime.Rating,
-                    Studios = anime.Studios,
-                };
-                await this.animeSubmissions.AddAsync(animeSubmission);
-            }
         }
     }
 }

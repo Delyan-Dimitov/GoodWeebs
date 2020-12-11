@@ -3,6 +3,7 @@
     using System;
     using System.Diagnostics;
     using System.IO;
+    using System.Linq;
     using System.Threading.Tasks;
 
     using GoodWeebs.Data;
@@ -29,6 +30,7 @@
                 json = r.ReadToEnd();
             }
 
+         
             // WORKS!!!!
             var animeDTOs = JsonConvert.DeserializeObject<AnimeDTO[]>(json);
             Console.WriteLine(json);

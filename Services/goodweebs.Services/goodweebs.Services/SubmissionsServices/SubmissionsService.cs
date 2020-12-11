@@ -28,45 +28,44 @@ namespace GoodWeebs.Services.GoodWeebs.Services.SubmissionsServices
             this.userRepo = userRepo;
         }
 
-        public async Task SubmitAnimeAsync(AnimeSubmissionInputModel model, string userId, string submissionType)
+        public async Task SubmitAnimeWithUrlAsync(string url, string userId)
         {
             var user = this.userRepo.All().FirstOrDefault(x => x.Id == userId);
-            if (submissionType == "Url")
+            var urlSubmission = new AnimeSumbission()
             {
-                var urlSubmission = new AnimeSumbission()
-                {
-                    SubmitterId = userId,
-                    SubmissionUrl = model.SubmissionUrl,
-                    SubmissionType = submissionType,
-                    Submitter = user,
-                };
+                SubmitterId = userId,
+                SubmissionUrl = url,
+                SubmissionType = "Url",
+                Submitter = user,
+            };
+            await this.asubRepo.AddAsync(urlSubmission);
+        }
 
-                await this.asubRepo.AddAsync(urlSubmission);
-            }
-            else
+        public async Task SubmitMangaFullAsync(AnimeSubmissionInputModel model, string userId, string submissionType)
+        {
+            var user = this.userRepo.All().FirstOrDefault(x => x.Id == userId);
+
+            var animeSubmission = new AnimeSumbission()
             {
-                var animeSubmission = new AnimeSumbission()
-                {
-                    SubmitterId = userId,
-                    Submitter = user,
-                    SubmissionType = submissionType,
-                    Title = model.Title,
-                    Genres = model.Genres,
-                    Picture = model.PictureUrl,
-                    Type = model.Type,
-                    Synopsis = model.Synopsis,
-                    Episodes = model.Episodes,
-                    Status = model.Status,
-                    Aired = model.Aired,
-                    Trailer = model.Trailer,
-                    Synonyms = model.Synonyms,
-                    EpisodeDuration = model.Duration,
-                    Rating = model.Rating,
-                    Studios = model.Studios,
+                SubmitterId = userId,
+                Submitter = user,
+                SubmissionType = submissionType,
+                Title = model.Title,
+                Genres = model.Genres,
+                Picture = model.PictureUrl,
+                Type = model.Type,
+                Synopsis = model.Synopsis,
+                Episodes = model.Episodes.ToString(),
+                Status = model.Status,
+                Aired = model.Aired,
+                Trailer = model.Trailer,
+                Synonyms = model.Synonyms,
+                EpisodeDuration = model.Duration.ToString(),
+                Rating = model.Rating,
+                Studios = model.Studios,
 
-                };
-                await this.asubRepo.AddAsync(animeSubmission);
-            }
+            };
+            await this.asubRepo.AddAsync(animeSubmission);
         }
 
         public async Task SubmitArticleAsync(ArticleSubmissionInputModel model, string userId)
@@ -78,24 +77,11 @@ namespace GoodWeebs.Services.GoodWeebs.Services.SubmissionsServices
 
         }
 
-        public async Task SubmitMangaAsync(MangaSubmissionInputModel model, string userId, string submissionType)
+        public async Task SubmitMangaFullAsync(MangaSubmissionInputModel model, string userId, string submissionType)
         {
             var user = this.userRepo.All().FirstOrDefault(x => x.Id == userId);
-            if (submissionType == "Url")
-            {
-                var urlSubmission = new MangaSubmission()
-                {
-                    SubmitterId = userId,
-                    SubmissionUrl = model.SubmissionUrl,
-                    SubmissionType = submissionType,
-                    Submitter = user,
-                };
 
-                await this.mSubRepo.AddAsync(urlSubmission);
-            }
-            else
-            {
-                var mangaSubmission = new MangaSubmission()
+            MangaSubmission mangaSubmission = new MangaSubmission()
                 {
                     SubmitterId = userId,
                     Submitter = user,
@@ -113,8 +99,22 @@ namespace GoodWeebs.Services.GoodWeebs.Services.SubmissionsServices
                     Published = model.Published,
 
                 };
-                await this.mSubRepo.AddAsync(mangaSubmission);
-            }
+            await this.mSubRepo.AddAsync(mangaSubmission);
+        }
+
+        public async Task SubmitMangaWithUrlAsync(string url, string userId)
+        {
+            var user = this.userRepo.All().FirstOrDefault(x => x.Id == userId);
+
+            var urlSubmission = new MangaSubmission()
+            {
+                SubmitterId = userId,
+                SubmissionUrl = url,
+                SubmissionType = "Url",
+                Submitter = user,
+            };
+
+            await this.mSubRepo.AddAsync(urlSubmission);
         }
     }
 }

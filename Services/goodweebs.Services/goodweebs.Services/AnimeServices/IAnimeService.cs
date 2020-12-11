@@ -5,6 +5,7 @@
 
     using Entities;
     using global::GoodWeebs.Web.ViewModels.AnimeViewModels;
+    using global::GoodWeebs.Web.ViewModels.SubmissionInputModels;
 
     public interface IAnimeService
     {
@@ -20,6 +21,5 @@
 
         IEnumerable<AnimeViewModel> GetBestHits(IEnumerable<string> targets, IEnumerable<AnimeViewModel> collection, int amount);
 
-        Task CreateAsync(AnimeSubmissionInputModel anime, string userId, string subType);
     }
 }
