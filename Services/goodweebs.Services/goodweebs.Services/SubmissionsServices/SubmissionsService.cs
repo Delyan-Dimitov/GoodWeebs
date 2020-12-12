@@ -41,7 +41,7 @@ namespace GoodWeebs.Services.GoodWeebs.Services.SubmissionsServices
             await this.asubRepo.AddAsync(urlSubmission);
         }
 
-        public async Task SubmitMangaFullAsync(AnimeSubmissionInputModel model, string userId, string submissionType)
+        public async Task SubmitAnimeFullAsync(AnimeSubmissionInputModel model, string userId, string submissionType)
         {
             var user = this.userRepo.All().FirstOrDefault(x => x.Id == userId);
 
@@ -51,21 +51,22 @@ namespace GoodWeebs.Services.GoodWeebs.Services.SubmissionsServices
                 Submitter = user,
                 SubmissionType = submissionType,
                 Title = model.Title,
-                Genres = model.Genres,
+                Genres = string.Join(", ", model.Genres),
                 Picture = model.PictureUrl,
                 Type = model.Type,
                 Synopsis = model.Synopsis,
                 Episodes = model.Episodes.ToString(),
-                Status = model.Status,
+                Status = string.Join(" ", model.Status),
                 Aired = model.Aired,
                 Trailer = model.Trailer,
                 Synonyms = model.Synonyms,
                 EpisodeDuration = model.Duration.ToString(),
-                Rating = model.Rating,
-                Studios = model.Studios,
+                Rating = model.Rating[0],
+                Studios = string.Join(", ", model.Studios),
 
             };
             await this.asubRepo.AddAsync(animeSubmission);
+            await this.asubRepo.SaveChangesAsync();
         }
 
         public async Task SubmitArticleAsync(ArticleSubmissionInputModel model, string userId)
@@ -94,7 +95,7 @@ namespace GoodWeebs.Services.GoodWeebs.Services.SubmissionsServices
                     Status = model.Status,
                     Rating = model.Rating,
                     Authors = model.Authors,
-                    Volumes = model.Volumes,
+                    Volumes = model.Volumes.ToString(),
                     Chapters = model.Chapters,
                     Published = model.Published,
 

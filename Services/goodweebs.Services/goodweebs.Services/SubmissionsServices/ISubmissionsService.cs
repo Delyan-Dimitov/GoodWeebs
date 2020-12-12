@@ -5,7 +5,7 @@ namespace GoodWeebs.Services.GoodWeebs.Services.SubmissionsServices
 {
     public interface ISubmissionsService
     {
-        Task SubmitMangaFullAsync(AnimeSubmissionInputModel model, string userID, string submissionType);
+        Task SubmitAnimeFullAsync(AnimeSubmissionInputModel model, string userID, string submissionType);
 
         Task SubmitMangaFullAsync(MangaSubmissionInputModel model, string userID, string submissionType);
 

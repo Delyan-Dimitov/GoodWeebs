@@ -1,6 +1,7 @@
 ﻿namespace GoodWeebs.Web.Controllers
 {
     using System;
+    using System.Collections.Generic;
     using System.Security.Claims;
     using System.Threading.Tasks;
 
@@ -10,6 +11,7 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Mvc.Rendering;
 
     [Authorize]
     public class SubmissionController : BaseController
@@ -44,7 +46,42 @@
 
         public IActionResult SubmitAnimeFull()
         {
-            return this.View();
+            ////var group1 = new SelectListGroup() { Name = "group1"};
+
+            AnimeSubmissionInputModel model = new AnimeSubmissionInputModel();
+            ////this.ViewBag.Genres = new List<SelectListItem>()
+            ////{
+            ////    new SelectListItem() {Text = "Action", Value = "1", Group = group1 },
+            ////    new SelectListItem() {Text = "Aventure", Value = "1", Group = group1},
+            ////    new SelectListItem() {Text = "Cars", Value = "1", Group = group1 },
+            ////    new SelectListItem() {Text = "Demons", Value = "1", Group = group1 },
+            ////    new SelectListItem() {Text = "Ecchi", Value = "1", Group = group1 },
+            ////    new SelectListItem() {Text = "Drama", Value = "1", Group = group1 },
+            ////    new SelectListItem() {Text = "Fantasy", Value = "1", Group = group1 },
+            ////    new SelectListItem() {Text = "Hentai", Value = "1", Group = group1 },
+            ////    new SelectListItem() {Text = "Historical", Value = "1", Group = group1 },
+            ////    new SelectListItem() {Text = "Horror", Value = "1", Group = group1 },
+            ////};
+
+
+
+            //{
+            //    Genres = new List<string>
+            //    {
+            //        "Action", "Aventure", "Cars", "Comedy", "Demons", "Drama", "Ecchi","Fantasy", "Harem", "Hentai", "Historical", "Horror", "Kids", "Magic", "Martial Arts", "Mecha", "Music", "Mystery", "Parody", "Police", "Romance", "Samurai", "School", "Sci-Fi", "Shoujo", "Shoujo Ai", "Shounen", "Shounen Ai", "Space", "Sports", "Super Power", "Supernatural", "Vampire", "Yaoi", "Yuri",
+            //    },
+
+            //    Rating = new List<string>
+            //    {
+            //        "TV", "OVA", "Movie", "Special",
+            //    },
+
+            //    Status = new List<string>
+            //    {
+            //        "Currently Airing" , "Finished Airing",
+            //    },
+            //};
+            return this.View(model);
         }
 
         [HttpPost]
@@ -59,7 +96,7 @@
 
             try
             {
-                await this.subService.SubmitMangaFullAsync(model, userId, "Full");
+                await this.subService.SubmitAnimeFullAsync(model, userId, "Full");
             }
             catch (Exception ex)
             {
@@ -67,7 +104,7 @@
                 return this.View(model);
             }
 
-            return this.Redirect("Home/Index");
+            return this.RedirectToAction("Home/HomeUserLoggedOut");
         }
 
         // manga
@@ -95,7 +132,7 @@
         }
 
         [HttpPost]
-        public IActionResult SubmitMangaFull(AnimeSubmissionInputModel model)
+        public async Task<IActionResult> SubmitMangaFullAsync(MangaSubmissionInputModel model)
         {
             if (!this.ModelState.IsValid)
             {
