@@ -1934,7 +1934,7 @@
           "goodweebs.Data.Common": "1.0.0"
         },
         "runtime": {
-          "goodweebs.Data.Models.dll": {}
+          "GoodWeebs.Data.Models.dll": {}
         }
       },
       "goodweebs.Services.Mapping/1.0.0": {

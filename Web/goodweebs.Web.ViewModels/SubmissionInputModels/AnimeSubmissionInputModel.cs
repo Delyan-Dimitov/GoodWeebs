@@ -29,6 +29,9 @@
         [Required]
         public string Type { get; set; }
 
+        public List<string> TypeItems { get; set; } = new List<string> { "R+ Mild Nudity", "G - All Ages", "PG - Children", "R - 17+ (Violence & Profanity)", "PG 13 Teens 13 Or Older", "Rx - Hentai" };
+
+
         [Required]
         [Range(1, 180, ErrorMessage = "Duration is too short or too long!")]
         public int Duration { get; set; }
@@ -43,6 +46,8 @@
         [Required]
         public List<string> Rating { get; set; }
 
+        public List<string> RatingItems { get; set; } = new List<string> { "TV", "OVA", "Movie", "Special" };
+
         [Required]
         public IEnumerable<string> Genres { get; set; }
 
@@ -50,6 +55,8 @@
 
         [Required]
         public List<string> Status { get; set; }
+
+        public List<string> StatusItems { get; set; } = new List<string> { "Currently Airing", "Finished Airing" };
 
         public string Synonyms { get; set; }
 

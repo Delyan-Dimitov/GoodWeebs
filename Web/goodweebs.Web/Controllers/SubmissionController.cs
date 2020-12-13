@@ -128,7 +128,8 @@
 
         public IActionResult SubmitMangaFull()
         {
-            return this.View();
+            var model = new MangaSubmissionInputModel();
+            return this.View(model);
         }
 
         [HttpPost]
