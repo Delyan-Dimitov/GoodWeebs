@@ -90,7 +90,7 @@
         }
 
         // Gives a certain amount of points based on how many of the top genres are present in each of the vaguely similar anime and the position of said genre in the toplist
-        public Dictionary<Anime, int> ComputeTopGenreMatches(Dictionary<Anime, int> leaderBoard, List<string> topGenres)
+        private Dictionary<Anime, int> ComputeTopGenreMatches(Dictionary<Anime, int> leaderBoard, List<string> topGenres)
         {
             var updatedLeaderboard = new Dictionary<Anime, int>();
             foreach (var item in leaderBoard)
@@ -113,7 +113,7 @@
 
         }
 
-        public Dictionary<Anime, int> ComputeAiringCoeficientMatches(Dictionary<Anime, int> leaderBoard, List<Anime> watchedAnime)
+        private Dictionary<Anime, int> ComputeAiringCoeficientMatches(Dictionary<Anime, int> leaderBoard, List<Anime> watchedAnime)
         {
             var animeWithCoeficientSum = new Dictionary<Anime, int>();
             var updatedLaederboard = leaderBoard;
