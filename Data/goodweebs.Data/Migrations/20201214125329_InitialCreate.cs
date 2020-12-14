@@ -27,7 +27,11 @@ namespace goodweebs.Data.Migrations
                     Trailer = table.Column<string>(nullable: true),
                     EpisodeDuration = table.Column<string>(nullable: true),
                     Rating = table.Column<string>(nullable: true),
-                    Studios = table.Column<string>(nullable: true)
+                    Studios = table.Column<string>(nullable: true),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedOn = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -433,6 +437,27 @@ namespace goodweebs.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "UserGenres",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<string>(nullable: true),
+                    Genre = table.Column<string>(nullable: true),
+                    Count = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserGenres", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_UserGenres_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "WantToWatchMaps",
                 columns: table => new
                 {
@@ -558,6 +583,11 @@ namespace goodweebs.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Animes_IsDeleted",
+                table: "Animes",
+                column: "IsDeleted");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AnimeSumbissions_IsDeleted",
                 table: "AnimeSumbissions",
                 column: "IsDeleted");
@@ -672,6 +702,11 @@ namespace goodweebs.Data.Migrations
                 column: "IsDeleted");
 
             migrationBuilder.CreateIndex(
+                name: "IX_UserGenres_UserId",
+                table: "UserGenres",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_WantToReadMaps_MangaId",
                 table: "WantToReadMaps",
                 column: "MangaId");
@@ -733,6 +768,9 @@ namespace goodweebs.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Settings");
+
+            migrationBuilder.DropTable(
+                name: "UserGenres");
 
             migrationBuilder.DropTable(
                 name: "WantToReadMaps");

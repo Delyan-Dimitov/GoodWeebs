@@ -1,11 +1,13 @@
 ﻿namespace Entities
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     using Entities.Maps;
+    using GoodWeebs.Data.Common.Models;
 
-    public class Anime : ISeries
+    public class Anime : ISeries, IDeletableEntity, IAuditInfo
     {
         public int Id { get; set; }
 
@@ -24,7 +26,7 @@
 
         public string Synopsis { get; set; }
 
-        public string Episodes { get; set; }
+        public int Episodes { get; set; }
 
         public string Status { get; set; }
 
@@ -45,5 +47,13 @@
         public ICollection<WatchedMap> WatchedAnime { get; set; }
 
         public ICollection<WantToWatchMap> WantToWatch { get; set; }
+
+        public DateTime CreatedOn { get; set; }
+
+        public DateTime? ModifiedOn { get; set; }
+
+        public bool IsDeleted { get; set; }
+
+        public DateTime? DeletedOn { get; set; }
     }
 }

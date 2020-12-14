@@ -21,6 +21,8 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\GoodWeebs.Data.Common\GoodWeebs.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\GoodWeebs.Data.Models\GoodWeebs.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Data\goodweebs.Data\goodweebs.Data.csproj" />
+    <ProjectReference Include="..\..\Web\goodweebs.Web.ViewModels\goodweebs.Web.ViewModels.csproj" />
     <ProjectReference Include="..\GoodWeebs.Services.Mapping\GoodWeebs.Services.Mapping.csproj" />
   </ItemGroup>
 

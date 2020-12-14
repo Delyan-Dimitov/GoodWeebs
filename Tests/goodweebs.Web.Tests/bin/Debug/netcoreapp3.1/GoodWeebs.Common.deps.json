@@ -6,12 +6,12 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "GoodWeebs.Common/1.0.0": {
+      "goodweebs.Common/1.0.0": {
         "dependencies": {
           "StyleCop.Analyzers": "1.2.0-beta.205"
         },
         "runtime": {
-          "GoodWeebs.Common.dll": {}
+          "goodweebs.Common.dll": {}
         }
       },
       "StyleCop.Analyzers/1.2.0-beta.205": {
@@ -23,7 +23,7 @@
     }
   },
   "libraries": {
-    "GoodWeebs.Common/1.0.0": {
+    "goodweebs.Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -2,10 +2,9 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-
-    using GoodWeebs.Data.Common.Repositories;
-    using GoodWeebs.Data.Models;
-    using GoodWeebs.Services.Mapping;
+    using global::GoodWeebs.Data.Common.Repositories;
+    using global::GoodWeebs.Data.Models;
+    using global::GoodWeebs.Services.Mapping;
 
     public class SettingsService : ISettingsService
     {

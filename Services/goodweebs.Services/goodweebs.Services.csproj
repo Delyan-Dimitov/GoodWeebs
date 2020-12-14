@@ -10,8 +10,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="MangaServices\**" />
     <Compile Remove="NewFolder1\**" />
+    <EmbeddedResource Remove="MangaServices\**" />
     <EmbeddedResource Remove="NewFolder1\**" />
+    <None Remove="MangaServices\**" />
     <None Remove="NewFolder1\**" />
   </ItemGroup>
   <ItemGroup>
@@ -32,10 +35,6 @@
     <Reference Include="..\..\Data\GoodWeebs.Data\Repositories\" />
     
 
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="MangaServices\" />
   </ItemGroup>
 
 </Project>

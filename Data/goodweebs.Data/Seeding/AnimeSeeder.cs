@@ -12,8 +12,6 @@
 
     public class AnimeSeeder : ISeeder
     {
-        private const string Path = @"C:\Users\gunex\Desktop\GoodWeebs\Web\GoodWeebs.Web\wwwroot\anime-offline-database.json";
-
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
 
@@ -21,8 +19,9 @@
             {
                 return;
             }
+
             string json = null;
-            using (StreamReader r = new StreamReader(@"C:\Users\gunex\Desktop\GoodWeebs\Web\GoodWeebs.Web\wwwroot\animes.json"))
+            using (StreamReader r = new StreamReader(@"C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\wwwroot\animes.json"))
             {
                 json = r.ReadToEnd();
             }
@@ -60,7 +59,7 @@
             }
 
             dbContext.Animes.AddRange(animes);
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
         }
     }
 }

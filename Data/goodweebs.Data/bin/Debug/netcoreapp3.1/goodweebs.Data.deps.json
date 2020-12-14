@@ -1095,7 +1095,7 @@
           "System.ComponentModel.Annotations": "4.7.0"
         },
         "runtime": {
-          "goodweebs.Data.Common.dll": {}
+          "GoodWeebs.Data.Common.dll": {}
         }
       },
       "goodweebs.Data.Models/1.0.0": {

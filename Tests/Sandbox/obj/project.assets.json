@@ -2898,9 +2898,11 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "goodweebs.Data": "1.0.0",
           "goodweebs.Data.Common": "1.0.0",
           "goodweebs.Data.Models": "1.0.0",
-          "goodweebs.Services.Mapping": "1.0.0"
+          "goodweebs.Services.Mapping": "1.0.0",
+          "goodweebs.Web.ViewModels": "1.0.0"
         },
         "compile": {
           "bin/placeholder/goodweebs.Services.Data.dll": {}

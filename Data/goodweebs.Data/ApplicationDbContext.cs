@@ -13,6 +13,7 @@
     using GoodWeebs.Data.Common.Models;
     using GoodWeebs.Data.Models;
     using GoodWeebs.Data.Models;
+    using GoodWeebs.Data.Models.MappingTables;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
 
@@ -57,6 +58,8 @@
         public DbSet<MangaSubmission> MangaSubmissions { get; set; }
 
         public DbSet<ArticleSubmission> ArticleSubmissions { get; set; }
+
+        public DbSet<UserGenre> UserGenres { get; set; }
 
         public object Anime { get; internal set; }
 

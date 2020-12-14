@@ -14,3 +14,10 @@ C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\obj\Debug\netc
 C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\obj\Debug\netcoreapp3.1\goodweebs.Services.Data.csproj.CopyComplete
 C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\obj\Debug\netcoreapp3.1\goodweebs.Services.Data.dll
 C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\obj\Debug\netcoreapp3.1\goodweebs.Services.Data.pdb
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\bin\Debug\netcoreapp3.1\goodweebs.Common.dll
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\bin\Debug\netcoreapp3.1\goodweebs.Data.dll
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\bin\Debug\netcoreapp3.1\goodweebs.Web.ViewModels.dll
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\bin\Debug\netcoreapp3.1\goodweebs.Data.pdb
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\bin\Debug\netcoreapp3.1\goodweebs.Web.ViewModels.pdb
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Data\bin\Debug\netcoreapp3.1\goodweebs.Common.pdb

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace goodweebs.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201210180903_InitialCreate")]
+    [Migration("20201214125329_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,8 +31,14 @@ namespace goodweebs.Data.Migrations
                     b.Property<string>("Aired")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("CurrentCount")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("EpisodeDuration")
                         .HasColumnType("nvarchar(max)");
@@ -45,6 +51,12 @@ namespace goodweebs.Data.Migrations
 
                     b.Property<string>("Genres")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Picture")
                         .HasColumnType("nvarchar(max)");
@@ -75,6 +87,8 @@ namespace goodweebs.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
 
                     b.ToTable("Animes");
                 });
@@ -566,6 +580,29 @@ namespace goodweebs.Data.Migrations
                     b.ToTable("HelperAnimes");
                 });
 
+            modelBuilder.Entity("GoodWeebs.Data.Models.MappingTables.UserGenre", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Count")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Genre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserGenres");
+                });
+
             modelBuilder.Entity("GoodWeebs.Data.Models.Setting", b =>
                 {
                     b.Property<int>("Id")
@@ -922,6 +959,13 @@ namespace goodweebs.Data.Migrations
                     b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "Submitter")
                         .WithMany("AnimeSubmissions")
                         .HasForeignKey("SubmitterId");
+                });
+
+            modelBuilder.Entity("GoodWeebs.Data.Models.MappingTables.UserGenre", b =>
+                {
+                    b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Goodweebs.Data.Models.Submissions.ArticleSubmission", b =>

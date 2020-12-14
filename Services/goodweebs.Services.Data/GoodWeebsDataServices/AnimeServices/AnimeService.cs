@@ -1,19 +1,18 @@
-﻿namespace GoodWeebs.Services.GoodWeebs.Services.AnimeServices
+﻿using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
+
+using Entities;
+using Entities.Maps;
+using global::GoodWeebs.Data.Common.Repositories;
+using global::GoodWeebs.Data.Models;
+using GoodWeebs.Data;
+using GoodWeebs.Web.ViewModels.AnimeViewModels;
+using Microsoft.EntityFrameworkCore;
+
+namespace GoodWeebs.Services.GoodWeebs.Services.AnimeServices
 {
-    using System.Collections.Generic;
-    using System.Data;
-    using System.Linq;
-    using System.Threading.Tasks;
-
-    using Entities;
-    using Entities.Maps;
-    using global::GoodWeebs.Data;
-    using global::GoodWeebs.Data.Common.Repositories;
-    using global::GoodWeebs.Data.Models;
-    using global::GoodWeebs.Web.ViewModels.AnimeViewModels;
-    using global::GoodWeebs.Web.ViewModels.SubmissionInputModels;
-    using Microsoft.EntityFrameworkCore;
-
     public class AnimeService : IAnimeService
     {
         private readonly IRepository<Anime> animes;
