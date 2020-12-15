@@ -16,10 +16,10 @@
     [Authorize]
     public class SubmissionController : BaseController
     {
-        private readonly ISubmissionsService subService;
+        private readonly ICreateSubmissionsService subService;
         private readonly UserManager<ApplicationUser> userManager;
 
-        public SubmissionController(ISubmissionsService subService, UserManager<ApplicationUser> userManager)
+        public SubmissionController(ICreateSubmissionsService subService, UserManager<ApplicationUser> userManager)
         {
             this.subService = subService;
             this.userManager = userManager;

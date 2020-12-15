@@ -1,120 +1,110 @@
-﻿using GoodWeebs.Services.GoodWeebs.Services.SubmissionsServices;
-using Goodweebs.Data.Models.Submissions;
+﻿using Goodweebs.Data.Models.Submissions;
 using GoodWeebs.Data.Common.Repositories;
 using GoodWeebs.Data.Models;
-using GoodWeebs.Web.ViewModels.AnimeViewModels;
-using GoodWeebs.Web.ViewModels.SubmissionInputModels;
-using System.Linq;
+using GoodWeebs.Web.ViewModels.SubmissionModels;
 using System.Threading.Tasks;
+using System.Linq;
+using System.Collections.Generic;
+using Goodweebs.Web.ViewModels.SubmissionModels;
+using GoodWeebs.Web.ViewModels.SubmissionInputModels;
 
-namespace GoodWeebs.Services.GoodWeebs.Services.SubmissionsServices
+namespace GoodWeebs.Services.Data.GoodWeebsDataServices.SubmissionsServices
 {
     public class SubmissionsService : ISubmissionsService
     {
-        private readonly IDeletableEntityRepository<AnimeSumbission> asubRepo;
-        private readonly IDeletableEntityRepository<MangaSubmission> mSubRepo;
+        private readonly IDeletableEntityRepository<AnimeSumbission> animeSubRepo;
+        private readonly IDeletableEntityRepository<MangaSubmission> mangaSubRepo;
         private readonly IDeletableEntityRepository<ArticleSubmission> articleSubRepo;
-        private readonly IDeletableEntityRepository<ApplicationUser> userRepo;
 
         public SubmissionsService(
-            IDeletableEntityRepository<AnimeSumbission> asubRepo,
-            IDeletableEntityRepository<MangaSubmission> mSubRepo,
-            IDeletableEntityRepository<ArticleSubmission> articleSubRepo,
-            IDeletableEntityRepository<ApplicationUser> userRepo)
+            IDeletableEntityRepository<AnimeSumbission> animeSubRepo,
+            IDeletableEntityRepository<MangaSubmission> mangaSubRepo,
+            IDeletableEntityRepository<ArticleSubmission> articleSubRepo)
         {
-            this.asubRepo = asubRepo;
-            this.mSubRepo = mSubRepo;
+            this.animeSubRepo = animeSubRepo;
+            this.mangaSubRepo = mangaSubRepo;
             this.articleSubRepo = articleSubRepo;
-            this.userRepo = userRepo;
         }
 
-        public async Task SubmitAnimeWithUrlAsync(string url, string userId)
+        public List<SubmissionInListViewModel> GetAll(int page, int itemsPerPage)
         {
-            var user = this.userRepo.All().FirstOrDefault(x => x.Id == userId);
-            var urlSubmission = new AnimeSumbission()
+            var submissions = new List<SubmissionInListViewModel>();
+            var animeSubmissions = new List<SubmissionInListViewModel>();
+            this.animeSubRepo.All()
+                .ToList()
+                .ForEach(x => submissions
+                .Add(new SubmissionInListViewModel { Title = x.Title, Id = x.Id, SubmissionType = "Anime", CreatedOn = x.CreatedOn }));
+
+            var mangaSubmissions = new List<SubmissionInListViewModel>();
+            this.articleSubRepo.All()
+                .ToList()
+                .ForEach(x => submissions
+                .Add(new SubmissionInListViewModel { Title = x.Title, Id = x.Id, SubmissionType = "Manga", CreatedOn = x.CreatedOn }));
+
+            var articleSubmissions = new List<SubmissionInListViewModel>();
+            this.mangaSubRepo
+                .All()
+                .ToList()
+                .ForEach(x => submissions
+                .Add(new SubmissionInListViewModel { Title = x.Title, Id = x.Id, SubmissionType = "Article", CreatedOn = x.CreatedOn }));
+
+            submissions = submissions.OrderBy(x => x.CreatedOn).Skip((page - 1) * itemsPerPage).Take(itemsPerPage).ToList();
+
+            return submissions;
+        }
+
+        public AnimeSubmissionInputModel GetAnimeSubmission(int id)
+        {
+            var animeSubmission = this.animeSubRepo.AllAsNoTracking().FirstOrDefault(x => x.Id == id); // TODO Fix data types
+            var result = new AnimeSubmissionInputModel
             {
-                SubmitterId = userId,
-                SubmissionUrl = url,
-                SubmissionType = "Url",
-                Submitter = user,
+                Title = animeSubmission.Title,
+                Status = animeSubmission.Status.Split(", ").ToList(),
+                Studios = animeSubmission.Studios.Split(", ").ToList(),
+                Trailer = animeSubmission.Trailer,
+                Synopsis = animeSubmission.Synopsis,
+                Type = animeSubmission.Type,
+                PictureUrl = animeSubmission.Picture,
+                Aired = animeSubmission.Aired,
+                Episodes = int.Parse(animeSubmission.Episodes),
+                Duration = int.Parse(animeSubmission.EpisodeDuration),
+                Rating = animeSubmission.Rating.Split(", ").ToList(),
+                Genres = animeSubmission.Genres.Split(", ").ToList(),
             };
-            await this.asubRepo.AddAsync(urlSubmission);
+            return result;
         }
 
-        public async Task SubmitAnimeFullAsync(AnimeSubmissionInputModel model, string userId, string submissionType)
+        public MangaSubmissionInputModel GetMangaSubmission(int id)
         {
-            var user = this.userRepo.All().FirstOrDefault(x => x.Id == userId);
-
-            var animeSubmission = new AnimeSumbission()
+            var mangaSubmission = this.mangaSubRepo.AllAsNoTracking().FirstOrDefault(x => x.Id == id);
+            var result = new MangaSubmissionInputModel
             {
-                SubmitterId = userId,
-                Submitter = user,
-                SubmissionType = submissionType,
-                Title = model.Title,
-                Genres = string.Join(", ", model.Genres),
-                Picture = model.PictureUrl,
-                Type = model.Type,
-                Synopsis = model.Synopsis,
-                Episodes = model.Episodes.ToString(),
-                Status = string.Join(" ", model.Status),
-                Aired = model.Aired,
-                Trailer = model.Trailer,
-                Synonyms = model.Synonyms,
-                EpisodeDuration = model.Duration.ToString(),
-                Rating = model.Rating[0],
-                Studios = string.Join(", ", model.Studios),
-
+                Title = mangaSubmission.Title,
+                Status = mangaSubmission.Status,
+                Authors = mangaSubmission.Authors,
+                Synopsis = mangaSubmission.Synopsis,
+                Type = mangaSubmission.Type,
+                PictureUrl = mangaSubmission.Picture,
+                Published = mangaSubmission.Published,
+                Volumes = int.Parse(mangaSubmission.Volumes),
+                Chapters = mangaSubmission.Chapters,
+                Genres = mangaSubmission.Genres.Split(", ").ToList(),
             };
-            await this.asubRepo.AddAsync(animeSubmission);
-            await this.asubRepo.SaveChangesAsync();
+            return result;
         }
 
-        public async Task SubmitArticleAsync(ArticleSubmissionInputModel model, string userId)
+        public ArticleSubmissionInputModel GetArticleSubmission(int id)
         {
-            var user = this.userRepo.All().FirstOrDefault(x => x.Id == userId);
-            var articleSub = new ArticleSubmission() { SubbmiterId = userId, Submitter = user, Title = model.Title, Content = model.Content };
-            await this.articleSubRepo.AddAsync(articleSub);
-
-
-        }
-
-        public async Task SubmitMangaFullAsync(MangaSubmissionInputModel model, string userId, string submissionType)
-        {
-            var user = this.userRepo.All().FirstOrDefault(x => x.Id == userId);
-
-            MangaSubmission mangaSubmission = new MangaSubmission()
-                {
-                    SubmitterId = userId,
-                    Submitter = user,
-                    SubmissionType = submissionType,
-                    Title = model.Title,
-                    Genres = string.Join(", ",model.Genres),
-                    Picture = model.PictureUrl,
-                    Type = model.Type,
-                    Synopsis = model.Synopsis,
-                    Status = model.Status,
-                    Authors = model.Authors,
-                    Volumes = model.Volumes.ToString(),
-                    Chapters = model.Chapters,
-                    Published = model.Published,
-
-                };
-            await this.mSubRepo.AddAsync(mangaSubmission);
-        }
-
-        public async Task SubmitMangaWithUrlAsync(string url, string userId)
-        {
-            var user = this.userRepo.All().FirstOrDefault(x => x.Id == userId);
-
-            var urlSubmission = new MangaSubmission()
+            var articleSubmission = this.articleSubRepo.AllAsNoTracking().FirstOrDefault(x => x.Id == id);
+            var result = new ArticleSubmissionInputModel
             {
-                SubmitterId = userId,
-                SubmissionUrl = url,
-                SubmissionType = "Url",
-                Submitter = user,
+                Title = articleSubmission.Title,
+                Content = articleSubmission.Content,
             };
-
-            await this.mSubRepo.AddAsync(urlSubmission);
+            return result;
         }
+
+        public int GetCount() => this.animeSubRepo.AllAsNoTracking().Count() + this.mangaSubRepo.AllAsNoTracking().Count() + this.articleSubRepo.AllAsNoTracking().Count();
+
     }
 }

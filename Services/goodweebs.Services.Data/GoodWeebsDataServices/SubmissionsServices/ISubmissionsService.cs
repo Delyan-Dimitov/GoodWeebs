@@ -1,18 +1,19 @@
-﻿using GoodWeebs.Web.ViewModels.SubmissionInputModels;
-using System.Threading.Tasks;
-
-namespace GoodWeebs.Services.GoodWeebs.Services.SubmissionsServices
+﻿namespace GoodWeebs.Services.Data.GoodWeebsDataServices.SubmissionsServices
 {
+    using global::GoodWeebs.Web.ViewModels.SubmissionInputModels;
+    using global::GoodWeebs.Web.ViewModels.SubmissionModels;
+    using Goodweebs.Web.ViewModels.SubmissionModels;
+    using System.Collections.Generic;
+
     public interface ISubmissionsService
     {
-        Task SubmitAnimeFullAsync(AnimeSubmissionInputModel model, string userID, string submissionType);
+        List<SubmissionInListViewModel> GetAll(int page, int itemsPerPage);
 
-        Task SubmitMangaFullAsync(MangaSubmissionInputModel model, string userID, string submissionType);
+        AnimeSubmissionInputModel GetAnimeSubmission(int id);
 
-        Task SubmitArticleAsync(ArticleSubmissionInputModel model, string userID);
+        MangaSubmissionInputModel GetMangaSubmission(int id);
 
-        Task SubmitAnimeWithUrlAsync(string url, string userId);
-
-        Task SubmitMangaWithUrlAsync(string url, string userId);
+        ArticleSubmissionInputModel GetArticleSubmission(int id);
+        int GetCount();
     }
 }

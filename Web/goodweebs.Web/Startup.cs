@@ -81,7 +81,7 @@
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<IAnimeService, AnimeService>();
             services.AddTransient<IMangaService, MangaService>();
-            services.AddTransient<ISubmissionsService, SubmissionsService>();
+            services.AddTransient<ICreateSubmissionsService, CreateSubmissionsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

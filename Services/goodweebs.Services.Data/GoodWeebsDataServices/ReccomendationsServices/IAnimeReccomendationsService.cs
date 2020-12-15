@@ -5,9 +5,9 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
-    public interface IReccomendationsService
+    public interface IAnimeReccomendationsService
     {
-        AnimeViewModel FindRecomenations(string userId);
+        AnimeViewModel FindRecomenationsAsync(string userId);
 
         //Task<string[]> GetTopGenres(string userId);
 

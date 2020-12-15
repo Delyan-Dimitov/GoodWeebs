@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Text;
     using System.Threading.Tasks;
 
     using Entities;
@@ -15,7 +16,7 @@
     using Goodweebs.Services.Data.GoodWeebsDataServices.ReccomendationsServices;
     using Microsoft.AspNetCore.Identity;
 
-    public class ReccomendationService : IReccomendationsService
+    public class AnimeReccomendationService : IAnimeReccomendationsService
     {
         private readonly ApplicationDbContext dbContext;
         private readonly IDeletableEntityRepository<Anime> animeRepo;
@@ -23,7 +24,7 @@
         private readonly IRepository<UserGenre> userGenreRepo;
         private readonly IDeletableEntityRepository<WatchedMap> watchedMapsRepo;
 
-        public ReccomendationService(ApplicationDbContext dbContext, IDeletableEntityRepository<Anime> animeRepo, UserManager<ApplicationUser> userManager, IRepository<UserGenre> userGenreRepo, IDeletableEntityRepository<WatchedMap> watchedMapsRepo)
+        public AnimeReccomendationService(ApplicationDbContext dbContext, IDeletableEntityRepository<Anime> animeRepo, UserManager<ApplicationUser> userManager, IRepository<UserGenre> userGenreRepo, IDeletableEntityRepository<WatchedMap> watchedMapsRepo)
         {
             this.dbContext = dbContext;
             this.animeRepo = animeRepo;
@@ -32,11 +33,12 @@
             this.watchedMapsRepo = watchedMapsRepo;
         }
 
-        public AnimeViewModel FindRecomenations(string userId)
+        public async Task<AnimeViewModel> FindRecomenationsAsync(string userId)
         {
             var topGenres = this.GetTopGenres(userId);
             var vaguelySimilar = this.FindVaguelySimilar(topGenres);
             var leaderBoard = this.CreateLeaderBoard(vaguelySimilar);
+            leaderBoard = await this.ProcessPoints(leaderBoard, topGenres);
 
             return new AnimeViewModel();
         }
@@ -78,14 +80,17 @@
             return leaderBoard;
         }
 
-        private Dictionary<Anime, int> ProcessPoints(Dictionary<Anime, int> leaderBoard, List<string> topGenres)
+        private async Task<Dictionary<Anime, int>> ProcessPoints(Dictionary<Anime, int> leaderBoard, List<string> topGenres) // TODO cut the collection at some point to gain more performance
         {
             var watchedAnime = this.watchedMapsRepo.AllAsNoTracking().Select(x => x.Anime).ToList();
-            var leaderBoardPostGenreMatch = this.ComputeTopGenreMatches(leaderBoard, topGenres);
-            var leaderBoardPostAiringCoeficientMatch = this.ComputeAiringCoeficientMatches(leaderBoardPostGenreMatch, watchedAnime);
-            var leadBoardPostEpisodeCoeficientMatch = this.ComputeEpisodeCoeficientMatches(leaderBoardPostAiringCoeficientMatch, watchedAnime);
+            leaderBoard = this.ComputeTopGenreMatches(leaderBoard, topGenres); // MAX - > 6
+            leaderBoard = this.ComputeAiringCoeficientMatches(leaderBoard, watchedAnime); // MAX - 3 / total max - 9
+            leaderBoard = this.ComputeEpisodeCoeficientMatches(leaderBoard, watchedAnime); // MAX - 2/ total max - 11
+            leaderBoard = this.MatchRating(leaderBoard, watchedAnime); // MAX - 1 / TOTAL AMX 12
+            leaderBoard = this.MatchStudios(leaderBoard, watchedAnime); // MAX - 1/ TOTAL MAX 13
+            leaderBoard = this.MatchType(leaderBoard, watchedAnime); // MAX - 1/ TOTAL MAX 13
 
-            return null;
+            return leaderBoard;
 
         }
 
@@ -210,7 +215,7 @@
         }
 
         private int ComputeEpisodeCoeficient(Anime firstAnime, Anime secondAnime) => Math.Abs(firstAnime.Episodes - secondAnime.Episodes);
-       
+
         private Dictionary<Anime, int> AssingPointsBasedOnEpisodeCoeficient(Dictionary<Anime, int> animeWithCoeficientSum)
         {
             var dictWithFinalPoints = new Dictionary<Anime, int>();
@@ -227,36 +232,71 @@
             return dictWithFinalPoints;
         }
 
-
-        public Dictionary<Anime, int> MatchRating(Dictionary<Anime, int> leaderBoard, List<Anime> watchedAnime)
+        private Dictionary<Anime, int> MatchRating(Dictionary<Anime, int> leaderBoard, List<Anime> watchedAnime)
         {
+            var updatedLeaderBoard = leaderBoard;
             foreach (var item in leaderBoard)
             {
-                if (item.Key.Rating.ToUpper() == wat)
-                {
+                var key = item.Key;
+                var value = item.Value;
 
+                var counter = 0;
+                foreach (var anime in watchedAnime)
+                {
+                    if (item.Key.Rating.ToUpper() == anime.Rating.ToUpper())
+                    {
+                        counter++;
+                    }
+                }
+
+                if (counter > 0)
+                {
+                    updatedLeaderBoard.Remove(key);
+                    updatedLeaderBoard.Add(key, value + 1);
                 }
             }
+
+            return updatedLeaderBoard;
         }
 
-        public Dictionary<Anime, int> MatchStudio(Dictionary<Anime, int> vaguelySimilar)
+        private Dictionary<Anime, int> MatchStudios(Dictionary<Anime, int> leaderBoard, List<Anime> watchedAnime)
         {
-            throw new NotImplementedException();
+            var watchedAnimeStudios = new StringBuilder();
+            watchedAnime.ForEach(x => watchedAnimeStudios.Append(x.Studios.ToUpper()));
+            var studiosAsArray = watchedAnimeStudios.ToString().Split(",").Distinct().ToArray();
+            foreach (var item in leaderBoard)
+            {
+                var key = item.Key;
+                var value = item.Value;
+                if (studiosAsArray.Contains(item.Key.Studios.Split(",")[0].ToUpper())) // TODO this is pretty scuffed ngl literally the ugliest code i have written
+                {
+                    leaderBoard.Remove(key);
+                    leaderBoard.Add(key, value + 1);
+                }
+            }
+
+            return leaderBoard;
         }
 
-        public Dictionary<Anime, int> MatchType(Dictionary<Anime, int> vaguelySimilar)
+        private Dictionary<Anime, int> MatchType(Dictionary<Anime, int> leaderBoard, List<Anime> watchedAnime)
         {
-            throw new NotImplementedException();
-        }
 
-        public Task<Dictionary<Anime, int>> GetTopGenreMatches(Dictionary<Anime, int> vaguelySimilar)
-        {
-            throw new NotImplementedException();
-        }
 
-        Task<AnimeViewModel> IReccomendationsService.FindRecomenations(string userId)
-        {
-            throw new NotImplementedException();
+            foreach (var item in leaderBoard)
+            {
+                var key = item.Key;
+                var value = item.Value;
+                foreach (var anime  in watchedAnime)
+                {
+                    if (anime.Type.ToUpper().Contains(item.Key.Type.ToUpper()))
+                    {
+                        leaderBoard.Remove(key);
+                        leaderBoard.Add(key, value + 1);
+                        break;
+                    }
+                }
+            }
+            return leaderBoard;
         }
     }
 }
