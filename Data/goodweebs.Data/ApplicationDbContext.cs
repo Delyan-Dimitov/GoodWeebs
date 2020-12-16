@@ -61,6 +61,12 @@
 
         public DbSet<UserGenre> UserGenres { get; set; }
 
+        public DbSet<Group> Groups { get; set; }
+
+        public DbSet<Post> Posts { get; set; }
+
+        public DbSet<Comment> Comments { get; set; }
+
         public object Anime { get; internal set; }
 
         public override int SaveChanges() => this.SaveChanges(true);

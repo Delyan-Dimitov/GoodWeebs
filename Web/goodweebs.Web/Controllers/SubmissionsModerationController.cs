@@ -47,7 +47,7 @@
             await this.subService.ApproveAnimeSubmission(model);
 
             await this.subService.UpdateUserSubmissionCount(model.SubmitterId);
-            await this.subService.RemoveSubmission(model.DbId, "Anime", "Approved" );
+            await this.subService.RemoveSubmission(model.DbId, "Anime", "Approved");
             return this.RedirectToAction("AllSubmissions");
         }
 

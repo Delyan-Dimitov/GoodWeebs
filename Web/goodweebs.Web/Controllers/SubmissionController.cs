@@ -1,7 +1,6 @@
 ﻿namespace GoodWeebs.Web.Controllers
 {
     using System;
-    using System.Collections.Generic;
     using System.Security.Claims;
     using System.Threading.Tasks;
 
@@ -11,7 +10,6 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Mvc.Rendering;
 
     [Authorize]
     public class SubmissionController : BaseController
@@ -46,7 +44,6 @@
 
         public IActionResult SubmitAnimeFull()
         {
-
             AnimeSubmissionInputModel model = new AnimeSubmissionInputModel();
             return this.View(model);
         }
@@ -123,7 +120,6 @@
         }
 
         // aritcle
-
         public IActionResult SubmitArticle()
         {
             return this.View();
