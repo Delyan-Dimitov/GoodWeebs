@@ -3,17 +3,15 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-
-    using GoodWeebs.Data;
-    using GoodWeebs.Data.Common.Repositories;
-    using GoodWeebs.Data.Models;
-    using GoodWeebs.Data.Repositories;
-
+    using global::GoodWeebs.Data.Common.Repositories;
+    using global:: GoodWeebs.Data.Models;
+    using global::GoodWeebs.Data;
     using Microsoft.EntityFrameworkCore;
 
     using Moq;
 
     using Xunit;
+    using global::GoodWeebs.Data.Repositories;
 
     public class SettingsServiceTests
     {

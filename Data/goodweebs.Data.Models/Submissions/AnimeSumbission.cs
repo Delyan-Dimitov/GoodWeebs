@@ -2,10 +2,10 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
-
+    using GoodWeebs.Data.Models.Submissions;
     using GoodWeebs.Data.Common.Models;
 
-    public class AnimeSumbission : IAuditInfo, IDeletableEntity
+    public class AnimeSubmission : IAuditInfo, IDeletableEntity, ISubmission
     {
         [Key]
         public int Id { get; set; }
@@ -44,6 +44,7 @@
 
         public string Studios { get; set; }
 
+        public string ApprovalStatus { get; set; } = "Pending";
 
         public DateTime CreatedOn { get; set; }
 

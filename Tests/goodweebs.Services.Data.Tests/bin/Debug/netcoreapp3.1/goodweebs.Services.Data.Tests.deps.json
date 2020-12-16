@@ -2318,7 +2318,7 @@
           "goodweebs.Data.Common": "1.0.0"
         },
         "runtime": {
-          "GoodWeebs.Data.Models.dll": {}
+          "goodweebs.Data.Models.dll": {}
         }
       },
       "goodweebs.Services.Data/1.0.0": {

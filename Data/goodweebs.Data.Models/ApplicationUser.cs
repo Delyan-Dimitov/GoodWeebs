@@ -7,8 +7,8 @@ namespace GoodWeebs.Data.Models
     using Entities;
     using Entities.Maps;
     using GoodWeebs.Data.Common.Models;
-    using Goodweebs.Data.Models.Submissions;
-    using Goodweebs.Data.Models.Submissions;
+    using GoodWeebs.Data.Models.Submissions;
+    using GoodWeebs.Data.Models.Submissions;
     using Microsoft.AspNetCore.Identity;
 
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
@@ -25,7 +25,7 @@ namespace GoodWeebs.Data.Models
             this.CurrentlyReading = new HashSet<CurrentlyReadingMap>();
             this.Read = new HashSet<ReadMap>();
             this.WantToRead = new HashSet<WantToReadMap>();
-            this.AnimeSubmissions = new HashSet<AnimeSumbission>();
+            this.AnimeSubmissions = new HashSet<AnimeSubmission>();
             this.MangaSubmissions = new HashSet<MangaSubmission>();
             this.ArticleSubmissions = new HashSet<ArticleSubmission>();
         }
@@ -46,6 +46,8 @@ namespace GoodWeebs.Data.Models
 
         public string AvatarUrl { get; set; }
 
+        public int SubmissionsCount { get; set; }
+
         public virtual ICollection<CurrentlyWatchingMap> CurrentlyWatching { get; set; }
 
         public virtual ICollection<WatchedMap> Watched { get; set; }
@@ -62,7 +64,7 @@ namespace GoodWeebs.Data.Models
 
         public virtual ICollection<Friends> Friends { get; set; }
 
-        public virtual ICollection<AnimeSumbission> AnimeSubmissions { get; set; }
+        public virtual ICollection<AnimeSubmission> AnimeSubmissions { get; set; }
 
         public virtual ICollection<MangaSubmission> MangaSubmissions { get; set; }
 

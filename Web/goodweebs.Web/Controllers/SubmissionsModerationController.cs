@@ -1,5 +1,6 @@
 ﻿using GoodWeebs.Services.Data.GoodWeebsDataServices.SubmissionsServices;
 using GoodWeebs.Web.Controllers;
+using GoodWeebs.Web.ViewModels.SubmissionInputModels;
 using GoodWeebs.Web.ViewModels.SubmissionModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -7,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace goodweebs.Web.Controllers
+namespace GoodWeebs.Web.Controllers
 {
     public class SubmissionsModerationController : BaseController
     {
@@ -34,21 +35,67 @@ namespace goodweebs.Web.Controllers
         public IActionResult ViewAndEditAnimeSubmission(int id)
         {
             var model = this.subService.GetAnimeSubmission(id);
+            model.DbId = id;
             return this.View(model);
         }
 
         [HttpPost]
-        public IActionResult ViewAndEditAnimeSubmissions()
+        public async Task<IActionResult> EditAndSubmitAnimeSubmissions(AnimeSubmissionInputModel model)
         {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(model);
+            }
 
+            await this.subService.ApproveAnimeSubmission(model);
+
+            await this.subService.UpdateUserSubmissionCount(model.SubmitterId);
+            await this.subService.RemoveSubmission(model.DbId, "Anime", "Approved" );
+            return this.RedirectToAction("AllSubmissions");
         }
-        public IActionResult ViewAndEditAnimeSubmission()
+
+        public IActionResult ViewAndEditMangaSubmission(int id)
         {
-            return this.View();
+            var model = this.subService.GetMangaSubmission(id);
+            model.DbId = id;
+            return this.View(model);
         }
-        public IActionResult ViewAndEditAnimeSubmission()
+
+        [HttpPost]
+        public async Task<IActionResult> EditAndSubmitMangaSubmissions(MangaSubmissionInputModel model)
         {
-            return this.View();
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(model);
+            }
+
+            await this.subService.ApproveMangaSubmission(model);
+
+            await this.subService.UpdateUserSubmissionCount(model.SubmitterId);
+            await this.subService.RemoveSubmission(model.DbId, "Manga", "Approved");
+            return this.RedirectToAction("AllSubmissions");
+        }
+
+        public IActionResult ViewAndEditArticleSubmission(int id)
+        {
+            var model = this.subService.GetArticleSubmission(id);
+            model.DbId = id;
+            return this.View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditAndSubmitArticleSubmissions(ArticleSubmissionInputModel model)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(model);
+            }
+
+            await this.subService.ApproveArticleSubmission(model);
+
+            await this.subService.UpdateUserSubmissionCount(model.SubmitterId);
+            await this.subService.RemoveSubmission(model.DbId, "Manga", "Approved");
+            return this.RedirectToAction("AllSubmissions");
         }
     }
 }

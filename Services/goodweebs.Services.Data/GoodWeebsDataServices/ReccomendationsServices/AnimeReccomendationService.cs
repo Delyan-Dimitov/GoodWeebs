@@ -13,7 +13,6 @@
     using global::GoodWeebs.Data.Models;
     using global::GoodWeebs.Data.Models.MappingTables;
     using global::GoodWeebs.Web.ViewModels.AnimeViewModels;
-    using Goodweebs.Services.Data.GoodWeebsDataServices.ReccomendationsServices;
     using Microsoft.AspNetCore.Identity;
 
     public class AnimeReccomendationService : IAnimeReccomendationsService

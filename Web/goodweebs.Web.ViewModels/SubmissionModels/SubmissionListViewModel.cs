@@ -1,6 +1,6 @@
 ﻿namespace GoodWeebs.Web.ViewModels.SubmissionModels
 {
-    using Goodweebs.Web.ViewModels.SubmissionModels;
+    using GoodWeebs.Web.ViewModels.SubmissionModels;
     using System;
     using System.Collections.Generic;
 

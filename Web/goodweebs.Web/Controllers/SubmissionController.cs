@@ -46,41 +46,8 @@
 
         public IActionResult SubmitAnimeFull()
         {
-            ////var group1 = new SelectListGroup() { Name = "group1"};
 
             AnimeSubmissionInputModel model = new AnimeSubmissionInputModel();
-            ////this.ViewBag.Genres = new List<SelectListItem>()
-            ////{
-            ////    new SelectListItem() {Text = "Action", Value = "1", Group = group1 },
-            ////    new SelectListItem() {Text = "Aventure", Value = "1", Group = group1},
-            ////    new SelectListItem() {Text = "Cars", Value = "1", Group = group1 },
-            ////    new SelectListItem() {Text = "Demons", Value = "1", Group = group1 },
-            ////    new SelectListItem() {Text = "Ecchi", Value = "1", Group = group1 },
-            ////    new SelectListItem() {Text = "Drama", Value = "1", Group = group1 },
-            ////    new SelectListItem() {Text = "Fantasy", Value = "1", Group = group1 },
-            ////    new SelectListItem() {Text = "Hentai", Value = "1", Group = group1 },
-            ////    new SelectListItem() {Text = "Historical", Value = "1", Group = group1 },
-            ////    new SelectListItem() {Text = "Horror", Value = "1", Group = group1 },
-            ////};
-
-
-
-            //{
-            //    Genres = new List<string>
-            //    {
-            //        "Action", "Aventure", "Cars", "Comedy", "Demons", "Drama", "Ecchi","Fantasy", "Harem", "Hentai", "Historical", "Horror", "Kids", "Magic", "Martial Arts", "Mecha", "Music", "Mystery", "Parody", "Police", "Romance", "Samurai", "School", "Sci-Fi", "Shoujo", "Shoujo Ai", "Shounen", "Shounen Ai", "Space", "Sports", "Super Power", "Supernatural", "Vampire", "Yaoi", "Yuri",
-            //    },
-
-            //    Rating = new List<string>
-            //    {
-            //        "TV", "OVA", "Movie", "Special",
-            //    },
-
-            //    Status = new List<string>
-            //    {
-            //        "Currently Airing" , "Finished Airing",
-            //    },
-            //};
             return this.View(model);
         }
 

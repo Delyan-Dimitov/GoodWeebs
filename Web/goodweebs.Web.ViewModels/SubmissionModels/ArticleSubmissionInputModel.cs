@@ -13,5 +13,9 @@
         [MinLength(100)]
         [MaxLength(10000)]
         public string Content { get; set; }
+
+        public int DbId { get; set; } = 0;
+
+        public string SubmitterId { get; set; }
     }
 }

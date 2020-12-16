@@ -1,4 +1,4 @@
-﻿namespace Goodweebs.Data.Models
+﻿namespace GoodWeebs.Data.Models
 {
     using System;
     using System.ComponentModel.DataAnnotations;

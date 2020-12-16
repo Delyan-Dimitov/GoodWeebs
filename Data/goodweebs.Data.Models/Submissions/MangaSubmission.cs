@@ -1,12 +1,12 @@
-﻿namespace Goodweebs.Data.Models.Submissions
+﻿namespace GoodWeebs.Data.Models.Submissions
 {
     using System;
     using System.ComponentModel.DataAnnotations;
-
+    using GoodWeebs.Data.Models.Submissions;
     using GoodWeebs.Data.Common.Models;
     using GoodWeebs.Data.Models;
 
-    public class MangaSubmission : IAuditInfo, IDeletableEntity
+    public class MangaSubmission : IAuditInfo, IDeletableEntity, ISubmission
     {
         [Key]
         public int Id { get; set; }
@@ -40,6 +40,8 @@
         public string Published { get; set; }
 
         public string Rating { get; set; }
+
+        public string ApprovalStatus { get; set; } = "Pending";
 
         public DateTime CreatedOn { get; set; }
 

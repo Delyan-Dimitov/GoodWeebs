@@ -18,9 +18,9 @@ namespace GoodWeebs.Services.GoodWeebs.Services.AnimeServices
         private readonly IRepository<Anime> animes;
         private readonly IRepository<WatchedMap> watchedMaps;
         private readonly ApplicationDbContext dbContext;
-        private readonly IRepository<AnimeSumbission> animeSubmissions;
+        private readonly IRepository<AnimeSubmission> animeSubmissions;
 
-        public AnimeService(IRepository<Anime> anime, IRepository<WatchedMap> watchedMaps, ApplicationDbContext dbContext, IRepository<AnimeSumbission> animeSubmissions)
+        public AnimeService(IRepository<Anime> anime, IRepository<WatchedMap> watchedMaps, ApplicationDbContext dbContext, IRepository<AnimeSubmission> animeSubmissions)
         {
             this.animes = anime;
             this.watchedMaps = watchedMaps;
@@ -79,7 +79,7 @@ namespace GoodWeebs.Services.GoodWeebs.Services.AnimeServices
                 Studios = x.Studios,
                 Synopsis = x.Synopsis,
                 Rating = x.Rating,
-                Episodes = x.Episodes,
+                Episodes = x.Episodes.ToString(), // TODO GROSS
                 Duration = x.EpisodeDuration,
                 Aired = x.Aired,
                 PictureUrl = x.Picture,

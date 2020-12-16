@@ -14,7 +14,7 @@
         public string Title { get; set; }
 
         [Required]
-        [Url(ErrorMessage = "PLease submit a valid url" )]
+        [Url(ErrorMessage = "PLease submit a valid url")]
         public string PictureUrl { get; set; }
 
         [Required]
@@ -44,7 +44,7 @@
         public List<string> Studios { get; set; }
 
         [Required]
-        public List<string> Rating { get; set; }
+        public string Rating { get; set; }
 
         public List<string> RatingItems { get; set; } = new List<string> { "TV", "OVA", "Movie", "Special" };
 
@@ -54,7 +54,7 @@
         public IEnumerable<string> GenresItems { get; set; } = new List<string> { "Action", "Aventure", "Cars", "Comedy", "Demons", "Drama", "Ecchi", "Fantasy", "Harem", "Hentai", "Historical", "Horror", "Kids", "Magic", "Martial Arts", "Mecha", "Music", "Mystery", "Parody", "Police", "Romance", "Samurai", "School", "Sci-Fi", "Shoujo", "Shoujo Ai", "Shounen", "Shounen Ai", "Space", "Sports", "Super Power", "Supernatural", "Vampire", "Yaoi", "Yuri" };
 
         [Required]
-        public List<string> Status { get; set; }
+        public string Status { get; set; }
 
         public List<string> StatusItems { get; set; } = new List<string> { "Currently Airing", "Finished Airing" };
 
@@ -62,5 +62,9 @@
 
         [Url]
         public string Trailer { get; set; }
-    }
+
+        public string SubmitterId { get; set; }
+
+        public int DbId { get; set; } = 0;
+     }
 }

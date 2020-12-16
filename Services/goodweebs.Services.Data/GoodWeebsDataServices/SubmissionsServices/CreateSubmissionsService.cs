@@ -5,17 +5,17 @@
     using global::GoodWeebs.Data.Common.Repositories;
     using global::GoodWeebs.Data.Models;
     using global::GoodWeebs.Web.ViewModels.SubmissionInputModels;
-    using Goodweebs.Data.Models.Submissions;
+    using global::GoodWeebs.Data.Models.Submissions;
 
     public class CreateSubmissionsService : ICreateSubmissionsService
     {
-        private readonly IDeletableEntityRepository<AnimeSumbission> asubRepo;
+        private readonly IDeletableEntityRepository<AnimeSubmission> asubRepo;
         private readonly IDeletableEntityRepository<MangaSubmission> mSubRepo;
         private readonly IDeletableEntityRepository<ArticleSubmission> articleSubRepo;
         private readonly IDeletableEntityRepository<ApplicationUser> userRepo;
 
         public CreateSubmissionsService(
-            IDeletableEntityRepository<AnimeSumbission> asubRepo,
+            IDeletableEntityRepository<AnimeSubmission> asubRepo,
             IDeletableEntityRepository<MangaSubmission> mSubRepo,
             IDeletableEntityRepository<ArticleSubmission> articleSubRepo,
             IDeletableEntityRepository<ApplicationUser> userRepo)
@@ -29,7 +29,7 @@
         public async Task SubmitAnimeWithUrlAsync(string url, string userId)
         {
             var user = this.userRepo.All().FirstOrDefault(x => x.Id == userId);
-            var urlSubmission = new AnimeSumbission()
+            var urlSubmission = new AnimeSubmission()
             {
                 SubmitterId = userId,
                 SubmissionUrl = url,
@@ -43,7 +43,7 @@
         {
             var user = this.userRepo.All().FirstOrDefault(x => x.Id == userId);
 
-            var animeSubmission = new AnimeSumbission()
+            var animeSubmission = new AnimeSubmission()
             {
                 SubmitterId = userId,
                 Submitter = user,
@@ -59,7 +59,7 @@
                 Trailer = model.Trailer,
                 Synonyms = model.Synonyms,
                 EpisodeDuration = model.Duration.ToString(),
-                Rating = model.Rating[0],
+                Rating = model.Rating,
                 Studios = string.Join(", ", model.Studios),
 
             };
@@ -70,7 +70,7 @@
         public async Task SubmitArticleAsync(ArticleSubmissionInputModel model, string userId)
         {
             var user = this.userRepo.All().FirstOrDefault(x => x.Id == userId);
-            var articleSub = new ArticleSubmission() { SubbmiterId = userId, Submitter = user, Title = model.Title, Content = model.Content };
+            var articleSub = new ArticleSubmission() { SubmitterId = userId, Submitter = user, Title = model.Title, Content = model.Content };
             await this.articleSubRepo.AddAsync(articleSub);
 
 

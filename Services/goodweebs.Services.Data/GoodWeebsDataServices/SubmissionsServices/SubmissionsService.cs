@@ -1,29 +1,42 @@
-﻿using Goodweebs.Data.Models.Submissions;
-using GoodWeebs.Data.Common.Repositories;
-using GoodWeebs.Data.Models;
-using GoodWeebs.Web.ViewModels.SubmissionModels;
-using System.Threading.Tasks;
-using System.Linq;
-using System.Collections.Generic;
-using Goodweebs.Web.ViewModels.SubmissionModels;
-using GoodWeebs.Web.ViewModels.SubmissionInputModels;
-
-namespace GoodWeebs.Services.Data.GoodWeebsDataServices.SubmissionsServices
+﻿namespace GoodWeebs.Services.Data.GoodWeebsDataServices.SubmissionsServices
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using Entities;
+    using global::GoodWeebs.Data.Common.Repositories;
+    using global::GoodWeebs.Data.Models;
+    using global::GoodWeebs.Data.Models.Submissions;
+    using global::GoodWeebs.Web.ViewModels.SubmissionInputModels;
+    using global::GoodWeebs.Web.ViewModels.SubmissionModels;
+
     public class SubmissionsService : ISubmissionsService
     {
-        private readonly IDeletableEntityRepository<AnimeSumbission> animeSubRepo;
+        private readonly IDeletableEntityRepository<AnimeSubmission> animeSubRepo;
         private readonly IDeletableEntityRepository<MangaSubmission> mangaSubRepo;
         private readonly IDeletableEntityRepository<ArticleSubmission> articleSubRepo;
+        private readonly IDeletableEntityRepository<Anime> animeRepo;
+        private readonly IDeletableEntityRepository<Manga> mangaRepo;
+        private readonly IDeletableEntityRepository<Article> articleRepo;
+        private readonly IDeletableEntityRepository<ApplicationUser> userRepo;
 
         public SubmissionsService(
-            IDeletableEntityRepository<AnimeSumbission> animeSubRepo,
+            IDeletableEntityRepository<AnimeSubmission> animeSubRepo,
             IDeletableEntityRepository<MangaSubmission> mangaSubRepo,
-            IDeletableEntityRepository<ArticleSubmission> articleSubRepo)
+            IDeletableEntityRepository<ArticleSubmission> articleSubRepo,
+            IDeletableEntityRepository<Anime> animeRepo,
+            IDeletableEntityRepository<Manga> mangaRepo,
+            IDeletableEntityRepository<Article> articleRepo,
+            IDeletableEntityRepository<ApplicationUser> userRepo)
         {
             this.animeSubRepo = animeSubRepo;
             this.mangaSubRepo = mangaSubRepo;
             this.articleSubRepo = articleSubRepo;
+            this.animeRepo = animeRepo;
+            this.mangaRepo = mangaRepo;
+            this.articleRepo = articleRepo;
+            this.userRepo = userRepo;
         }
 
         public List<SubmissionInListViewModel> GetAll(int page, int itemsPerPage)
@@ -59,7 +72,7 @@ namespace GoodWeebs.Services.Data.GoodWeebsDataServices.SubmissionsServices
             var result = new AnimeSubmissionInputModel
             {
                 Title = animeSubmission.Title,
-                Status = animeSubmission.Status.Split(", ").ToList(),
+                Status = animeSubmission.Status,
                 Studios = animeSubmission.Studios.Split(", ").ToList(),
                 Trailer = animeSubmission.Trailer,
                 Synopsis = animeSubmission.Synopsis,
@@ -68,8 +81,9 @@ namespace GoodWeebs.Services.Data.GoodWeebsDataServices.SubmissionsServices
                 Aired = animeSubmission.Aired,
                 Episodes = int.Parse(animeSubmission.Episodes),
                 Duration = int.Parse(animeSubmission.EpisodeDuration),
-                Rating = animeSubmission.Rating.Split(", ").ToList(),
+                Rating = animeSubmission.Rating,
                 Genres = animeSubmission.Genres.Split(", ").ToList(),
+                SubmitterId = animeSubmission.SubmitterId,
             };
             return result;
         }
@@ -106,5 +120,90 @@ namespace GoodWeebs.Services.Data.GoodWeebsDataServices.SubmissionsServices
 
         public int GetCount() => this.animeSubRepo.AllAsNoTracking().Count() + this.mangaSubRepo.AllAsNoTracking().Count() + this.articleSubRepo.AllAsNoTracking().Count();
 
+        public async Task ApproveAnimeSubmission(AnimeSubmissionInputModel input)
+        {
+            await this.animeRepo.AddAsync(new Anime
+            {
+                Title = input.Title,
+                Status = input.Status,
+                Studios = string.Join(", ", input.Studios),
+                Synopsis = input.Synopsis,
+                Aired = input.Aired,
+                EpisodeDuration = input.Duration.ToString(), // TODO CHECK IF YOU HAVE A BRAIN
+                Episodes = input.Episodes,
+                Genres = string.Join(", ", input.Genres),
+                Picture = input.PictureUrl,
+                Rating = input.Rating,
+                Trailer = input.Trailer,
+                Type = input.Type,
+            });
+            await this.animeRepo.SaveChangesAsync();
+        }
+
+        public async Task ApproveMangaSubmission(MangaSubmissionInputModel input)
+        {
+            await this.mangaRepo.AddAsync(new Manga
+            {
+                Title = input.Title,
+                Status = input.Status,
+                Authors = string.Join(", ", input.Authors),
+                Synopsis = input.Synopsis,
+                Published = input.Published,
+                Volumes = input.Volumes.ToString(), // TODO CHECK IF YOU HAVE A BRAIN
+                Chapters = input.Chapters,
+                Genres = string.Join(", ", input.Genres),
+                PictureUrl = input.PictureUrl,
+                Type = input.Type,
+            });
+            await this.mangaRepo.SaveChangesAsync();
+        }
+
+        public async Task ApproveArticleSubmission(ArticleSubmissionInputModel input)
+        {
+            await this.articleRepo.AddAsync(new Article
+            {
+                Title = input.Title,
+                Content = input.Content,
+
+                // TODO AUTHOR = Submitter
+            });
+            await this.animeRepo.SaveChangesAsync();
+        }
+
+        public async Task RemoveSubmission(int id, string type, string approvalStatus)
+        {
+            if (type == "Anime")
+            {
+                var sub = this.animeSubRepo.All().First(x => x.Id == id);
+                sub.ApprovalStatus = approvalStatus;
+                this.animeSubRepo.Update(sub);
+                this.animeSubRepo.Delete(sub);
+                await this.animeSubRepo.SaveChangesAsync();
+            }
+            else if (type == "Manga")
+            {
+                var sub = this.mangaSubRepo.All().First(x => x.Id == id);
+                sub.ApprovalStatus = approvalStatus;
+                this.mangaSubRepo.Update(sub);
+                this.mangaSubRepo.Delete(sub);
+                await this.mangaSubRepo.SaveChangesAsync();
+            }
+            else if (type == "Article")
+            {
+                var sub = this.articleSubRepo.All().First(x => x.Id == id);
+                sub.ApprovalStatus = approvalStatus;
+                this.articleSubRepo.Update(sub);
+                this.articleSubRepo.Delete(sub);
+                await this.articleSubRepo.SaveChangesAsync();
+            }
+        }
+
+        public async Task UpdateUserSubmissionCount(string userId) // horrible
+        {
+            var user = this.userRepo.AllAsNoTracking().First(x => x.Id == userId);
+            user.SubmissionsCount++;
+            this.userRepo.Update(user);
+            await this.userRepo.SaveChangesAsync();
+        }
     }
 }

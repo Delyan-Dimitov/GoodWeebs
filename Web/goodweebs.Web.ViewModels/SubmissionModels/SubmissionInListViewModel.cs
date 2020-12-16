@@ -1,4 +1,4 @@
-﻿namespace Goodweebs.Web.ViewModels.SubmissionModels
+﻿namespace GoodWeebs.Web.ViewModels.SubmissionModels
 {
     using System;
 

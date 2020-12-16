@@ -21,7 +21,7 @@
             }
 
             string json = null;
-            using (StreamReader r = new StreamReader(@"C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\wwwroot\animes.json"))
+            using (StreamReader r = new StreamReader(@"C:\Users\gunex\Desktop\GoodWeebs\Web\GoodWeebs.Web\wwwroot\animes.json"))
             {
                 json = r.ReadToEnd();
             }
@@ -35,7 +35,7 @@
 
                     Type = aDto.Type,
 
-                    Episodes = aDto.Episodes,
+                    Episodes = int.Parse(aDto.Episodes), // poopoo
 
                     Status = aDto.Status,
 

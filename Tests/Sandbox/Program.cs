@@ -1,10 +1,8 @@
 ﻿namespace Sandbox
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics;
     using System.IO;
-    using System.Linq;
     using System.Threading.Tasks;
 
     using GoodWeebs.Data;
@@ -25,30 +23,21 @@
         public static void Main(string[] args)
         {
 
-            var dict = new Dictionary<string, int>();
-            var dict2 = new Dictionary<string, int>();
-            dict.Add("naruto", 1);
-            foreach (var item in dict)
+            string json = null;
+            using (StreamReader r = new StreamReader(@"C:\Users\gunex\Desktop\GoodWeebs\Web\GoodWeebs.Web\wwwroot\anime-offline-database.json"))
             {
-                dict2.Add(item.Key, item.Value + 1);
+                json = r.ReadToEnd();
             }
-            Console.WriteLine(dict2.FirstOrDefault().ToString());
-            //string json = null;
-            //using (StreamReader r = new StreamReader(@"C:\Users\gunex\Desktop\GoodWeebs\Web\GoodWeebs.Web\wwwroot\anime-offline-database.json"))
-            //{
-            //    json = r.ReadToEnd();
-            //}
 
-         
-            //// WORKS!!!!
-            //var animeDTOs = JsonConvert.DeserializeObject<AnimeDTO[]>(json);
-            //Console.WriteLine(json);
+            // WORKS!!!!
+            var animeDTOs = JsonConvert.DeserializeObject<AnimeDTO[]>(json);
+            Console.WriteLine(json);
 
-            //Console.WriteLine();
-            //Console.WriteLine($"{typeof(Program).Namespace} ({string.Join(" ", args)}) starts working...");
-            //var serviceCollection = new ServiceCollection();
-            //ConfigureServices(serviceCollection);
-            //IServiceProvider serviceProvider = serviceCollection.BuildServiceProvider(true);
+            Console.WriteLine();
+            Console.WriteLine($"{typeof(Program).Namespace} ({string.Join(" ", args)}) starts working...");
+            var serviceCollection = new ServiceCollection();
+            ConfigureServices(serviceCollection);
+            IServiceProvider serviceProvider = serviceCollection.BuildServiceProvider(true);
         }
 
         private static async Task<int> SandboxCode(SandboxOptions options, IServiceProvider serviceProvider)

@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace goodweebs.Data.Migrations
+namespace GoodWeebs.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20201214125329_InitialCreate")]
@@ -635,7 +635,7 @@ namespace goodweebs.Data.Migrations
                     b.ToTable("Settings");
                 });
 
-            modelBuilder.Entity("Goodweebs.Data.Models.Submissions.ArticleSubmission", b =>
+            modelBuilder.Entity("GoodWeebs.Data.Models.Submissions.ArticleSubmission", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -675,7 +675,7 @@ namespace goodweebs.Data.Migrations
                     b.ToTable("ArticleSubmissions");
                 });
 
-            modelBuilder.Entity("Goodweebs.Data.Models.Submissions.MangaSubmission", b =>
+            modelBuilder.Entity("GoodWeebs.Data.Models.Submissions.MangaSubmission", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -968,14 +968,14 @@ namespace goodweebs.Data.Migrations
                         .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("Goodweebs.Data.Models.Submissions.ArticleSubmission", b =>
+            modelBuilder.Entity("GoodWeebs.Data.Models.Submissions.ArticleSubmission", b =>
                 {
                     b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "Submitter")
                         .WithMany("ArticleSubmissions")
                         .HasForeignKey("SubmitterId");
                 });
 
-            modelBuilder.Entity("Goodweebs.Data.Models.Submissions.MangaSubmission", b =>
+            modelBuilder.Entity("GoodWeebs.Data.Models.Submissions.MangaSubmission", b =>
                 {
                     b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "Submitter")
                         .WithMany("MangaSubmissions")
