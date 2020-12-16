@@ -24,5 +24,7 @@
         public int Likes { get; set; } = 0;
 
         public ICollection<Comment> Comments { get; set; }
+
+        public int CommentCount { get; set; }
     }
 }
