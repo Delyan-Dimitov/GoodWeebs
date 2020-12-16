@@ -1,15 +1,12 @@
-﻿using GoodWeebs.Services.Data.GoodWeebsDataServices.SubmissionsServices;
-using GoodWeebs.Web.Controllers;
-using GoodWeebs.Web.ViewModels.SubmissionInputModels;
-using GoodWeebs.Web.ViewModels.SubmissionModels;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace GoodWeebs.Web.Controllers
+﻿namespace GoodWeebs.Web.Controllers
 {
+    using System.Threading.Tasks;
+
+    using GoodWeebs.Services.Data.GoodWeebsDataServices.SubmissionsServices;
+    using GoodWeebs.Web.ViewModels.SubmissionInputModels;
+    using GoodWeebs.Web.ViewModels.SubmissionModels;
+    using Microsoft.AspNetCore.Mvc;
+
     public class SubmissionsModerationController : BaseController
     {
         private readonly ISubmissionsService subService;

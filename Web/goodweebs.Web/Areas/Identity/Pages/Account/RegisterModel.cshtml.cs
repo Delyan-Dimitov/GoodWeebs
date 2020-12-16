@@ -76,8 +76,8 @@
             this.ExternalLogins = (await this.signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (this.ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email };
-                var result = await this.userManager.CreateAsync(user, Input.Password);
+                var user = new ApplicationUser { UserName = this.Input.Email, Email = this.Input.Email };
+                var result = await this.userManager.CreateAsync(user, this.Input.Password);
                 if (result.Succeeded)
                 {
                     this.logger.LogInformation("User created a new account with password.");
@@ -91,12 +91,12 @@
                         protocol: this.Request.Scheme);
 
                     string htmlMessage = $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.";
-                    await this.emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+                    await this.emailSender.SendEmailAsync(this.Input.Email, "Confirm your email",
                         htmlMessage);
 
                     if (this.userManager.Options.SignIn.RequireConfirmedAccount)
                     {
-                        return this.RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+                        return this.RedirectToPage("RegisterConfirmation", new { email = this.Input.Email, returnUrl = returnUrl });
                     }
                     else
                     {
