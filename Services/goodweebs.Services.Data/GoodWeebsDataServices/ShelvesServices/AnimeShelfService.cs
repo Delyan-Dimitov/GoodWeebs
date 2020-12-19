@@ -61,8 +61,8 @@
             }
             else if (this.IsInWatched(userId, animeId))
             {
-                var toDelete = this.WatchingRepo.AllAsNoTracking().First(x => x.UserId == userId && x.AnimeId == animeId);
-                this.WatchingRepo.Delete(toDelete);
+                var toDelete = this.watchingRepo.AllAsNoTracking().First(x => x.UserId == userId && x.AnimeId == animeId);
+                this.watchingRepo.Delete(toDelete);
                 await this.watchingRepo.SaveChangesAsync();
                 await this.watchedRepo.AddAsync(new WatchedMap { User = user, Anime = anime });
                 await this.watchedRepo.SaveChangesAsync();

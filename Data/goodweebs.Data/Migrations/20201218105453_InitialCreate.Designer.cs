@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace goodweebs.Data.Migrations
+namespace Goodweebs.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20201218105453_InitialCreate")]
