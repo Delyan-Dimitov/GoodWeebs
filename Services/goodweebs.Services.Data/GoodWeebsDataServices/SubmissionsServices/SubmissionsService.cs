@@ -130,7 +130,7 @@
                 Synopsis = input.Synopsis,
                 Aired = input.Aired,
                 EpisodeDuration = input.Duration.ToString(), // TODO CHECK IF YOU HAVE A BRAIN
-                Episodes = input.Episodes,
+                Episodes = input.Episodes.ToString(),
                 Genres = string.Join(", ", input.Genres),
                 Picture = input.PictureUrl,
                 Rating = input.Rating,

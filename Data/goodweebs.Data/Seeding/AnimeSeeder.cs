@@ -35,7 +35,7 @@
 
                     Type = aDto.Type,
 
-                    Episodes = int.Parse(aDto.Episodes), // poopoo
+                    Episodes = aDto.Episodes,
 
                     Status = aDto.Status,
 

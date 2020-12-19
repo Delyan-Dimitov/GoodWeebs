@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace GoodWeebs.Data.Migrations
+namespace goodweebs.Data.Migrations
 {
     public partial class InitialCreate : Migration
     {
@@ -54,43 +54,6 @@ namespace GoodWeebs.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetRoles", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AspNetUsers",
-                columns: table => new
-                {
-                    Id = table.Column<string>(nullable: false),
-                    UserName = table.Column<string>(maxLength: 256, nullable: true),
-                    NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
-                    Email = table.Column<string>(maxLength: 256, nullable: true),
-                    NormalizedEmail = table.Column<string>(maxLength: 256, nullable: true),
-                    EmailConfirmed = table.Column<bool>(nullable: false),
-                    PasswordHash = table.Column<string>(nullable: true),
-                    SecurityStamp = table.Column<string>(nullable: true),
-                    ConcurrencyStamp = table.Column<string>(nullable: true),
-                    PhoneNumber = table.Column<string>(nullable: true),
-                    PhoneNumberConfirmed = table.Column<bool>(nullable: false),
-                    TwoFactorEnabled = table.Column<bool>(nullable: false),
-                    LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
-                    LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false),
-                    FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
-                    DateOfBirth = table.Column<DateTime>(nullable: false),
-                    Gender = table.Column<int>(nullable: false),
-                    Country = table.Column<string>(nullable: true),
-                    LikesAnime = table.Column<bool>(nullable: false),
-                    LikesManga = table.Column<bool>(nullable: false),
-                    AvatarUrl = table.Column<string>(nullable: true),
-                    CreatedOn = table.Column<DateTime>(nullable: false),
-                    ModifiedOn = table.Column<DateTime>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    DeletedOn = table.Column<DateTime>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -198,6 +161,93 @@ namespace GoodWeebs.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "CurrentlyWatchingMaps",
+                columns: table => new
+                {
+                    UserId = table.Column<string>(nullable: false),
+                    AnimeId = table.Column<int>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedOn = table.Column<DateTime>(nullable: true),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: true),
+                    DateStarted = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CurrentlyWatchingMaps", x => new { x.UserId, x.AnimeId });
+                    table.ForeignKey(
+                        name: "FK_CurrentlyWatchingMaps_Animes_AnimeId",
+                        column: x => x.AnimeId,
+                        principalTable: "Animes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "WantToWatchMaps",
+                columns: table => new
+                {
+                    UserId = table.Column<string>(nullable: false),
+                    AnimeId = table.Column<int>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedOn = table.Column<DateTime>(nullable: true),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WantToWatchMaps", x => new { x.UserId, x.AnimeId });
+                    table.ForeignKey(
+                        name: "FK_WantToWatchMaps_Animes_AnimeId",
+                        column: x => x.AnimeId,
+                        principalTable: "Animes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "WatchedMaps",
+                columns: table => new
+                {
+                    UserId = table.Column<string>(nullable: false),
+                    AnimeId = table.Column<int>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedOn = table.Column<DateTime>(nullable: true),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: true),
+                    DateStarted = table.Column<DateTime>(nullable: false),
+                    DateFinished = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WatchedMaps", x => new { x.UserId, x.AnimeId });
+                    table.ForeignKey(
+                        name: "FK_WatchedMaps_Animes_AnimeId",
+                        column: x => x.AnimeId,
+                        principalTable: "Animes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserRoles",
+                columns: table => new
+                {
+                    UserId = table.Column<string>(nullable: false),
+                    RoleId = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserRoles", x => new { x.UserId, x.RoleId });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AnimeSumbissions",
                 columns: table => new
                 {
@@ -219,6 +269,7 @@ namespace GoodWeebs.Data.Migrations
                     EpisodeDuration = table.Column<string>(nullable: true),
                     Rating = table.Column<string>(nullable: true),
                     Studios = table.Column<string>(nullable: true),
+                    ApprovalStatus = table.Column<string>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
@@ -227,12 +278,6 @@ namespace GoodWeebs.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AnimeSumbissions", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_AnimeSumbissions_AspNetUsers_SubmitterId",
-                        column: x => x.SubmitterId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -242,10 +287,11 @@ namespace GoodWeebs.Data.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     SubmitterId = table.Column<string>(nullable: true),
-                    SubbmiterId = table.Column<string>(nullable: true),
                     Title = table.Column<string>(nullable: true),
                     Content = table.Column<string>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
+                    Status = table.Column<string>(nullable: true),
+                    ApprovalStatus = table.Column<string>(nullable: true),
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     ModifiedOn = table.Column<DateTime>(nullable: true)
@@ -253,12 +299,6 @@ namespace GoodWeebs.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ArticleSubmissions", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ArticleSubmissions_AspNetUsers_SubmitterId",
-                        column: x => x.SubmitterId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -274,12 +314,6 @@ namespace GoodWeebs.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUserClaims", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_AspNetUserClaims_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -294,36 +328,6 @@ namespace GoodWeebs.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUserLogins", x => new { x.LoginProvider, x.ProviderKey });
-                    table.ForeignKey(
-                        name: "FK_AspNetUserLogins_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AspNetUserRoles",
-                columns: table => new
-                {
-                    UserId = table.Column<string>(nullable: false),
-                    RoleId = table.Column<string>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetUserRoles", x => new { x.UserId, x.RoleId });
-                    table.ForeignKey(
-                        name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
-                        column: x => x.RoleId,
-                        principalTable: "AspNetRoles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_AspNetUserRoles_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -338,35 +342,39 @@ namespace GoodWeebs.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
-                    table.ForeignKey(
-                        name: "FK_AspNetUserTokens_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "CurrentlyWatchingMaps",
+                name: "Comments",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    Title = table.Column<string>(nullable: true),
+                    Content = table.Column<string>(nullable: true),
+                    CommenterId = table.Column<string>(nullable: true),
+                    PostId = table.Column<string>(nullable: true),
+                    Likes = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Comments", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CurrentlyReadingMaps",
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false),
-                    AnimeId = table.Column<int>(nullable: false),
+                    MangaId = table.Column<int>(nullable: false),
                     DateStarted = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CurrentlyWatchingMaps", x => new { x.UserId, x.AnimeId });
+                    table.PrimaryKey("PK_CurrentlyReadingMaps", x => new { x.UserId, x.MangaId });
                     table.ForeignKey(
-                        name: "FK_CurrentlyWatchingMaps_Animes_AnimeId",
-                        column: x => x.AnimeId,
-                        principalTable: "Animes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_CurrentlyWatchingMaps_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
+                        name: "FK_CurrentlyReadingMaps_Mangas_MangaId",
+                        column: x => x.MangaId,
+                        principalTable: "Mangas",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -386,16 +394,62 @@ namespace GoodWeebs.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Friends", x => new { x.MainUserId, x.FriendUserId });
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Groups",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    AdminId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Groups", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUsers",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    UserName = table.Column<string>(maxLength: 256, nullable: true),
+                    NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
+                    Email = table.Column<string>(maxLength: 256, nullable: true),
+                    NormalizedEmail = table.Column<string>(maxLength: 256, nullable: true),
+                    EmailConfirmed = table.Column<bool>(nullable: false),
+                    PasswordHash = table.Column<string>(nullable: true),
+                    SecurityStamp = table.Column<string>(nullable: true),
+                    ConcurrencyStamp = table.Column<string>(nullable: true),
+                    PhoneNumber = table.Column<string>(nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
+                    LockoutEnabled = table.Column<bool>(nullable: false),
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
+                    DateOfBirth = table.Column<DateTime>(nullable: false),
+                    Gender = table.Column<int>(nullable: false),
+                    Country = table.Column<string>(nullable: true),
+                    LikesAnime = table.Column<bool>(nullable: false),
+                    LikesManga = table.Column<bool>(nullable: false),
+                    AvatarUrl = table.Column<string>(nullable: true),
+                    SubmissionsCount = table.Column<int>(nullable: false),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedOn = table.Column<DateTime>(nullable: true),
+                    GroupId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Friends_AspNetUsers_FriendUserId",
-                        column: x => x.FriendUserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Friends_AspNetUsers_MainUserId",
-                        column: x => x.MainUserId,
-                        principalTable: "AspNetUsers",
+                        name: "FK_AspNetUsers_Groups_GroupId",
+                        column: x => x.GroupId,
+                        principalTable: "Groups",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -420,6 +474,7 @@ namespace GoodWeebs.Data.Migrations
                     Status = table.Column<string>(nullable: true),
                     Published = table.Column<string>(nullable: true),
                     Rating = table.Column<string>(nullable: true),
+                    ApprovalStatus = table.Column<string>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
@@ -437,96 +492,29 @@ namespace GoodWeebs.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserGenres",
+                name: "Posts",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(nullable: true),
-                    Genre = table.Column<string>(nullable: true),
-                    Count = table.Column<string>(nullable: true)
+                    Id = table.Column<string>(nullable: false),
+                    Title = table.Column<string>(nullable: true),
+                    Content = table.Column<string>(nullable: true),
+                    PosterId = table.Column<string>(nullable: true),
+                    Likes = table.Column<int>(nullable: false),
+                    CommentCount = table.Column<int>(nullable: false),
+                    GroupId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserGenres", x => x.Id);
+                    table.PrimaryKey("PK_Posts", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_UserGenres_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "WantToWatchMaps",
-                columns: table => new
-                {
-                    UserId = table.Column<string>(nullable: false),
-                    AnimeId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_WantToWatchMaps", x => new { x.UserId, x.AnimeId });
-                    table.ForeignKey(
-                        name: "FK_WantToWatchMaps_Animes_AnimeId",
-                        column: x => x.AnimeId,
-                        principalTable: "Animes",
+                        name: "FK_Posts_Groups_GroupId",
+                        column: x => x.GroupId,
+                        principalTable: "Groups",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_WantToWatchMaps_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "WatchedMaps",
-                columns: table => new
-                {
-                    UserId = table.Column<string>(nullable: false),
-                    AnimeId = table.Column<int>(nullable: false),
-                    DateStarted = table.Column<DateTime>(nullable: false),
-                    DateFinished = table.Column<DateTime>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_WatchedMaps", x => new { x.UserId, x.AnimeId });
-                    table.ForeignKey(
-                        name: "FK_WatchedMaps_Animes_AnimeId",
-                        column: x => x.AnimeId,
-                        principalTable: "Animes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_WatchedMaps_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "CurrentlyReadingMaps",
-                columns: table => new
-                {
-                    UserId = table.Column<string>(nullable: false),
-                    MangaId = table.Column<int>(nullable: false),
-                    DateStarted = table.Column<DateTime>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CurrentlyReadingMaps", x => new { x.UserId, x.MangaId });
-                    table.ForeignKey(
-                        name: "FK_CurrentlyReadingMaps_Mangas_MangaId",
-                        column: x => x.MangaId,
-                        principalTable: "Mangas",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_CurrentlyReadingMaps_AspNetUsers_UserId",
-                        column: x => x.UserId,
+                        name: "FK_Posts_AspNetUsers_PosterId",
+                        column: x => x.PosterId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -552,6 +540,27 @@ namespace GoodWeebs.Data.Migrations
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ReadMaps_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserGenres",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<string>(nullable: true),
+                    Genre = table.Column<string>(nullable: true),
+                    Count = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserGenres", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_UserGenres_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -640,6 +649,11 @@ namespace GoodWeebs.Data.Migrations
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_AspNetUsers_GroupId",
+                table: "AspNetUsers",
+                column: "GroupId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AspNetUsers_IsDeleted",
                 table: "AspNetUsers",
                 column: "IsDeleted");
@@ -657,6 +671,16 @@ namespace GoodWeebs.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Comments_CommenterId",
+                table: "Comments",
+                column: "CommenterId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Comments_PostId",
+                table: "Comments",
+                column: "PostId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_CurrentlyReadingMaps_MangaId",
                 table: "CurrentlyReadingMaps",
                 column: "MangaId");
@@ -667,6 +691,11 @@ namespace GoodWeebs.Data.Migrations
                 column: "AnimeId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_CurrentlyWatchingMaps_IsDeleted",
+                table: "CurrentlyWatchingMaps",
+                column: "IsDeleted");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Friends_FriendUserId",
                 table: "Friends",
                 column: "FriendUserId");
@@ -675,6 +704,11 @@ namespace GoodWeebs.Data.Migrations
                 name: "IX_Friends_IsDeleted",
                 table: "Friends",
                 column: "IsDeleted");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Groups_AdminId",
+                table: "Groups",
+                column: "AdminId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Mangas_IsDeleted",
@@ -690,6 +724,16 @@ namespace GoodWeebs.Data.Migrations
                 name: "IX_MangaSubmissions_SubmitterId",
                 table: "MangaSubmissions",
                 column: "SubmitterId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Posts_GroupId",
+                table: "Posts",
+                column: "GroupId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Posts_PosterId",
+                table: "Posts",
+                column: "PosterId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ReadMaps_MangaId",
@@ -717,13 +761,147 @@ namespace GoodWeebs.Data.Migrations
                 column: "AnimeId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_WantToWatchMaps_IsDeleted",
+                table: "WantToWatchMaps",
+                column: "IsDeleted");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_WatchedMaps_AnimeId",
                 table: "WatchedMaps",
                 column: "AnimeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WatchedMaps_IsDeleted",
+                table: "WatchedMaps",
+                column: "IsDeleted");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_CurrentlyWatchingMaps_AspNetUsers_UserId",
+                table: "CurrentlyWatchingMaps",
+                column: "UserId",
+                principalTable: "AspNetUsers",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_WantToWatchMaps_AspNetUsers_UserId",
+                table: "WantToWatchMaps",
+                column: "UserId",
+                principalTable: "AspNetUsers",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_WatchedMaps_AspNetUsers_UserId",
+                table: "WatchedMaps",
+                column: "UserId",
+                principalTable: "AspNetUsers",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_AspNetUserRoles_AspNetUsers_UserId",
+                table: "AspNetUserRoles",
+                column: "UserId",
+                principalTable: "AspNetUsers",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_AnimeSumbissions_AspNetUsers_SubmitterId",
+                table: "AnimeSumbissions",
+                column: "SubmitterId",
+                principalTable: "AspNetUsers",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_ArticleSubmissions_AspNetUsers_SubmitterId",
+                table: "ArticleSubmissions",
+                column: "SubmitterId",
+                principalTable: "AspNetUsers",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_AspNetUserClaims_AspNetUsers_UserId",
+                table: "AspNetUserClaims",
+                column: "UserId",
+                principalTable: "AspNetUsers",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_AspNetUserLogins_AspNetUsers_UserId",
+                table: "AspNetUserLogins",
+                column: "UserId",
+                principalTable: "AspNetUsers",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_AspNetUserTokens_AspNetUsers_UserId",
+                table: "AspNetUserTokens",
+                column: "UserId",
+                principalTable: "AspNetUsers",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Comments_AspNetUsers_CommenterId",
+                table: "Comments",
+                column: "CommenterId",
+                principalTable: "AspNetUsers",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Comments_Posts_PostId",
+                table: "Comments",
+                column: "PostId",
+                principalTable: "Posts",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_CurrentlyReadingMaps_AspNetUsers_UserId",
+                table: "CurrentlyReadingMaps",
+                column: "UserId",
+                principalTable: "AspNetUsers",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Friends_AspNetUsers_FriendUserId",
+                table: "Friends",
+                column: "FriendUserId",
+                principalTable: "AspNetUsers",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Cascade);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Friends_AspNetUsers_MainUserId",
+                table: "Friends",
+                column: "MainUserId",
+                principalTable: "AspNetUsers",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Groups_AspNetUsers_AdminId",
+                table: "Groups",
+                column: "AdminId",
+                principalTable: "AspNetUsers",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropForeignKey(
+                name: "FK_Groups_AspNetUsers_AdminId",
+                table: "Groups");
+
             migrationBuilder.DropTable(
                 name: "AnimeSumbissions");
 
@@ -744,6 +922,9 @@ namespace GoodWeebs.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Comments");
 
             migrationBuilder.DropTable(
                 name: "Countries");
@@ -785,6 +966,9 @@ namespace GoodWeebs.Data.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
+                name: "Posts");
+
+            migrationBuilder.DropTable(
                 name: "Mangas");
 
             migrationBuilder.DropTable(
@@ -792,6 +976,9 @@ namespace GoodWeebs.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Groups");
         }
     }
 }

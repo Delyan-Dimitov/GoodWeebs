@@ -213,7 +213,7 @@
             return updatedLaederboard;
         }
 
-        private int ComputeEpisodeCoeficient(Anime firstAnime, Anime secondAnime) => Math.Abs(firstAnime.Episodes - secondAnime.Episodes);
+        private int ComputeEpisodeCoeficient(Anime firstAnime, Anime secondAnime) => Math.Abs(int.Parse(firstAnime.Episodes) - int.Parse(secondAnime.Episodes)); // TODO this can blowup like hiroshima
 
         private Dictionary<Anime, int> AssingPointsBasedOnEpisodeCoeficient(Dictionary<Anime, int> animeWithCoeficientSum)
         {

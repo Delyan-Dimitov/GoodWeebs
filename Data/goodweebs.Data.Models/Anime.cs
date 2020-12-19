@@ -26,7 +26,7 @@
 
         public string Synopsis { get; set; }
 
-        public int Episodes { get; set; }
+        public string Episodes { get; set; }
 
         public string Status { get; set; }
 
