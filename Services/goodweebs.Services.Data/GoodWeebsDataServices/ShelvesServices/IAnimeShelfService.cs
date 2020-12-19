@@ -1,10 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace goodweebs.Services.Data.GoodWeebsDataServices.ShelvesServices
+namespace GoodWeebs.Services.Data.GoodWeebsDataServices.ShelvesServices
 {
-    class IAnimeShelfService
+    public interface IAnimeShelfService
     {
+        public Task AddToWatched(string userId, int animeId);
+
+        public Task AddToWatching(string userId, int animeId);
+
+        public Task AddToWantToWatch(string userId, int animeId);
+
+        public Task RemoveFromWatched(string userId, int animeId);
+
+        public Task RemoveFromWatching(string userId, int animeId);
+
+        public Task RemoveFromWant(string userId, int animeId);
     }
 }

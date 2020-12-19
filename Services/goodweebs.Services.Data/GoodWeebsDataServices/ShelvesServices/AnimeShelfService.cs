@@ -31,7 +31,6 @@
             this.animeRepo = animeRepo;
         }
 
-        public IDeletableEntityRepository<CurrentlyWatchingMap> WatchingRepo => watchingRepo;
 
         public async Task AddToWantToWatch(string userId, int animeId)
         {
@@ -95,19 +94,34 @@
             }
         }
 
-        public Task RemoveFromWantToWatch(string userId, int animeId)
+        public async Task RemoveFromWatched(string userId, int animeId)
         {
-            throw new NotImplementedException();
+            if (this.IsInWatched(userId, animeId))
+            {
+                var toDelete = this.watchedRepo.AllAsNoTracking().First(x => x.UserId == userId && x.AnimeId == animeId);
+                this.watchedRepo.Delete(toDelete);
+                await this.watchedRepo.SaveChangesAsync();
+            }
         }
 
-        public Task RemoveFromWatched(string userId, int animeId)
+        public async Task RemoveFromWatching(string userId, int animeId)
         {
-            throw new NotImplementedException();
+            if (this.IsInWatching(userId, animeId))
+            {
+                var toDelete = this.watchingRepo.AllAsNoTracking().First(x => x.UserId == userId && x.AnimeId == animeId);
+                this.watchingRepo.Delete(toDelete);
+                await this.watchingRepo.SaveChangesAsync();
+            }
         }
 
-        public Task RemoveFromWatching(string userId, int animeId)
+        public async Task RemoveFromWant(string userId, int animeId)
         {
-            throw new NotImplementedException();
+            if (this.IsInWant(userId, animeId))
+            {
+                var toDelete = this.wantRepo.AllAsNoTracking().First(x => x.UserId == userId && x.AnimeId == animeId);
+                this.wantRepo.Delete(toDelete);
+                await this.wantRepo.SaveChangesAsync();
+            }
         }
 
         private bool IsInWatching(string userId, int animeId) => this.watchingRepo.AllAsNoTracking().Any(x => x.UserId == userId && x.AnimeId == animeId);
