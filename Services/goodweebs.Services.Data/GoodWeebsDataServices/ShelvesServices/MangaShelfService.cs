@@ -34,7 +34,7 @@
             this.mangaRepo = mangaRepo;
         }
 
-        public async Task AddToWantToRead(string userId, int mangaId)
+        public async Task AddToWant(string userId, int mangaId)
         {
             if (!this.IsInWant(userId, mangaId) &&
                 !this.IsInWatched(userId, mangaId) &&
@@ -48,7 +48,7 @@
             }
         }
 
-        public async Task AddToWatched(string userId, int mangaId)
+        public async Task AddToRead(string userId, int mangaId)
         {
             var user = this.userRepo.AllAsNoTracking().First(x => x.Id == userId);
             var manga = this.mangaRepo.AllAsNoTracking().First(x => x.Id == mangaId);
@@ -76,7 +76,7 @@
             }
         }
 
-        public async Task AddToWatching(string userId, int mangaId)
+        public async Task AddToReading(string userId, int mangaId)
         {
             var user = this.userRepo.AllAsNoTracking().First(x => x.Id == userId);
             var manga = this.mangaRepo.AllAsNoTracking().First(x => x.Id == mangaId);
@@ -96,7 +96,7 @@
             }
         }
 
-        public async Task RemoveFromWatched(string userId, int mangaId)
+        public async Task RemoveFromRead(string userId, int mangaId)
         {
             if (this.IsInWatched(userId, mangaId))
             {
@@ -106,7 +106,7 @@
             }
         }
 
-        public async Task RemoveFromWatching(string userId, int mangaId)
+        public async Task RemoveFromReading(string userId, int mangaId)
         {
             if (this.IsInWatching(userId, mangaId))
             {

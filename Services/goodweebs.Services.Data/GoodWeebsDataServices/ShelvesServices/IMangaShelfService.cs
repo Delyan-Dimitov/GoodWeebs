@@ -1,21 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Goodweebs.Services.Data.GoodWeebsDataServices.ShelvesServices
+﻿namespace GoodwWebs.Services.Data.GoodWeebsDataServices.ShelvesServices
 {
+    using System.Threading.Tasks;
+
     public interface IMangaShelfService
     {
-        public Task AddToWatched(string userId, int animeId);
+        public Task AddToRead(string userId, int mangaId);
 
-        public Task AddToWatching(string userId, int animeId);
+        public Task AddToReading(string userId, int mangaId);
 
-        public Task AddToWantToWatch(string userId, int animeId);
+        public Task AddToWant(string userId, int mangaId);
 
-        public Task RemoveFromWatched(string userId, int animeId);
+        public Task RemoveFromRead(string userId, int mangaId);
 
-        public Task RemoveFromWatching(string userId, int animeId);
+        public Task RemoveFromReading(string userId, int mangaId);
 
-        public Task RemoveFromWant(string userId, int animeId);
+        public Task RemoveFromWant(string userId, int mangaId);
     }
 }
