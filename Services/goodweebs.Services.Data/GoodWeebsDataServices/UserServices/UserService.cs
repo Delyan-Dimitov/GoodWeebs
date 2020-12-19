@@ -13,14 +13,18 @@
         private readonly IDeletableEntityRepository<ApplicationUser> userRepo;
         private readonly IDeletableEntityRepository<Friends> friendsRepo;
         private readonly UserManager<ApplicationUser> userManager;
+        private readonly IDeletableEntityRepository<FriendRequest> friendRequestRepo;
 
-        public UserService(IDeletableEntityRepository<ApplicationUser> userRepo,
+        public UserService(
+            IDeletableEntityRepository<ApplicationUser> userRepo,
             IDeletableEntityRepository<Friends> friendsRepo,
-            UserManager<ApplicationUser> userManager)
+            UserManager<ApplicationUser> userManager,
+            IDeletableEntityRepository<FriendRequest> friendRequestRepo)
         {
             this.userRepo = userRepo;
             this.friendsRepo = friendsRepo;
             this.userManager = userManager;
+            this.friendRequestRepo = friendRequestRepo;
         }
 
         public string GetUserAvatarByUsername(string username)
@@ -33,6 +37,26 @@
         {
             var user = this.userRepo.AllAsNoTracking().FirstOrDefault(x => x.UserName == username);
             return user;
+        }
+
+        public async Task RequestFriend(string requesterId, string requesteeId)
+        {
+            Friends friendship = null;
+            if (this.FrindshipExists(requesterId, requesteeId))
+            {
+                friendship = this.friendsRepo.AllAsNoTrackingWithDeleted().First(x =>
+                (x.FriendUserId == requesteeId && x.MainUserId == requesterId) |
+                (x.FriendUserId == requesterId && x.MainUserId == requesteeId));
+            }
+
+            if (!this.FrindshipExists(requesterId, requesteeId) || (this.FrindshipExists(requesterId, requesteeId) && friendship.IsDeleted))
+            {
+                var requester = this.userRepo.AllAsNoTracking().First(x => x.Id == requesterId);
+                var requestee = this.userRepo.AllAsNoTracking().First(x => x.Id == requesteeId);
+                await this.friendRequestRepo.AddAsync(new FriendRequest { Requester = requester, Requestee = requestee });
+                await this.friendRequestRepo.SaveChangesAsync();
+            }
+
         }
 
         public async Task AddFriend(string adderId, string addedId)
@@ -72,7 +96,15 @@
                     await this.friendsRepo.SaveChangesAsync();
                 }
             }
+        }
 
+        private bool FrindshipExists(string mainUserId, string secondUserId)
+        {
+            return this.friendsRepo
+                 .AllAsNoTrackingWithDeleted()
+                 .Any(x =>
+                 (x.FriendUserId == secondUserId && x.MainUserId == mainUserId) |
+                 (x.FriendUserId == mainUserId && x.MainUserId == secondUserId));
         }
     }
 }

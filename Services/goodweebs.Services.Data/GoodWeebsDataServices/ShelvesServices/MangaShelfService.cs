@@ -37,7 +37,7 @@
         public async Task AddToWant(string userId, int mangaId)
         {
             if (!this.IsInWant(userId, mangaId) &&
-                !this.IsInWatched(userId, mangaId) &&
+                !this.IsInRead(userId, mangaId) &&
                 !this.IsInWant(userId, mangaId))
             {
                 var user = this.userRepo.AllAsNoTracking().First(x => x.Id == userId);
@@ -61,7 +61,7 @@
                 await this.readRepo.AddAsync(new ReadMap { User = user, Manga = manga });
                 await this.readRepo.SaveChangesAsync();
             }
-            else if (this.IsInWatched(userId, mangaId))
+            else if (this.IsInRead(userId, mangaId))
             {
                 var toDelete = this.readingRepo.AllAsNoTracking().First(x => x.UserId == userId && x.MangaId == mangaId);
                 this.readingRepo.Delete(toDelete);
@@ -69,7 +69,7 @@
                 await this.readRepo.AddAsync(new ReadMap { User = user, Manga = manga });
                 await this.readRepo.SaveChangesAsync();
             }
-            else if (!this.IsInWatched(userId, mangaId))
+            else if (!this.IsInRead(userId, mangaId))
             {
                 await this.readRepo.AddAsync(new ReadMap { User = user, Manga = manga });
                 await this.readRepo.SaveChangesAsync();
@@ -89,7 +89,7 @@
                 await this.readingRepo.AddAsync(new CurrentlyReadingMap { User = user, Manga = manga });
             }
 
-            if (!this.IsInWatched(userId, mangaId) && !this.IsInWant(userId, mangaId) && !this.IsInWatching(userId, mangaId))
+            if (!this.IsInRead(userId, mangaId) && !this.IsInWant(userId, mangaId) && !this.IsInReading(userId, mangaId))
             {
                 await this.readingRepo.AddAsync(new CurrentlyReadingMap { User = user, Manga = manga });
                 await this.readingRepo.SaveChangesAsync();
@@ -98,7 +98,7 @@
 
         public async Task RemoveFromRead(string userId, int mangaId)
         {
-            if (this.IsInWatched(userId, mangaId))
+            if (this.IsInRead(userId, mangaId))
             {
                 var toDelete = this.readRepo.AllAsNoTracking().First(x => x.UserId == userId && x.MangaId == mangaId);
                 this.readRepo.Delete(toDelete);
@@ -108,7 +108,7 @@
 
         public async Task RemoveFromReading(string userId, int mangaId)
         {
-            if (this.IsInWatching(userId, mangaId))
+            if (this.IsInReading(userId, mangaId))
             {
                 var toDelete = this.readingRepo.AllAsNoTracking().First(x => x.UserId == userId && x.MangaId == mangaId);
                 this.readingRepo.Delete(toDelete);
@@ -126,9 +126,9 @@
             }
         }
 
-        private bool IsInWatching(string userId, int mangaId) => this.readingRepo.AllAsNoTracking().Any(x => x.UserId == userId && x.MangaId == mangaId);
+        private bool IsInReading(string userId, int mangaId) => this.readingRepo.AllAsNoTracking().Any(x => x.UserId == userId && x.MangaId == mangaId);
 
-        private bool IsInWatched(string userId, int mangaId) => this.readRepo.AllAsNoTracking().Any(x => x.UserId == userId && x.MangaId == mangaId);
+        private bool IsInRead(string userId, int mangaId) => this.readRepo.AllAsNoTracking().Any(x => x.UserId == userId && x.MangaId == mangaId);
 
         private bool IsInWant(string userId, int mangaId) => this.wantRepo.AllAsNoTracking().Any(x => x.UserId == userId && x.MangaId == mangaId);
     }
