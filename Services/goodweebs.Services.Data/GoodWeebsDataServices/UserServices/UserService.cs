@@ -126,7 +126,7 @@
                  (x.FriendUserId == mainUserId && x.MainUserId == secondUserId));
         }
 
-        public async Task<FriendsListViewModel> GetAllFriends(string userId)
+        public FriendsListViewModel GetAllFriends(string userId)
         {
             var user = this.userRepo.AllAsNoTracking().First(x => x.Id == userId);
             var usersFriends = user.Friends;
@@ -135,7 +135,7 @@
             {
                 if (friend.MainUserId != userId)
                 {
-                    friends.Friends.Add(new ProfileViewModel {Id = friend.MainUserId, AvatarUrl = friend.MainUser.AvatarUrl, DisplayName = friend.MainUser.DisplayName });
+                    friends.Friends.Add(new ProfileViewModel { Id = friend.MainUserId, AvatarUrl = friend.MainUser.AvatarUrl, DisplayName = friend.MainUser.DisplayName });
                 }
                 else if (friend.FriendUserId != userId)
                 {
@@ -146,15 +146,19 @@
             return friends;
         }
 
-        public async Task<ProfileViewModel> GetAllFriendRequests(string userId)
+        public List<FriendRequestViewModel> GetAllFriendRequests(string userId)
         {
             var requests = this.friendRequestRepo.AllAsNoTracking().Where(x => x.RequesteeId == userId);
-            List<FriendRequestViewModel> model = null; 
+            List<FriendRequestViewModel> model = null;
             foreach (var request in requests)
             {
                 var sender = this.userRepo.AllAsNoTracking().First(x => x.Id == request.RequesterId);
-                model.Add(new FriendRequestViewModel {Id = request.Id, Sender = new ProfileViewModel {Id = sender.Id, AvatarUrl = sender.AvatarUrl, DisplayName = sender.DisplayName}}); // TODO cleanest code i have written in my life :)
+                model.Add(new FriendRequestViewModel { Id = request.Id, Sender = new ProfileViewModel { Id = sender.Id, AvatarUrl = sender.AvatarUrl, DisplayName = sender.DisplayName } });
+
+                // TODO cleanest code i have written in my life :)
             }
+
+            return model;
         }
     }
 }

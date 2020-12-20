@@ -18,6 +18,10 @@
 
         Task AddFriend(string adderId, string addedId);
 
-        Task RemoveFriend(string removerId, string removedId)
+        Task RemoveFriend(string removerId, string removedId);
+
+        Task GetAllFriends(string userId);
+
+        Task GetAllFriendRequests(string userId);
     }
 }

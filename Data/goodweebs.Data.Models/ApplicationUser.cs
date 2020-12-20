@@ -8,7 +8,6 @@ namespace GoodWeebs.Data.Models
     using Entities.Maps;
     using GoodWeebs.Data.Common.Models;
     using GoodWeebs.Data.Models.Submissions;
-    using GoodWeebs.Data.Models.Submissions;
     using Microsoft.AspNetCore.Identity;
 
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
@@ -29,6 +28,8 @@ namespace GoodWeebs.Data.Models
             this.MangaSubmissions = new HashSet<MangaSubmission>();
             this.ArticleSubmissions = new HashSet<ArticleSubmission>();
         }
+
+        public string DisplayName { get; set; }
 
         public string FirstName { get; set; }
 

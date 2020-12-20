@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace goodweebs.Web.ViewModels.UserViewModels
+﻿namespace GoodWeebs.Web.ViewModels.UserViewModels
 {
-    class FriendsListViewModel
+    using System.Collections.Generic;
+
+    public class FriendsListViewModel
     {
+        public ICollection<ProfileViewModel> Friends { get; set; }
     }
 }
