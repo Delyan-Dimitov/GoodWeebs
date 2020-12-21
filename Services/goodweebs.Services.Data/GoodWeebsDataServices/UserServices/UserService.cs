@@ -21,7 +21,8 @@
             IDeletableEntityRepository<ApplicationUser> userRepo,
             IDeletableEntityRepository<Friends> friendsRepo,
             UserManager<ApplicationUser> userManager,
-            IDeletableEntityRepository<FriendRequest> friendRequestRepo)
+            IDeletableEntityRepository<FriendRequest> friendRequestRepo
+            )
         {
             this.userRepo = userRepo;
             this.friendsRepo = friendsRepo;
@@ -29,22 +30,10 @@
             this.friendRequestRepo = friendRequestRepo;
         }
 
-        public string GetUserAvatarByUsername(string username)
+        public async Task<ProfileViewModel> GetUserById(string userId)
         {
-            var url = this.userRepo.AllAsNoTracking().FirstOrDefault(x => x.UserName == username).AvatarUrl;
-            return url;
-        }
-
-        public ApplicationUser GetUserByUserName(string username)
-        {
-            var user = this.userRepo.AllAsNoTracking().FirstOrDefault(x => x.UserName == username);
-            return user;
-        }
-
-        public ProfileViewModel GetUserById(string userId)
-        {
-            var user = this.userRepo.AllAsNoTracking().First(x => x.Id == userId);
-            var model = new ProfileViewModel { Id = user.Id, AvatarUrl = user.AvatarUrl, DisplayName = user.DisplayName};
+            var user = await this.userManager.FindByIdAsync(userId);
+            var model = new ProfileViewModel { Id = user.Id, AvatarUrl = user.AvatarUrl, DisplayName = user.DisplayName };
             return model;
 
         }
@@ -61,8 +50,8 @@
 
             if (!this.FrindshipExists(requesterId, requesteeId) || (this.FrindshipExists(requesterId, requesteeId) && friendship.IsDeleted))
             {
-                var requester = this.userRepo.AllAsNoTracking().First(x => x.Id == requesterId);
-                var requestee = this.userRepo.AllAsNoTracking().First(x => x.Id == requesteeId);
+                var requester = await this.userManager.FindByIdAsync(requesterId);
+                var requestee = await this.userManager.FindByIdAsync(requesterId);
                 await this.friendRequestRepo.AddAsync(new FriendRequest { Requester = requester, Requestee = requestee });
                 await this.friendRequestRepo.SaveChangesAsync();
             }
@@ -87,8 +76,8 @@
                 (x.FriendUserId == adderId && x.MainUserId == addedId));
             if (friends == null)
             {
-                var adder = this.userRepo.AllAsNoTracking().FirstOrDefault(x => x.Id == addedId);
-                var added = this.userRepo.AllAsNoTracking().FirstOrDefault(x => x.Id == addedId);
+                var adder = await this.userManager.FindByIdAsync(adderId);
+                var added = await this.userManager.FindByIdAsync(addedId);
                 var friend = new Friends { MainUser = adder, FriendUser = added, MainUserId = adderId, FriendUserId = addedId };
                 await this.friendsRepo.AddAsync(friend);
                 await this.friendsRepo.SaveChangesAsync();
@@ -126,9 +115,9 @@
                  (x.FriendUserId == mainUserId && x.MainUserId == secondUserId));
         }
 
-        public FriendsListViewModel GetAllFriends(string userId)
+        public async Task<FriendsListViewModel> GetAllFriends(string userId)
         {
-            var user = this.userRepo.AllAsNoTracking().First(x => x.Id == userId);
+            var user = await this.userManager.FindByIdAsync(userId);
             var usersFriends = user.Friends;
             FriendsListViewModel friends = null;
             foreach (var friend in usersFriends)
@@ -146,13 +135,13 @@
             return friends;
         }
 
-        public FriendRequestListViewModel GetAllFriendRequests(string userId)
+        public async Task<FriendRequestListViewModel> GetAllFriendRequests(string userId)
         {
             var requests = this.friendRequestRepo.AllAsNoTracking().Where(x => x.RequesteeId == userId);
             FriendRequestListViewModel model = null;
             foreach (var request in requests)
             {
-                var sender = this.userRepo.AllAsNoTracking().First(x => x.Id == request.RequesterId);
+                var sender = await this.userManager.FindByIdAsync(request.RequesterId);
                 model.FriendRequests.Add(new FriendRequestViewModel { Id = request.Id, Sender = new ProfileViewModel { Id = sender.Id, AvatarUrl = sender.AvatarUrl, DisplayName = sender.DisplayName } });
 
                 // TODO cleanest code i have written in my life :)

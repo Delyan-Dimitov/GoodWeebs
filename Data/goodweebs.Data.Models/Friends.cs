@@ -1,12 +1,11 @@
-﻿using GoodWeebs.Data.Common.Models;
-using GoodWeebs.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
-
-namespace Entities
+﻿namespace Entities
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;
+
+    using GoodWeebs.Data.Common.Models;
+    using GoodWeebs.Data.Models;
+
     public class Friends : IAuditInfo, IDeletableEntity
     {
         public Friends()

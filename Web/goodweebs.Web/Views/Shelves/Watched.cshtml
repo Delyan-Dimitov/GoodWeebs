@@ -1,0 +1,47 @@
+﻿@model GoodWeebs.Web.ViewModels.ShelfViewModels.ShelfViewModel
+
+
+@if (Model.ShelfItems == null)
+{
+    <h1>Empty</h1>
+
+}
+else
+{
+    <div class="row">
+        <div class="col-md-2 "></div>
+        <div class="col-md-2 border-right border-light">
+            <p class="lead">Watching</p>
+            <hr>
+            <p class="lead">WantToWatch</p>
+            <hr>
+            <p class="lead">Profile</p>
+        </div>
+        <div class="col-md-6">
+
+            <table class="table table-dark table-striped table-hover">
+                <tbody>
+                <thead class="thead-dark">
+                </thead>
+                
+                @foreach (var item in Model.ShelfItems)
+                {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td>@item.Title</td>
+                <td>
+                    <a asp-action="RemoveFromWatched" asp-route-id="@item.Id">
+                         <button type="button" class="btn btn-warning" >Remove</button>
+                    </a>
+                </td>
+            </tr>
+                }
+
+
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+}

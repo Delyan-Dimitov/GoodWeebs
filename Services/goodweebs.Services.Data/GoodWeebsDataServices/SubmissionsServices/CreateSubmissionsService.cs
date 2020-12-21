@@ -6,6 +6,7 @@
     using global::GoodWeebs.Data.Models;
     using global::GoodWeebs.Web.ViewModels.SubmissionInputModels;
     using global::GoodWeebs.Data.Models.Submissions;
+    using Microsoft.AspNetCore.Identity;
 
     public class CreateSubmissionsService : ICreateSubmissionsService
     {
@@ -13,22 +14,25 @@
         private readonly IDeletableEntityRepository<MangaSubmission> mSubRepo;
         private readonly IDeletableEntityRepository<ArticleSubmission> articleSubRepo;
         private readonly IDeletableEntityRepository<ApplicationUser> userRepo;
+        private readonly UserManager<ApplicationUser> userManager;
 
         public CreateSubmissionsService(
             IDeletableEntityRepository<AnimeSubmission> asubRepo,
             IDeletableEntityRepository<MangaSubmission> mSubRepo,
             IDeletableEntityRepository<ArticleSubmission> articleSubRepo,
-            IDeletableEntityRepository<ApplicationUser> userRepo)
+            IDeletableEntityRepository<ApplicationUser> userRepo,
+            UserManager<ApplicationUser> userManager)
         {
             this.asubRepo = asubRepo;
             this.mSubRepo = mSubRepo;
             this.articleSubRepo = articleSubRepo;
             this.userRepo = userRepo;
+            this.userManager = userManager;
         }
 
         public async Task SubmitAnimeWithUrlAsync(string url, string userId)
         {
-            var user = this.userRepo.All().FirstOrDefault(x => x.Id == userId);
+            var user = await this.userManager.FindByNameAsync(userId);
             var urlSubmission = new AnimeSubmission()
             {
                 SubmitterId = userId,
@@ -41,7 +45,7 @@
 
         public async Task SubmitAnimeFullAsync(AnimeSubmissionInputModel model, string userId, string submissionType)
         {
-            var user = this.userRepo.All().FirstOrDefault(x => x.Id == userId);
+            var user = await this.userManager.FindByNameAsync(userId);
 
             var animeSubmission = new AnimeSubmission()
             {
@@ -69,7 +73,7 @@
 
         public async Task SubmitArticleAsync(ArticleSubmissionInputModel model, string userId)
         {
-            var user = this.userRepo.All().FirstOrDefault(x => x.Id == userId);
+            var user = await this.userManager.FindByNameAsync(userId);
             var articleSub = new ArticleSubmission() { SubmitterId = userId, Submitter = user, Title = model.Title, Content = model.Content };
             await this.articleSubRepo.AddAsync(articleSub);
 
@@ -78,7 +82,7 @@
 
         public async Task SubmitMangaFullAsync(MangaSubmissionInputModel model, string userId, string submissionType)
         {
-            var user = this.userRepo.All().FirstOrDefault(x => x.Id == userId);
+            var user = await this.userManager.FindByNameAsync(userId);
 
             MangaSubmission mangaSubmission = new MangaSubmission()
                 {
@@ -102,7 +106,7 @@
 
         public async Task SubmitMangaWithUrlAsync(string url, string userId)
         {
-            var user = this.userRepo.All().FirstOrDefault(x => x.Id == userId);
+            var user = await this.userManager.FindByNameAsync(userId);
 
             var urlSubmission = new MangaSubmission()
             {

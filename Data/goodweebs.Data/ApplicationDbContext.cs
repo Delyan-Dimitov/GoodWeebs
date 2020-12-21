@@ -118,71 +118,71 @@
                 foreignKey.DeleteBehavior = DeleteBehavior.Restrict;
             }
 
-            //      builder.Entity<WatchedMap>()
-            //         .HasKey(wm => new { wm.UserId, wm.AnimeId });
-            //      builder.Entity<WatchedMap>()
-            //          .HasOne(wm => wm.User)
-            //          .WithMany(u => u.Watched)
-            //          .HasForeignKey(wm => wm.UserId);
-            //      builder.Entity<WatchedMap>()
-            //          .HasOne(wm => wm.Anime)
-            //          .WithMany(a => a.WatchedAnime)
-            //          .HasForeignKey(wm => wm.AnimeId);
+            builder.Entity<WatchedMap>()
+               .HasKey(wm => new { wm.UserId, wm.AnimeId });
+            builder.Entity<WatchedMap>()
+                .HasOne(wm => wm.User)
+                .WithMany(u => u.Watched)
+                .HasForeignKey(wm => wm.UserId);
+            builder.Entity<WatchedMap>()
+                .HasOne(wm => wm.Anime)
+                .WithMany(a => a.WatchedAnime)
+                .HasForeignKey(wm => wm.AnimeId);
 
-            //      builder.Entity<CurrentlyWatchingMap>()
-            //          .HasKey(cw => new { cw.UserId, cw.AnimeId });
-            //      builder.Entity<CurrentlyWatchingMap>()
-            //          .HasOne(cw => cw.User)
-            //          .WithMany(u => u.CurrentlyWatching)
-            //          .HasForeignKey(cw => cw.UserId);
-            //      builder.Entity<CurrentlyWatchingMap>()
-            //          .HasOne(cw => cw.Anime)
-            //          .WithMany(a => a.CurrentlyWatching)
-            //          .HasForeignKey(cw => cw.AnimeId);
+            builder.Entity<CurrentlyWatchingMap>()
+                .HasKey(cw => new { cw.UserId, cw.AnimeId });
+            builder.Entity<CurrentlyWatchingMap>()
+                .HasOne(cw => cw.User)
+                .WithMany(u => u.CurrentlyWatching)
+                .HasForeignKey(cw => cw.UserId);
+            builder.Entity<CurrentlyWatchingMap>()
+                .HasOne(cw => cw.Anime)
+                .WithMany(a => a.CurentlyWatching)
+                .HasForeignKey(cw => cw.AnimeId);
 
-            //      builder.Entity<WantToWatchMap>()
-            //          .HasKey(ww => new { ww.UserId, ww.AnimeId });
-            //      builder.Entity<WantToWatchMap>()
-            //          .HasOne(ww => ww.User)
-            //          .WithMany(u => u.WantToWatch)
-            //          .HasForeignKey(ww => ww.UserId);
-            //      builder.Entity<WantToWatchMap>()
-            //          .HasOne(ww => ww.Anime)
-            //          .WithMany(a => a.WantToWatch)
-            //          .HasForeignKey(ww => ww.AnimeId);
+            builder.Entity<WantToWatchMap>()
+                .HasKey(ww => new { ww.UserId, ww.AnimeId });
+            builder.Entity<WantToWatchMap>()
+                .HasOne(ww => ww.User)
+                .WithMany(u => u.WantToWatch)
+                .HasForeignKey(ww => ww.UserId);
+            builder.Entity<WantToWatchMap>()
+                .HasOne(ww => ww.Anime)
+                .WithMany(a => a.WantToWatch)
+                .HasForeignKey(ww => ww.AnimeId);
 
-            //      builder.Entity<CurrentlyReadingMap>()
-            //          .HasKey(cr => new { cr.UserId, cr.MangaId });
-            //      builder.Entity<CurrentlyReadingMap>()
-            //          .HasOne(cr => cr.User)
-            //          .WithMany(u => u.CurrentlyReading)
-            //          .HasForeignKey(cr => cr.UserId);
-            //      builder.Entity<CurrentlyReadingMap>()
-            //      .HasOne(cr => cr.Manga)
-            //      .WithMany(m => m.CurrentlyReading)
-            //      .HasForeignKey(cr => cr.MangaId);
+            builder.Entity<CurrentlyReadingMap>()
+                .HasKey(cr => new { cr.UserId, cr.MangaId });
+            builder.Entity<CurrentlyReadingMap>()
+                .HasOne(cr => cr.User)
+                .WithMany(u => u.CurrentlyReading)
+                .HasForeignKey(cr => cr.UserId);
+            builder.Entity<CurrentlyReadingMap>()
+            .HasOne(cr => cr.Manga)
+            .WithMany(m => m.CurrentlyReading)
+            .HasForeignKey(cr => cr.MangaId);
 
-            //      builder.Entity<WantToReadMap>()
-            //          .HasKey(cr => new { cr.UserId, cr.MangaId });
-            //      builder.Entity<WantToReadMap>()
-            //          .HasOne(cr => cr.User)
-            //          .WithMany(u => u.WantToRead)
-            //          .HasForeignKey(cr => cr.UserId);
-            //      builder.Entity<WantToReadMap>()
-            //      .HasOne(cr => cr.Manga)
-            //      .WithMany(m => m.WantToRead)
-            //      .HasForeignKey(cr => cr.MangaId);
+            builder.Entity<WantToReadMap>()
+                .HasKey(cr => new { cr.UserId, cr.MangaId });
+            builder.Entity<WantToReadMap>()
+                .HasOne(cr => cr.User)
+                .WithMany(u => u.WantToRead)
+                .HasForeignKey(cr => cr.UserId);
+            builder.Entity<WantToReadMap>()
+            .HasOne(cr => cr.Manga)
+            .WithMany(m => m.WantToRead)
+            .HasForeignKey(cr => cr.MangaId);
 
-            //      builder.Entity<ReadMap>()
-            //        .HasKey(cr => new { cr.UserId, cr.MangaId });
-            //      builder.Entity<ReadMap>()
-            //          .HasOne(cr => cr.User)
-            //          .WithMany(u => u.Read)
-            //          .HasForeignKey(cr => cr.UserId);
-            //      builder.Entity<ReadMap>()
-            //      .HasOne(cr => cr.Manga)
-            //      .WithMany(m => m.Read)
-            //      .HasForeignKey(cr => cr.MangaId);
+            builder.Entity<ReadMap>()
+              .HasKey(cr => new { cr.UserId, cr.MangaId });
+            builder.Entity<ReadMap>()
+                .HasOne(cr => cr.User)
+                .WithMany(u => u.Read)
+                .HasForeignKey(cr => cr.UserId);
+            builder.Entity<ReadMap>()
+            .HasOne(cr => cr.Manga)
+            .WithMany(m => m.Read)
+            .HasForeignKey(cr => cr.MangaId);
 
             builder.Entity<Friends>()
       .HasKey(f => new { f.MainUserId, f.FriendUserId });

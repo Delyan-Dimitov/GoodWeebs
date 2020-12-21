@@ -10,6 +10,7 @@
     using global::GoodWeebs.Data.Models.Submissions;
     using global::GoodWeebs.Web.ViewModels.SubmissionInputModels;
     using global::GoodWeebs.Web.ViewModels.SubmissionModels;
+    using Microsoft.AspNetCore.Identity;
 
     public class SubmissionsService : ISubmissionsService
     {
@@ -20,6 +21,7 @@
         private readonly IDeletableEntityRepository<Manga> mangaRepo;
         private readonly IDeletableEntityRepository<Article> articleRepo;
         private readonly IDeletableEntityRepository<ApplicationUser> userRepo;
+        private readonly UserManager<ApplicationUser> userManager;
 
         public SubmissionsService(
             IDeletableEntityRepository<AnimeSubmission> animeSubRepo,
@@ -28,7 +30,8 @@
             IDeletableEntityRepository<Anime> animeRepo,
             IDeletableEntityRepository<Manga> mangaRepo,
             IDeletableEntityRepository<Article> articleRepo,
-            IDeletableEntityRepository<ApplicationUser> userRepo)
+            IDeletableEntityRepository<ApplicationUser> userRepo,
+            UserManager<ApplicationUser> userManager)
         {
             this.animeSubRepo = animeSubRepo;
             this.mangaSubRepo = mangaSubRepo;
@@ -37,6 +40,7 @@
             this.mangaRepo = mangaRepo;
             this.articleRepo = articleRepo;
             this.userRepo = userRepo;
+            this.userManager = userManager;
         }
 
         public List<SubmissionInListViewModel> GetAll(int page, int itemsPerPage)
@@ -200,7 +204,7 @@
 
         public async Task UpdateUserSubmissionCount(string userId) // horrible
         {
-            var user = this.userRepo.AllAsNoTracking().First(x => x.Id == userId);
+            var user = await this.userManager.FindByIdAsync(userId);
             user.SubmissionsCount++;
             this.userRepo.Update(user);
             await this.userRepo.SaveChangesAsync();

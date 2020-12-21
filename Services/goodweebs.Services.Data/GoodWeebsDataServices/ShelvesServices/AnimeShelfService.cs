@@ -10,7 +10,7 @@
     using global::GoodWeebs.Data.Common.Repositories;
     using global::GoodWeebs.Data.Models;
     using global::GoodWeebs.Web.ViewModels.ShelfViewModels;
-    using GoodwWebs.Web.ViewModels.ShelfViewModels;
+    using Microsoft.AspNetCore.Identity;
 
     public class AnimeShelfService : IAnimeShelfService
     {
@@ -19,19 +19,22 @@
         private readonly IDeletableEntityRepository<WantToWatchMap> wantRepo;
         private readonly IDeletableEntityRepository<ApplicationUser> userRepo;
         private readonly IDeletableEntityRepository<Anime> animeRepo;
+        private readonly UserManager<ApplicationUser> userManager;
 
         public AnimeShelfService(
             IDeletableEntityRepository<CurrentlyWatchingMap> watchingRepo,
             IDeletableEntityRepository<WatchedMap> watchedRepo,
             IDeletableEntityRepository<WantToWatchMap> wantRepo,
             IDeletableEntityRepository<ApplicationUser> userRepo,
-            IDeletableEntityRepository<Anime> animeRepo)
+            IDeletableEntityRepository<Anime> animeRepo,
+            UserManager<ApplicationUser> userManager)
         {
             this.watchingRepo = watchingRepo;
             this.watchedRepo = watchedRepo;
             this.wantRepo = wantRepo;
             this.userRepo = userRepo;
             this.animeRepo = animeRepo;
+            this.userManager = userManager;
         }
 
 
@@ -41,7 +44,7 @@
                 !this.IsInWatched(userId, animeId) &&
                 !this.IsInWant(userId, animeId))
             {
-                var user = this.userRepo.AllAsNoTracking().First(x => x.Id == userId);
+                var user = await this.userManager.FindByIdAsync(userId);
                 var anime = this.animeRepo.AllAsNoTracking().First(x => x.Id == animeId);
 
                 await this.wantRepo.AddAsync(new WantToWatchMap { User = user, Anime = anime, UserId = userId, AnimeId = animeId });
@@ -51,35 +54,35 @@
 
         public async Task AddToWatched(string userId, int animeId)
         {
-            var user = this.userRepo.AllAsNoTracking().First(x => x.Id == userId);
-            var anime = this.animeRepo.AllAsNoTracking().First(x => x.Id == animeId);
+            var user = await this.userManager.FindByIdAsync(userId);
+            var anime = this.animeRepo.All().Where(x => x.Id == animeId).FirstOrDefault();
 
             if (this.IsInWant(userId, animeId))
             {
-                var toDelete = this.wantRepo.AllAsNoTracking().First(x => x.UserId == userId && x.AnimeId == animeId);
+                var toDelete = this.wantRepo.AllAsNoTracking().FirstOrDefault(x => x.UserId == userId && x.AnimeId == animeId);
                 this.wantRepo.Delete(toDelete);
                 await this.wantRepo.SaveChangesAsync();
                 await this.watchedRepo.AddAsync(new WatchedMap { User = user, Anime = anime });
                 await this.watchedRepo.SaveChangesAsync();
             }
-            else if (this.IsInWatched(userId, animeId))
+            else if (this.IsInWatching(userId, animeId))
             {
                 var toDelete = this.watchingRepo.AllAsNoTracking().First(x => x.UserId == userId && x.AnimeId == animeId);
                 this.watchingRepo.Delete(toDelete);
                 await this.watchingRepo.SaveChangesAsync();
-                await this.watchedRepo.AddAsync(new WatchedMap { User = user, Anime = anime });
+                await this.watchedRepo.AddAsync(new WatchedMap { UserId = userId, AnimeId = animeId });
                 await this.watchedRepo.SaveChangesAsync();
             }
             else if (!this.IsInWatched(userId, animeId))
             {
-                await this.watchedRepo.AddAsync(new WatchedMap { User = user, Anime = anime });
+                await this.watchedRepo.AddAsync(new WatchedMap { UserId = userId, AnimeId = animeId });
                 await this.watchedRepo.SaveChangesAsync();
             }
         }
 
         public async Task AddToWatching(string userId, int animeId)
         {
-            var user = this.userRepo.AllAsNoTracking().First(x => x.Id == userId);
+            var user = await this.userManager.FindByIdAsync(userId);
             var anime = this.animeRepo.AllAsNoTracking().First(x => x.Id == animeId);
 
             if (this.IsInWant(userId, animeId))
@@ -127,17 +130,47 @@
             }
         }
 
-        public ShelfViewModel GetRead(string userId)
+        public async Task<ShelfViewModel> GetWatched(string userId)
         {
-            var user = this.userRepo.AllAsNoTracking().First(x => x.Id == userId);
-            var shelfItems = new List<ShelfItemVIewModel>();
-            var read = user.Read;
+            var user = await this.userManager.FindByIdAsync(userId);
+            var model = new ShelfViewModel();
+            model.ShelfItems = new List<ShelfItemVIewModel>();
+            var read = this.watchedRepo.AllAsNoTracking().Where(x => x.UserId == userId).ToList();
             foreach (var map in read)
             {
-                shelfItems.Add(new ShelfItemVIewModel { Id = map.Id });
+                var anime = this.animeRepo.AllAsNoTracking().FirstOrDefault(x => x.Id == map.AnimeId);
+                model.ShelfItems.Add(new ShelfItemVIewModel { Title = anime.Title, Id = anime.Id }); // TODO KYS
             }
-            return null;
+
+            return model;
         }
+
+        public async Task<ShelfViewModel> GetWatching(string userId)
+        {
+            var user = await this.userManager.FindByIdAsync(userId);
+            var model = new ShelfViewModel();
+            var read = user.CurrentlyWatching;
+            foreach (var map in read)
+            {
+                model.ShelfItems.Add(new ShelfItemVIewModel { Title = map.Anime.Title });
+            }
+
+            return model;
+        }
+
+        public async Task<ShelfViewModel> GetWantToWatch(string userId)
+        {
+            var user = await this.userManager.FindByIdAsync(userId);
+            var model = new ShelfViewModel();
+            var read = user.WantToWatch;
+            foreach (var map in read)
+            {
+                model.ShelfItems.Add(new ShelfItemVIewModel { Title = map.Anime.Title });
+            }
+
+            return model;
+        }
+
         private bool IsInWatching(string userId, int animeId) => this.watchingRepo.AllAsNoTracking().Any(x => x.UserId == userId && x.AnimeId == animeId);
 
         private bool IsInWatched(string userId, int animeId) => this.watchedRepo.AllAsNoTracking().Any(x => x.UserId == userId && x.AnimeId == animeId);

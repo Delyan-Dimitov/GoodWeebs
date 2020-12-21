@@ -1,6 +1,7 @@
 ﻿namespace Entities.Maps
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     using GoodWeebs.Data.Common.Models;
@@ -8,19 +9,12 @@
 
     public class AnimeMap : IMap, IDeletableEntity, IAuditInfo
     {
-        [Key]
-        public int Id { get; set; }
-
-        [Required]
         public string UserId { get; set; }
 
-        [Required]
         public ApplicationUser User { get; set; }
 
-        [Required]
         public int AnimeId { get; set; }
 
-        [Required]
         public Anime Anime { get; set; }
 
         public bool IsDeleted { get; set; }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace goodweebs.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201221144553_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20201221183854_iWantToKillMySelf")]
+    partial class iWantToKillMySelf
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -77,7 +77,6 @@ namespace goodweebs.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Trailer")
@@ -209,10 +208,11 @@ namespace goodweebs.Data.Migrations
 
             modelBuilder.Entity("Entities.Maps.CurrentlyReadingMap", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("MangaId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -223,36 +223,28 @@ namespace goodweebs.Data.Migrations
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
-
-                    b.Property<int>("MangaId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
+                    b.HasKey("UserId", "MangaId");
 
                     b.HasIndex("IsDeleted");
 
                     b.HasIndex("MangaId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("CurrentlyReadingMaps");
                 });
 
             modelBuilder.Entity("Entities.Maps.CurrentlyWatchingMap", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AnimeId")
                         .HasColumnType("int");
@@ -272,27 +264,22 @@ namespace goodweebs.Data.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
+                    b.HasKey("UserId", "AnimeId");
 
                     b.HasIndex("AnimeId");
 
                     b.HasIndex("IsDeleted");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("CurrentlyWatchingMaps");
                 });
 
             modelBuilder.Entity("Entities.Maps.ReadMap", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("MangaId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -306,36 +293,31 @@ namespace goodweebs.Data.Migrations
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
-
-                    b.Property<int>("MangaId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
+                    b.HasKey("UserId", "MangaId");
 
                     b.HasIndex("IsDeleted");
 
                     b.HasIndex("MangaId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("ReadMaps");
                 });
 
             modelBuilder.Entity("Entities.Maps.WantToReadMap", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("MangaId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -343,36 +325,28 @@ namespace goodweebs.Data.Migrations
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
-
-                    b.Property<int>("MangaId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
+                    b.HasKey("UserId", "MangaId");
 
                     b.HasIndex("IsDeleted");
 
                     b.HasIndex("MangaId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("WantToReadMaps");
                 });
 
             modelBuilder.Entity("Entities.Maps.WantToWatchMap", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AnimeId")
                         .HasColumnType("int");
@@ -389,27 +363,19 @@ namespace goodweebs.Data.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
+                    b.HasKey("UserId", "AnimeId");
 
                     b.HasIndex("AnimeId");
 
                     b.HasIndex("IsDeleted");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("WantToWatchMaps");
                 });
 
             modelBuilder.Entity("Entities.Maps.WatchedMap", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AnimeId")
                         .HasColumnType("int");
@@ -432,17 +398,11 @@ namespace goodweebs.Data.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
+                    b.HasKey("UserId", "AnimeId");
 
                     b.HasIndex("AnimeId");
 
                     b.HasIndex("IsDeleted");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("WatchedMaps");
                 });
@@ -1147,7 +1107,7 @@ namespace goodweebs.Data.Migrations
             modelBuilder.Entity("Entities.Maps.CurrentlyWatchingMap", b =>
                 {
                     b.HasOne("Entities.Anime", "Anime")
-                        .WithMany("CurrentlyWatching")
+                        .WithMany("CurentlyWatching")
                         .HasForeignKey("AnimeId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -1155,7 +1115,7 @@ namespace goodweebs.Data.Migrations
                     b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "User")
                         .WithMany("CurrentlyWatching")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
@@ -1200,7 +1160,7 @@ namespace goodweebs.Data.Migrations
                     b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "User")
                         .WithMany("WantToWatch")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
@@ -1215,7 +1175,7 @@ namespace goodweebs.Data.Migrations
                     b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "User")
                         .WithMany("Watched")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 

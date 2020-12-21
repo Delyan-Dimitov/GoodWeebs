@@ -6,11 +6,7 @@
 
     public interface IUserService
     {
-        string GetUserAvatarByUsername(string username);
-
-        ApplicationUser GetUserByUserName(string username);
-
-        ProfileViewModel GetUserById(string userId);
+        Task<ProfileViewModel> GetUserById(string userId);
 
         Task RequestFriend(string requesterId, string requesteeId);
 
@@ -20,8 +16,8 @@
 
         Task RemoveFriend(string removerId, string removedId);
 
-        FriendsListViewModel GetAllFriends(string userId);
+        Task<FriendsListViewModel> GetAllFriends(string userId);
 
-        FriendRequestListViewModel GetAllFriendRequests(string userId);
+        Task<FriendRequestListViewModel> GetAllFriendRequests(string userId);
     }
 }

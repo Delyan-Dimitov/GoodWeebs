@@ -1,4 +1,4 @@
-﻿namespace GoodwWebs.Web.ViewModels.ShelfViewModels
+﻿namespace GoodWeebs.Web.ViewModels.ShelfViewModels
 {
     using System.Collections.Generic;
 

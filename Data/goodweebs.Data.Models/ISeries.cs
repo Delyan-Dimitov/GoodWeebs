@@ -6,10 +6,5 @@
 
     public interface ISeries
     {
-        int Id { set; }
-
-        string Title { set; }
-
-       
     }
 }

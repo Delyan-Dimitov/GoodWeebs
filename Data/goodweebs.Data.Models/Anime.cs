@@ -7,11 +7,11 @@
     using Entities.Maps;
     using GoodWeebs.Data.Common.Models;
 
-    public class Anime : ISeries, IDeletableEntity, IAuditInfo
+    public class Anime : IDeletableEntity, IAuditInfo
     {
+        [Key]
         public int Id { get; set; }
 
-        [Required]
         public string Title { get; set; }
 
         public string Genres { get; set; }
@@ -42,10 +42,8 @@
 
         public string Studios { get; set; }
 
-        public ICollection<CurrentlyWatchingMap> CurrentlyWatching { get; set; }
-
         public ICollection<WatchedMap> WatchedAnime { get; set; }
-
+        public ICollection<CurrentlyWatchingMap> CurentlyWatching { get; set; }
         public ICollection<WantToWatchMap> WantToWatch { get; set; }
 
         public DateTime CreatedOn { get; set; }
