@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Goodweebs.Data.Migrations
+namespace goodweebs.Data.Migrations
 {
     public partial class InitialCreate : Migration
     {
@@ -164,6 +164,8 @@ namespace Goodweebs.Data.Migrations
                 name: "CurrentlyWatchingMaps",
                 columns: table => new
                 {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(nullable: false),
                     AnimeId = table.Column<int>(nullable: false),
                     IsDeleted = table.Column<bool>(nullable: false),
@@ -174,7 +176,7 @@ namespace Goodweebs.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CurrentlyWatchingMaps", x => new { x.UserId, x.AnimeId });
+                    table.PrimaryKey("PK_CurrentlyWatchingMaps", x => x.Id);
                     table.ForeignKey(
                         name: "FK_CurrentlyWatchingMaps_Animes_AnimeId",
                         column: x => x.AnimeId,
@@ -187,6 +189,8 @@ namespace Goodweebs.Data.Migrations
                 name: "WantToWatchMaps",
                 columns: table => new
                 {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(nullable: false),
                     AnimeId = table.Column<int>(nullable: false),
                     IsDeleted = table.Column<bool>(nullable: false),
@@ -196,7 +200,7 @@ namespace Goodweebs.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_WantToWatchMaps", x => new { x.UserId, x.AnimeId });
+                    table.PrimaryKey("PK_WantToWatchMaps", x => x.Id);
                     table.ForeignKey(
                         name: "FK_WantToWatchMaps_Animes_AnimeId",
                         column: x => x.AnimeId,
@@ -209,6 +213,8 @@ namespace Goodweebs.Data.Migrations
                 name: "WatchedMaps",
                 columns: table => new
                 {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(nullable: false),
                     AnimeId = table.Column<int>(nullable: false),
                     IsDeleted = table.Column<bool>(nullable: false),
@@ -220,7 +226,7 @@ namespace Goodweebs.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_WatchedMaps", x => new { x.UserId, x.AnimeId });
+                    table.PrimaryKey("PK_WatchedMaps", x => x.Id);
                     table.ForeignKey(
                         name: "FK_WatchedMaps_Animes_AnimeId",
                         column: x => x.AnimeId,
@@ -364,19 +370,42 @@ namespace Goodweebs.Data.Migrations
                 name: "CurrentlyReadingMaps",
                 columns: table => new
                 {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(nullable: false),
                     MangaId = table.Column<int>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedOn = table.Column<DateTime>(nullable: true),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: true),
                     DateStarted = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CurrentlyReadingMaps", x => new { x.UserId, x.MangaId });
+                    table.PrimaryKey("PK_CurrentlyReadingMaps", x => x.Id);
                     table.ForeignKey(
                         name: "FK_CurrentlyReadingMaps_Mangas_MangaId",
                         column: x => x.MangaId,
                         principalTable: "Mangas",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FriendRequests",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    RequesterId = table.Column<string>(nullable: true),
+                    RequesteeId = table.Column<string>(nullable: true),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedOn = table.Column<DateTime>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FriendRequests", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -428,6 +457,7 @@ namespace Goodweebs.Data.Migrations
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
+                    DisplayName = table.Column<string>(nullable: true),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     DateOfBirth = table.Column<DateTime>(nullable: false),
@@ -524,14 +554,20 @@ namespace Goodweebs.Data.Migrations
                 name: "ReadMaps",
                 columns: table => new
                 {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(nullable: false),
                     MangaId = table.Column<int>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedOn = table.Column<DateTime>(nullable: true),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: true),
                     DateStarted = table.Column<DateTime>(nullable: false),
                     DateFinished = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ReadMaps", x => new { x.UserId, x.MangaId });
+                    table.PrimaryKey("PK_ReadMaps", x => x.Id);
                     table.ForeignKey(
                         name: "FK_ReadMaps_Mangas_MangaId",
                         column: x => x.MangaId,
@@ -571,12 +607,18 @@ namespace Goodweebs.Data.Migrations
                 name: "WantToReadMaps",
                 columns: table => new
                 {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(nullable: false),
-                    MangaId = table.Column<int>(nullable: false)
+                    MangaId = table.Column<int>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedOn = table.Column<DateTime>(nullable: true),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_WantToReadMaps", x => new { x.UserId, x.MangaId });
+                    table.PrimaryKey("PK_WantToReadMaps", x => x.Id);
                     table.ForeignKey(
                         name: "FK_WantToReadMaps_Mangas_MangaId",
                         column: x => x.MangaId,
@@ -681,9 +723,19 @@ namespace Goodweebs.Data.Migrations
                 column: "PostId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_CurrentlyReadingMaps_IsDeleted",
+                table: "CurrentlyReadingMaps",
+                column: "IsDeleted");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_CurrentlyReadingMaps_MangaId",
                 table: "CurrentlyReadingMaps",
                 column: "MangaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CurrentlyReadingMaps_UserId",
+                table: "CurrentlyReadingMaps",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CurrentlyWatchingMaps_AnimeId",
@@ -694,6 +746,26 @@ namespace Goodweebs.Data.Migrations
                 name: "IX_CurrentlyWatchingMaps_IsDeleted",
                 table: "CurrentlyWatchingMaps",
                 column: "IsDeleted");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CurrentlyWatchingMaps_UserId",
+                table: "CurrentlyWatchingMaps",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FriendRequests_IsDeleted",
+                table: "FriendRequests",
+                column: "IsDeleted");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FriendRequests_RequesteeId",
+                table: "FriendRequests",
+                column: "RequesteeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FriendRequests_RequesterId",
+                table: "FriendRequests",
+                column: "RequesterId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Friends_FriendUserId",
@@ -736,9 +808,19 @@ namespace Goodweebs.Data.Migrations
                 column: "PosterId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ReadMaps_IsDeleted",
+                table: "ReadMaps",
+                column: "IsDeleted");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ReadMaps_MangaId",
                 table: "ReadMaps",
                 column: "MangaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ReadMaps_UserId",
+                table: "ReadMaps",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Settings_IsDeleted",
@@ -751,9 +833,19 @@ namespace Goodweebs.Data.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_WantToReadMaps_IsDeleted",
+                table: "WantToReadMaps",
+                column: "IsDeleted");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_WantToReadMaps_MangaId",
                 table: "WantToReadMaps",
                 column: "MangaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WantToReadMaps_UserId",
+                table: "WantToReadMaps",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_WantToWatchMaps_AnimeId",
@@ -766,6 +858,11 @@ namespace Goodweebs.Data.Migrations
                 column: "IsDeleted");
 
             migrationBuilder.CreateIndex(
+                name: "IX_WantToWatchMaps_UserId",
+                table: "WantToWatchMaps",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_WatchedMaps_AnimeId",
                 table: "WatchedMaps",
                 column: "AnimeId");
@@ -774,6 +871,11 @@ namespace Goodweebs.Data.Migrations
                 name: "IX_WatchedMaps_IsDeleted",
                 table: "WatchedMaps",
                 column: "IsDeleted");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WatchedMaps_UserId",
+                table: "WatchedMaps",
+                column: "UserId");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_CurrentlyWatchingMaps_AspNetUsers_UserId",
@@ -872,6 +974,22 @@ namespace Goodweebs.Data.Migrations
                 onDelete: ReferentialAction.Restrict);
 
             migrationBuilder.AddForeignKey(
+                name: "FK_FriendRequests_AspNetUsers_RequesteeId",
+                table: "FriendRequests",
+                column: "RequesteeId",
+                principalTable: "AspNetUsers",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_FriendRequests_AspNetUsers_RequesterId",
+                table: "FriendRequests",
+                column: "RequesterId",
+                principalTable: "AspNetUsers",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
+
+            migrationBuilder.AddForeignKey(
                 name: "FK_Friends_AspNetUsers_FriendUserId",
                 table: "Friends",
                 column: "FriendUserId",
@@ -934,6 +1052,9 @@ namespace Goodweebs.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "CurrentlyWatchingMaps");
+
+            migrationBuilder.DropTable(
+                name: "FriendRequests");
 
             migrationBuilder.DropTable(
                 name: "Friends");

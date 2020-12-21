@@ -1,6 +1,7 @@
 ﻿namespace GoodWeebs.Services.Data.GoodWeebsDataServices.ShelvesServices
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -8,6 +9,8 @@
     using Entities.Maps;
     using global::GoodWeebs.Data.Common.Repositories;
     using global::GoodWeebs.Data.Models;
+    using global::GoodWeebs.Web.ViewModels.ShelfViewModels;
+    using GoodwWebs.Web.ViewModels.ShelfViewModels;
 
     public class AnimeShelfService : IAnimeShelfService
     {
@@ -44,7 +47,7 @@
                 await this.wantRepo.AddAsync(new WantToWatchMap { User = user, Anime = anime, UserId = userId, AnimeId = animeId });
                 await this.wantRepo.SaveChangesAsync();
             }
-        } 
+        }
 
         public async Task AddToWatched(string userId, int animeId)
         {
@@ -87,7 +90,7 @@
                 await this.watchingRepo.AddAsync(new CurrentlyWatchingMap { User = user, Anime = anime });
             }
 
-            if (!this.IsInWatched(userId,animeId) && !this.IsInWant(userId, animeId) && !this.IsInWatching(userId, animeId))
+            if (!this.IsInWatched(userId, animeId) && !this.IsInWant(userId, animeId) && !this.IsInWatching(userId, animeId))
             {
                 await this.watchingRepo.AddAsync(new CurrentlyWatchingMap { User = user, Anime = anime });
                 await this.watchingRepo.SaveChangesAsync();
@@ -124,6 +127,17 @@
             }
         }
 
+        public ShelfViewModel GetRead(string userId)
+        {
+            var user = this.userRepo.AllAsNoTracking().First(x => x.Id == userId);
+            var shelfItems = new List<ShelfItemVIewModel>();
+            var read = user.Read;
+            foreach (var map in read)
+            {
+                shelfItems.Add(new ShelfItemVIewModel { Id = map.Id });
+            }
+            return null;
+        }
         private bool IsInWatching(string userId, int animeId) => this.watchingRepo.AllAsNoTracking().Any(x => x.UserId == userId && x.AnimeId == animeId);
 
         private bool IsInWatched(string userId, int animeId) => this.watchedRepo.AllAsNoTracking().Any(x => x.UserId == userId && x.AnimeId == animeId);

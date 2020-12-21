@@ -75,8 +75,9 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddFriend(string adderId, string addedId)
+        public async Task<IActionResult> AddFriend(string adderId)
         {
+            var addedId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             await this.userService.AddFriend(adderId, addedId);
             return this.RedirectToAction("Users/MyProfile"); // TODO redirect to friends list
         }

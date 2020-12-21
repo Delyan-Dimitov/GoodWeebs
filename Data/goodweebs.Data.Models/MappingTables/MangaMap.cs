@@ -9,6 +9,9 @@
 
     public class MangaMap : IMap, IDeletableEntity, IAuditInfo
     {
+        [Key]
+        public int Id { get; set; }
+
         [Required]
         public string UserId { get; set; }
 

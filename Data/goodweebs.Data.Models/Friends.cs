@@ -29,7 +29,7 @@ namespace Entities
         [Required]
         public ApplicationUser FriendUser { get; set; }
 
-        //Audit info
+        // Audit info
         public DateTime CreatedOn { get; set; }
 
         public DateTime? ModifiedOn { get; set; }

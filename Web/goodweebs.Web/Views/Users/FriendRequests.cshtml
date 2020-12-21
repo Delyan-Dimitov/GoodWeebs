@@ -1,0 +1,24 @@
+﻿@model GoodWeebs.Web.ViewModels.UserViewModels.FriendRequestListViewModel
+<div class="row">
+    <h1 class="dipl">Friends</h1>
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <table class="table table-striped table-dark table-hover">
+            @foreach (var item in Model.FriendRequests)
+            {
+                <tr>
+                    <td>
+                        <p class="lead"> @item.Sender.DisplayName </p>
+                    </td>
+                    <td class="text-right">
+                        <button type="button" class="btn btn-success btn" asp-action="AddFriend" asp-route-id="@item.Sender.Id">Approve</button>
+                        <button type="button" class="btn btn-danger btn" asp-action="RejectFriendRequest" asp-route-id="@item.Id">Reject</button>
+                    </td>
+                </tr>
+            }
+            
+
+        </table>
+    </div>
+    <div class="col-md-3"></div>
+</div>

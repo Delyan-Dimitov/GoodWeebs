@@ -20,8 +20,8 @@
 
         Task RemoveFriend(string removerId, string removedId);
 
-        Task GetAllFriends(string userId);
+        FriendsListViewModel GetAllFriends(string userId);
 
-        Task GetAllFriendRequests(string userId);
+        FriendRequestListViewModel GetAllFriendRequests(string userId);
     }
 }

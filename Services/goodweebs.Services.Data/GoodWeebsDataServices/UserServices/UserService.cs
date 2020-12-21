@@ -146,14 +146,14 @@
             return friends;
         }
 
-        public List<FriendRequestViewModel> GetAllFriendRequests(string userId)
+        public FriendRequestListViewModel GetAllFriendRequests(string userId)
         {
             var requests = this.friendRequestRepo.AllAsNoTracking().Where(x => x.RequesteeId == userId);
-            List<FriendRequestViewModel> model = null;
+            FriendRequestListViewModel model = null;
             foreach (var request in requests)
             {
                 var sender = this.userRepo.AllAsNoTracking().First(x => x.Id == request.RequesterId);
-                model.Add(new FriendRequestViewModel { Id = request.Id, Sender = new ProfileViewModel { Id = sender.Id, AvatarUrl = sender.AvatarUrl, DisplayName = sender.DisplayName } });
+                model.FriendRequests.Add(new FriendRequestViewModel { Id = request.Id, Sender = new ProfileViewModel { Id = sender.Id, AvatarUrl = sender.AvatarUrl, DisplayName = sender.DisplayName } });
 
                 // TODO cleanest code i have written in my life :)
             }
