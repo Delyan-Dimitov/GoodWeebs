@@ -1,11 +1,11 @@
 ﻿@using GoodWeebs.Common
+@using GoodWeebs.Data.Models
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@this.ViewData["Title"] - @GlobalConstants.SystemName</title>
-
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true" />
     <link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true" />
     <link rel="stylesheet" href="/css/Styles.css" asp-append-version="true">
@@ -26,32 +26,60 @@
                         <li class="nav-item ">
                             <a asp-area="" asp-controller="Home" asp-action="HomeLoggedOut" class="nav-link">
                                 Home
-                                
+
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" asp-area="" asp-controller="Anime" asp-action="All">Anime</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
-                        </li>
+                        @if (!this.User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                            </li>
+                        }
+                        else
+                        {
+
+                            <li>
+                                <a class="nav-link" asp-area="" asp-controller="Anime" asp-action="All">Anime</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Manga" asp-action="All">Manga</a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-area="" asp-controller="Users" asp-action="MyProfile" class="nav-link">Profile</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <div class="dropdown show">
+                                    <a class="nav-link  btn btn-secondary btn-primary-outline btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Submit
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item text-dark text-decoration-none" asp-controller="Submission" asp-action="SubmitAnime">Anime</a>
+                                        <hr />
+                                        <a class="dropdown-item text-dark text-decoration-none" asp-controller="Submission" asp-action="SubmitManga">Manga</a>
+                                        <hr />
+                                        <a class="dropdown-item text-dark text-decoration-none" asp-controller="Submission" asp-action="SubmitArticle">Article</a>
+                                        
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@(this.Url.Action("Index", "Home", new { area = string.Empty }))">
+                                    <button class="btn btn-dark" type="submit">Logout</button>
+                                </form>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    
-            @this.RenderBody()
-    
+
+    @this.RenderBody()
+
     <footer class="ranna-bg-dark">
         <div class="container">
             &copy; @DateTime.Now.Year - @GlobalConstants.SystemName - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>

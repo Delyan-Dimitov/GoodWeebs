@@ -128,6 +128,10 @@
         [HttpPost]
         public IActionResult SubmitArticle(string url)
         {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View();
+            }
             return this.Redirect("Home/Index");
         }
     }
