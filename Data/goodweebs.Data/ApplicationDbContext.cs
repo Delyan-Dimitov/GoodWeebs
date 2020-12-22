@@ -69,6 +69,8 @@
 
         public DbSet<FriendRequest> FriendRequests { get; set; }
 
+        public DbSet<Update> Updates { get; set; }
+
         public object Anime { get; internal set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
