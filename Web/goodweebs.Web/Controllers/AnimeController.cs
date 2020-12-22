@@ -1,5 +1,6 @@
 ﻿namespace GoodWeebs.Web.Controllers
 {
+    using System.Security.Claims;
     using System.Threading.Tasks;
 
     using GoodWeebs.Data.Models;
@@ -34,9 +35,12 @@
 
         public IActionResult AnimeInfo(int id)
         {
+            var myId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var anime = this.animeService.GetById(id);
             var similar = this.animeService.GetSimilar(id, 3);
             var model = new AnimeInfoViewModel { Anime = anime, SimilarAnime = similar };
+            model.ProfileId = myId;
+            model.AnimeId = id;
             return this.View(model);
         }
     }

@@ -1,5 +1,11 @@
 ﻿@model GoodWeebs.Web.ViewModels.UserViewModels.FriendsListViewModel
 
+@if (Model.Friends == null)
+{
+<h1>No Friends :(</h1>
+}
+else
+{
 <div class="row">
     <h1>Friends</h1>
     <div class="col-md-3"></div>
@@ -23,3 +29,4 @@
     </div>
     <div class="col-md-3"></div>
 </div>
+}

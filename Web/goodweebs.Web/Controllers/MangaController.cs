@@ -4,6 +4,7 @@
     using GoodWeebs.Web.Controllers;
     using GoodWeebs.Web.ViewModels.MangaViewModels;
     using Microsoft.AspNetCore.Mvc;
+    using System.Security.Claims;
 
     public class MangaController : BaseController
     {
@@ -29,9 +30,11 @@
 
         public IActionResult Info(int id)
         {
+            var myId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var manga = this.mangaService.GetInfoById(id);
             var similar = this.mangaService.GetSimilar(id, 3);
             var model = new MangaInfoViewModel { Manga = manga, SimilarManga = similar };
+            model.ProfileId = myId;
             return this.View(model);
         }
     }

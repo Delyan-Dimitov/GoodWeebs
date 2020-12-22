@@ -11,11 +11,11 @@ else
     <div class="row">
         <div class="col-md-2 "></div>
         <div class="col-md-2 border-right border-light">
-            <p class="lead">Watching</p>
+            <a class="text-dark text-decoration-none lead" asp-action="Watching" asp-route-id=@Model.ProfileId> Watching </a>
             <hr>
-            <p class="lead">WantToWatch</p>
+            <a class="text-dark text-decoration-none lead" asp-action="WantToWatch" asp-route-id=@Model.ProfileId> Want To Watch </a>
             <hr>
-            <p class="lead">Profile</p>
+            <a class="text-dark text-decoration-none lead" asp-controller="Users" asp-action="Profile" asp-route-id=@Model.ProfileId> Profile </a>
         </div>
         <div class="col-md-6">
 

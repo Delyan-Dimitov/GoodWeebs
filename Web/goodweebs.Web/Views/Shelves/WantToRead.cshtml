@@ -1,32 +1,60 @@
-﻿@model GoodwWebs.Web.ViewModels.ShelfViewModels.ShelfViewModel
+﻿@model GoodWeebs.Web.ViewModels.ShelfViewModels.ShelfViewModel
 
-<div class="row">
-    <div class="col-md-2 "></div>
-    <div class="col-md-2 border-right border-light">
-        <p class="lead">Watching</p>
-        <hr>
-        <p class="lead">WantToWatch</p>
-        <hr>
-        <p class="lead">Profile</p>
-    </div>
-    <div class="col-md-6">
-        <table class="table table-dark table-striped table-hover">
-            <thead class="thead-dark">
 
-            </thead>
-            <tbody>
+@if (Model.ShelfItems == null)
+{
+    <h1>Empty</h1>
+
+}
+else
+{
+    <div class="row">
+        <div class="col-md-2 "></div>
+        <div class="col-md-2 border-right border-light">
+            <a class="text-dark text-decoration-none lead" asp-action="Read" asp-route-id=@Model.ProfileId> Read </a>
+            <hr />
+            <a class="text-dark text-decoration-none lead" asp-action="Reading" asp-route-id=@Model.ProfileId> Reading </a>
+            <hr />
+            <a class="text-dark text-decoration-none lead" asp-controller="Users" asp-action="Profile" asp-route-id="@Model.ProfileId">Profile</a>
+            
+            <hr>
+            <p class="lead">WantToWatch</p>
+            <hr>
+            <p class="lead">Profile</p>
+        </div>
+        <div class="col-md-6">
+
+            <table class="table table-dark table-striped table-hover">
+                <tbody>
+                <thead class="thead-dark">
+                </thead>
+
                 @foreach (var item in Model.ShelfItems)
                 {
                     <tr>
                         <th scope="row">@item.Id</th>
                         <td>@item.Title</td>
-                        <td><button type="button" class="btn btn-warning" asp-action="AddToRead" asp-route-id="@item.Id">Read</button></td>
-                        <td><button type="button" class="btn btn-warning" asp-action="AddToReading" asp-route-id="@item.Id">Reading</button></td>
-                        <td><button type="button" class="btn btn-danger" asp-action="RemoveFromWantToRead" asp-route-id="@item.Id">Remove</button></td>
+                        <td>
+                            @if (Model.MyProfile)
+                            {
+                                <button type="button" asp-action="AddToRead" asp-route-id="@item.Id" class="btn btn-warning">Read</button>
+                                <button type="button" asp-action="AddToReading" asp-route-id="@item.Id" class="btn btn-warning">Reading</button>
+                                <button type="button" asp-action="RemoveFromWantToRead" asp-route-id="@item.Id" class="btn btn-warning">Remove</button>
+                            }
+                            else
+                            {
+                                <button type="button" asp-action="AddToRead" asp-route-id="@item.Id" class="btn btn-warning">Read</button>
+                                <button type="button" asp-action="AddToReading" asp-route-id="@item.Id" class="btn btn-warning">Reading</button>
+                                <button type="button" asp-action="AddToWantToRead" asp-route-id="@item.Id" class="btn btn-warning">Want To Read</button>
+                            }
+
+                        </td>
                     </tr>
                 }
-            </tbody>
-        </table>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-2"></div>
     </div>
-    <div class="col-md-2"></div>
-</div>
+}

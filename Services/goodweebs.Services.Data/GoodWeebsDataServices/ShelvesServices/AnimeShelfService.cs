@@ -75,7 +75,7 @@
             }
             else if (!this.IsInWatched(userId, animeId))
             {
-                await this.watchedRepo.AddAsync(new WatchedMap { UserId = userId, AnimeId = animeId });
+                await this.watchedRepo.AddAsync(new WatchedMap { User = user, Anime = anime });
                 await this.watchedRepo.SaveChangesAsync();
             }
         }
@@ -134,9 +134,8 @@
         {
             var user = await this.userManager.FindByIdAsync(userId);
             var model = new ShelfViewModel();
-            model.ShelfItems = new List<ShelfItemVIewModel>();
-            var read = this.watchedRepo.AllAsNoTracking().Where(x => x.UserId == userId).ToList();
-            foreach (var map in read)
+            var watched = this.watchedRepo.AllAsNoTracking().Where(x => x.UserId == userId).ToList();
+            foreach (var map in watched)
             {
                 var anime = this.animeRepo.AllAsNoTracking().FirstOrDefault(x => x.Id == map.AnimeId);
                 model.ShelfItems.Add(new ShelfItemVIewModel { Title = anime.Title, Id = anime.Id }); // TODO KYS
@@ -149,8 +148,8 @@
         {
             var user = await this.userManager.FindByIdAsync(userId);
             var model = new ShelfViewModel();
-            var read = user.CurrentlyWatching;
-            foreach (var map in read)
+            var watching = this.watchingRepo.AllAsNoTracking().Where(x => x.UserId == userId).ToList();
+            foreach (var map in watching)
             {
                 model.ShelfItems.Add(new ShelfItemVIewModel { Title = map.Anime.Title });
             }
@@ -162,7 +161,7 @@
         {
             var user = await this.userManager.FindByIdAsync(userId);
             var model = new ShelfViewModel();
-            var read = user.WantToWatch;
+            var read = this.wantRepo.AllAsNoTracking().Where(x => x.UserId == userId).ToList();
             foreach (var map in read)
             {
                 model.ShelfItems.Add(new ShelfItemVIewModel { Title = map.Anime.Title });

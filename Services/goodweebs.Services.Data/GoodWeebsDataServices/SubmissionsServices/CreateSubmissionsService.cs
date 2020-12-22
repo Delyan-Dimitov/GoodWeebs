@@ -32,7 +32,7 @@
 
         public async Task SubmitAnimeWithUrlAsync(string url, string userId)
         {
-            var user = await this.userManager.FindByNameAsync(userId);
+            var user = await this.userManager.FindByIdAsync(userId);
             var urlSubmission = new AnimeSubmission()
             {
                 SubmitterId = userId,
@@ -45,7 +45,7 @@
 
         public async Task SubmitAnimeFullAsync(AnimeSubmissionInputModel model, string userId, string submissionType)
         {
-            var user = await this.userManager.FindByNameAsync(userId);
+            var user = await this.userManager.FindByIdAsync(userId);
 
             var animeSubmission = new AnimeSubmission()
             {
@@ -73,7 +73,7 @@
 
         public async Task SubmitArticleAsync(ArticleSubmissionInputModel model, string userId)
         {
-            var user = await this.userManager.FindByNameAsync(userId);
+            var user = await this.userManager.FindByIdAsync(userId);
             var articleSub = new ArticleSubmission() { SubmitterId = userId, Submitter = user, Title = model.Title, Content = model.Content };
             await this.articleSubRepo.AddAsync(articleSub);
 
@@ -82,7 +82,7 @@
 
         public async Task SubmitMangaFullAsync(MangaSubmissionInputModel model, string userId, string submissionType)
         {
-            var user = await this.userManager.FindByNameAsync(userId);
+            var user = await this.userManager.FindByIdAsync(userId);
 
             MangaSubmission mangaSubmission = new MangaSubmission()
                 {
@@ -106,7 +106,7 @@
 
         public async Task SubmitMangaWithUrlAsync(string url, string userId)
         {
-            var user = await this.userManager.FindByNameAsync(userId);
+            var user = await this.userManager.FindByIdAsync(userId);
 
             var urlSubmission = new MangaSubmission()
             {

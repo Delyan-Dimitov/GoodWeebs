@@ -12,9 +12,11 @@
     <div class="col-md-2 border-bottom">
         <img src="@Model.Manga.PictureUrl" alt="">
         <div class=" text-justify-left">
-            <p class="lead text-center">Add To Watched</p>
+            <a class="text-dark text-decoration-none lead" asp-controller="Shelves" asp-action="AddToRead" asp-route-id=@Model.ProfileId> Read </a>
             <hr>
-            <p class="lead text-center">Want To Watch</p>
+            <a class="text-dark text-decoration-none lead" asp-controller="Shelves" asp-action="AddToReading" asp-route-id=@Model.ProfileId> Reading </a>
+            <hr>
+            <a class="text-dark text-decoration-none lead" asp-controller ="Shelves" asp-action="AddToWantToRead"  asp-route-id=@Model.ProfileId> Want To Read  </a>
             <hr>
             <p>Type: @Model.Manga.Type</p>
             <p>Genre: @Model.Manga.Genres</p>

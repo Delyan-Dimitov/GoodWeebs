@@ -45,6 +45,7 @@
         private List<string> GetTopGenres(string userId)
         {
             var topGenres = this.userGenreRepo.AllAsNoTracking()
+                .Where(x => x.UserId == userId)
                 .Where(x => x.Count != 0)
                 .OrderByDescending(x => x.Count)
                 .Take(3).Select(x => x.Genre)

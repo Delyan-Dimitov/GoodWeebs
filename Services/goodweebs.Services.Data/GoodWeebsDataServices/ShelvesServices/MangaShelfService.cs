@@ -135,7 +135,8 @@
         {
             var user = await this.userManager.FindByIdAsync(userId);
             var model = new ShelfViewModel();
-            var read = user.Read;
+            model.ProfileId = userId;
+            var read = this.readRepo.AllAsNoTracking().Where(x => x.UserId == userId).ToList();
             foreach (var map in read)
             {
                 model.ShelfItems.Add(new ShelfItemVIewModel { Id = map.Id, Title = map.Manga.Title });
@@ -148,7 +149,8 @@
         {
             var user = await this.userManager.FindByIdAsync(userId);
             var model = new ShelfViewModel();
-            var read = user.CurrentlyReading;
+            model.ProfileId = userId;
+            var read = this.readingRepo.AllAsNoTracking().Where(x => x.UserId == userId).ToList();
             foreach (var map in read)
             {
                 model.ShelfItems.Add(new ShelfItemVIewModel { Id = map.Id, Title = map.Manga.Title });
@@ -161,7 +163,8 @@
         {
             var user = await this.userManager.FindByIdAsync(userId);
             var model = new ShelfViewModel();
-            var read = user.WantToRead;
+            model.ProfileId = userId;
+            var read = this.wantRepo.AllAsNoTracking().Where(x => x.UserId == userId).ToList();
             foreach (var map in read)
             {
                 model.ShelfItems.Add(new ShelfItemVIewModel { Id = map.Id, Title = map.Manga.Title });

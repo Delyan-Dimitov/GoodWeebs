@@ -16,24 +16,24 @@
         {
             this.userService = userService;
         }
-
-        public IActionResult Profile(string userId)
+        [Route("Users/Profile/{userId}")]
+        public async Task<IActionResult> ProfileAsync(string userId)
         {
             var myId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
             if (myId == userId)
             {
-                return this.RedirectToAction("Users/MyProfile");
+                return this.RedirectToAction("MyProfile");
             }
 
-            var model = this.userService.GetUserById(userId);
+            var model = await this.userService.GetUserById(userId);
             return this.View(model);
         }
 
-        public IActionResult MyProfile()
+        public async Task<IActionResult> MyProfileAsync()
         {
             var myId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            var model = this.userService.GetUserById(myId);
+            var model = await this.userService.GetUserById(myId);
             return this.View(model);
         }
 
@@ -56,7 +56,7 @@
         {
             var requesterId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             await this.userService.RequestFriend(requesterId, id);
-            return this.RedirectToAction($"Users/Profile/{id}");
+            return this.RedirectToAction("Users/Profile", new { id = id });
         }
 
         [HttpPost]
@@ -71,7 +71,7 @@
         public async Task<IActionResult> RejectFriendRequest(string friendRequestId)
         {
             await this.userService.RejectFriendRequest(friendRequestId);
-            return this.Redirect("Users/MyProfile"); // TODO Make it redirect to friend request list
+            return this.Redirect("Users/FriendRequests"); // TODO Make it redirect to friend request list
         }
 
         [HttpPost]
@@ -79,7 +79,7 @@
         {
             var addedId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             await this.userService.AddFriend(adderId, addedId);
-            return this.RedirectToAction("Users/MyProfile"); // TODO redirect to friends list
+            return this.RedirectToAction("Users/FriendsList"); // TODO redirect to friends list
         }
     }
 }

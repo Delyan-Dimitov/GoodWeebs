@@ -24,63 +24,105 @@
             this.mangaShelfService = mangaShelfService;
             this.userManager = userManager;
         }
+
         [Route("Shelves/Watched/{userId}")]
         public async Task<IActionResult> Watched(string userId)
         {
+            var myId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var model = await this.animeShelfService.GetWatched(userId);
+            model.ProfileId = userId;
+
+            if (myId == userId)
+            {
+                model.MyProfile = true;
+            }
 
             return this.View(model);
         }
 
-        public IActionResult Watching(string userId)
+        [Route("Shelves/Watching/{userId}")]
+        public async Task<IActionResult> WatchingAsync(string userId)
         {
-            var model = this.animeShelfService.GetWatching(userId);
+            var model = await this.animeShelfService.GetWatching(userId);
+            model.ProfileId = userId;
             return this.View(model);
         }
 
-        public IActionResult WantToWatch(string userId)
+        [Route("Shelves/WantToWatch/{userId}")]
+        public async Task<IActionResult> WantToWatchAsync(string userId)
         {
-            var model = this.animeShelfService.GetWantToWatch(userId); // TODO rename
+            var myId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var model = await this.animeShelfService.GetWantToWatch(userId); // TODO rename
+            model.ProfileId = userId;
+            if (myId == userId)
+            {
+                model.MyProfile = true;
+            }
             return this.View(model);
         }
 
-        public IActionResult Read(string userId)
+        [Route("Shelves/Read/{userId}")]
+        public async Task<IActionResult> ReadAsync(string userId)
         {
-            var model = this.mangaShelfService.GetRead(userId);
+            var myId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var model = await this.mangaShelfService.GetRead(userId);
+            if (myId == userId)
+            {
+                model.MyProfile = true;
+            }
+
             return this.View(model);
         }
 
-        public IActionResult Reading(string userId)
+        [Route("Shelves/Reading/{userId}")]
+        public async Task<IActionResult> ReadingAsync(string userId)
         {
-            var model = this.mangaShelfService.GetReading(userId);
+            var myId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var model = await this.mangaShelfService.GetReading(userId);
+            if (myId == userId)
+            {
+                model.MyProfile = true;
+            }
             return this.View(model);
         }
 
-        public IActionResult WantToRead(string userId)
+        [Route("Shelves/WantToRead/{userId}")]
+        public async Task<IActionResult> WantToReadAsync(string userId)
         {
-            var model = this.mangaShelfService.GetWantToRead(userId);
+            var myId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var model = await this.mangaShelfService.GetWantToRead(userId);
+            if (myId == userId)
+            {
+                model.MyProfile = true;
+            }
             return this.View(model);
         }
 
+
+        [Route("Shelves/AddToReading/{mangaId}")]
         public async Task<IActionResult> AddToRead(int animeId)
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             await this.mangaShelfService.AddToRead(userId, animeId);
-            return this.Redirect(this.Request.Path.ToString());
+            return this.RedirectToAction("Read/{userId}");
         }
 
+        [Route("Shelves/AddToReading/{mangaId}")]
         public async Task<IActionResult> AddToReading(int animeId)
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             await this.mangaShelfService.AddToReading(userId, animeId);
-            return this.Redirect(this.Request.Path.ToString());
+            return this.RedirectToAction("Reading/{userId}");
         }
+
+
+        [Route("Shelves/AddToWantToRead/{animeId}")]
 
         public async Task<IActionResult> AddToWantToRead(int animeId)
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             await this.mangaShelfService.AddToWant(userId, animeId);
-            return this.Redirect(this.Request.Path.ToString());
+            return this.RedirectToAction("WantToRead/{userId}");
         }
 
         [Route("Shelves/AddToWatched/{animeId}")]
@@ -88,22 +130,73 @@
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             await this.animeShelfService.AddToWatched(userId, animeId);
-            return this.Redirect(this.Request.Path.ToString());
+            return this.RedirectToAction("Watched", new { id = userId });
         }
 
+        [Route("Shelves/AddToReading/{animeId}")]
         public async Task<IActionResult> AddToWatching(int animeId)
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             await this.animeShelfService.AddToWatching(userId, animeId);
-            return this.Redirect(this.Request.Path.ToString());
+            return this.RedirectToAction("Watching", new { id = userId });
         }
 
+        [Route("Shelves/AddToWantToWatch/{mangaId}")]
         public async Task<IActionResult> AddToWantToWatch(int animeId)
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             await this.animeShelfService.AddToWantToWatch(userId, animeId);
-            return this.Redirect(this.Request.Path.ToString());
+            return this.RedirectToAction("WantToWatch", new { id = userId });
         }
 
+        [Route("Shelves/RemoveFromWatched/{animeId}")]
+        public async Task<IActionResult> RemoveFromWatched(int animeId)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            await this.animeShelfService.RemoveFromWatched(userId, animeId);
+            return this.RedirectToAction("Watched", new { id = userId });
+        }
+
+        [Route("Shelves/RemoveFromWatching/{animeId}")]
+        public async Task<IActionResult> RemoveFromWatching(int animeId)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            await this.animeShelfService.RemoveFromWatching(userId, animeId);
+            return this.RedirectToAction("Watching", new { id = userId });
+        }
+
+        [Route("Shelves/RemoveFromWantToWatch/{animeId}")]
+        public async Task<IActionResult> RemoveFromWantToWatch(int animeId)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            await this.animeShelfService.RemoveFromWant(userId, animeId);
+            return this.RedirectToAction("WantToWatch", new { id = userId });
+        }
+
+        [Route("Shelves/RemoveFromRead/{mangaId}")]
+        public async Task<IActionResult> RemoveFromRead(int mangaId)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            await this.mangaShelfService.RemoveFromRead(userId, mangaId);
+            return this.RedirectToAction("Read", new { id = userId });
+        }
+
+        [Route("Shelves/RemoveFromReading/{mangaId}")]
+        public async Task<IActionResult> RemoveFromReading(int mangaId)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            await this.mangaShelfService.RemoveFromReading(userId, mangaId);
+            return this.RedirectToAction("Reading/{userId}");
+        }
+
+        [Route("Shelves/RemoveFromWantRead/{animeId}")]
+        public async Task<IActionResult> RemoveFromWantToRead(int mangaId)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            await this.mangaShelfService.RemoveFromWant(userId, mangaId);
+            return this.RedirectToAction("WantToRead", new { id = userId });
+
+        }
     }
+
 }

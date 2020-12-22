@@ -42,10 +42,6 @@
 
         public string Studios { get; set; }
 
-        public ICollection<WatchedMap> WatchedAnime { get; set; }
-        public ICollection<CurrentlyWatchingMap> CurentlyWatching { get; set; }
-        public ICollection<WantToWatchMap> WantToWatch { get; set; }
-
         public DateTime CreatedOn { get; set; }
 
         public DateTime? ModifiedOn { get; set; }

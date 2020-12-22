@@ -120,17 +120,25 @@
             var user = await this.userManager.FindByIdAsync(userId);
             var usersFriends = user.Friends;
             FriendsListViewModel friends = null;
-            foreach (var friend in usersFriends)
+            if (usersFriends == null)
             {
-                if (friend.MainUserId != userId)
+                return friends;
+            }
+            else
+            {
+                foreach (var friend in usersFriends)
                 {
-                    friends.Friends.Add(new ProfileViewModel { Id = friend.MainUserId, AvatarUrl = friend.MainUser.AvatarUrl, DisplayName = friend.MainUser.DisplayName });
-                }
-                else if (friend.FriendUserId != userId)
-                {
-                    friends.Friends.Add(new ProfileViewModel { Id = friend.FriendUserId, AvatarUrl = friend.FriendUser.AvatarUrl, DisplayName = friend.FriendUser.DisplayName });
+                    if (friend.MainUserId != userId)
+                    {
+                        friends.Friends.Add(new ProfileViewModel { Id = friend.MainUserId, AvatarUrl = friend.MainUser.AvatarUrl, DisplayName = friend.MainUser.DisplayName });
+                    }
+                    else if (friend.FriendUserId != userId)
+                    {
+                        friends.Friends.Add(new ProfileViewModel { Id = friend.FriendUserId, AvatarUrl = friend.FriendUser.AvatarUrl, DisplayName = friend.FriendUser.DisplayName });
+                    }
                 }
             }
+
 
             return friends;
         }
@@ -139,14 +147,20 @@
         {
             var requests = this.friendRequestRepo.AllAsNoTracking().Where(x => x.RequesteeId == userId);
             FriendRequestListViewModel model = null;
-            foreach (var request in requests)
+            if (requests == null)
             {
-                var sender = await this.userManager.FindByIdAsync(request.RequesterId);
-                model.FriendRequests.Add(new FriendRequestViewModel { Id = request.Id, Sender = new ProfileViewModel { Id = sender.Id, AvatarUrl = sender.AvatarUrl, DisplayName = sender.DisplayName } });
-
-                // TODO cleanest code i have written in my life :)
+                return model;
             }
+            else
+            {
+                foreach (var request in requests)
+                {
+                    var sender = await this.userManager.FindByIdAsync(request.RequesterId);
+                    model.FriendRequests.Add(new FriendRequestViewModel { Id = request.Id, Sender = new ProfileViewModel { Id = sender.Id, AvatarUrl = sender.AvatarUrl, DisplayName = sender.DisplayName } });
 
+                    // TODO cleanest code i have written in my life :)
+                }
+            }
             return model;
         }
     }

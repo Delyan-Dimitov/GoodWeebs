@@ -6,6 +6,16 @@
 
     public class ShelfViewModel
     {
+
+        public ShelfViewModel()
+        {
+            this.ShelfItems = new List<ShelfItemVIewModel>();
+        }
+
+        public string ProfileId { get; set; }
+
         public ICollection<ShelfItemVIewModel> ShelfItems { get; set; }
+
+        public bool MyProfile { get; set; }
     }
 }

@@ -4,18 +4,19 @@
         <div class="row display-flex ">
             <div class="col-md-2"></div>
             <div class="col-md-8 border border-dark shadow p-3 mb-5 bg-white rounded">
-                <img src="Images/tobi.jpg" class="md-avatar rounded-circle size-4 mx-auto d-block">
+                <img src=@Model.AvatarUrl class="md-avatar rounded-circle size-4 mx-auto d-block">
                 <hr>
                 <div class="text-center">
-                    <p class="display-4">Gunexon</p>
+                    <p class="display-4">@Model.DisplayName</p>
                     <hr>
-                    <p class="display-4">Shelves</p>
+                    <a asp-controller="Shelves" asp-action="Watched" asp-route-id=@Model.Id>Anime Shelves</a>
+                    <a asp-controller="Shelves" asp-action="GetRead" asp-route-id=@Model.Id>content<p class="display-4">Manga Shelves</p></a>
                     <hr>
                     <p class="display-4">Groups</p>
                     <hr>
                     <p class="display-4">Bookmarks</p>
                     <hr>
-                    <p class="display-4">Friends</p>
+                    <a asp-action="RequestFriend" asp-route-id=@Model.Id><p class="display-4">Add As Friend</p></a>
                 </div>
             </div>
             <div class="col-md-2"><button type="button" class="btn btn-primary"> Edit</button></div>

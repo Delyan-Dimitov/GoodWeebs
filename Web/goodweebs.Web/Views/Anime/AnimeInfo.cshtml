@@ -12,9 +12,11 @@
     <div class="col-md-2 border-bottom">
         <img src="@Model.Anime.PictureUrl" alt="">
         <div class=" text-justify-left">
-            <p class="lead text-center">Add To Watched</p>
+            <a class="text-dark text-decoration-none lead" asp-controller="Shelves" asp-action="AddToWatched" asp-route-id=@Model.AnimeId> Watched </a>
             <hr>
-            <p class="lead text-center">Want To Watch</p>
+            <a class="text-dark text-decoration-none lead" asp-controller="Shelves" asp-action="AddToWatching" asp-route-id=@Model.ProfileId> Watching </a>
+            <hr>
+            <a class="text-dark text-decoration-none lead" asp-controller="Shelves" asp-action="AddToWantToWatch" asp-route-id=@Model.ProfileId> Want To Watch  </a>
             <hr>
             <p>Type: @Model.Anime.Type</p>
             <p>Genre: @Model.Anime.Genres</p>
@@ -23,6 +25,7 @@
             <p>Duration: @Model.Anime.Duration</p>
             <p>Studio: @Model.Anime.Studios</p>
             <p>Rating: @Model.Anime.Rating</p>
+            <a href="C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\Views\Anime\AnimeInfo.cshtml">C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\Views\Anime\AnimeInfo.cshtml</a>
         </div>
     </div>
     <div class="col-md-8">
