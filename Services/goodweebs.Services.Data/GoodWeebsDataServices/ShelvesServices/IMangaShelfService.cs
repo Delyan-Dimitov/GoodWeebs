@@ -5,11 +5,11 @@
 
     public interface IMangaShelfService
     {
-        public Task AddToRead(string userId, int mangaId);
+        public Task<bool> AddToRead(string userId, int mangaId);
 
-        public Task AddToReading(string userId, int mangaId);
+        public Task<bool> AddToReading(string userId, int mangaId);
 
-        public Task AddToWant(string userId, int mangaId);
+        public Task<bool> AddToWant(string userId, int mangaId);
 
         public Task RemoveFromRead(string userId, int mangaId);
 

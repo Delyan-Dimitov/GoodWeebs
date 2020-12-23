@@ -188,7 +188,6 @@ namespace goodweebs.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Type")
@@ -230,7 +229,6 @@ namespace goodweebs.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
@@ -309,7 +307,6 @@ namespace goodweebs.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
@@ -346,7 +343,6 @@ namespace goodweebs.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
@@ -1034,10 +1030,7 @@ namespace goodweebs.Data.Migrations
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("GroupId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("GroupId1")
+                    b.Property<string>("GroupId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("IsDeleted")
@@ -1060,7 +1053,7 @@ namespace goodweebs.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GroupId1");
+                    b.HasIndex("GroupId");
 
                     b.HasIndex("IsDeleted");
 
@@ -1191,16 +1184,14 @@ namespace goodweebs.Data.Migrations
             modelBuilder.Entity("Entities.Maps.CurrentlyReadingMap", b =>
                 {
                     b.HasOne("Entities.Manga", "Manga")
-                        .WithMany("CurrentlyReading")
+                        .WithMany()
                         .HasForeignKey("MangaId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "User")
                         .WithMany("CurrentlyReading")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Entities.Maps.CurrentlyWatchingMap", b =>
@@ -1219,31 +1210,27 @@ namespace goodweebs.Data.Migrations
             modelBuilder.Entity("Entities.Maps.ReadMap", b =>
                 {
                     b.HasOne("Entities.Manga", "Manga")
-                        .WithMany("Read")
+                        .WithMany()
                         .HasForeignKey("MangaId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "User")
                         .WithMany("Read")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Entities.Maps.WantToReadMap", b =>
                 {
                     b.HasOne("Entities.Manga", "Manga")
-                        .WithMany("WantToRead")
+                        .WithMany()
                         .HasForeignKey("MangaId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "User")
                         .WithMany("WantToRead")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Entities.Maps.WantToWatchMap", b =>
@@ -1351,7 +1338,7 @@ namespace goodweebs.Data.Migrations
                 {
                     b.HasOne("GoodWeebs.Data.Models.Group", "Group")
                         .WithMany()
-                        .HasForeignKey("GroupId1");
+                        .HasForeignKey("GroupId");
 
                     b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "User")
                         .WithMany()

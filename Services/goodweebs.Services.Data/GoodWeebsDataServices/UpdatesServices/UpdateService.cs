@@ -20,132 +20,162 @@
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IDeletableEntityRepository<Group> groupRepo;
         private readonly IDeletableEntityRepository<Friends> friendsRepo;
+        private readonly IDeletableEntityRepository<Anime> animeRepo;
+        private readonly IDeletableEntityRepository<Manga> mangaRepo;
 
         public UpdateService(
             IDeletableEntityRepository<Update> updateRepo,
             UserManager<ApplicationUser> userManager,
             IDeletableEntityRepository<Group> groupRepo,
-            IDeletableEntityRepository<Friends> friendsRepo)
+            IDeletableEntityRepository<Friends> friendsRepo,
+            IDeletableEntityRepository<Anime> animeRepo,
+            IDeletableEntityRepository<Manga> mangaRepo)
         {
             this.updateRepo = updateRepo;
             this.userManager = userManager;
             this.groupRepo = groupRepo;
             this.friendsRepo = friendsRepo;
+            this.animeRepo = animeRepo;
+            this.mangaRepo = mangaRepo;
         }
 
         public async Task CreateSeriesUpdate(string userId, int seriesId, int seriesType, string contentType)
         {
             var user = await this.userManager.FindByIdAsync(userId);
-            var update = new Update();
-            update.ContentId = seriesId;
-            update.User = user;
-            update.Type = seriesType;
-            update.UpdateContent = contentType;
+            var contentTitle = seriesType == 1 ?
+                this.animeRepo.AllAsNoTracking().Where(x => x.Id == seriesId).FirstOrDefault().Title :
+                this.mangaRepo.AllAsNoTracking().Where(x => x.Id == seriesId).FirstOrDefault().Title;
+
+            var update = new Update
+            {
+                ContentId = seriesId,
+                User = user,
+                Type = seriesType,
+                UpdateContent = contentType,
+                UserDisplayName = "Guneto", // TODO Implement display names and change this
+                ContentTitle = contentTitle, // Do i need to have the content title?
+            };
 
             await this.updateRepo.AddAsync(update);
 
+            await this.updateRepo.SaveChangesAsync();
+
         }
 
-        public async Task CreatePostUpdate(string userId, int postId, int groupId)
+        public async Task CreatePostUpdate(string userId, int postId, string groupId)
         {
             var user = await this.userManager.FindByIdAsync(userId);
-            var update = new Update();
-            update.ContentId = postId;
-            update.User = user;
-            update.Type = 3;
-            update.GroupId = groupId;
-            await this.updateRepo.AddAsync(update);
+            var update = new Update
+            {
+                ContentId = postId,
+                User = user,
+                Type = 3,
+                GroupId = groupId,
+            };
 
+            await this.updateRepo.AddAsync(update);
+            await this.updateRepo.SaveChangesAsync();
         }
 
-        //public async Task<UpdateListViewModel> GetRelevantUpdatesAsViewModelAsync(string userId)
-        //{
-        //    var updates = await this.GetRelevantUpdates(userId);
-        //    var updatesViewModel = new UpdateListViewModel();
-        //    if (updates.Any())
-        //    {
-        //        foreach (var update in updates)
-        //        {
-        //            if (update.Type == 1)
-        //            {
-        //                if (update.UpdateContent == "Watched")
-        //                {
-        //                    updatesViewModel.SeriesUpdates.
-        //                        Add(new SeriesUpdateViewModel
-        //                        {
-        //                            SeriesId = update.ContentId,
-        //                            Content = string.Format(SeriesUpdateViewModel.WatchedContentString, update.UserDisplayName, update.ContentTitle),
-        //                            UpdateId = update.Id,
-        //                            UserDisplayName = update.UserDisplayName,
-        //                        });
-        //                }
-        //                else if (update.UpdateContent == "Watching")
-        //                {
-        //                    updatesViewModel.SeriesUpdates.
-        //                        Add(new SeriesUpdateViewModel
-        //                        {
-        //                            SeriesId = update.ContentId,
-        //                            Content = string.Format(SeriesUpdateViewModel.WatchingContentString, update.UserDisplayName, update.ContentTitle),
-        //                            UpdateId = update.Id,
-        //                            UserDisplayName = update.UserDisplayName,
-        //                        });
-        //                }
-        //                else if (update.UpdateContent == "WantToWatch")
-        //                {
-        //                    updatesViewModel.SeriesUpdates.
-        //                        Add(new SeriesUpdateViewModel
-        //                        {
-        //                            SeriesId = update.ContentId,
-        //                            Content = string.Format(SeriesUpdateViewModel.WantToWatchContentString, update.UserDisplayName, update.ContentTitle),
-        //                            UpdateId = update.Id,
-        //                            UserDisplayName = update.UserDisplayName,
-        //                        });
-        //                }
-        //            }
-        //            else if (update.Type == 2)
-        //            {
-        //                if (update.UpdateContent == "Read")
-        //                {
-        //                    updatesViewModel.SeriesUpdates.
-        //                        Add(new SeriesUpdateViewModel
-        //                        {
-        //                            SeriesId = update.ContentId,
-        //                            Content = string.Format(SeriesUpdateViewModel.ReadContentString, update.UserDisplayName, update.ContentTitle),
-        //                            UpdateId = update.Id,
-        //                            UserDisplayName = update.UserDisplayName,
-        //                        });
-        //                }
-        //                else if (update.UpdateContent == "Reading")
-        //                {
-        //                    updatesViewModel.SeriesUpdates.
-        //                        Add(new SeriesUpdateViewModel
-        //                        {
-        //                            SeriesId = update.ContentId,
-        //                            Content = string.Format(SeriesUpdateViewModel.ReadingContentString, update.UserDisplayName, update.ContentTitle),
-        //                            UpdateId = update.Id,
-        //                            UserDisplayName = update.UserDisplayName,
-        //                        });
-        //                }
-        //                else if (update.UpdateContent == "WantToRead")
-        //                {
-        //                    updatesViewModel.SeriesUpdates.
-        //                        Add(new SeriesUpdateViewModel
-        //                        {
-        //                            SeriesId = update.ContentId,
-        //                            Content = string.Format(SeriesUpdateViewModel.WantToReadContentString, update.UserDisplayName, update.ContentTitle),
-        //                            UpdateId = update.Id,
-        //                            UserDisplayName = update.UserDisplayName,
-        //                        });
-        //                }
-        //            }
-        //            else if (update.Type == 3)
-        //            {
+        public async Task<UpdateListViewModel> GetRelevantUpdatesAsViewModelAsync(string userId)
+        {
+            var updates = await this.GetRelevantUpdates(userId);
+            var updatesViewModel = new UpdateListViewModel();
+            if (updates.Any())
+            {
+                foreach (var update in updates)
+                {
+                    if (update.Type == 1)
+                    {
+                        if (update.UpdateContent == "Watched")
+                        {
+                            updatesViewModel.SeriesUpdates.
+                                Add(new SeriesUpdateViewModel
+                                {
+                                    SeriesId = update.ContentId,
+                                    Content = string.Format(SeriesUpdateViewModel.WatchedContentString, update.UserDisplayName, update.ContentTitle),
+                                    UpdateId = update.Id,
+                                    UserDisplayName = update.UserDisplayName,
+                                });
+                        }
+                        else if (update.UpdateContent == "Watching")
+                        {
+                            updatesViewModel.SeriesUpdates.
+                                Add(new SeriesUpdateViewModel
+                                {
+                                    SeriesId = update.ContentId,
+                                    Content = string.Format(SeriesUpdateViewModel.WatchingContentString, update.UserDisplayName, update.ContentTitle),
+                                    UpdateId = update.Id,
+                                    UserDisplayName = update.UserDisplayName,
+                                });
+                        }
+                        else if (update.UpdateContent == "WantToWatch")
+                        {
+                            updatesViewModel.SeriesUpdates.
+                                Add(new SeriesUpdateViewModel
+                                {
+                                    SeriesId = update.ContentId,
+                                    Content = string.Format(SeriesUpdateViewModel.WantToWatchContentString, update.UserDisplayName, update.ContentTitle),
+                                    UpdateId = update.Id,
+                                    UserDisplayName = update.UserDisplayName,
+                                });
+                        }
+                    }
+                    else if (update.Type == 2)
+                    {
+                        if (update.UpdateContent == "Read")
+                        {
+                            updatesViewModel.SeriesUpdates.
+                                Add(new SeriesUpdateViewModel
+                                {
+                                    SeriesId = update.ContentId,
+                                    Content = string.Format(SeriesUpdateViewModel.ReadContentString, update.UserDisplayName, update.ContentTitle),
+                                    UpdateId = update.Id,
+                                    UserDisplayName = update.UserDisplayName,
+                                });
+                        }
+                        else if (update.UpdateContent == "Reading")
+                        {
+                            updatesViewModel.SeriesUpdates.
+                                Add(new SeriesUpdateViewModel
+                                {
+                                    SeriesId = update.ContentId,
+                                    Content = string.Format(SeriesUpdateViewModel.ReadingContentString, update.UserDisplayName, update.ContentTitle),
+                                    UpdateId = update.Id,
+                                    UserDisplayName = update.UserDisplayName,
+                                });
+                        }
+                        else if (update.UpdateContent == "WantToRead")
+                        {
+                            updatesViewModel.SeriesUpdates.
+                                Add(new SeriesUpdateViewModel
+                                {
+                                    SeriesId = update.ContentId,
+                                    Content = string.Format(SeriesUpdateViewModel.WantToReadContentString, update.UserDisplayName, update.ContentTitle),
+                                    UpdateId = update.Id,
+                                    UserDisplayName = update.UserDisplayName,
+                                });
+                        }
+                    }
+                    else if (update.Type == 3)
+                    {
+                        var group = this.groupRepo.AllAsNoTracking().Where(x => x.Id == update.GroupId).FirstOrDefault();
+                        updatesViewModel.PostUpdates.
+                            Add(new PostUpdateViewModel
+                            {
+                                UserDisplayName = update.UserDisplayName,
+                                Content = string.Format(PostUpdateViewModel.PostContentTemplate, update.UserDisplayName, update.UpdateContent, group.Name),
+                                GroupName = group.Name,
+                                PostId = update.ContentId,
+                                UpdateId = update.Id,
+                            });
+                    }
+                }
+            }
 
-        //            }
-        //        }
-        //    }
+            return updatesViewModel;
 
-        //}
+        }
 
         private async Task<ICollection<Update>> GetRelevantUpdates(string userId)
         {

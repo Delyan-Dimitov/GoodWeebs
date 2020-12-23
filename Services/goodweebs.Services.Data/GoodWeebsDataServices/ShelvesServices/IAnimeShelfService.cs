@@ -5,11 +5,11 @@
 
     public interface IAnimeShelfService
     {
-        public Task AddToWatched(string userId, int animeId);
+        public Task<bool> AddToWatched(string userId, int animeId);
 
-        public Task AddToWatching(string userId, int animeId);
+        public Task<bool> AddToWatching(string userId, int animeId);
 
-        public Task AddToWantToWatch(string userId, int animeId);
+        public Task<bool> AddToWantToWatch(string userId, int animeId);
 
         public Task RemoveFromWatched(string userId, int animeId);
 

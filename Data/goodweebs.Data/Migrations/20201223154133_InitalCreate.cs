@@ -99,7 +99,7 @@ namespace goodweebs.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(nullable: false),
+                    Title = table.Column<string>(nullable: true),
                     Synopsis = table.Column<string>(nullable: true),
                     Genres = table.Column<string>(nullable: true),
                     Type = table.Column<string>(nullable: true),
@@ -371,7 +371,7 @@ namespace goodweebs.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(nullable: false),
+                    UserId = table.Column<string>(nullable: true),
                     MangaId = table.Column<int>(nullable: false),
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
@@ -559,7 +559,7 @@ namespace goodweebs.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(nullable: false),
+                    UserId = table.Column<string>(nullable: true),
                     MangaId = table.Column<int>(nullable: false),
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
@@ -596,8 +596,7 @@ namespace goodweebs.Data.Migrations
                     Type = table.Column<int>(nullable: false),
                     UserId = table.Column<string>(nullable: true),
                     ContentId = table.Column<int>(nullable: false),
-                    GroupId1 = table.Column<string>(nullable: true),
-                    GroupId = table.Column<int>(nullable: true),
+                    GroupId = table.Column<string>(nullable: true),
                     UpdateContent = table.Column<string>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     ModifiedOn = table.Column<DateTime>(nullable: true),
@@ -608,8 +607,8 @@ namespace goodweebs.Data.Migrations
                 {
                     table.PrimaryKey("PK_Updates", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Updates_Groups_GroupId1",
-                        column: x => x.GroupId1,
+                        name: "FK_Updates_Groups_GroupId",
+                        column: x => x.GroupId,
                         principalTable: "Groups",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -648,7 +647,7 @@ namespace goodweebs.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(nullable: false),
+                    UserId = table.Column<string>(nullable: true),
                     MangaId = table.Column<int>(nullable: false),
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
@@ -872,9 +871,9 @@ namespace goodweebs.Data.Migrations
                 column: "IsDeleted");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Updates_GroupId1",
+                name: "IX_Updates_GroupId",
                 table: "Updates",
-                column: "GroupId1");
+                column: "GroupId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Updates_IsDeleted",

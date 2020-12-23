@@ -39,8 +39,9 @@
             this.userManager = userManager;
         }
 
-        public async Task AddToWant(string userId, int mangaId)
+        public async Task<bool> AddToWant(string userId, int mangaId)
         {
+            var result = false;
             if (!this.IsInWant(userId, mangaId) &&
                 !this.IsInRead(userId, mangaId) &&
                 !this.IsInWant(userId, mangaId))
@@ -50,11 +51,14 @@
 
                 await this.wantRepo.AddAsync(new WantToReadMap { User = user, Manga = manga});
                 await this.wantRepo.SaveChangesAsync();
+                result = true;
             }
+            return result;
         }
 
-        public async Task AddToRead(string userId, int mangaId)
+        public async Task<bool> AddToRead(string userId, int mangaId)
         {
+            var result = false;
             var user = await this.userManager.FindByIdAsync(userId);
             var manga = this.mangaRepo.All().Where(x => x.Id == mangaId).FirstOrDefault();
 
@@ -65,6 +69,7 @@
                 await this.wantRepo.SaveChangesAsync();
                 await this.readRepo.AddAsync(new ReadMap { User = user, Manga = manga });
                 await this.readRepo.SaveChangesAsync();
+                result = true;
             }
             else if (this.IsInRead(userId, mangaId))
             {
@@ -73,16 +78,20 @@
                 await this.readingRepo.SaveChangesAsync();
                 await this.readRepo.AddAsync(new ReadMap { User = user, Manga = manga });
                 await this.readRepo.SaveChangesAsync();
+                result = true;
             }
             else if (!this.IsInRead(userId, mangaId))
             {
                 await this.readRepo.AddAsync(new ReadMap { User = user, Manga = manga });
                 await this.readRepo.SaveChangesAsync();
+                result = true;
             }
+            return result;
         }
 
-        public async Task AddToReading(string userId, int mangaId)
+        public async Task<bool> AddToReading(string userId, int mangaId)
         {
+            var result = false;
             var user = await this.userManager.FindByIdAsync(userId);
             var manga = this.mangaRepo.All().Where(x => x.Id == mangaId).FirstOrDefault();
 
@@ -92,13 +101,16 @@
                 this.wantRepo.Delete(toDelete);
                 await this.wantRepo.SaveChangesAsync();
                 await this.readingRepo.AddAsync(new CurrentlyReadingMap { User = user, Manga = manga });
+                result = true;
             }
 
             if (!this.IsInRead(userId, mangaId) && !this.IsInWant(userId, mangaId) && !this.IsInReading(userId, mangaId))
             {
                 await this.readingRepo.AddAsync(new CurrentlyReadingMap { User = user, Manga = manga });
                 await this.readingRepo.SaveChangesAsync();
+                result = true;
             }
+            return result;
         }
 
         public async Task RemoveFromRead(string userId, int mangaId)

@@ -4,7 +4,6 @@
     using System.ComponentModel.DataAnnotations;
 
     using GoodWeebs.Data.Common.Models;
-    using goodweebs.Data.Models;
 
     public class Update : IDeletableEntity, IAuditInfo
     {
@@ -12,6 +11,7 @@
         public int Id { get; set; }
 
         public string UserDisplayName { get; set; }
+
         public string ContentTitle { get; set; }
 
         public ApplicationUser User { get; set; }
@@ -24,7 +24,7 @@
 
         public Group Group { get; set; }
 
-        public int? GroupId { get; set; }
+        public string GroupId { get; set; }
 
         public string UpdateContent { get; set; }
 

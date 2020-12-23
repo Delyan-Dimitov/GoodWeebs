@@ -38,8 +38,9 @@
         }
 
 
-        public async Task AddToWantToWatch(string userId, int animeId)
+        public async Task<bool> AddToWantToWatch(string userId, int animeId)
         {
+            var result = false;
             if (!this.IsInWant(userId, animeId) &&
                 !this.IsInWatched(userId, animeId) &&
                 !this.IsInWant(userId, animeId))
@@ -49,11 +50,15 @@
 
                 await this.wantRepo.AddAsync(new WantToWatchMap { User = user, Anime = anime });
                 await this.wantRepo.SaveChangesAsync();
+                result = true;
             }
+
+            return result;
         }
 
-        public async Task AddToWatched(string userId, int animeId)
+        public async Task<bool> AddToWatched(string userId, int animeId)
         {
+            var result = false;
             var user = await this.userManager.FindByIdAsync(userId);
             var anime = this.animeRepo.All().Where(x => x.Id == animeId).FirstOrDefault();
 
@@ -64,6 +69,7 @@
                 await this.wantRepo.SaveChangesAsync();
                 await this.watchedRepo.AddAsync(new WatchedMap { User = user, Anime = anime });
                 await this.watchedRepo.SaveChangesAsync();
+                result = true;
             }
             else if (this.IsInWatching(userId, animeId))
             {
@@ -72,16 +78,21 @@
                 await this.watchingRepo.SaveChangesAsync();
                 await this.watchedRepo.AddAsync(new WatchedMap { User = user, Anime = anime });
                 await this.watchedRepo.SaveChangesAsync();
+                result = true;
             }
             else if (!this.IsInWatched(userId, animeId))
             {
                 await this.watchedRepo.AddAsync(new WatchedMap { User = user, Anime = anime });
                 await this.watchedRepo.SaveChangesAsync();
+                result = true;
             }
+
+            return result;
         }
 
-        public async Task AddToWatching(string userId, int animeId)
+        public async Task<bool> AddToWatching(string userId, int animeId)
         {
+            var result = false;
             var user = await this.userManager.FindByIdAsync(userId);
             var anime = this.animeRepo.All().Where(x => x.Id == animeId).FirstOrDefault();
 
@@ -91,13 +102,17 @@
                 this.wantRepo.Delete(toDelete);
                 await this.wantRepo.SaveChangesAsync();
                 await this.watchingRepo.AddAsync(new CurrentlyWatchingMap { User = user, Anime = anime });
+                result = true;
             }
 
             if (!this.IsInWatched(userId, animeId) && !this.IsInWant(userId, animeId) && !this.IsInWatching(userId, animeId))
             {
                 await this.watchingRepo.AddAsync(new CurrentlyWatchingMap { User = user, Anime = anime });
                 await this.watchingRepo.SaveChangesAsync();
+                result = true;
             }
+
+            return result;
         }
 
         public async Task RemoveFromWatched(string userId, int animeId)

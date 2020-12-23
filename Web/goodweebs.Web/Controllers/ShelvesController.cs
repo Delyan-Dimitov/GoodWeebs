@@ -5,6 +5,7 @@
 
     using GoodWeebs.Data.Models;
     using GoodWeebs.Services.Data.GoodWeebsDataServices.ShelvesServices;
+    using GoodWeebs.Services.Data.GoodWeebsDataServices.UpdatesServices;
     using GoodwWebs.Services.Data.GoodWeebsDataServices.ShelvesServices;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
@@ -14,15 +15,18 @@
         private readonly IAnimeShelfService animeShelfService;
         private readonly IMangaShelfService mangaShelfService;
         private readonly UserManager<ApplicationUser> userManager;
+        private readonly IUpdateService updateService;
 
         public ShelvesController(
             IAnimeShelfService animeShelfService,
             IMangaShelfService mangaShelfService,
-            UserManager<ApplicationUser> userManager)
+            UserManager<ApplicationUser> userManager,
+            IUpdateService updateService)
         {
             this.animeShelfService = animeShelfService;
             this.mangaShelfService = mangaShelfService;
             this.userManager = userManager;
+            this.updateService = updateService;
         }
 
         [Route("Shelves/Watched/{userId}")]
@@ -64,6 +68,7 @@
         [Route("Shelves/Read/{userId}")]
         public async Task<IActionResult> ReadAsync(string userId)
         {
+
             var myId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var model = await this.mangaShelfService.GetRead(userId);
             if (myId == userId)
@@ -129,7 +134,12 @@
         public async Task<IActionResult> AddToWatched(int animeId)
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            await this.animeShelfService.AddToWatched(userId, animeId);
+            var successfull = await this.animeShelfService.AddToWatched(userId, animeId);
+            if (successfull)
+            {
+                await this.updateService.CreateSeriesUpdate(userId, animeId, 1, "Watched");
+            }
+
             return this.RedirectToAction("Watched", new { id = userId });
         }
 
@@ -137,7 +147,12 @@
         public async Task<IActionResult> AddToWatching(int animeId)
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            await this.animeShelfService.AddToWatching(userId, animeId);
+            var successfull = await this.animeShelfService.AddToWatching(userId, animeId);
+            if (successfull)
+            {
+                await this.updateService.CreateSeriesUpdate(userId, animeId, 1, "Watching");
+            }
+
             return this.RedirectToAction("Watching", new { id = userId });
         }
 
@@ -145,7 +160,12 @@
         public async Task<IActionResult> AddToWantToWatch(int animeId)
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            await this.animeShelfService.AddToWantToWatch(userId, animeId);
+            var successfull = await this.animeShelfService.AddToWantToWatch(userId, animeId);
+            if (successfull)
+            {
+                await this.updateService.CreateSeriesUpdate(userId, animeId, 1, "WantToWatch");
+            }
+
             return this.RedirectToAction("WantToWatch", new { id = userId });
         }
 

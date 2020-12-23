@@ -13,6 +13,7 @@
     using GoodWeebs.Services.Data.GoodWeebsDataServices.ReccomendationsServices;
     using GoodWeebs.Services.Data.GoodWeebsDataServices.ShelvesServices;
     using GoodWeebs.Services.Data.GoodWeebsDataServices.SubmissionsServices;
+    using GoodWeebs.Services.Data.GoodWeebsDataServices.UpdatesServices;
     using GoodWeebs.Services.GoodWeebs.Services.AnimeServices;
     using GoodWeebs.Services.GoodWeebs.Services.MangaServices;
     using GoodWeebs.Services.GoodWeebs.Services.SubmissionsServices;
@@ -21,6 +22,7 @@
     using GoodWeebs.Services.Messaging;
     using GoodWeebs.Web.ViewModels;
     using GoodwWebs.Services.Data.GoodWeebsDataServices.ShelvesServices;
+    using GoodwWebs.Services.Data.GoodWeebsDataServices.UpdatesServices;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
@@ -90,6 +92,7 @@
             services.AddTransient<ICreateSubmissionsService, CreateSubmissionsService>();
             services.AddTransient<IAnimeReccomendationsService, AnimeReccomendationService>();
             services.AddTransient<ISubmissionsService, SubmissionsService>();
+            services.AddTransient<IUpdateService, UpdateService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
