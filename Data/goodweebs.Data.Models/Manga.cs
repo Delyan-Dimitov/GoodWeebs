@@ -9,9 +9,9 @@
 
     public class Manga : IDeletableEntity, IAuditInfo
     {
+        [Key]
         public int Id { get; set; }
 
-        [Required]
         public string Title { get; set; }
 
         public string Synopsis { get; set; }
@@ -35,12 +35,6 @@
         public DateTime DateStarted { get; set; }
 
         public DateTime DateFinished { get; set; }
-
-        public ICollection<CurrentlyReadingMap> CurrentlyReading { get; set; }
-
-        public ICollection<ReadMap> Read { get; set; }
-
-        public ICollection<WantToReadMap> WantToRead { get; set; }
 
         public DateTime CreatedOn { get; set; }
 

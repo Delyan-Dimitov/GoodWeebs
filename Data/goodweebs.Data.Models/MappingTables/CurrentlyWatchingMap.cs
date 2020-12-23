@@ -7,7 +7,6 @@
 
    public class CurrentlyWatchingMap : AnimeMap
     {
-        [Required]
-        public DateTime DateStarted { get; set; }
+        
     }
 }

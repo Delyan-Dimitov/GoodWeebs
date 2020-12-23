@@ -6,6 +6,8 @@
     {
         public string ProfileId { get; set; }
 
+        public int MangaId { get; set; }
+
         public MangaViewModel Manga { get; set; }
 
         public IEnumerable<MangaViewModel> SimilarManga { get; set; }

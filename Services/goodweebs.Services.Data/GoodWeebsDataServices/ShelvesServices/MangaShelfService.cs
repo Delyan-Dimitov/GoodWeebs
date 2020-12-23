@@ -46,9 +46,9 @@
                 !this.IsInWant(userId, mangaId))
             {
                 var user = await this.userManager.FindByIdAsync(userId);
-                var manga = this.mangaRepo.AllAsNoTracking().First(x => x.Id == mangaId);
+                var manga = this.mangaRepo.All().Where(x => x.Id == mangaId).FirstOrDefault();
 
-                await this.wantRepo.AddAsync(new WantToReadMap { User = user, Manga = manga, UserId = userId, MangaId = mangaId });
+                await this.wantRepo.AddAsync(new WantToReadMap { User = user, Manga = manga});
                 await this.wantRepo.SaveChangesAsync();
             }
         }
@@ -56,7 +56,7 @@
         public async Task AddToRead(string userId, int mangaId)
         {
             var user = await this.userManager.FindByIdAsync(userId);
-            var manga = this.mangaRepo.AllAsNoTracking().First(x => x.Id == mangaId);
+            var manga = this.mangaRepo.All().Where(x => x.Id == mangaId).FirstOrDefault();
 
             if (this.IsInWant(userId, mangaId))
             {
@@ -84,7 +84,7 @@
         public async Task AddToReading(string userId, int mangaId)
         {
             var user = await this.userManager.FindByIdAsync(userId);
-            var manga = this.mangaRepo.AllAsNoTracking().First(x => x.Id == mangaId);
+            var manga = this.mangaRepo.All().Where(x => x.Id == mangaId).FirstOrDefault();
 
             if (this.IsInWant(userId, mangaId))
             {

@@ -7,6 +7,6 @@ namespace GoodWeebs.Services.Data.GoodWeebsDataServices.UpdatesServices
 {
     public interface IUpdateService
     {
-        Task CreateSeriesUpdate(string userId, int seriesId, string type);
+        Task CreateSeriesUpdate(string userId, int seriesId, int seriesType, string contentType);
     }
 }

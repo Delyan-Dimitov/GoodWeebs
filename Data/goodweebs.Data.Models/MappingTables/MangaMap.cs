@@ -12,16 +12,12 @@
         [Key]
         public int Id { get; set; }
 
-        [Required]
         public string UserId { get; set; }
 
-        [Required]
         public ApplicationUser User { get; set; }
 
-        [Required]
         public int MangaId { get; set; }
 
-        [Required]
         public Manga Manga { get; set; }
 
         public bool IsDeleted { get; set; }

@@ -35,6 +35,7 @@
             var similar = this.mangaService.GetSimilar(id, 3);
             var model = new MangaInfoViewModel { Manga = manga, SimilarManga = similar };
             model.ProfileId = myId;
+            model.MangaId = id;
             return this.View(model);
         }
     }

@@ -171,8 +171,7 @@ namespace goodweebs.Data.Migrations
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
-                    ModifiedOn = table.Column<DateTime>(nullable: true),
-                    DateStarted = table.Column<DateTime>(nullable: false)
+                    ModifiedOn = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -431,7 +430,11 @@ namespace goodweebs.Data.Migrations
                 {
                     Id = table.Column<string>(nullable: false),
                     Name = table.Column<string>(nullable: true),
-                    AdminId = table.Column<string>(nullable: true)
+                    AdminId = table.Column<string>(nullable: true),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedOn = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -576,6 +579,42 @@ namespace goodweebs.Data.Migrations
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ReadMaps_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Updates",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserDisplayName = table.Column<string>(nullable: true),
+                    ContentTitle = table.Column<string>(nullable: true),
+                    Type = table.Column<int>(nullable: false),
+                    UserId = table.Column<string>(nullable: true),
+                    ContentId = table.Column<int>(nullable: false),
+                    GroupId1 = table.Column<string>(nullable: true),
+                    GroupId = table.Column<int>(nullable: true),
+                    UpdateContent = table.Column<string>(nullable: true),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedOn = table.Column<DateTime>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Updates", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Updates_Groups_GroupId1",
+                        column: x => x.GroupId1,
+                        principalTable: "Groups",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Updates_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -783,6 +822,11 @@ namespace goodweebs.Data.Migrations
                 column: "AdminId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Groups_IsDeleted",
+                table: "Groups",
+                column: "IsDeleted");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Mangas_IsDeleted",
                 table: "Mangas",
                 column: "IsDeleted");
@@ -826,6 +870,21 @@ namespace goodweebs.Data.Migrations
                 name: "IX_Settings_IsDeleted",
                 table: "Settings",
                 column: "IsDeleted");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Updates_GroupId1",
+                table: "Updates",
+                column: "GroupId1");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Updates_IsDeleted",
+                table: "Updates",
+                column: "IsDeleted");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Updates_UserId",
+                table: "Updates",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserGenres_UserId",
@@ -1070,6 +1129,9 @@ namespace goodweebs.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Settings");
+
+            migrationBuilder.DropTable(
+                name: "Updates");
 
             migrationBuilder.DropTable(
                 name: "UserGenres");

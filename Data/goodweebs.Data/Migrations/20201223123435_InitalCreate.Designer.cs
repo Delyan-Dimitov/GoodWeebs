@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace goodweebs.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201222133454_InitalCreate")]
+    [Migration("20201223123435_InitalCreate")]
     partial class InitalCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -257,9 +257,6 @@ namespace goodweebs.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateStarted")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DeletedOn")
@@ -748,12 +745,26 @@ namespace goodweebs.Data.Migrations
                     b.Property<string>("AdminId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AdminId");
+
+                    b.HasIndex("IsDeleted");
 
                     b.ToTable("Groups");
                 });
@@ -1004,6 +1015,60 @@ namespace goodweebs.Data.Migrations
                     b.HasIndex("SubmitterId");
 
                     b.ToTable("MangaSubmissions");
+                });
+
+            modelBuilder.Entity("GoodWeebs.Data.Models.Update", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ContentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ContentTitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("GroupId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("GroupId1")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UpdateContent")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GroupId1");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Updates");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -1282,6 +1347,17 @@ namespace goodweebs.Data.Migrations
                     b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "Submitter")
                         .WithMany("MangaSubmissions")
                         .HasForeignKey("SubmitterId");
+                });
+
+            modelBuilder.Entity("GoodWeebs.Data.Models.Update", b =>
+                {
+                    b.HasOne("GoodWeebs.Data.Models.Group", "Group")
+                        .WithMany()
+                        .HasForeignKey("GroupId1");
+
+                    b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

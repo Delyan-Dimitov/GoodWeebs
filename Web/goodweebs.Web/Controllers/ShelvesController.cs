@@ -99,7 +99,7 @@
         }
 
 
-        [Route("Shelves/AddToReading/{mangaId}")]
+        [Route("Shelves/AddToRead/{mangaId}")]
         public async Task<IActionResult> AddToRead(int animeId)
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
@@ -133,7 +133,7 @@
             return this.RedirectToAction("Watched", new { id = userId });
         }
 
-        [Route("Shelves/AddToReading/{animeId}")]
+        [Route("Shelves/AddToWatching/{animeId}")]
         public async Task<IActionResult> AddToWatching(int animeId)
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;

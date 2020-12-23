@@ -14,9 +14,9 @@
         <div class=" text-justify-left">
             <a class="text-dark text-decoration-none lead" asp-controller="Shelves" asp-action="AddToWatched" asp-route-id=@Model.AnimeId> Watched </a>
             <hr>
-            <a class="text-dark text-decoration-none lead" asp-controller="Shelves" asp-action="AddToWatching" asp-route-id=@Model.ProfileId> Watching </a>
+            <a class="text-dark text-decoration-none lead" asp-controller="Shelves" asp-action="AddToWatching" asp-route-id=@Model.AnimeId> Watching </a>
             <hr>
-            <a class="text-dark text-decoration-none lead" asp-controller="Shelves" asp-action="AddToWantToWatch" asp-route-id=@Model.ProfileId> Want To Watch  </a>
+            <a class="text-dark text-decoration-none lead" asp-controller="Shelves" asp-action="AddToWantToWatch" asp-route-id=@Model.AnimeId> Want To Watch  </a>
             <hr>
             <p>Type: @Model.Anime.Type</p>
             <p>Genre: @Model.Anime.Genres</p>

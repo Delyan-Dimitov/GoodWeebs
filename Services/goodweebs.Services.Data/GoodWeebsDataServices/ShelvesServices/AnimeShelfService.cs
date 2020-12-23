@@ -45,9 +45,9 @@
                 !this.IsInWant(userId, animeId))
             {
                 var user = await this.userManager.FindByIdAsync(userId);
-                var anime = this.animeRepo.AllAsNoTracking().First(x => x.Id == animeId);
+                var anime = this.animeRepo.All().Where(x => x.Id == animeId).FirstOrDefault();
 
-                await this.wantRepo.AddAsync(new WantToWatchMap { User = user, Anime = anime, UserId = userId, AnimeId = animeId });
+                await this.wantRepo.AddAsync(new WantToWatchMap { User = user, Anime = anime });
                 await this.wantRepo.SaveChangesAsync();
             }
         }
@@ -70,7 +70,7 @@
                 var toDelete = this.watchingRepo.AllAsNoTracking().First(x => x.UserId == userId && x.AnimeId == animeId);
                 this.watchingRepo.Delete(toDelete);
                 await this.watchingRepo.SaveChangesAsync();
-                await this.watchedRepo.AddAsync(new WatchedMap { UserId = userId, AnimeId = animeId });
+                await this.watchedRepo.AddAsync(new WatchedMap { User = user, Anime = anime });
                 await this.watchedRepo.SaveChangesAsync();
             }
             else if (!this.IsInWatched(userId, animeId))
@@ -83,7 +83,7 @@
         public async Task AddToWatching(string userId, int animeId)
         {
             var user = await this.userManager.FindByIdAsync(userId);
-            var anime = this.animeRepo.AllAsNoTracking().First(x => x.Id == animeId);
+            var anime = this.animeRepo.All().Where(x => x.Id == animeId).FirstOrDefault();
 
             if (this.IsInWant(userId, animeId))
             {
@@ -151,7 +151,8 @@
             var watching = this.watchingRepo.AllAsNoTracking().Where(x => x.UserId == userId).ToList();
             foreach (var map in watching)
             {
-                model.ShelfItems.Add(new ShelfItemVIewModel { Title = map.Anime.Title });
+                var anime = this.animeRepo.AllAsNoTracking().FirstOrDefault(x => x.Id == map.AnimeId);
+                model.ShelfItems.Add(new ShelfItemVIewModel { Title = anime.Title, Id = anime.Id });
             }
 
             return model;
