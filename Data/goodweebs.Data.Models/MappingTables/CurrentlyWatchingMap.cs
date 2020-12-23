@@ -5,8 +5,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.Text;
 
-   public class CurrentlyWatchingMap : AnimeMap
+    public class CurrentlyWatchingMap : AnimeMap
     {
-        
     }
 }
