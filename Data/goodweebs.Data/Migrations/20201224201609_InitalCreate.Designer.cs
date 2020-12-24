@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace goodweebs.Data.Migrations
+namespace GoodWeebs.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201223154133_InitalCreate")]
+    [Migration("20201224201609_InitalCreate")]
     partial class InitalCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -681,8 +681,20 @@ namespace goodweebs.Data.Migrations
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<int>("Likes")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("PostId")
                         .HasColumnType("nvarchar(450)");
@@ -693,6 +705,8 @@ namespace goodweebs.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CommenterId");
+
+                    b.HasIndex("IsDeleted");
 
                     b.HasIndex("PostId");
 
@@ -746,6 +760,9 @@ namespace goodweebs.Data.Migrations
 
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -833,6 +850,42 @@ namespace goodweebs.Data.Migrations
                     b.ToTable("UserGenres");
                 });
 
+            modelBuilder.Entity("GoodWeebs.Data.Models.MappingTables.UsersGroups", b =>
+                {
+                    b.Property<int>("Key")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("GroupId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Key");
+
+                    b.HasIndex("GroupId");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UsersGroups");
+                });
+
             modelBuilder.Entity("GoodWeebs.Data.Models.Post", b =>
                 {
                     b.Property<string>("Id")
@@ -844,11 +897,23 @@ namespace goodweebs.Data.Migrations
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("GroupId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<int>("Likes")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("PosterId")
                         .HasColumnType("nvarchar(450)");
@@ -859,6 +924,8 @@ namespace goodweebs.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("GroupId");
+
+                    b.HasIndex("IsDeleted");
 
                     b.HasIndex("PosterId");
 
@@ -1306,6 +1373,17 @@ namespace goodweebs.Data.Migrations
 
             modelBuilder.Entity("GoodWeebs.Data.Models.MappingTables.UserGenre", b =>
                 {
+                    b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("GoodWeebs.Data.Models.MappingTables.UsersGroups", b =>
+                {
+                    b.HasOne("GoodWeebs.Data.Models.Group", "Group")
+                        .WithMany()
+                        .HasForeignKey("GroupId");
+
                     b.HasOne("GoodWeebs.Data.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");

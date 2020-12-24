@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "goodweebs.Data.Models/1.0.0": {
+      "GoodWeebs.Data.Models/1.0.0": {
         "dependencies": {
+          "GoodWeebs.Data.Common": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.9",
           "Newtonsoft.Json": "12.0.3",
-          "StyleCop.Analyzers": "1.2.0-beta.205",
-          "goodweebs.Data.Common": "1.0.0"
+          "StyleCop.Analyzers": "1.2.0-beta.205"
         },
         "runtime": {
-          "goodweebs.Data.Models.dll": {}
+          "GoodWeebs.Data.Models.dll": {}
         }
       },
       "Microsoft.AspNetCore.Cryptography.Internal/3.1.9": {
@@ -280,7 +280,7 @@
           }
         }
       },
-      "goodweebs.Data.Common/1.0.0": {
+      "GoodWeebs.Data.Common/1.0.0": {
         "dependencies": {
           "System.ComponentModel.Annotations": "4.7.0"
         },
@@ -291,7 +291,7 @@
     }
   },
   "libraries": {
-    "goodweebs.Data.Models/1.0.0": {
+    "GoodWeebs.Data.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -492,7 +492,7 @@
       "path": "system.diagnostics.diagnosticsource/4.7.1",
       "hashPath": "system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512"
     },
-    "goodweebs.Data.Common/1.0.0": {
+    "GoodWeebs.Data.Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

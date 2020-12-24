@@ -156,7 +156,7 @@
             return this.RedirectToAction("Watching", new { id = userId });
         }
 
-        [Route("Shelves/AddToWantToWatch/{mangaId}")]
+        [Route("Shelves/AddToWantToWatch/{animeId}")]
         public async Task<IActionResult> AddToWantToWatch(int animeId)
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;

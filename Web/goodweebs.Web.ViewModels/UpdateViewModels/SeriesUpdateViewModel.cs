@@ -16,7 +16,13 @@
 
         public string UserDisplayName { get; set; }
 
+        public string UserId { get; set; }
+
+        public int SeriesType { get; set; }
+        
         public int UpdateId { get; set; }
+
+        public string SeriesTitle { get; set; }
 
         public int SeriesId { get; set; }
 

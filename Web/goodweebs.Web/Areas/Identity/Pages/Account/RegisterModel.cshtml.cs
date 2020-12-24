@@ -53,6 +53,12 @@
             public string Email { get; set; }
 
             [Required]
+            [MaxLength(20, ErrorMessage = "Display name too long!")]
+            [MinLength(3, ErrorMessage = "Display name too short!")]
+            [Display(Name = "Display Name")]
+            public string DisplayName { get; set; }
+
+            [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
@@ -76,7 +82,7 @@
             this.ExternalLogins = (await this.signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (this.ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = this.Input.Email, Email = this.Input.Email };
+                var user = new ApplicationUser { UserName = this.Input.Email, Email = this.Input.Email, DisplayName = this.Input.DisplayName };
                 var result = await this.userManager.CreateAsync(user, this.Input.Password);
                 if (result.Succeeded)
                 {

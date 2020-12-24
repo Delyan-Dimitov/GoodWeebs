@@ -118,8 +118,8 @@
         public async Task<FriendsListViewModel> GetAllFriends(string userId)
         {
             var user = await this.userManager.FindByIdAsync(userId);
-            var usersFriends = user.Friends;
-            FriendsListViewModel friends = null;
+            var usersFriends = this.friendsRepo.AllAsNoTracking().Where(x => x.FriendUser == user | x.MainUser == user).ToList();
+            FriendsListViewModel friends = new FriendsListViewModel();
             if (usersFriends == null)
             {
                 return friends;
@@ -128,13 +128,17 @@
             {
                 foreach (var friend in usersFriends)
                 {
-                    if (friend.MainUserId != userId)
+                    if (friend.MainUserId == userId)
                     {
-                        friends.Friends.Add(new ProfileViewModel { Id = friend.MainUserId, AvatarUrl = friend.MainUser.AvatarUrl, DisplayName = friend.MainUser.DisplayName });
+                        var friendUser = await this.userManager.FindByIdAsync(friend.FriendUserId);
+                        friends.Friends.Add(new ProfileViewModel { Id = friend.FriendUserId, AvatarUrl = friendUser.AvatarUrl, DisplayName = friendUser.DisplayName });
+
                     }
-                    else if (friend.FriendUserId != userId)
+                    else if (friend.FriendUserId == userId)
                     {
-                        friends.Friends.Add(new ProfileViewModel { Id = friend.FriendUserId, AvatarUrl = friend.FriendUser.AvatarUrl, DisplayName = friend.FriendUser.DisplayName });
+                        var mainUser = await this.userManager.FindByIdAsync(friend.MainUserId);
+                        friends.Friends.Add(new ProfileViewModel { Id = friend.MainUserId, AvatarUrl = mainUser.AvatarUrl, DisplayName = mainUser.DisplayName });
+
                     }
                 }
             }

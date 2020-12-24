@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HVXnFzktcvW7biCSs0Oagm/PH5hOhNtbpXSoh5vIDvUMZlQ4j52l5j3zEPg9CwazRTvuvSCaqa6SCnwXjgONwQ==",
+  "dgSpecHash": "nVsL+ZYwBElRbCmo0gdSFjzlowKnB9otbO5kLrJc62Y0BFADETO7kCLCv+j6s4LRvjHgDLSUxvBq7EiOrJoTJQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Messaging\\goodweebs.Services.Messaging.csproj",
+  "projectFilePath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Messaging\\GoodWeebs.Services.Messaging.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gunex\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\microsoft.netcore.platforms\\1.0.1\\microsoft.netcore.platforms.1.0.1.nupkg.sha512",

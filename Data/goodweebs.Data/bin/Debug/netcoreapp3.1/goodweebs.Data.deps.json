@@ -6,21 +6,21 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "goodweebs.Data/1.0.0": {
+      "GoodWeebs.Data/1.0.0": {
         "dependencies": {
+          "GoodWeebs.Common": "1.0.0",
+          "GoodWeebs.Data.Common": "1.0.0",
+          "GoodWeebs.Data.Models": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.9",
           "Microsoft.EntityFrameworkCore.Design": "3.1.9",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.9",
           "Microsoft.EntityFrameworkCore.Tools": "3.1.9",
           "Microsoft.Extensions.Configuration.UserSecrets": "3.1.9",
           "Newtonsoft.Json": "12.0.3",
-          "StyleCop.Analyzers": "1.2.0-beta.205",
-          "goodweebs.Common": "1.0.0",
-          "goodweebs.Data.Common": "1.0.0",
-          "goodweebs.Data.Models": "1.0.0"
+          "StyleCop.Analyzers": "1.2.0-beta.205"
         },
         "runtime": {
-          "goodweebs.Data.dll": {}
+          "GoodWeebs.Data.dll": {}
         }
       },
       "Microsoft.AspNetCore.Cryptography.Internal/3.1.9": {
@@ -1085,24 +1085,24 @@
           "System.Xml.XmlDocument": "4.3.0"
         }
       },
-      "goodweebs.Common/1.0.0": {
+      "GoodWeebs.Common/1.0.0": {
         "runtime": {
           "GoodWeebs.Common.dll": {}
         }
       },
-      "goodweebs.Data.Common/1.0.0": {
+      "GoodWeebs.Data.Common/1.0.0": {
         "dependencies": {
           "System.ComponentModel.Annotations": "4.7.0"
         },
         "runtime": {
-          "goodweebs.Data.Common.dll": {}
+          "GoodWeebs.Data.Common.dll": {}
         }
       },
-      "goodweebs.Data.Models/1.0.0": {
+      "GoodWeebs.Data.Models/1.0.0": {
         "dependencies": {
+          "GoodWeebs.Data.Common": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.9",
-          "Newtonsoft.Json": "12.0.3",
-          "goodweebs.Data.Common": "1.0.0"
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "GoodWeebs.Data.Models.dll": {}
@@ -1111,7 +1111,7 @@
     }
   },
   "libraries": {
-    "goodweebs.Data/1.0.0": {
+    "GoodWeebs.Data/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -1879,17 +1879,17 @@
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
-    "goodweebs.Common/1.0.0": {
+    "GoodWeebs.Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "goodweebs.Data.Common/1.0.0": {
+    "GoodWeebs.Data.Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "goodweebs.Data.Models/1.0.0": {
+    "GoodWeebs.Data.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

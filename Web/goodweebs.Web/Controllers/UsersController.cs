@@ -16,6 +16,7 @@
         {
             this.userService = userService;
         }
+
         [Route("Users/Profile/{userId}")]
         public async Task<IActionResult> ProfileAsync(string userId)
         {
@@ -36,11 +37,10 @@
             var model = await this.userService.GetUserById(myId);
             return this.View(model);
         }
-
-        public IActionResult FriendsList()
+        [Route("Users/FriendsList/{userId}")]
+        public async Task<IActionResult> FriendsListAsync(string userId)
         {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            var model = this.userService.GetAllFriends(userId);
+            var model = await this.userService.GetAllFriends(userId);
             return this.View(model);
         }
 

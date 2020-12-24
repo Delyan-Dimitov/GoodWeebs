@@ -12,7 +12,7 @@
     using GoodWeebs.Services.Data.GoodWeebsDataServices.UpdatesServices;
     using Microsoft.AspNetCore.Identity;
     using GoodWeebs.Web.ViewModels.UpdateViewModels;
-
+    using GoodWeebs.Data.Models.MappingTables;
 
     public class UpdateService : IUpdateService
     {
@@ -22,6 +22,7 @@
         private readonly IDeletableEntityRepository<Friends> friendsRepo;
         private readonly IDeletableEntityRepository<Anime> animeRepo;
         private readonly IDeletableEntityRepository<Manga> mangaRepo;
+        private readonly IDeletableEntityRepository<UsersGroups> usersGroupsRepo;
 
         public UpdateService(
             IDeletableEntityRepository<Update> updateRepo,
@@ -29,7 +30,8 @@
             IDeletableEntityRepository<Group> groupRepo,
             IDeletableEntityRepository<Friends> friendsRepo,
             IDeletableEntityRepository<Anime> animeRepo,
-            IDeletableEntityRepository<Manga> mangaRepo)
+            IDeletableEntityRepository<Manga> mangaRepo,
+            IDeletableEntityRepository<UsersGroups> usersGroupsRepo)
         {
             this.updateRepo = updateRepo;
             this.userManager = userManager;
@@ -37,6 +39,7 @@
             this.friendsRepo = friendsRepo;
             this.animeRepo = animeRepo;
             this.mangaRepo = mangaRepo;
+            this.usersGroupsRepo = usersGroupsRepo;
         }
 
         public async Task CreateSeriesUpdate(string userId, int seriesId, int seriesType, string contentType)
@@ -52,7 +55,7 @@
                 User = user,
                 Type = seriesType,
                 UpdateContent = contentType,
-                UserDisplayName = "Guneto", // TODO Implement display names and change this
+                UserDisplayName = user.DisplayName,
                 ContentTitle = contentTitle, // Do i need to have the content title?
             };
 
@@ -187,8 +190,8 @@
             {
                 foreach (var friendship in userFriends)
                 {
-                    var friend = friendship.MainUser == user ? friendship.FriendUser : friendship.MainUser;
-                    var friendsUpdates = this.updateRepo.AllAsNoTracking().Where(x => x.User == friend).ToList();
+                    var friendId = friendship.MainUserId == userId ? friendship.FriendUserId : friendship.MainUserId;
+                    var friendsUpdates = this.updateRepo.AllAsNoTracking().Where(x => x.UserId == friendId).ToList();
                     if (friendsUpdates != null)
                     {
                         friendUpdates.AddRange(friendsUpdates);
@@ -202,13 +205,22 @@
                 }
             }
 
-            var userGroups = this.groupRepo.AllAsNoTracking().Where(x => x.Users.Contains(user)).ToList();
+            var userGroups = this.usersGroupsRepo.AllAsNoTracking().Where(x => x.UserId == userId).ToList();
+            var groups = new List<Group>();
             if (userGroups != null)
             {
-                var groupsUpdates = new List<Update>();
-                foreach (var group in userGroups)
+                foreach (var userGroup in userGroups)
                 {
-                    var groupUpdates = this.updateRepo.AllAsNoTracking().Where(x => x.Group == group);
+                    var group = this.groupRepo.AllAsNoTracking().Where(x => x.Id == userGroup.GroupId).FirstOrDefault();
+                    groups.Add(group);
+                }
+            }
+            if (groups != null)
+            {
+                var groupsUpdates = new List<Update>();
+                foreach (var group in groups)
+                {
+                    var groupUpdates = this.updateRepo.AllAsNoTracking().Where(x => x.GroupId == group.Id);
                     if (groupUpdates != null)
                     {
                         groupsUpdates.AddRange(groupUpdates);
@@ -220,15 +232,16 @@
                     updates.AddRange(groupsUpdates);
                 }
             }
+
             updates.OrderBy(x => x.CreatedOn);
             var updateCount = updates.Count();
             if (updateCount >= 5)
             {
-                updates = (List<Update>)updates.Take(5);
+                updates = updates.Take(5).ToList();
             }
             else
             {
-                updates = (List<Update>)updates.Take(updateCount);
+                updates = updates.Take(updateCount).ToList();
             }
             return updates;
         }

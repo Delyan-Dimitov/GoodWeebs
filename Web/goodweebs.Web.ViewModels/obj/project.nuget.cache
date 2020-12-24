@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yiGAIFMwv6upJjL+93XDYf0vF9oAJfyajxhFE18mDJo6AHy9quzWgRMmSpDUc4qBHGnrueXy0dNWrGZezKHEhQ==",
+  "dgSpecHash": "JV+Bqeu7ShnPcRCpO9Q8lug8WqRlkXNK5xG+X5IANmYotW3046/aBGfCa27WjoKz4ST3vQOEBA4iuLvIR5Lt3g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web.ViewModels\\goodweebs.Web.ViewModels.csproj",
+  "projectFilePath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web.ViewModels\\GoodWeebs.Web.ViewModels.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gunex\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",

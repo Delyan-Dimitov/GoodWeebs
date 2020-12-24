@@ -2100,45 +2100,45 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "goodweebs.Data.Common/1.0.0": {
+      "GoodWeebs.Data.Common/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "System.ComponentModel.Annotations": "4.7.0"
         },
         "compile": {
-          "bin/placeholder/goodweebs.Data.Common.dll": {}
+          "bin/placeholder/GoodWeebs.Data.Common.dll": {}
         },
         "runtime": {
-          "bin/placeholder/goodweebs.Data.Common.dll": {}
+          "bin/placeholder/GoodWeebs.Data.Common.dll": {}
         }
       },
-      "goodweebs.Data.Models/1.0.0": {
+      "GoodWeebs.Data.Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "GoodWeebs.Data.Common": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.9",
-          "Newtonsoft.Json": "12.0.3",
-          "goodweebs.Data.Common": "1.0.0"
+          "Newtonsoft.Json": "12.0.3"
         },
         "compile": {
-          "bin/placeholder/goodweebs.Data.Models.dll": {}
+          "bin/placeholder/GoodWeebs.Data.Models.dll": {}
         },
         "runtime": {
-          "bin/placeholder/goodweebs.Data.Models.dll": {}
+          "bin/placeholder/GoodWeebs.Data.Models.dll": {}
         }
       },
-      "goodweebs.Services.Mapping/1.0.0": {
+      "GoodWeebs.Services.Mapping/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "AutoMapper": "10.1.1"
         },
         "compile": {
-          "bin/placeholder/goodweebs.Services.Mapping.dll": {}
+          "bin/placeholder/GoodWeebs.Services.Mapping.dll": {}
         },
         "runtime": {
-          "bin/placeholder/goodweebs.Services.Mapping.dll": {}
+          "bin/placeholder/GoodWeebs.Services.Mapping.dll": {}
         }
       }
     }
@@ -6904,28 +6904,28 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "goodweebs.Data.Common/1.0.0": {
+    "GoodWeebs.Data.Common/1.0.0": {
       "type": "project",
-      "path": "../../Data/goodweebs.Data.Common/goodweebs.Data.Common.csproj",
-      "msbuildProject": "../../Data/goodweebs.Data.Common/goodweebs.Data.Common.csproj"
+      "path": "../../Data/goodweebs.Data.Common/GoodWeebs.Data.Common.csproj",
+      "msbuildProject": "../../Data/goodweebs.Data.Common/GoodWeebs.Data.Common.csproj"
     },
-    "goodweebs.Data.Models/1.0.0": {
+    "GoodWeebs.Data.Models/1.0.0": {
       "type": "project",
-      "path": "../../Data/goodweebs.Data.Models/goodweebs.Data.Models.csproj",
-      "msbuildProject": "../../Data/goodweebs.Data.Models/goodweebs.Data.Models.csproj"
+      "path": "../../Data/goodweebs.Data.Models/GoodWeebs.Data.Models.csproj",
+      "msbuildProject": "../../Data/goodweebs.Data.Models/GoodWeebs.Data.Models.csproj"
     },
-    "goodweebs.Services.Mapping/1.0.0": {
+    "GoodWeebs.Services.Mapping/1.0.0": {
       "type": "project",
-      "path": "../../Services/goodweebs.Services.Mapping/goodweebs.Services.Mapping.csproj",
-      "msbuildProject": "../../Services/goodweebs.Services.Mapping/goodweebs.Services.Mapping.csproj"
+      "path": "../../Services/goodweebs.Services.Mapping/GoodWeebs.Services.Mapping.csproj",
+      "msbuildProject": "../../Services/goodweebs.Services.Mapping/GoodWeebs.Services.Mapping.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "GoodWeebs.Data.Models >= 1.0.0",
+      "GoodWeebs.Services.Mapping >= 1.0.0",
       "Microsoft.AspNetCore.Mvc.ViewFeatures >= 2.2.0",
-      "StyleCop.Analyzers >= 1.2.0-beta.205",
-      "goodweebs.Data.Models >= 1.0.0",
-      "goodweebs.Services.Mapping >= 1.0.0"
+      "StyleCop.Analyzers >= 1.2.0-beta.205"
     ]
   },
   "packageFolders": {
@@ -6934,9 +6934,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web.ViewModels\\goodweebs.Web.ViewModels.csproj",
-      "projectName": "goodweebs.Web.ViewModels",
-      "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web.ViewModels\\goodweebs.Web.ViewModels.csproj",
+      "projectUniqueName": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web.ViewModels\\GoodWeebs.Web.ViewModels.csproj",
+      "projectName": "GoodWeebs.Web.ViewModels",
+      "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web.ViewModels\\GoodWeebs.Web.ViewModels.csproj",
       "packagesPath": "C:\\Users\\gunex\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web.ViewModels\\obj\\",
       "projectStyle": "PackageReference",
@@ -6954,11 +6954,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\GoodWeebs.Data.Models\\GoodWeebs.Data.Models.csproj": {
-              "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\GoodWeebs.Data.Models\\GoodWeebs.Data.Models.csproj"
+            "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data.Models\\GoodWeebs.Data.Models.csproj": {
+              "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data.Models\\GoodWeebs.Data.Models.csproj"
             },
-            "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\GoodWeebs.Services.Mapping\\GoodWeebs.Services.Mapping.csproj": {
-              "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\GoodWeebs.Services.Mapping\\GoodWeebs.Services.Mapping.csproj"
+            "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Mapping\\GoodWeebs.Services.Mapping.csproj": {
+              "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Mapping\\GoodWeebs.Services.Mapping.csproj"
             }
           }
         }

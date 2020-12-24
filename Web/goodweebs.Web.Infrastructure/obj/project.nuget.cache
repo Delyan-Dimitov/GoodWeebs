@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gBJOGuJe8X1O9Uau9pjupQopbfMY56UQxnTr5CHgV7L/xLC4jyBbqGsQwFftm6zjq3tI0oHS9eoRNV9banEQqQ==",
+  "dgSpecHash": "v0FpbekkToz81otutoOyXWxghgsRvultHG+bXoxq2P5mQydv0hF96jA267+DJGrxSxfx9CmMZt7G9UTUjPpKHA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web.Infrastructure\\goodweebs.Web.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web.Infrastructure\\GoodWeebs.Web.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gunex\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.205\\stylecop.analyzers.1.2.0-beta.205.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.205\\stylecop.analyzers.unstable.1.2.0.205.nupkg.sha512"

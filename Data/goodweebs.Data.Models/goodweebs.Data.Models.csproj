@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GoodWeebs.Data.Common\GoodWeebs.Data.Common.csproj" />
+    <ProjectReference Include="..\goodweebs.Data.Common\GoodWeebs.Data.Common.csproj" />
   </ItemGroup>
   
 </Project>

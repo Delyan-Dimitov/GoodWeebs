@@ -19,11 +19,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Data\GoodWeebs.Data.Common\GoodWeebs.Data.Common.csproj" />
-    <ProjectReference Include="..\..\Data\GoodWeebs.Data.Models\GoodWeebs.Data.Models.csproj" />
-    <ProjectReference Include="..\..\Data\GoodWeebs.Data\GoodWeebs.Data.csproj" />
-    <ProjectReference Include="..\..\Web\GoodWeebs.Web.ViewModels\GoodWeebs.Web.ViewModels.csproj" />
-    <ProjectReference Include="..\GoodWeebs.Services.Mapping\GoodWeebs.Services.Mapping.csproj" />
+    <ProjectReference Include="..\..\Data\goodweebs.Data.Common\GoodWeebs.Data.Common.csproj" />
+    <ProjectReference Include="..\..\Data\goodweebs.Data.Models\GoodWeebs.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Data\goodweebs.Data\GoodWeebs.Data.csproj" />
+    <ProjectReference Include="..\..\Web\goodweebs.Web.ViewModels\GoodWeebs.Web.ViewModels.csproj" />
+    <ProjectReference Include="..\goodweebs.Services.Mapping\GoodWeebs.Services.Mapping.csproj" />
   </ItemGroup>
 
 </Project>

@@ -40,9 +40,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\GoodWeebs.Common\GoodWeebs.Common.csproj" />
-    <ProjectReference Include="..\GoodWeebs.Data.Common\GoodWeebs.Data.Common.csproj" />
-    <ProjectReference Include="..\GoodWeebs.Data.Models\GoodWeebs.Data.Models.csproj" />
+    <ProjectReference Include="..\..\goodweebs.Common\GoodWeebs.Common.csproj" />
+    <ProjectReference Include="..\goodweebs.Data.Common\GoodWeebs.Data.Common.csproj" />
+    <ProjectReference Include="..\goodweebs.Data.Models\GoodWeebs.Data.Models.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -5,36 +5,36 @@ VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{E389DEB6-5F90-444B-A054-12A10D39C76F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "goodweebs.Web", "Web\goodweebs.Web\goodweebs.Web.csproj", "{B90D1067-FE4C-400E-BA78-5413E30AB9ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodWeebs.web", "Web\goodweebs.Web\GoodWeebs.web.csproj", "{B90D1067-FE4C-400E-BA78-5413E30AB9ED}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{ACBE44C4-E198-45E2-BA02-6655250A0006}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "goodweebs.Data.Models", "Data\goodweebs.Data.Models\goodweebs.Data.Models.csproj", "{E9FDB52F-52DC-48B2-86E1-0176377BB53F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodWeebs.Data.Models", "Data\goodweebs.Data.Models\GoodWeebs.Data.Models.csproj", "{E9FDB52F-52DC-48B2-86E1-0176377BB53F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{516E002B-9E6E-4456-B7F6-EAA353966DE6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7A731632-6714-44E2-A9E4-069EBA9E666C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "goodweebs.Services", "Services\goodweebs.Services\goodweebs.Services.csproj", "{8522212F-F01E-4E20-9975-FCF5E10D71DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodWeebs.Services", "Services\goodweebs.Services\GoodWeebs.Services.csproj", "{8522212F-F01E-4E20-9975-FCF5E10D71DB}"
 	ProjectSection(ProjectDependencies) = postProject
 		{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E} = {4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}
 		{A2288C46-0FBF-43B6-80B6-3072FD65BC32} = {A2288C46-0FBF-43B6-80B6-3072FD65BC32}
 		{4B844ECB-E845-49A6-8B31-85E577933598} = {4B844ECB-E845-49A6-8B31-85E577933598}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "goodweebs.Services.Messaging", "Services\goodweebs.Services.Messaging\goodweebs.Services.Messaging.csproj", "{43FDC0C4-F250-45DE-93F8-3CA8A9247CC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodWeebs.Services.Messaging", "Services\goodweebs.Services.Messaging\GoodWeebs.Services.Messaging.csproj", "{43FDC0C4-F250-45DE-93F8-3CA8A9247CC9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "goodweebs.Data", "Data\goodweebs.Data\goodweebs.Data.csproj", "{4B844ECB-E845-49A6-8B31-85E577933598}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodWeebs.Data", "Data\goodweebs.Data\GoodWeebs.Data.csproj", "{4B844ECB-E845-49A6-8B31-85E577933598}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "goodweebs.Data.Common", "Data\goodweebs.Data.Common\goodweebs.Data.Common.csproj", "{D0D59508-CF8B-4656-A344-396C530BB9DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodWeebs.Data.Common", "Data\goodweebs.Data.Common\GoodWeebs.Data.Common.csproj", "{D0D59508-CF8B-4656-A344-396C530BB9DF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "goodweebs.Common", "goodweebs.Common\goodweebs.Common.csproj", "{A2288C46-0FBF-43B6-80B6-3072FD65BC32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodWeebs.Common", "goodweebs.Common\GoodWeebs.Common.csproj", "{A2288C46-0FBF-43B6-80B6-3072FD65BC32}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "goodweebs.Web.Infrastructure", "Web\goodweebs.Web.Infrastructure\goodweebs.Web.Infrastructure.csproj", "{7A7A7986-1F5B-4EBD-9B17-8B41F8FABA58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodWeebs.Web.Infrastructure", "Web\goodweebs.Web.Infrastructure\GoodWeebs.Web.Infrastructure.csproj", "{7A7A7986-1F5B-4EBD-9B17-8B41F8FABA58}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "goodweebs.Services.Data", "Services\goodweebs.Services.Data\goodweebs.Services.Data.csproj", "{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodWeebs.Services.Data", "Services\goodweebs.Services.Data\GoodWeebs.Services.Data.csproj", "{4D39C126-3FB5-4B26-B08C-1BF48EFFA23E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "goodweebs.Services.Mapping", "Services\goodweebs.Services.Mapping\goodweebs.Services.Mapping.csproj", "{415FD7FA-0453-4FE1-9A29-C6E1D8B45C3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodWeebs.Services.Mapping", "Services\goodweebs.Services.Mapping\GoodWeebs.Services.Mapping.csproj", "{415FD7FA-0453-4FE1-9A29-C6E1D8B45C3D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox", "Tests\Sandbox\Sandbox.csproj", "{8AB6B92A-0837-4BDE-B950-10BE3FF2B6A8}"
 EndProject
@@ -42,7 +42,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "goodweebs.Services.Data.Tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "goodweebs.Web.Tests", "Tests\goodweebs.Web.Tests\goodweebs.Web.Tests.csproj", "{3EE06C6E-C8F3-418A-A309-8AC81976A074}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "goodweebs.Web.ViewModels", "Web\goodweebs.Web.ViewModels\goodweebs.Web.ViewModels.csproj", "{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodWeebs.Web.ViewModels", "Web\goodweebs.Web.ViewModels\GoodWeebs.Web.ViewModels.csproj", "{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

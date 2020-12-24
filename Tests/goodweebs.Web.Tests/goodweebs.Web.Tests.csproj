@@ -29,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Web\GoodWeebs.Web\GoodWeebs.Web.csproj" />
+    <ProjectReference Include="..\..\Web\goodweebs.Web\GoodWeebs.web.csproj" />
   </ItemGroup>
 
 </Project>

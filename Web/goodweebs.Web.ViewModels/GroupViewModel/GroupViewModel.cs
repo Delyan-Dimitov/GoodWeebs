@@ -14,6 +14,6 @@
 
         public ApplicationUser Admin { get; set; }
 
-        public List<PostInListViewModel> Posts { get; set; };
+        public List<PostInListViewModel> Posts { get; set; }
     }
 }

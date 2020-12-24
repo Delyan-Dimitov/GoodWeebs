@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Messaging\\goodweebs.Services.Messaging.csproj": {}
+    "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Messaging\\GoodWeebs.Services.Messaging.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Messaging\\goodweebs.Services.Messaging.csproj": {
+    "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Messaging\\GoodWeebs.Services.Messaging.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Messaging\\goodweebs.Services.Messaging.csproj",
-        "projectName": "goodweebs.Services.Messaging",
-        "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Messaging\\goodweebs.Services.Messaging.csproj",
+        "projectUniqueName": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Messaging\\GoodWeebs.Services.Messaging.csproj",
+        "projectName": "GoodWeebs.Services.Messaging",
+        "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Messaging\\GoodWeebs.Services.Messaging.csproj",
         "packagesPath": "C:\\Users\\gunex\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Messaging\\obj\\",
         "projectStyle": "PackageReference",

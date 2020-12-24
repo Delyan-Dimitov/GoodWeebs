@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FjJavDzbWaL0IsMzyjHHOWKZna1SxiYYrSYX6Zo6+cYJIFBPlPfboPzNCUoSrEJjBd8MR366wMox1JZy6e8Scg==",
+  "dgSpecHash": "sH1sbfnUviyfr2BTbLIvyWBJ7q44Q5ZUDI4xz+QhHe125vEoLiuOcQcHKbEPRj2PHOvALTBs+fQRJofHDodNeQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services\\goodweebs.Services.csproj",
+  "projectFilePath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services\\GoodWeebs.Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gunex\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",

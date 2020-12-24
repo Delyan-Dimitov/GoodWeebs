@@ -17,5 +17,7 @@ namespace GoodWeebs.Web.ViewModels.UpdateViewModels
         public string GroupName { get; set; }
 
         public string Content { get; set; }
+
+        public string PostTitle { get; set; }
     }
 }

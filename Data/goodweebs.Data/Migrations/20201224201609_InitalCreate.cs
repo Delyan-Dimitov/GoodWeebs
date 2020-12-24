@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace goodweebs.Data.Migrations
+namespace GoodWeebs.Data.Migrations
 {
     public partial class InitalCreate : Migration
     {
@@ -358,7 +358,11 @@ namespace goodweebs.Data.Migrations
                     Content = table.Column<string>(nullable: true),
                     CommenterId = table.Column<string>(nullable: true),
                     PostId = table.Column<string>(nullable: true),
-                    Likes = table.Column<int>(nullable: false)
+                    Likes = table.Column<int>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedOn = table.Column<DateTime>(nullable: true),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -430,6 +434,7 @@ namespace goodweebs.Data.Migrations
                 {
                     Id = table.Column<string>(nullable: false),
                     Name = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
                     AdminId = table.Column<string>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     ModifiedOn = table.Column<DateTime>(nullable: true),
@@ -534,6 +539,10 @@ namespace goodweebs.Data.Migrations
                     PosterId = table.Column<string>(nullable: true),
                     Likes = table.Column<int>(nullable: false),
                     CommentCount = table.Column<int>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedOn = table.Column<DateTime>(nullable: true),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: true),
                     GroupId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -635,6 +644,36 @@ namespace goodweebs.Data.Migrations
                     table.PrimaryKey("PK_UserGenres", x => x.Id);
                     table.ForeignKey(
                         name: "FK_UserGenres_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UsersGroups",
+                columns: table => new
+                {
+                    Key = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<string>(nullable: true),
+                    GroupId = table.Column<string>(nullable: true),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedOn = table.Column<DateTime>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UsersGroups", x => x.Key);
+                    table.ForeignKey(
+                        name: "FK_UsersGroups_Groups_GroupId",
+                        column: x => x.GroupId,
+                        principalTable: "Groups",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_UsersGroups_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -756,6 +795,11 @@ namespace goodweebs.Data.Migrations
                 column: "CommenterId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Comments_IsDeleted",
+                table: "Comments",
+                column: "IsDeleted");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Comments_PostId",
                 table: "Comments",
                 column: "PostId");
@@ -846,6 +890,11 @@ namespace goodweebs.Data.Migrations
                 column: "GroupId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Posts_IsDeleted",
+                table: "Posts",
+                column: "IsDeleted");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Posts_PosterId",
                 table: "Posts",
                 column: "PosterId");
@@ -888,6 +937,21 @@ namespace goodweebs.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_UserGenres_UserId",
                 table: "UserGenres",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UsersGroups_GroupId",
+                table: "UsersGroups",
+                column: "GroupId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UsersGroups_IsDeleted",
+                table: "UsersGroups",
+                column: "IsDeleted");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UsersGroups_UserId",
+                table: "UsersGroups",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
@@ -1134,6 +1198,9 @@ namespace goodweebs.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "UserGenres");
+
+            migrationBuilder.DropTable(
+                name: "UsersGroups");
 
             migrationBuilder.DropTable(
                 name: "WantToReadMaps");

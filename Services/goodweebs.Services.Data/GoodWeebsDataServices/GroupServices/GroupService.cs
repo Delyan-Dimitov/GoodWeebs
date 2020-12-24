@@ -17,17 +17,23 @@
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IDeletableEntityRepository<UsersGroups> usersGroupsRepo;
         private readonly IDeletableEntityRepository<GroupsPosts> groupsPostsRepo;
+        private readonly IDeletableEntityRepository<Post> postRepo;
+        private readonly IDeletableEntityRepository<Comment> commentRepo;
 
         public GroupService(
             IDeletableEntityRepository<Group> groupRepo,
             UserManager<ApplicationUser> userManager,
             IDeletableEntityRepository<UsersGroups> usersGroupsRepo,
-            IDeletableEntityRepository<GroupsPosts> groupsPostsRepo)
+            IDeletableEntityRepository<GroupsPosts> groupsPostsRepo,
+            IDeletableEntityRepository<Post> postRepo,
+            IDeletableEntityRepository<Comment> commentRepo)
         {
             this.groupRepo = groupRepo;
             this.userManager = userManager;
             this.usersGroupsRepo = usersGroupsRepo;
             this.groupsPostsRepo = groupsPostsRepo;
+            this.postRepo = postRepo;
+            this.commentRepo = commentRepo;
         }
 
         public async Task CreateGroupAsync(CreateGroupInputModel model, string userId)
@@ -67,12 +73,64 @@
 
         public GroupViewModel GetGroupById(string groupId)
         {
-            var group = this.groupRepo.AllAsNoTracking().Where(x => x.Id == groupId).FirstOrDefault();
+            var group = this.groupRepo
+                .AllAsNoTracking()
+                .Where(x => x.Id == groupId)
+                .FirstOrDefault();
+
             var model = new GroupViewModel { Id = group.Id, Admin = group.Admin, Description = group.Description, Name = group.Name };
-            var posts = this.groupsPostsRepo.AllAsNoTracking().Where(x => x.Group == group).Select(x => x.Post).ToList();
+            var posts = this.groupsPostsRepo
+                .AllAsNoTracking()
+                .Where(x => x.Group == group)
+                .Select(x => x.Post)
+                .ToList().
+                OrderByDescending(x => x.CreatedOn);
+
             foreach (var post in posts)
             {
-                model.Posts.Add(new PostInListViewModel { Title = post.Title, PosterDisplayName = post.Poster.DisplayName });
+                model.Posts.Add(new PostInListViewModel { Title = post.Title, PosterDisplayName = post.Poster.DisplayName, PostId = post.Id });
+            }
+
+            return model;
+        }
+
+        public async Task CreatePostAsync(CreatePostInputModel model, string submitterId )
+        {
+            var poster = await this.userManager.FindByIdAsync(submitterId);
+            var post = new Post { Poster = poster, Title = model.Title, Content = model.Content };
+            await this.postRepo.AddAsync(post);
+            await this.postRepo.SaveChangesAsync();
+        }
+
+        public async Task CreateCommentAsync(CommentInputModel model, string commenterId, string postId)
+        {
+            var commenter = await this.userManager.FindByIdAsync(commenterId);
+            var post = this.postRepo.AllAsNoTracking().Where(x => x.Id == postId).FirstOrDefault();
+            var comment = new Comment
+            {
+                Content = model.Content,
+                Post = post,
+            };
+            await this.commentRepo.AddAsync(comment);
+            await this.commentRepo.SaveChangesAsync();
+        }
+
+        public PostViewModel GetPostById(string postId)
+        {
+            var post = this.postRepo.AllAsNoTracking().Where(x => x.Id == postId).FirstOrDefault();
+            var comments = this.commentRepo.AllAsNoTracking().Where(x => x.Post == post).ToList();
+            var model = new PostViewModel
+            {
+                Title = post.Title,
+                Content = post.Content,
+                PosterId = post.PosterId,
+            };
+            if (comments.Count() > 0)
+            {
+                foreach (var comment in comments)
+                {
+                    model.Comments.Add(new CommentViewModel { CommenterDisplayName = comment.Commenter.DisplayName, CommenterId = comment.CommenterId, Content = comment.Content });
+                }
             }
             return model;
         }

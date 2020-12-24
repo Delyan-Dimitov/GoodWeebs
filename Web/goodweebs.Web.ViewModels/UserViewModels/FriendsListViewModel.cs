@@ -4,6 +4,10 @@
 
     public class FriendsListViewModel
     {
+        public FriendsListViewModel()
+        {
+            this.Friends = new List<ProfileViewModel>();
+        }
         public ICollection<ProfileViewModel> Friends { get; set; }
     }
 }

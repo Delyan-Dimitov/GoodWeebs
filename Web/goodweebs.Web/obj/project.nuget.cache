@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BXyIJPug28D6VtW0H/ozU1bZWZUEA4swY/PPZeKzwS4hkpeBstFNusUdB4wiFok6VYcGzmMcOPZVEpNwAGjmQQ==",
+  "dgSpecHash": "prStBkGfd0TPCILNtGUpQZZ1oGtAMtE9VqSgdLlXQqS6s13+MFchUqxdIE63iyVsnqSGhbPV44aV/jr3TE54vw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web\\goodweebs.Web.csproj",
+  "projectFilePath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web\\GoodWeebs.web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gunex\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\buildbundlerminifier\\3.2.449\\buildbundlerminifier.3.2.449.nupkg.sha512",
