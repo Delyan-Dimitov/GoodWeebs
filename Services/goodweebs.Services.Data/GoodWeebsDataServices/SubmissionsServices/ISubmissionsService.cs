@@ -26,6 +26,5 @@
 
         Task RemoveSubmission(int id, string type, string approvalStatus);
 
-        Task UpdateUserSubmissionCount(string userId);
     }
 }

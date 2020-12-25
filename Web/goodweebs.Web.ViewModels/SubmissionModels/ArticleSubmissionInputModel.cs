@@ -14,7 +14,7 @@
         [MaxLength(10000)]
         public string Content { get; set; }
 
-        public int DbId { get; set; } = 0;
+        public int DbId { get; set; }
 
         public string SubmitterId { get; set; }
     }

@@ -41,7 +41,7 @@
         public string Aired { get; set; }
 
         [Required]
-        public List<string> Studios { get; set; }
+        public string Studio { get; set; }
 
         [Required]
         public string Rating { get; set; }
@@ -65,6 +65,6 @@
 
         public string SubmitterId { get; set; }
 
-        public int DbId { get; set; } = 0;
+        public int DbId { get; set; }
      }
 }

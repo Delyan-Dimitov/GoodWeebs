@@ -68,7 +68,7 @@
     </div>
     <div class="form-group">
         <label asp-for="Status"></label>
-        <select asp-for ="Status" class="form-control">
+        <select asp-for="Status" class="form-control">
             @foreach (var item in Model.StatusItems)
             {
                 <option>@item</option>
@@ -90,5 +90,6 @@
         <input asp-for="Studio" class="form-control" />
         <span asp-validation-for="Studio" class="text-danger"></span>
     </div>
-    <input type="submit" class="btn btn-primary" />
+    <input asp-route-id="@Model.DbId" type="submit" class="btn btn-primary" />
+    <a asp-action="RejectAnimeSubmission" asp-route-id="@Model.DbId">Reject</a>
 </form>

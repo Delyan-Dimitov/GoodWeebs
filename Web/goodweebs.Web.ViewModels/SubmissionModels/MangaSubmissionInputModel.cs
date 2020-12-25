@@ -61,6 +61,6 @@
         [Required]
         public string Authors { get; set; }
 
-        public int DbId { get; set; } = 0;
+        public int DbId { get; set; }
     }
 }

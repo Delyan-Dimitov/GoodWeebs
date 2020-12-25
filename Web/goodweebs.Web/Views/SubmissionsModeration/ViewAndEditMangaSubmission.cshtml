@@ -1,4 +1,4 @@
-﻿@model GoodWeebs.Web.ViewModels.SubmissionInputModels.AnimeSubmissionInputModel
+﻿@model GoodWeebs.Web.ViewModels.SubmissionInputModels.MangaSubmissionInputModel
 
 <script src="/lib/tinymce/tinymce.min.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -32,53 +32,46 @@
     </div>
     <div class="form-group">
         <label asp-for="Type"></label>
-        <select asp-for="Type" class="form-control">
+        <select class="form-control">
             @foreach (var item in Model.TypeItems)
             {
                 <option>@item</option>
             }
 
         </select>
-        <span asp-validation-for="Type" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Episodes"></label>
-        <input asp-for="Episodes" class="form-control" />
-        <span asp-validation-for="Episodes" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Duration"></label>
-        <input asp-for="Duration" class="form-control" />
-        <span asp-validation-for="Duration" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Aired"></label>
-        <input asp-for="Aired" class="form-control" />
-        <span asp-validation-for="Aired" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Rating"></label>
-        <select asp-for="Rating" class="form-control">
-            @foreach (var item in Model.RatingItems)
-            {
-                <option>@item</option>
-            }
-        </select>
-        <span asp-validation-for="Rating" class="text-danger"></span>
+        <span asp-validation-for="Status" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Status"></label>
-        <select asp-for ="Status" class="form-control">
+        <select class="form-control">
             @foreach (var item in Model.StatusItems)
             {
                 <option>@item</option>
             }
+
         </select>
         <span asp-validation-for="Status" class="text-danger"></span>
     </div>
     <div class="form-group">
+        <label asp-for="Volumes"></label>
+        <input asp-for="Volumes" class="form-control" />
+        <span asp-validation-for="Volumes" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Chapters"></label>
+        <input asp-for="Chapters" class="form-control" />
+        <span asp-validation-for="Chapters" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Published"></label>
+        <input asp-for="Published" class="form-control" />
+        <span asp-validation-for="Published" class="text-danger"></span>
+    </div>
+    </div>
+
+    <div class="form-group">
         <label asp-for="Genres">Genres</label>
-        <select asp-for="Genres" multiple class="form-control">
+        <select multiple class="form-control">
             @foreach (var item in Model.GenresItems)
             {
                 <option>@item</option>
@@ -86,9 +79,10 @@
         </select>
     </div>
     <div class="form-group">
-        <label asp-for="Studio"></label>
-        <input asp-for="Studio" class="form-control" />
-        <span asp-validation-for="Studio" class="text-danger"></span>
+        <label asp-for="Authors"></label>
+        <input asp-for="Authors" class="form-control" />
+        <span asp-validation-for="Authors" class="text-danger"></span>
     </div>
     <input type="submit" class="btn btn-primary" />
+    <a asp-action="RejectMangaSubmission" asp-route-id="@Model.DbId">Reject</a>
 </form>

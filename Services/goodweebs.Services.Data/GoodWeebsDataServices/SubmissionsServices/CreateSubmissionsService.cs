@@ -64,7 +64,7 @@
                 Synonyms = model.Synonyms,
                 EpisodeDuration = model.Duration.ToString(),
                 Rating = model.Rating,
-                Studios = string.Join(", ", model.Studios),
+                Studios = model.Studio,  // Maybe change in in the model to studio
 
             };
             await this.asubRepo.AddAsync(animeSubmission);

@@ -16,14 +16,14 @@
             this.subService = subService;
         }
 
-        public IActionResult AllSubmissions(int id, int itemsPerPage)
+        public IActionResult All(int id = 1)
         {
             var model = new SubmissionListViewModel
             {
                 Page = id,
-                Submissions = this.subService.GetAll(id, itemsPerPage),
+                Submissions = this.subService.GetAll(id, 1),
                 SubmissionsCount = this.subService.GetCount(),
-                SubmissionsPerPage = itemsPerPage,
+                SubmissionsPerPage = 1,
             };
 
             return this.View(model);
@@ -37,7 +37,7 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditAndSubmitAnimeSubmissions(AnimeSubmissionInputModel model)
+        public async Task<IActionResult> ViewAndEditAnimeSubmission(AnimeSubmissionInputModel model, int id)
         {
             if (!this.ModelState.IsValid)
             {
@@ -46,20 +46,24 @@
 
             await this.subService.ApproveAnimeSubmission(model);
 
-            await this.subService.UpdateUserSubmissionCount(model.SubmitterId);
-            await this.subService.RemoveSubmission(model.DbId, "Anime", "Approved");
-            return this.RedirectToAction("AllSubmissions");
+            await this.subService.RemoveSubmission(id, "Anime", "Approved");
+            return this.RedirectToAction("All");
+        }
+
+        public async Task<IActionResult> RejectAnimeSubmission(int id)
+        {
+            await this.subService.RemoveSubmission(id, "Anime", "Rejected");
+            return this.RedirectToAction("All");
         }
 
         public IActionResult ViewAndEditMangaSubmission(int id)
         {
             var model = this.subService.GetMangaSubmission(id);
-            model.DbId = id;
             return this.View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditAndSubmitMangaSubmissions(MangaSubmissionInputModel model)
+        public async Task<IActionResult> ViewAndEditMangaSubmission(MangaSubmissionInputModel model)
         {
             if (!this.ModelState.IsValid)
             {
@@ -68,15 +72,19 @@
 
             await this.subService.ApproveMangaSubmission(model);
 
-            await this.subService.UpdateUserSubmissionCount(model.SubmitterId);
             await this.subService.RemoveSubmission(model.DbId, "Manga", "Approved");
             return this.RedirectToAction("AllSubmissions");
+        }
+
+        public async Task<IActionResult> RejectMangaSubmission(int id)
+        {
+            await this.subService.RemoveSubmission(id, "Manga", "Rejected");
+            return this.RedirectToAction("All");
         }
 
         public IActionResult ViewAndEditArticleSubmission(int id)
         {
             var model = this.subService.GetArticleSubmission(id);
-            model.DbId = id;
             return this.View(model);
         }
 
@@ -90,7 +98,6 @@
 
             await this.subService.ApproveArticleSubmission(model);
 
-            await this.subService.UpdateUserSubmissionCount(model.SubmitterId);
             await this.subService.RemoveSubmission(model.DbId, "Manga", "Approved");
             return this.RedirectToAction("AllSubmissions");
         }

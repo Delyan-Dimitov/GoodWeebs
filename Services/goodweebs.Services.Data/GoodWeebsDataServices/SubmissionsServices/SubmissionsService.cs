@@ -46,20 +46,22 @@
         public List<SubmissionInListViewModel> GetAll(int page, int itemsPerPage)
         {
             var submissions = new List<SubmissionInListViewModel>();
-            var animeSubmissions = new List<SubmissionInListViewModel>();
-            this.animeSubRepo.All()
-                .ToList()
-                .ForEach(x => submissions
-                .Add(new SubmissionInListViewModel { Title = x.Title, Id = x.Id, SubmissionType = "Anime", CreatedOn = x.CreatedOn }));
+            var animeSubmissions = this.animeSubRepo.All().ToList();
 
-            var mangaSubmissions = new List<SubmissionInListViewModel>();
-            this.articleSubRepo.All()
-                .ToList()
-                .ForEach(x => submissions
-                .Add(new SubmissionInListViewModel { Title = x.Title, Id = x.Id, SubmissionType = "Manga", CreatedOn = x.CreatedOn }));
+            foreach (var sub in animeSubmissions)
+            {
+                submissions.Add(new SubmissionInListViewModel { Title = sub.Title, Id = sub.Id, SubmissionType = "Anime", CreatedOn = sub.CreatedOn });
+            }
+
+            var mangaSubmissions = this.mangaSubRepo.All().ToList();
+
+            foreach (var sub in mangaSubmissions)
+            {
+                submissions.Add(new SubmissionInListViewModel { Title = sub.Title, Id = sub.Id, SubmissionType = "Manga", CreatedOn = sub.CreatedOn });
+            }
 
             var articleSubmissions = new List<SubmissionInListViewModel>();
-            this.mangaSubRepo
+            this.articleSubRepo
                 .All()
                 .ToList()
                 .ForEach(x => submissions
@@ -77,7 +79,7 @@
             {
                 Title = animeSubmission.Title,
                 Status = animeSubmission.Status,
-                Studios = animeSubmission.Studios.Split(", ").ToList(),
+                Studio = animeSubmission.Studios,
                 Trailer = animeSubmission.Trailer,
                 Synopsis = animeSubmission.Synopsis,
                 Type = animeSubmission.Type,
@@ -130,10 +132,10 @@
             {
                 Title = input.Title,
                 Status = input.Status,
-                Studios = string.Join(", ", input.Studios),
+                Studios = input.Studio,
                 Synopsis = input.Synopsis,
                 Aired = input.Aired,
-                EpisodeDuration = input.Duration.ToString(), // TODO CHECK IF YOU HAVE A BRAIN
+                EpisodeDuration = input.Duration.ToString(),
                 Episodes = input.Episodes.ToString(),
                 Genres = string.Join(", ", input.Genres),
                 Picture = input.PictureUrl,
@@ -153,7 +155,7 @@
                 Authors = string.Join(", ", input.Authors),
                 Synopsis = input.Synopsis,
                 Published = input.Published,
-                Volumes = input.Volumes.ToString(), // TODO CHECK IF YOU HAVE A BRAIN
+                Volumes = input.Volumes.ToString(),
                 Chapters = input.Chapters,
                 Genres = string.Join(", ", input.Genres),
                 PictureUrl = input.PictureUrl,
@@ -178,36 +180,23 @@
         {
             if (type == "Anime")
             {
-                var sub = this.animeSubRepo.All().First(x => x.Id == id);
-                sub.ApprovalStatus = approvalStatus;
-                this.animeSubRepo.Update(sub);
-                this.animeSubRepo.Delete(sub);
+                var sub = this.animeSubRepo.All().Where(x => x.Id == id).FirstOrDefault();
+                this.animeSubRepo.HardDelete(sub);
                 await this.animeSubRepo.SaveChangesAsync();
             }
             else if (type == "Manga")
             {
-                var sub = this.mangaSubRepo.All().First(x => x.Id == id);
-                sub.ApprovalStatus = approvalStatus;
-                this.mangaSubRepo.Update(sub);
-                this.mangaSubRepo.Delete(sub);
+                var sub = this.mangaSubRepo.All().Where(x => x.Id == id).FirstOrDefault();
+                this.mangaSubRepo.HardDelete(sub);
                 await this.mangaSubRepo.SaveChangesAsync();
             }
             else if (type == "Article")
             {
-                var sub = this.articleSubRepo.All().First(x => x.Id == id);
-                sub.ApprovalStatus = approvalStatus;
-                this.articleSubRepo.Update(sub);
-                this.articleSubRepo.Delete(sub);
+                var sub = this.articleSubRepo.All().Where(x => x.Id == id).FirstOrDefault();
+                this.articleSubRepo.HardDelete(sub);
                 await this.articleSubRepo.SaveChangesAsync();
             }
         }
 
-        public async Task UpdateUserSubmissionCount(string userId) // horrible
-        {
-            var user = await this.userManager.FindByIdAsync(userId);
-            user.SubmissionsCount++;
-            this.userRepo.Update(user);
-            await this.userRepo.SaveChangesAsync();
-        }
     }
 }

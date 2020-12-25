@@ -9,20 +9,20 @@
       "Sandbox/1.0.0": {
         "dependencies": {
           "CommandLineParser": "2.8.0",
+          "GoodWeebs.Common": "1.0.0",
+          "GoodWeebs.Data": "1.0.0",
+          "GoodWeebs.Data.Common": "1.0.0",
+          "GoodWeebs.Data.Models": "1.0.0",
+          "GoodWeebs.Services": "1.0.0",
+          "GoodWeebs.Services.Data": "1.0.0",
+          "GoodWeebs.Services.Mapping": "1.0.0",
+          "GoodWeebs.Services.Messaging": "1.0.0",
           "Microsoft.AspNetCore.Identity.UI": "3.1.9",
           "Microsoft.Extensions.Configuration": "3.1.9",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "3.1.9",
           "Microsoft.Extensions.Configuration.Json": "3.1.9",
           "Microsoft.Extensions.Logging.Console": "3.1.9",
-          "StyleCop.Analyzers": "1.2.0-beta.205",
-          "goodweebs.Common": "1.0.0",
-          "goodweebs.Data": "1.0.0",
-          "goodweebs.Data.Common": "1.0.0",
-          "goodweebs.Data.Models": "1.0.0",
-          "goodweebs.Services": "1.0.0",
-          "goodweebs.Services.Data": "1.0.0",
-          "goodweebs.Services.Mapping": "1.0.0",
-          "goodweebs.Services.Messaging": "1.0.0"
+          "StyleCop.Analyzers": "1.2.0-beta.205"
         },
         "runtime": {
           "Sandbox.dll": {}
@@ -1810,26 +1810,26 @@
           "System.Xml.XmlDocument": "4.3.0"
         }
       },
-      "goodweebs.Common/1.0.0": {
+      "GoodWeebs.Common/1.0.0": {
         "runtime": {
           "GoodWeebs.Common.dll": {}
         }
       },
-      "goodweebs.Data/1.0.0": {
+      "GoodWeebs.Data/1.0.0": {
         "dependencies": {
+          "GoodWeebs.Common": "1.0.0",
+          "GoodWeebs.Data.Common": "1.0.0",
+          "GoodWeebs.Data.Models": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.9",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.9",
           "Microsoft.Extensions.Configuration.UserSecrets": "3.1.9",
-          "Newtonsoft.Json": "12.0.3",
-          "goodweebs.Common": "1.0.0",
-          "goodweebs.Data.Common": "1.0.0",
-          "goodweebs.Data.Models": "1.0.0"
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
-          "goodweebs.Data.dll": {}
+          "GoodWeebs.Data.dll": {}
         }
       },
-      "goodweebs.Data.Common/1.0.0": {
+      "GoodWeebs.Data.Common/1.0.0": {
         "dependencies": {
           "System.ComponentModel.Annotations": "4.7.0"
         },
@@ -1837,40 +1837,40 @@
           "GoodWeebs.Data.Common.dll": {}
         }
       },
-      "goodweebs.Data.Models/1.0.0": {
+      "GoodWeebs.Data.Models/1.0.0": {
         "dependencies": {
+          "GoodWeebs.Data.Common": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.9",
-          "Newtonsoft.Json": "12.0.3",
-          "goodweebs.Data.Common": "1.0.0"
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "GoodWeebs.Data.Models.dll": {}
         }
       },
-      "goodweebs.Services/1.0.0": {
+      "GoodWeebs.Services/1.0.0": {
         "dependencies": {
-          "goodweebs.Data": "1.0.0",
-          "goodweebs.Data.Common": "1.0.0",
-          "goodweebs.Data.Models": "1.0.0",
-          "goodweebs.Web.ViewModels": "1.0.0"
+          "GoodWeebs.Data": "1.0.0",
+          "GoodWeebs.Data.Common": "1.0.0",
+          "GoodWeebs.Data.Models": "1.0.0",
+          "GoodWeebs.Web.ViewModels": "1.0.0"
         },
         "runtime": {
-          "goodweebs.Services.dll": {}
+          "GoodWeebs.Services.dll": {}
         }
       },
-      "goodweebs.Services.Data/1.0.0": {
+      "GoodWeebs.Services.Data/1.0.0": {
         "dependencies": {
-          "goodweebs.Data": "1.0.0",
-          "goodweebs.Data.Common": "1.0.0",
-          "goodweebs.Data.Models": "1.0.0",
-          "goodweebs.Services.Mapping": "1.0.0",
-          "goodweebs.Web.ViewModels": "1.0.0"
+          "GoodWeebs.Data": "1.0.0",
+          "GoodWeebs.Data.Common": "1.0.0",
+          "GoodWeebs.Data.Models": "1.0.0",
+          "GoodWeebs.Services.Mapping": "1.0.0",
+          "GoodWeebs.Web.ViewModels": "1.0.0"
         },
         "runtime": {
-          "goodweebs.Services.Data.dll": {}
+          "GoodWeebs.Services.Data.dll": {}
         }
       },
-      "goodweebs.Services.Mapping/1.0.0": {
+      "GoodWeebs.Services.Mapping/1.0.0": {
         "dependencies": {
           "AutoMapper": "10.1.1"
         },
@@ -1878,7 +1878,7 @@
           "GoodWeebs.Services.Mapping.dll": {}
         }
       },
-      "goodweebs.Services.Messaging/1.0.0": {
+      "GoodWeebs.Services.Messaging/1.0.0": {
         "dependencies": {
           "SendGrid": "9.21.0"
         },
@@ -1886,14 +1886,14 @@
           "GoodWeebs.Services.Messaging.dll": {}
         }
       },
-      "goodweebs.Web.ViewModels/1.0.0": {
+      "GoodWeebs.Web.ViewModels/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.2.0",
-          "goodweebs.Data.Models": "1.0.0",
-          "goodweebs.Services.Mapping": "1.0.0"
+          "GoodWeebs.Data.Models": "1.0.0",
+          "GoodWeebs.Services.Mapping": "1.0.0",
+          "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.2.0"
         },
         "runtime": {
-          "goodweebs.Web.ViewModels.dll": {}
+          "GoodWeebs.Web.ViewModels.dll": {}
         }
       }
     }
@@ -3234,47 +3234,47 @@
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
-    "goodweebs.Common/1.0.0": {
+    "GoodWeebs.Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "goodweebs.Data/1.0.0": {
+    "GoodWeebs.Data/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "goodweebs.Data.Common/1.0.0": {
+    "GoodWeebs.Data.Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "goodweebs.Data.Models/1.0.0": {
+    "GoodWeebs.Data.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "goodweebs.Services/1.0.0": {
+    "GoodWeebs.Services/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "goodweebs.Services.Data/1.0.0": {
+    "GoodWeebs.Services.Data/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "goodweebs.Services.Mapping/1.0.0": {
+    "GoodWeebs.Services.Mapping/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "goodweebs.Services.Messaging/1.0.0": {
+    "GoodWeebs.Services.Messaging/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "goodweebs.Web.ViewModels/1.0.0": {
+    "GoodWeebs.Web.ViewModels/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

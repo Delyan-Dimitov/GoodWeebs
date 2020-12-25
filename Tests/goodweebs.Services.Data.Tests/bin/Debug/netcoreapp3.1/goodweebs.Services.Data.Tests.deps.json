@@ -8,12 +8,12 @@
     ".NETCoreApp,Version=v3.1": {
       "goodweebs.Services.Data.Tests/1.0.0": {
         "dependencies": {
+          "GoodWeebs.Data": "1.0.0",
+          "GoodWeebs.Services.Data": "1.0.0",
           "Microsoft.EntityFrameworkCore.InMemory": "3.1.9",
           "Microsoft.NET.Test.Sdk": "16.7.1",
           "Moq": "4.14.7",
           "StyleCop.Analyzers": "1.2.0-beta.205",
-          "goodweebs.Data": "1.0.0",
-          "goodweebs.Services.Data": "1.0.0",
           "xunit": "2.4.1",
           "xunit.runner.visualstudio": "2.4.3"
         },
@@ -2284,26 +2284,26 @@
         }
       },
       "xunit.runner.visualstudio/2.4.3": {},
-      "goodweebs.Common/1.0.0": {
+      "GoodWeebs.Common/1.0.0": {
         "runtime": {
           "GoodWeebs.Common.dll": {}
         }
       },
-      "goodweebs.Data/1.0.0": {
+      "GoodWeebs.Data/1.0.0": {
         "dependencies": {
+          "GoodWeebs.Common": "1.0.0",
+          "GoodWeebs.Data.Common": "1.0.0",
+          "GoodWeebs.Data.Models": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.9",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.9",
           "Microsoft.Extensions.Configuration.UserSecrets": "3.1.9",
-          "Newtonsoft.Json": "12.0.3",
-          "goodweebs.Common": "1.0.0",
-          "goodweebs.Data.Common": "1.0.0",
-          "goodweebs.Data.Models": "1.0.0"
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
-          "goodweebs.Data.dll": {}
+          "GoodWeebs.Data.dll": {}
         }
       },
-      "goodweebs.Data.Common/1.0.0": {
+      "GoodWeebs.Data.Common/1.0.0": {
         "dependencies": {
           "System.ComponentModel.Annotations": "4.7.0"
         },
@@ -2311,29 +2311,29 @@
           "GoodWeebs.Data.Common.dll": {}
         }
       },
-      "goodweebs.Data.Models/1.0.0": {
+      "GoodWeebs.Data.Models/1.0.0": {
         "dependencies": {
+          "GoodWeebs.Data.Common": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.9",
-          "Newtonsoft.Json": "12.0.3",
-          "goodweebs.Data.Common": "1.0.0"
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
-          "goodweebs.Data.Models.dll": {}
+          "GoodWeebs.Data.Models.dll": {}
         }
       },
-      "goodweebs.Services.Data/1.0.0": {
+      "GoodWeebs.Services.Data/1.0.0": {
         "dependencies": {
-          "goodweebs.Data": "1.0.0",
-          "goodweebs.Data.Common": "1.0.0",
-          "goodweebs.Data.Models": "1.0.0",
-          "goodweebs.Services.Mapping": "1.0.0",
-          "goodweebs.Web.ViewModels": "1.0.0"
+          "GoodWeebs.Data": "1.0.0",
+          "GoodWeebs.Data.Common": "1.0.0",
+          "GoodWeebs.Data.Models": "1.0.0",
+          "GoodWeebs.Services.Mapping": "1.0.0",
+          "GoodWeebs.Web.ViewModels": "1.0.0"
         },
         "runtime": {
-          "goodweebs.Services.Data.dll": {}
+          "GoodWeebs.Services.Data.dll": {}
         }
       },
-      "goodweebs.Services.Mapping/1.0.0": {
+      "GoodWeebs.Services.Mapping/1.0.0": {
         "dependencies": {
           "AutoMapper": "10.1.1"
         },
@@ -2341,14 +2341,14 @@
           "GoodWeebs.Services.Mapping.dll": {}
         }
       },
-      "goodweebs.Web.ViewModels/1.0.0": {
+      "GoodWeebs.Web.ViewModels/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.2.0",
-          "goodweebs.Data.Models": "1.0.0",
-          "goodweebs.Services.Mapping": "1.0.0"
+          "GoodWeebs.Data.Models": "1.0.0",
+          "GoodWeebs.Services.Mapping": "1.0.0",
+          "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.2.0"
         },
         "runtime": {
-          "goodweebs.Web.ViewModels.dll": {}
+          "GoodWeebs.Web.ViewModels.dll": {}
         }
       }
     }
@@ -3745,37 +3745,37 @@
       "path": "xunit.runner.visualstudio/2.4.3",
       "hashPath": "xunit.runner.visualstudio.2.4.3.nupkg.sha512"
     },
-    "goodweebs.Common/1.0.0": {
+    "GoodWeebs.Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "goodweebs.Data/1.0.0": {
+    "GoodWeebs.Data/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "goodweebs.Data.Common/1.0.0": {
+    "GoodWeebs.Data.Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "goodweebs.Data.Models/1.0.0": {
+    "GoodWeebs.Data.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "goodweebs.Services.Data/1.0.0": {
+    "GoodWeebs.Services.Data/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "goodweebs.Services.Mapping/1.0.0": {
+    "GoodWeebs.Services.Mapping/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "goodweebs.Web.ViewModels/1.0.0": {
+    "GoodWeebs.Web.ViewModels/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

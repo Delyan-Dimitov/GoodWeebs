@@ -58,15 +58,7 @@
 
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            try
-            {
-                await this.subService.SubmitAnimeFullAsync(model, userId, "Full");
-            }
-            catch (Exception ex)
-            {
-                this.ModelState.AddModelError(string.Empty, ex.Message);
-                return this.View(model);
-            }
+            await this.subService.SubmitAnimeFullAsync(model, userId, "Full");
 
             return this.RedirectToAction("Home/HomeUserLoggedOut");
         }
@@ -106,15 +98,9 @@
 
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            try
-            {
-                await this.subService.SubmitMangaFullAsync(model, userId, "Full");
-            }
-            catch (Exception ex)
-            {
-                this.ModelState.AddModelError(string.Empty, ex.Message);
-                return this.View(model);
-            }
+            
+            await this.subService.SubmitMangaFullAsync(model, userId, "Full");
+          
 
             return this.Redirect("Home/Index");
         }
