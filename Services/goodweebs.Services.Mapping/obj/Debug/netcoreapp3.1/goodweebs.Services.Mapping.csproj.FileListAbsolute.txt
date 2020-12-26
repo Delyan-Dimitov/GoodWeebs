@@ -4,6 +4,6 @@ C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Mapping\bin\Debug\n
 C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Mapping\obj\Debug\netcoreapp3.1\goodweebs.Services.Mapping.csprojAssemblyReference.cache
 C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Mapping\obj\Debug\netcoreapp3.1\goodweebs.Services.Mapping.AssemblyInfoInputs.cache
 C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Mapping\obj\Debug\netcoreapp3.1\goodweebs.Services.Mapping.AssemblyInfo.cs
-C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Mapping\obj\Debug\netcoreapp3.1\goodweebs.Services.Mapping.csproj.CoreCompileInputs.cache
 C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Mapping\obj\Debug\netcoreapp3.1\goodweebs.Services.Mapping.dll
 C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Mapping\obj\Debug\netcoreapp3.1\goodweebs.Services.Mapping.pdb
+C:\Users\gunex\Desktop\GoodWeebs\Services\goodweebs.Services.Mapping\obj\Debug\netcoreapp3.1\GoodWeebs.Services.Mapping.csproj.CoreCompileInputs.cache

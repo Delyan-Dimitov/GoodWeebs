@@ -16,7 +16,7 @@
         <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark static-top">
             <div class="container">
                 <a asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="/Images/Logo2.png" height="50px">
+                    <img src="https://i.imgur.com/8PWiPOT.png" height="50px">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -57,12 +57,18 @@
                                         Submit
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item text-dark text-decoration-none" asp-controller="Submission" asp-action="SubmitAnime">Anime</a>
+                                        <a class="dropdown-item text-dark text-decoration-none" asp-controller="Submissions" asp-action="SubmitAnime">Anime</a>
                                         <hr />
-                                        <a class="dropdown-item text-dark text-decoration-none" asp-controller="Submission" asp-action="SubmitManga">Manga</a>
+                                        <a class="dropdown-item text-dark text-decoration-none" asp-controller="Submissions" asp-action="SubmitManga">Manga</a>
                                         <hr />
-                                        <a class="dropdown-item text-dark text-decoration-none" asp-controller="Submission" asp-action="SubmitArticle">Article</a>
-                                        
+                                        <a class="dropdown-item text-dark text-decoration-none" asp-controller="Submissions" asp-action="SubmitArticle">Article</a>
+                                        <hr />
+                                        @if (this.User.IsInRole("Administrator"))
+                                        {
+                                            <a class="dropdown-item text-dark text-decoration-none" asp-controller="SubmissionModeration" asp-action="All">Moderation</a>
+                                        }
+
+
                                     </div>
                                 </div>
                             </li>

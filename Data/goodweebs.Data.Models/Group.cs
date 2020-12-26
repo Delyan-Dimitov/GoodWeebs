@@ -9,6 +9,7 @@ namespace GoodWeebs.Data.Models
         public Group()
         {
             this.Id = Guid.NewGuid().ToString();
+            this.Posts = new HashSet<Post>();
         }
 
         public string Id { get; set; }
@@ -17,11 +18,15 @@ namespace GoodWeebs.Data.Models
 
         public string Description { get; set; }
 
+        public string Picture { get; set; }
+
         public ICollection<ApplicationUser> Users { get; set; }
 
-        public ICollection<Post> Posts { get; set; } // TODO make post model
+        public ICollection<Post> Posts { get; set; }
 
         public ApplicationUser Admin { get; set; }
+
+        public string AdminId { get; set; }
 
         public DateTime CreatedOn { get; set; }
 

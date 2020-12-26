@@ -4,6 +4,6 @@ C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\bin\Debug\netc
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\obj\Debug\netcoreapp3.1\goodweebs.Web.Infrastructure.csprojAssemblyReference.cache
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\obj\Debug\netcoreapp3.1\goodweebs.Web.Infrastructure.AssemblyInfoInputs.cache
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\obj\Debug\netcoreapp3.1\goodweebs.Web.Infrastructure.AssemblyInfo.cs
-C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\obj\Debug\netcoreapp3.1\goodweebs.Web.Infrastructure.csproj.CoreCompileInputs.cache
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\obj\Debug\netcoreapp3.1\goodweebs.Web.Infrastructure.dll
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\obj\Debug\netcoreapp3.1\goodweebs.Web.Infrastructure.pdb
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\obj\Debug\netcoreapp3.1\GoodWeebs.Web.Infrastructure.csproj.CoreCompileInputs.cache

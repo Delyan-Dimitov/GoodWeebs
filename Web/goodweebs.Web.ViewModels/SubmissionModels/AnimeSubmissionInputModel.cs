@@ -18,7 +18,7 @@
         public string PictureUrl { get; set; }
 
         [Required]
-        [MinLength(50, ErrorMessage = "Synopsis too long!")]
+        [MinLength(50, ErrorMessage = "Synopsis too short!")]
         [MaxLength(1000)]
         public string Synopsis { get; set; }
 

@@ -13,4 +13,4 @@ C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.ViewModels\obj\Debug\netcorea
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.ViewModels\obj\Debug\netcoreapp3.1\goodweebs.Web.ViewModels.csproj.CopyComplete
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.ViewModels\obj\Debug\netcoreapp3.1\goodweebs.Web.ViewModels.dll
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.ViewModels\obj\Debug\netcoreapp3.1\goodweebs.Web.ViewModels.pdb
-C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.ViewModels\obj\Debug\netcoreapp3.1\goodweebs.Web.ViewModels.csproj.CoreCompileInputs.cache
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.ViewModels\obj\Debug\netcoreapp3.1\GoodWeebs.Web.ViewModels.csproj.CoreCompileInputs.cache

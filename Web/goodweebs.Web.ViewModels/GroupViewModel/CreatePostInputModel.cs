@@ -16,5 +16,7 @@ namespace GoodWeebs.Web.ViewModels.GroupViewModel
         [MaxLength(2000, ErrorMessage = "Post too long!")]
         [MinLength(50, ErrorMessage = "Post too short!")]
         public string Content { get; set; }
+
+        public string GroupId { get; set; }
     }
 }

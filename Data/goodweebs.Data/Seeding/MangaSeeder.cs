@@ -5,7 +5,7 @@
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
-
+    using Azure.Storage.Blobs;
     using Entities;
     using GoodWeebs.Data;
     using GoodWeebs.Data.Models;
@@ -13,16 +13,19 @@
 
     public class MangaSeeder: ISeeder
     {
-
+        private readonly BlobServiceClient blobServiceClient;
+      
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
             if (dbContext.Mangas.Any())
             {
                 return;
             }
-
+            var container = this.blobServiceClient.GetBlobContainerClient("dbseeders");
+            var files = container.GetBlobClient("manga.json");
+            var mangaJson = files.Download();
             string json = null;
-            using (StreamReader r = new StreamReader(@"C:\Users\gunex\Desktop\GoodWeebs\Web\GoodWeebs.Web\wwwroot\mangas.json"))
+            using (StreamReader r = new StreamReader(mangaJson.ToString()))
             {
                 json = r.ReadToEnd();
             }

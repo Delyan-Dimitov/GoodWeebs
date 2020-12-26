@@ -79,7 +79,7 @@
         {
             var addedId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             await this.userService.AddFriend(adderId, addedId);
-            return this.RedirectToAction("Users/FriendsList"); // TODO redirect to friends list
+            return this.RedirectToAction("Users/MyProfile"); // TODO redirect to friends list
         }
     }
 }

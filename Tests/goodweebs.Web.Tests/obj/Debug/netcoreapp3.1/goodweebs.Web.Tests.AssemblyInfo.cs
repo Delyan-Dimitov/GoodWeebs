@@ -20,10 +20,10 @@ using System.Reflection;
 [assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("GoodWeebs.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services", "GoodWeebs.Services.csproj", "0")]
 [assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("GoodWeebs.Services.Mapping, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" +
     "", "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Mapping", "GoodWeebs.Services.Mapping.csproj", "0")]
-[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("goodweebs.Services.Messaging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=nu" +
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("GoodWeebs.Services.Messaging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=nu" +
     "ll", "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Messaging", "GoodWeebs.Services.Messaging.csproj", "0")]
 [assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("GoodWeebs.web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web", "GoodWeebs.web.csproj", "0")]
-[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("goodweebs.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=nu" +
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("GoodWeebs.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=nu" +
     "ll", "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web.Infrastructure", "GoodWeebs.Web.Infrastructure.csproj", "0")]
 [assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("GoodWeebs.Web.ViewModels, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web.ViewModels", "GoodWeebs.Web.ViewModels.csproj", "0")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("goodweebs.Web.Tests")]

@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "/AgOB5IA0CAalNyH1mI5If4X1NKg+k62SgruK2oeErtk+pMf+ywvHw32EjkO0vVO2ELiU9ER6XZW3cTeFe+G6Q==",
+  "dgSpecHash": "ltAJe/oEVj6Kf2c/2eA52dF3CCGqVle6o+YN/ZTRv7686Z2tZzmmnZUhF3ie++VNRkyFIjw4A+qDlis5qAIY2w==",
   "success": true,
   "projectFilePath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Tests\\goodweebs.Web.Tests\\goodweebs.Web.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gunex\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\gunex\\.nuget\\packages\\azure.core\\1.6.0\\azure.core.1.6.0.nupkg.sha512",
+    "C:\\Users\\gunex\\.nuget\\packages\\azure.storage.blobs\\12.7.0\\azure.storage.blobs.12.7.0.nupkg.sha512",
+    "C:\\Users\\gunex\\.nuget\\packages\\azure.storage.common\\12.6.0\\azure.storage.common.12.6.0.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\buildbundlerminifier\\3.2.449\\buildbundlerminifier.3.2.449.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
@@ -191,6 +194,7 @@
     "C:\\Users\\gunex\\.nuget\\packages\\system.net.nameresolution\\4.3.0\\system.net.nameresolution.4.3.0.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\system.net.primitives\\4.3.0\\system.net.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\system.net.sockets\\4.3.0\\system.net.sockets.4.3.0.nupkg.sha512",
+    "C:\\Users\\gunex\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\system.objectmodel\\4.3.0\\system.objectmodel.4.3.0.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\system.private.datacontractserialization\\4.3.0\\system.private.datacontractserialization.4.3.0.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",

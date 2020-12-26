@@ -39,7 +39,7 @@
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             await this.subService.SubmitAnimeWithUrlAsync(url, userId);
-            return this.Redirect("Home/Index");
+            return this.Redirect("SubmitAnime");
         }
 
         public IActionResult SubmitAnimeFull()
@@ -60,7 +60,7 @@
 
             await this.subService.SubmitAnimeFullAsync(model, userId, "Full");
 
-            return this.RedirectToAction("Home/HomeUserLoggedOut");
+            return this.Redirect("SubmitAnime");
         }
 
         // manga
@@ -79,7 +79,7 @@
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             await this.subService.SubmitMangaWithUrlAsync(url, userId);
-            return this.Redirect("Home/Index");
+            return this.Redirect("SubmitManga");
         }
 
         public IActionResult SubmitMangaFull()
@@ -102,7 +102,7 @@
             await this.subService.SubmitMangaFullAsync(model, userId, "Full");
           
 
-            return this.Redirect("Home/Index");
+            return this.Redirect("SubmitManga");
         }
 
         // aritcle

@@ -11,7 +11,7 @@ namespace GoodWeebs.Data.Models
         [JsonProperty("picture")]
         public string PictureUrl { get; set; }
 
-        [JsonProperty("type")] // TODO check if this works
+        [JsonProperty("type")]
         public string Type { get; set; }
 
         public string Volumes { get; set; }

@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "goodweebs.Web.Tests/1.0.0": {
         "dependencies": {
+          "Azure.Storage.Blobs": "12.7.0",
           "GoodWeebs.web": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Testing": "3.1.9",
           "Microsoft.NET.Test.Sdk": "16.7.1",
@@ -201,7 +202,7 @@
           "System.Net.WebSockets.Client": "4.1.2.0",
           "System.Net.WebSockets": "4.1.2.0",
           "System.Numerics": "4.0.0.0",
-          "System.Numerics.Vectors": "4.1.6.0",
+          "System.Numerics.Vectors.Reference": "4.1.6.0",
           "System.ObjectModel.Reference": "4.1.2.0",
           "System.Reflection.DispatchProxy": "4.0.6.0",
           "System.Reflection.Reference": "4.2.2.0",
@@ -296,6 +297,55 @@
         },
         "compile": {
           "lib/netstandard2.0/AutoMapper.dll": {}
+        }
+      },
+      "Azure.Core/1.6.0": {
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "1.1.1",
+          "System.Buffers": "4.5.0",
+          "System.Diagnostics.DiagnosticSource": "4.7.1",
+          "System.Memory": "4.5.3",
+          "System.Numerics.Vectors": "4.5.0",
+          "System.Text.Json": "4.7.2",
+          "System.Threading.Tasks.Extensions": "4.5.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Azure.Core.dll": {
+            "assemblyVersion": "1.6.0.0",
+            "fileVersion": "1.600.20.52802"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Azure.Core.dll": {}
+        }
+      },
+      "Azure.Storage.Blobs/12.7.0": {
+        "dependencies": {
+          "Azure.Storage.Common": "12.6.0",
+          "System.Text.Json": "4.7.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Azure.Storage.Blobs.dll": {
+            "assemblyVersion": "12.7.0.0",
+            "fileVersion": "12.700.20.56002"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Azure.Storage.Blobs.dll": {}
+        }
+      },
+      "Azure.Storage.Common/12.6.0": {
+        "dependencies": {
+          "Azure.Core": "1.6.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Azure.Storage.Common.dll": {
+            "assemblyVersion": "12.6.0.0",
+            "fileVersion": "12.600.20.56002"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Azure.Storage.Common.dll": {}
         }
       },
       "BuildBundlerMinifier/3.2.449": {},
@@ -2778,6 +2828,7 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
+      "System.Numerics.Vectors/4.5.0": {},
       "System.ObjectModel/4.3.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
@@ -3410,6 +3461,9 @@
       },
       "xunit.runner.visualstudio/2.4.3": {},
       "GoodWeebs.Common/1.0.0": {
+        "dependencies": {
+          "Azure.Storage.Blobs": "12.7.0"
+        },
         "runtime": {
           "GoodWeebs.Common.dll": {}
         },
@@ -3419,6 +3473,7 @@
       },
       "GoodWeebs.Data/1.0.0": {
         "dependencies": {
+          "Azure.Storage.Blobs": "12.7.0",
           "GoodWeebs.Common": "1.0.0",
           "GoodWeebs.Data.Common": "1.0.0",
           "GoodWeebs.Data.Models": "1.0.0",
@@ -3436,6 +3491,7 @@
       },
       "GoodWeebs.Data.Common/1.0.0": {
         "dependencies": {
+          "Azure.Storage.Blobs": "12.7.0",
           "System.ComponentModel.Annotations": "4.7.0"
         },
         "runtime": {
@@ -3447,6 +3503,7 @@
       },
       "GoodWeebs.Data.Models/1.0.0": {
         "dependencies": {
+          "Azure.Storage.Blobs": "12.7.0",
           "GoodWeebs.Data.Common": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.10",
           "Newtonsoft.Json": "12.0.3"
@@ -3460,6 +3517,7 @@
       },
       "GoodWeebs.Services/1.0.0": {
         "dependencies": {
+          "Azure.Storage.Blobs": "12.7.0",
           "GoodWeebs.Data": "1.0.0",
           "GoodWeebs.Data.Common": "1.0.0",
           "GoodWeebs.Data.Models": "1.0.0",
@@ -3474,6 +3532,7 @@
       },
       "GoodWeebs.Services.Data/1.0.0": {
         "dependencies": {
+          "Azure.Storage.Blobs": "12.7.0",
           "GoodWeebs.Data": "1.0.0",
           "GoodWeebs.Data.Common": "1.0.0",
           "GoodWeebs.Data.Models": "1.0.0",
@@ -3489,7 +3548,8 @@
       },
       "GoodWeebs.Services.Mapping/1.0.0": {
         "dependencies": {
-          "AutoMapper": "10.1.1"
+          "AutoMapper": "10.1.1",
+          "Azure.Storage.Blobs": "12.7.0"
         },
         "runtime": {
           "GoodWeebs.Services.Mapping.dll": {}
@@ -3500,6 +3560,7 @@
       },
       "GoodWeebs.Services.Messaging/1.0.0": {
         "dependencies": {
+          "Azure.Storage.Blobs": "12.7.0",
           "SendGrid": "9.21.0"
         },
         "runtime": {
@@ -3511,6 +3572,7 @@
       },
       "GoodWeebs.web/1.0.0": {
         "dependencies": {
+          "Azure.Storage.Blobs": "12.7.0",
           "BuildBundlerMinifier": "3.2.449",
           "GoodWeebs.Common": "1.0.0",
           "GoodWeebs.Data": "1.0.0",
@@ -3538,6 +3600,9 @@
         }
       },
       "GoodWeebs.Web.Infrastructure/1.0.0": {
+        "dependencies": {
+          "Azure.Storage.Blobs": "12.7.0"
+        },
         "runtime": {
           "GoodWeebs.Web.Infrastructure.dll": {}
         },
@@ -3547,6 +3612,7 @@
       },
       "GoodWeebs.Web.ViewModels/1.0.0": {
         "dependencies": {
+          "Azure.Storage.Blobs": "12.7.0",
           "GoodWeebs.Data.Models": "1.0.0",
           "GoodWeebs.Services.Mapping": "1.0.0",
           "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.2.0"
@@ -4566,7 +4632,7 @@
         },
         "compileOnly": true
       },
-      "System.Numerics.Vectors/4.1.6.0": {
+      "System.Numerics.Vectors.Reference/4.1.6.0": {
         "compile": {
           "System.Numerics.Vectors.dll": {}
         },
@@ -5024,6 +5090,27 @@
       "sha512": "sha512-uMgbqOdu9ZG5cIOty0C85hzzayBH2i9BthnS5FlMqKtMSHDv4ts81a2jS1VFaDBVhlBeIqJ/kQKjQY95BZde9w==",
       "path": "automapper/10.1.1",
       "hashPath": "automapper.10.1.1.nupkg.sha512"
+    },
+    "Azure.Core/1.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kI4m2NsODPOrxo0OoKjk6B3ADbdovhDQIEmI4039upjjZKRaewVLx/Uz4DfRa/NtnIRZQPUALe1yvdHWAoRt4w==",
+      "path": "azure.core/1.6.0",
+      "hashPath": "azure.core.1.6.0.nupkg.sha512"
+    },
+    "Azure.Storage.Blobs/12.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sOO8tIET7AqLsQ0Rd7Vft9ykCw65RUwfRdD+2wg3FWToO5YqkhOP+liJggQm+n8C7JnZAG0Jkb2u6RhBT2F9ew==",
+      "path": "azure.storage.blobs/12.7.0",
+      "hashPath": "azure.storage.blobs.12.7.0.nupkg.sha512"
+    },
+    "Azure.Storage.Common/12.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-plL0m1CA4UVKYpQxs3PaKyVyGmY0Z4pcizXLrHwYgmh7MCeYnm1r1WrbflFrzeSOpFSycsbErj7qxt3qqpz4zA==",
+      "path": "azure.storage.common/12.6.0",
+      "hashPath": "azure.storage.common.12.6.0.nupkg.sha512"
     },
     "BuildBundlerMinifier/3.2.449": {
       "type": "package",
@@ -6326,6 +6413,13 @@
       "sha512": "sha512-m6icV6TqQOAdgt5N/9I5KNpjom/5NFtkmGseEH+AK/hny8XrytLH3+b5M8zL/Ycg3fhIocFpUMyl/wpFnVRvdw==",
       "path": "system.net.sockets/4.3.0",
       "hashPath": "system.net.sockets.4.3.0.nupkg.sha512"
+    },
+    "System.Numerics.Vectors/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QQTlPTl06J/iiDbJCiepZ4H//BVraReU4O4EoRw1U02H5TLUIT7xn3GnDp9AXPSlJUDyFs4uWjWafNX6WrAojQ==",
+      "path": "system.numerics.vectors/4.5.0",
+      "hashPath": "system.numerics.vectors.4.5.0.nupkg.sha512"
     },
     "System.ObjectModel/4.3.0": {
       "type": "package",
@@ -7642,7 +7736,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "System.Numerics.Vectors/4.1.6.0": {
+    "System.Numerics.Vectors.Reference/4.1.6.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

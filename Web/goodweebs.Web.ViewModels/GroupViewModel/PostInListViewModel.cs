@@ -7,6 +7,7 @@
     public class PostInListViewModel
     {
         public string PostId { get; set; }
+        public string PosterId { get; set; }
 
         public string Title { get; set; }
 

@@ -25,11 +25,11 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img class="d-block w-100" src="~/Images/Example1.png" alt="First slide">
+            <img class="d-block w-100" src="https://i.imgur.com/bGexNHz.png" alt="First slide">
 
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="~/Images/Example2.png" alt="Second slide">
+            <img class="d-block w-100" src="https://i.imgur.com/wJp9SZm.png" alt="Second slide">
         </div>
 
     </div>
@@ -47,13 +47,13 @@
 </div>
 <div class="container">
     <div class="row display-flex">
-        @foreach (var anime in Model.TopAnimes)
+        @foreach (var anime in Model.TopAnimes.Take(5))
         {
             <div class="card" style="width: 12rem;">
                 <img class="card-img-top img-fluid" src="@anime.Picture" alt="Card image cap" >
                 <div class="card-body" >
                     <h5 class="card-title">@anime.Title</h5>
-                    <p class="card-text">@anime.Synopsis.Substring(0, 80)...</p>
+                    <p class="card-text">@anime.Synopsis.Substring(0, 40)...</p>
                 </div>
 
             </div>

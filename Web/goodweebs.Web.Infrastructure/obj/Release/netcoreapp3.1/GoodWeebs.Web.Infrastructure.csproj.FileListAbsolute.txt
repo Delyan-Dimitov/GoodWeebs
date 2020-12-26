@@ -1,0 +1,9 @@
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\bin\Release\netcoreapp3.1\GoodWeebs.Web.Infrastructure.deps.json
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\bin\Release\netcoreapp3.1\GoodWeebs.Web.Infrastructure.dll
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\bin\Release\netcoreapp3.1\GoodWeebs.Web.Infrastructure.pdb
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\obj\Release\netcoreapp3.1\GoodWeebs.Web.Infrastructure.csprojAssemblyReference.cache
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\obj\Release\netcoreapp3.1\GoodWeebs.Web.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\obj\Release\netcoreapp3.1\GoodWeebs.Web.Infrastructure.AssemblyInfo.cs
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\obj\Release\netcoreapp3.1\GoodWeebs.Web.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\obj\Release\netcoreapp3.1\GoodWeebs.Web.Infrastructure.dll
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web.Infrastructure\obj\Release\netcoreapp3.1\GoodWeebs.Web.Infrastructure.pdb

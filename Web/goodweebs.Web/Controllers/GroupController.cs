@@ -33,31 +33,34 @@
             return this.View(); // TODO redirect somewhere
         }
 
-        public IActionResult CreatePost()
+        public IActionResult CreatePost(string id)
         {
-            return this.View();
+            var model = new CreatePostInputModel { GroupId = id };
+            return this.View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreatePost(CreatePostInputModel model)
+        public async Task<IActionResult> CreatePost(CreatePostInputModel model, string id)
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            model.GroupId = id;
             if (!this.ModelState.IsValid)
             {
                 return this.View(model);
             }
             await this.groupService.CreatePostAsync(model, userId);
 
-            return this.View();  // TODO change
+            return this.RedirectToAction("Group", new { Id = id });  // TODO change
         }
 
-        public IActionResult CreateComment()
+        public IActionResult Comment(string id)
         {
-            return this.View();
+            var model = new CommentInputModel { PostId = id };
+            return this.View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateComment(CommentInputModel model)
+        public async Task<IActionResult> Comment(CommentInputModel model, string id)
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             if (!this.ModelState.IsValid)
@@ -65,26 +68,26 @@
                 return this.View(model);
             }
 
-            await this.groupService.CreateCommentAsync(model, userId, model.PostId);
-            return this.View();
+            await this.groupService.CreateCommentAsync(model, userId, id);
+            return this.RedirectToAction("Post",  new { id });
         }
 
-        public IActionResult Group(string groupId)
+        public async Task<IActionResult> GroupAsync(string id)
         {
-            var model = this.groupService.GetGroupById(groupId);
+            var model = await this.groupService.GetGroupByIdAsync(id);
             return this.View(model);
         }
 
-        public async Task<IActionResult> MyGroups()
+        public async Task<IActionResult> All()
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var model = await this.groupService.GetUsersGroupsAsync(userId);
             return this.View(model);
         }
 
-        public IActionResult Post(string postId)
+        public async Task<IActionResult> PostAsync(string id)
         {
-            var model = this.groupService.GetPostById(postId);
+            var model = await this.groupService.GetPostByIdAsync(id);
 
             return this.View(model);
         }

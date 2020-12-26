@@ -1,0 +1,35 @@
+﻿@model GoodWeebs.Web.ViewModels.GroupViewModel.GroupViewModel
+<h1 class="display-4">@Model.Name</h1>
+<hr />
+@if (Model.Posts.Count() != 0)
+{
+    foreach (var post in Model.Posts)
+    {
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-5 ">
+                <div class="card bg-dark">
+                    <div class="card-block">
+                        <a asp-action="Post" asp-route-id ="@post.PostId" class="text-decoration-none text-white" ><h4 class="card-title text-center text-white">@post.Title</h4></a>
+                        <a asp-controller="Users" asp-action="Profile" asp-route-id=@post.PosterId class="card-link text-decoration-none text-white">Go to @post.PosterDisplayName 's Profile</a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="col-md-4"></div>
+        </div>
+    }
+
+}
+else
+{
+    <div class="row">
+        <div class="col-md-3">
+            <h1>No Posts :(</h1>
+        </div>
+        <hr />
+        <br />
+        <div><a asp-action="CreatePost" asp-route-id="@Model.Id" class="btn-dark btn-lg text-light">Post</a></div>
+        <div class="col-md-3"></div>
+    </div>
+}

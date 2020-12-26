@@ -5,23 +5,28 @@
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
-
+    using Azure.Storage.Blobs;
     using Entities;
     using GoodWeebs.Data.Models;
     using Newtonsoft.Json;
 
     public class AnimeSeeder : ISeeder
     {
+        private readonly BlobServiceClient blobServiceClient;
+
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
+
 
             if (dbContext.Animes.Any())
             {
                 return;
             }
-
+            var container = this.blobServiceClient.GetBlobContainerClient("dbseeders");
+            var files = container.GetBlobClient("animes.json");
+            var animeJson = files.Download();
             string json = null;
-            using (StreamReader r = new StreamReader(@"C:\Users\gunex\Desktop\GoodWeebs\Web\GoodWeebs.Web\wwwroot\animes.json"))
+            using (StreamReader r = new StreamReader(animeJson.ToString()))
             {
                 json = r.ReadToEnd();
             }

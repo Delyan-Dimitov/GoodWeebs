@@ -73,6 +73,7 @@
 
         public DbSet<UsersGroups> UsersGroups { get; set; }
 
+
         public object Anime { get; internal set; }
 
         public override int SaveChanges() => this.SaveChanges(true);

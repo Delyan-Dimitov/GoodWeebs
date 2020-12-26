@@ -14,5 +14,8 @@
         [MaxLength(1000, ErrorMessage = "Description too long!")]
         [MinLength(30 , ErrorMessage = "Description too short!")]
         public string Description { get; set; }
+
+        [Url]
+        public string Picture { get; set; }
     }
 }

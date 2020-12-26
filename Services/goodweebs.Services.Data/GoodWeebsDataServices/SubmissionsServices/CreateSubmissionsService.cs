@@ -102,6 +102,7 @@
 
                 };
             await this.mSubRepo.AddAsync(mangaSubmission);
+            await this.mSubRepo.SaveChangesAsync();
         }
 
         public async Task SubmitMangaWithUrlAsync(string url, string userId)

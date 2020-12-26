@@ -1,0 +1,12 @@
+C:\Users\gunex\Desktop\GoodWeebs\Data\goodweebs.Data.Models\bin\Release\netcoreapp3.1\GoodWeebs.Data.Models.deps.json
+C:\Users\gunex\Desktop\GoodWeebs\Data\goodweebs.Data.Models\bin\Release\netcoreapp3.1\GoodWeebs.Data.Models.dll
+C:\Users\gunex\Desktop\GoodWeebs\Data\goodweebs.Data.Models\bin\Release\netcoreapp3.1\GoodWeebs.Data.Models.pdb
+C:\Users\gunex\Desktop\GoodWeebs\Data\goodweebs.Data.Models\bin\Release\netcoreapp3.1\GoodWeebs.Data.Common.dll
+C:\Users\gunex\Desktop\GoodWeebs\Data\goodweebs.Data.Models\bin\Release\netcoreapp3.1\GoodWeebs.Data.Common.pdb
+C:\Users\gunex\Desktop\GoodWeebs\Data\goodweebs.Data.Models\obj\Release\netcoreapp3.1\GoodWeebs.Data.Models.csprojAssemblyReference.cache
+C:\Users\gunex\Desktop\GoodWeebs\Data\goodweebs.Data.Models\obj\Release\netcoreapp3.1\GoodWeebs.Data.Models.AssemblyInfoInputs.cache
+C:\Users\gunex\Desktop\GoodWeebs\Data\goodweebs.Data.Models\obj\Release\netcoreapp3.1\GoodWeebs.Data.Models.AssemblyInfo.cs
+C:\Users\gunex\Desktop\GoodWeebs\Data\goodweebs.Data.Models\obj\Release\netcoreapp3.1\GoodWeebs.Data.Models.csproj.CoreCompileInputs.cache
+C:\Users\gunex\Desktop\GoodWeebs\Data\goodweebs.Data.Models\obj\Release\netcoreapp3.1\GoodWeebs.Data.Models.csproj.CopyComplete
+C:\Users\gunex\Desktop\GoodWeebs\Data\goodweebs.Data.Models\obj\Release\netcoreapp3.1\GoodWeebs.Data.Models.dll
+C:\Users\gunex\Desktop\GoodWeebs\Data\goodweebs.Data.Models\obj\Release\netcoreapp3.1\GoodWeebs.Data.Models.pdb

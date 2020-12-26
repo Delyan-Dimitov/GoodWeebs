@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAV0mqH6+EJEWXJbxZsdplhQAAAAACAAAAAAAQZgAAAAEAACAAAABQowo9ikl3B3ZdnjvdovpoUX5++I/tX6YhRaw7x/wFBQAAAAAOgAAAAAIAACAAAAD8E8RLzbjGVy7AOTQaTW854bN62p+jCBP4sY5bYwMWyoAAAABe9m4IBWa92a/iLENh7AIdoJ0RPw7aAT1VDfPXu9a6tS+euxIEzMd9RsE0CDp1Zbu4BHi/fRIb+cXEGaf3g+PEZ0BK8ekr561Oja9AplCmafY74MiRCYgdxMzL6VdkPFhmQoraCcFThM1nPZwrTrWScGWg7g9eseNQFY56QA8JyUAAAABY93rzGX/7SG3k5nDQXoTi/vg46PF375X/ffhcZDKhxbAve92CJZg/DiEYhOHRCskx8eOR8PAhLe4j/Unjx8Td</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=tcp:goodweebs.database.windows.net,1433%3bInitial Catalog=GoodWeebs%3bUser Id=goodweebs%40goodweebs.database.windows.net%3bPassword=ADminguy99%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

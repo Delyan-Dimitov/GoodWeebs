@@ -90,10 +90,13 @@ C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\obj\Debug\netcoreapp3.1\Sandbox.c
 C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\obj\Debug\netcoreapp3.1\Sandbox.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\obj\Debug\netcoreapp3.1\Sandbox.pdb
 C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\obj\Debug\netcoreapp3.1\Sandbox.genruntimeconfig.cache
-C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\obj\Debug\netcoreapp3.1\Sandbox.csproj.CoreCompileInputs.cache
 C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\bin\Debug\netcoreapp3.1\goodweebs.Web.ViewModels.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\bin\Debug\netcoreapp3.1\goodweebs.Web.ViewModels.pdb
 C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\bin\Debug\netcoreapp3.1\Azure.Core.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\bin\Debug\netcoreapp3.1\Azure.Storage.Blobs.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\bin\Debug\netcoreapp3.1\Azure.Storage.Common.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\obj\Debug\netcoreapp3.1\Sandbox.csproj.CoreCompileInputs.cache

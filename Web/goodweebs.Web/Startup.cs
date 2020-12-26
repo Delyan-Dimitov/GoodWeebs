@@ -1,7 +1,7 @@
 ﻿namespace GoodWeebs.Web
 {
     using System.Reflection;
-
+    using Azure.Storage.Blobs;
     using GoodWeebs.Data;
     using GoodWeebs.Data.Common;
     using GoodWeebs.Data.Common.Repositories;
@@ -10,6 +10,7 @@
     using GoodWeebs.Data.Seeding;
     using GoodWeebs.Services;
     using GoodWeebs.Services.Data;
+    using GoodWeebs.Services.Data.GoodWeebsDataServices.GroupServices;
     using GoodWeebs.Services.Data.GoodWeebsDataServices.ReccomendationsServices;
     using GoodWeebs.Services.Data.GoodWeebsDataServices.ShelvesServices;
     using GoodWeebs.Services.Data.GoodWeebsDataServices.SubmissionsServices;
@@ -75,6 +76,7 @@
             services.AddRazorPages();
 
             services.AddSingleton(this.configuration);
+            services.AddSingleton(x => new BlobServiceClient(this.configuration.GetValue<string>("blob - connection - string")));
 
             // Data repositories
             services.AddScoped(typeof(IDeletableEntityRepository<>), typeof(EfDeletableEntityRepository<>));
@@ -93,6 +95,7 @@
             services.AddTransient<IAnimeReccomendationsService, AnimeReccomendationService>();
             services.AddTransient<ISubmissionsService, SubmissionsService>();
             services.AddTransient<IUpdateService, UpdateService>();
+            services.AddTransient<IGroupService, GroupService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

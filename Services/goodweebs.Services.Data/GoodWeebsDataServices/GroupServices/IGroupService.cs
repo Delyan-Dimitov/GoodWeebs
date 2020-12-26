@@ -10,12 +10,14 @@
 
         Task<GroupListViewModel> GetUsersGroupsAsync(string userId);
 
-        GroupViewModel GetGroupById(string groupId);
+        Task<GroupViewModel> GetGroupByIdAsync(string groupId);
 
         Task CreatePostAsync(CreatePostInputModel model, string submitterId);
 
         Task CreateCommentAsync(CommentInputModel model, string commenterId, string postId);
 
-        PostViewModel GetPostById(string postId);
+        Task <PostViewModel> GetPostByIdAsync(string postId);
+
+        Task AddUserToGroup(string userId, string groupId);
     }
 }

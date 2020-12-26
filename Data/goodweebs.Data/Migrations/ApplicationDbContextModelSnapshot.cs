@@ -771,6 +771,9 @@ namespace GoodWeebs.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Picture")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AdminId");
@@ -850,7 +853,7 @@ namespace GoodWeebs.Data.Migrations
 
             modelBuilder.Entity("GoodWeebs.Data.Models.MappingTables.UsersGroups", b =>
                 {
-                    b.Property<int>("Key")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -873,7 +876,7 @@ namespace GoodWeebs.Data.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("Key");
+                    b.HasKey("Id");
 
                     b.HasIndex("GroupId");
 
@@ -912,6 +915,9 @@ namespace GoodWeebs.Data.Migrations
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("PosterDisplayName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PosterId")
                         .HasColumnType("nvarchar(450)");
@@ -1389,7 +1395,7 @@ namespace GoodWeebs.Data.Migrations
 
             modelBuilder.Entity("GoodWeebs.Data.Models.Post", b =>
                 {
-                    b.HasOne("GoodWeebs.Data.Models.Group", null)
+                    b.HasOne("GoodWeebs.Data.Models.Group", "Group")
                         .WithMany("Posts")
                         .HasForeignKey("GroupId");
 

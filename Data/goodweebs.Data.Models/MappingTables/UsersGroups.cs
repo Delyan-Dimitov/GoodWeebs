@@ -8,7 +8,7 @@
     public class UsersGroups : IDeletableEntity, IAuditInfo
     {
         [Key]
-        public int Key { get; set; }
+        public int Id { get; set; }
 
         public string UserId { get; set; }
 

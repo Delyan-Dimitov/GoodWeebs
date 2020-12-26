@@ -5,8 +5,10 @@
     using GoodWeebs.Services.Data.GoodWeebsDataServices.SubmissionsServices;
     using GoodWeebs.Web.ViewModels.SubmissionInputModels;
     using GoodWeebs.Web.ViewModels.SubmissionModels;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
+    [Authorize(Roles = "Administrator")]
     public class SubmissionsModerationController : BaseController
     {
         private readonly ISubmissionsService subService;
@@ -63,7 +65,7 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> ViewAndEditMangaSubmission(MangaSubmissionInputModel model)
+        public async Task<IActionResult> ViewAndEditMangaSubmission(MangaSubmissionInputModel model, int id)
         {
             if (!this.ModelState.IsValid)
             {

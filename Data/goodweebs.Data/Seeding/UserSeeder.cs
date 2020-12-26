@@ -23,6 +23,7 @@
             var password = "password";
             ApplicationUser dido = new ApplicationUser() { DisplayName = "Dido", UserName = "dido@gmail.com", AvatarUrl = "https://i.pinimg.com/564x/92/c8/12/92c81213a6cc452cfbb8f6f26cc60b03.jpg", LikesAnime = true, LikesManga = true, };
             await userManager.CreateAsync(dido, password);
+            await userManager.AddToRoleAsync(dido, "Administrator");
 
             ApplicationUser gosho = new ApplicationUser() { DisplayName = "Gosho", UserName = "gosho@gmail.com", AvatarUrl = "https://i1.sndcdn.com/avatars-SxAFif0TCVMygPfP-YEuXFQ-t500x500.jpg", LikesAnime = true, LikesManga = true, };
             await userManager.CreateAsync(gosho, password);

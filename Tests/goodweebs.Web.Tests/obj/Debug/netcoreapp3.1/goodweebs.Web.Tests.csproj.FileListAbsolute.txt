@@ -520,8 +520,6 @@ C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.pdb
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.genruntimeconfig.cache
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\wwwroot\css\LoginStyles.css
-C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.csproj.CoreCompileInputs.cache
-C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\System.Security.AccessControl.dll
@@ -535,7 +533,16 @@ C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\RichTextEditor.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.GoodWeebs - Web Deploy.json
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.json
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\GoodWeebs - Web Deploy\mssql1.arm.json
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\GoodWeebs - Web Deploy\profile.arm.json
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Azure.Core.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Azure.Storage.Blobs.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Azure.Storage.Common.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.csproj.CoreCompileInputs.cache
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.MvcApplicationPartsAssemblyInfo.cache

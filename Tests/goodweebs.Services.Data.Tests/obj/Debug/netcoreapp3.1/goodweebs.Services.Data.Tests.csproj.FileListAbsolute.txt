@@ -161,7 +161,6 @@ C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\obj\Debug\n
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\obj\Debug\netcoreapp3.1\goodweebs.Services.Data.Tests.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\obj\Debug\netcoreapp3.1\goodweebs.Services.Data.Tests.pdb
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\obj\Debug\netcoreapp3.1\goodweebs.Services.Data.Tests.genruntimeconfig.cache
-C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\obj\Debug\netcoreapp3.1\goodweebs.Services.Data.Tests.csproj.CoreCompileInputs.cache
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Antiforgery.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Abstractions.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Core.dll
@@ -201,3 +200,7 @@ C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\bin\Debug\n
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Cryptography.Pkcs.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\bin\Debug\netcoreapp3.1\goodweebs.Web.ViewModels.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\bin\Debug\netcoreapp3.1\goodweebs.Web.ViewModels.pdb
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\bin\Debug\netcoreapp3.1\Azure.Core.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\bin\Debug\netcoreapp3.1\Azure.Storage.Blobs.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\bin\Debug\netcoreapp3.1\Azure.Storage.Common.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\obj\Debug\netcoreapp3.1\goodweebs.Services.Data.Tests.csproj.CoreCompileInputs.cache

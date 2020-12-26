@@ -79,7 +79,7 @@ namespace GoodWeebs.Services.GoodWeebs.Services.AnimeServices
                 Studios = x.Studios,
                 Synopsis = x.Synopsis,
                 Rating = x.Rating,
-                Episodes = x.Episodes.ToString(), // TODO GROSS
+                Episodes = x.Episodes.ToString(), 
                 Duration = x.EpisodeDuration,
                 Aired = x.Aired,
                 PictureUrl = x.Picture,
@@ -107,11 +107,11 @@ namespace GoodWeebs.Services.GoodWeebs.Services.AnimeServices
                     }).ToList());
             }
 
-            var bestMatches = this.GetBestHits(genres, vaguelySimilar, amount); // Linter made me put "THIS"
+            var bestMatches = this.GetBestHits(genres, vaguelySimilar, amount); 
             return bestMatches;
         }
 
-        public IEnumerable<AnimeViewModel> GetBestHits(IEnumerable<string> targets, IEnumerable<AnimeViewModel> collection, int amount) // TODO: MAKE THIS GENERIC
+        public IEnumerable<AnimeViewModel> GetBestHits(IEnumerable<string> targets, IEnumerable<AnimeViewModel> collection, int amount) 
         {
             var result = new List<AnimeViewModel>();
             var leaderBoard = new Dictionary<AnimeViewModel, int>();

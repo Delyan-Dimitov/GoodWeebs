@@ -1,0 +1,9 @@
+C:\Users\gunex\Desktop\GoodWeebs\goodweebs.Common\bin\Release\netcoreapp3.1\GoodWeebs.Common.deps.json
+C:\Users\gunex\Desktop\GoodWeebs\goodweebs.Common\bin\Release\netcoreapp3.1\GoodWeebs.Common.dll
+C:\Users\gunex\Desktop\GoodWeebs\goodweebs.Common\bin\Release\netcoreapp3.1\GoodWeebs.Common.pdb
+C:\Users\gunex\Desktop\GoodWeebs\goodweebs.Common\obj\Release\netcoreapp3.1\GoodWeebs.Common.csprojAssemblyReference.cache
+C:\Users\gunex\Desktop\GoodWeebs\goodweebs.Common\obj\Release\netcoreapp3.1\GoodWeebs.Common.AssemblyInfoInputs.cache
+C:\Users\gunex\Desktop\GoodWeebs\goodweebs.Common\obj\Release\netcoreapp3.1\GoodWeebs.Common.AssemblyInfo.cs
+C:\Users\gunex\Desktop\GoodWeebs\goodweebs.Common\obj\Release\netcoreapp3.1\GoodWeebs.Common.csproj.CoreCompileInputs.cache
+C:\Users\gunex\Desktop\GoodWeebs\goodweebs.Common\obj\Release\netcoreapp3.1\GoodWeebs.Common.dll
+C:\Users\gunex\Desktop\GoodWeebs\goodweebs.Common\obj\Release\netcoreapp3.1\GoodWeebs.Common.pdb

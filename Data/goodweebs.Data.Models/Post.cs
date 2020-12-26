@@ -20,7 +20,13 @@
 
         public ApplicationUser Poster { get; set; }
 
+        public string PosterDisplayName { get; set; }
+
         public string PosterId { get; set; }
+
+        public Group Group { get; set; }
+
+        public string GroupId { get; set; }
 
         public int Likes { get; set; } = 0;
 
