@@ -18,17 +18,15 @@ namespace GoodWeebs.Services.GoodWeebs.Services.AnimeServices
         private readonly IRepository<Anime> animes;
         private readonly IRepository<WatchedMap> watchedMaps;
         private readonly ApplicationDbContext dbContext;
-        private readonly IRepository<AnimeSubmission> animeSubmissions;
 
-        public AnimeService(IRepository<Anime> anime, IRepository<WatchedMap> watchedMaps, ApplicationDbContext dbContext, IRepository<AnimeSubmission> animeSubmissions)
+        public AnimeService(IDeletableEntityRepository<Anime> anime, IDeletableEntityRepository<WatchedMap> watchedMaps, ApplicationDbContext dbContext)
         {
             this.animes = anime;
             this.watchedMaps = watchedMaps;
             this.dbContext = dbContext;
-            this.animeSubmissions = animeSubmissions;
         }
 
-        public IEnumerable<AnimeInListViewModel> GetAll(int page, int itemsPerPage = 12)
+        public ICollection<AnimeInListViewModel> GetAll(int page, int itemsPerPage = 12)
         {
             var animes = this.animes.AllAsNoTracking()
                 .OrderBy(x => x.Id)
@@ -42,12 +40,12 @@ namespace GoodWeebs.Services.GoodWeebs.Services.AnimeServices
                       Title = x.Title,
                       Genre = x.Genres,
                       PictureUrl = x.Picture,
-                      Synposis = x.Synopsis,
+                      Synopsis = x.Synopsis,
                   }).ToList();
             return animes;
         }
 
-        public async Task<IEnumerable<Entities.Anime>> GetTopGlobalAsync(int amount)
+        public async Task<IEnumerable<Anime>> GetTopGlobalAsync(int amount)
         {
             var query = from p in this.dbContext.Set<WatchedMap>()
                         group p by p.AnimeId into g

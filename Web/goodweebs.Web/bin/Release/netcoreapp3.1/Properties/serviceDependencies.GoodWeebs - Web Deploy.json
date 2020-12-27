@@ -1,5 +1,17 @@
 {
   "dependencies": {
+    "storage1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/goodweebs1",
+      "type": "storage.azure",
+      "connectionId": "blob-connection-string",
+      "secretStore": "AzureAppSettings"
+    },
+    "storage2": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/goodweebs1",
+      "type": "storage.azure",
+      "connectionId": "BlobConnectionString",
+      "secretStore": "AzureAppSettings"
+    },
     "mssql1": {
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/goodweebs/databases/GoodWeebs",
       "type": "mssql.azure",

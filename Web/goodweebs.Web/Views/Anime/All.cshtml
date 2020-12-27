@@ -19,7 +19,7 @@
             <img src="@anime.PictureUrl" class="mr-3 img-responsive border-0 width=" 100"">
             <div class="media-body ">
                 <a asp-action="AnimeInfo" asp-route-id="@anime.AnimeId" class="text-white">  <h5 class="mt-0">@anime.Title</h5></a>
-                <p class="text-white">@(anime.Synposis.Length >= 150 ? anime.Synposis.Substring(0, 150) : anime.Synposis)...</p>
+                <p class="text-white">@(anime.Synopsis.Length >= 150 ? anime.Synopsis.Substring(0, 150) : anime.Synopsis)...</p>
 
             </div>
 

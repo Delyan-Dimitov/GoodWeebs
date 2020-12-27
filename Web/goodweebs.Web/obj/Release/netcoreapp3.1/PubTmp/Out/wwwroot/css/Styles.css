@@ -3,12 +3,12 @@ nav{
 
 }
 body {
-    background:url('/Images/131382-abstract-grey-and-white-polygon-pattern-background-illustration (1).jpg')  no-repeat center center fixed;
+    background: url(https://i.imgur.com/rbumXds.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-  }
+}
   .card{
     margin-left: 20px;
     margin-top: 10px;

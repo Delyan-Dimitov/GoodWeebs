@@ -203,4 +203,13 @@ C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\bin\Debug\n
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\bin\Debug\netcoreapp3.1\Azure.Core.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\bin\Debug\netcoreapp3.1\Azure.Storage.Blobs.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\bin\Debug\netcoreapp3.1\Azure.Storage.Common.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.Azure.Functions.Extensions.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.Azure.WebJobs.Host.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.Azure.WebJobs.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.EnvironmentVariables.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Hosting.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Configuration.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\bin\Debug\netcoreapp3.1\SendGrid.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\bin\Debug\netcoreapp3.1\StarkbankEcdsa.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Services.Data.Tests\obj\Debug\netcoreapp3.1\goodweebs.Services.Data.Tests.csproj.CoreCompileInputs.cache

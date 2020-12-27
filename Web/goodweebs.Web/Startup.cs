@@ -76,7 +76,7 @@
             services.AddRazorPages();
 
             services.AddSingleton(this.configuration);
-            services.AddSingleton(x => new BlobServiceClient(this.configuration.GetValue<string>("blob - connection - string")));
+            services.AddSingleton(x => new BlobServiceClient(this.configuration.GetValue<string>("BlobConnectionString")));
 
             // Data repositories
             services.AddScoped(typeof(IDeletableEntityRepository<>), typeof(EfDeletableEntityRepository<>));
@@ -96,6 +96,7 @@
             services.AddTransient<ISubmissionsService, SubmissionsService>();
             services.AddTransient<IUpdateService, UpdateService>();
             services.AddTransient<IGroupService, GroupService>();
+            services.AddTransient<IMailService, SendGridMailService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

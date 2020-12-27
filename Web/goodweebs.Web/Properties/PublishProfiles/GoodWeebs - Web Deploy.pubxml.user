@@ -10,7 +10,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <DestinationConnectionStrings Include="DefaultConnection">
-      <Value>Data Source=tcp:goodweebs.database.windows.net,1433%3bInitial Catalog=GoodWeebs%3bUser Id=goodweebs%40goodweebs.database.windows.net%3bPassword=ADminguy99%3b</Value>
+      <Value>Data Source=tcp:goodweebs.database.windows.net,1433%3bInitial Catalog=GoodWeebs%3bUser Id=goodweebs%40goodweebs.database.windows.net%3bPassword=ADminguy99%3bMultipleActiveResultSets=true</Value>
     </DestinationConnectionStrings>
   </ItemGroup>
 </Project>

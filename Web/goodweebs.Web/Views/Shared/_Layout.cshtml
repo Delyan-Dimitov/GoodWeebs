@@ -57,15 +57,15 @@
                                         Submit
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item text-dark text-decoration-none" asp-controller="Submissions" asp-action="SubmitAnime">Anime</a>
+                                        <a class="dropdown-item text-dark text-decoration-none" asp-controller="Submission" asp-action="SubmitAnime">Anime</a>
                                         <hr />
-                                        <a class="dropdown-item text-dark text-decoration-none" asp-controller="Submissions" asp-action="SubmitManga">Manga</a>
+                                        <a class="dropdown-item text-dark text-decoration-none" asp-controller="Submission" asp-action="SubmitManga">Manga</a>
                                         <hr />
-                                        <a class="dropdown-item text-dark text-decoration-none" asp-controller="Submissions" asp-action="SubmitArticle">Article</a>
+                                        <a class="dropdown-item text-dark text-decoration-none" asp-controller="Submission" asp-action="SubmitArticle">Article</a>
                                         <hr />
                                         @if (this.User.IsInRole("Administrator"))
                                         {
-                                            <a class="dropdown-item text-dark text-decoration-none" asp-controller="SubmissionModeration" asp-action="All">Moderation</a>
+                                            <a class="dropdown-item text-dark text-decoration-none" asp-controller="SubmissionsModeration" asp-action="All">Moderation</a>
                                         }
 
 

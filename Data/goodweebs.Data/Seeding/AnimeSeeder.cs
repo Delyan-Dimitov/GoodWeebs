@@ -8,27 +8,28 @@
     using Azure.Storage.Blobs;
     using Entities;
     using GoodWeebs.Data.Models;
+    using Microsoft.Extensions.DependencyInjection;
     using Newtonsoft.Json;
 
     public class AnimeSeeder : ISeeder
     {
-        private readonly BlobServiceClient blobServiceClient;
 
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
-
 
             if (dbContext.Animes.Any())
             {
                 return;
             }
-            var container = this.blobServiceClient.GetBlobContainerClient("dbseeders");
+            var blob = serviceProvider.GetRequiredService<BlobServiceClient>();
+            var container = blob.GetBlobContainerClient("dbseeders");
             var files = container.GetBlobClient("animes.json");
-            var animeJson = files.Download();
             string json = null;
-            using (StreamReader r = new StreamReader(animeJson.ToString()))
+            var stream = files.OpenRead();
+            using (StreamReader r = new StreamReader(stream))
             {
                 json = r.ReadToEnd();
+                stream.Close();
             }
             var animeDTOs = JsonConvert.DeserializeObject<AnimeDTO[]>(json);
             List<Anime> animes = new List<Anime>();

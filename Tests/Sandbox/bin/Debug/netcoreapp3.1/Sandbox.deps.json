@@ -19,10 +19,12 @@
           "GoodWeebs.Services.Mapping": "1.0.0",
           "GoodWeebs.Services.Messaging": "1.0.0",
           "Microsoft.AspNetCore.Identity.UI": "3.1.9",
+          "Microsoft.Azure.Functions.Extensions": "1.1.0",
           "Microsoft.Extensions.Configuration": "3.1.9",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "3.1.9",
           "Microsoft.Extensions.Configuration.Json": "3.1.9",
           "Microsoft.Extensions.Logging.Console": "3.1.9",
+          "SendGrid": "9.22.0",
           "StyleCop.Analyzers": "1.2.0-beta.205"
         },
         "runtime": {
@@ -324,6 +326,51 @@
           "System.Text.Encodings.Web": "4.5.0"
         }
       },
+      "Microsoft.Azure.Functions.Extensions/1.1.0": {
+        "dependencies": {
+          "Microsoft.Azure.WebJobs": "3.0.18",
+          "Microsoft.Extensions.DependencyInjection": "3.1.9"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Azure.Functions.Extensions.dll": {
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.0.0"
+          }
+        }
+      },
+      "Microsoft.Azure.WebJobs/3.0.18": {
+        "dependencies": {
+          "Microsoft.Azure.WebJobs.Core": "3.0.18",
+          "Microsoft.Extensions.Configuration": "3.1.9",
+          "Microsoft.Extensions.Configuration.Abstractions": "3.1.9",
+          "Microsoft.Extensions.Configuration.EnvironmentVariables": "3.1.9",
+          "Microsoft.Extensions.Configuration.Json": "3.1.9",
+          "Microsoft.Extensions.Hosting": "2.1.0",
+          "Microsoft.Extensions.Logging": "3.1.9",
+          "Microsoft.Extensions.Logging.Abstractions": "3.1.9",
+          "Microsoft.Extensions.Logging.Configuration": "3.1.9",
+          "Newtonsoft.Json": "12.0.3",
+          "System.Threading.Tasks.Dataflow": "4.8.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Azure.WebJobs.Host.dll": {
+            "assemblyVersion": "3.0.18.0",
+            "fileVersion": "3.0.18.0"
+          }
+        }
+      },
+      "Microsoft.Azure.WebJobs.Core/3.0.18": {
+        "dependencies": {
+          "System.ComponentModel.Annotations": "4.7.0",
+          "System.Diagnostics.TraceSource": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Azure.WebJobs.dll": {
+            "assemblyVersion": "3.0.18.0",
+            "fileVersion": "3.0.18.0"
+          }
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
         "runtime": {
           "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
@@ -622,6 +669,15 @@
             "assemblyVersion": "3.1.9.0",
             "fileVersion": "3.100.920.47302"
           }
+        }
+      },
+      "Microsoft.Extensions.Hosting/2.1.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "3.1.9",
+          "Microsoft.Extensions.DependencyInjection": "3.1.9",
+          "Microsoft.Extensions.FileProviders.Physical": "3.1.9",
+          "Microsoft.Extensions.Hosting.Abstractions": "2.2.0",
+          "Microsoft.Extensions.Logging": "3.1.9"
         }
       },
       "Microsoft.Extensions.Hosting.Abstractions/2.2.0": {
@@ -1003,15 +1059,15 @@
           }
         }
       },
-      "SendGrid/9.21.0": {
+      "SendGrid/9.22.0": {
         "dependencies": {
           "Newtonsoft.Json": "12.0.3",
           "starkbank-ecdsa": "1.2.0"
         },
         "runtime": {
           "lib/netstandard2.0/SendGrid.dll": {
-            "assemblyVersion": "9.21.0.0",
-            "fileVersion": "9.21.0.0"
+            "assemblyVersion": "9.22.0.0",
+            "fileVersion": "9.22.0.0"
           }
         }
       },
@@ -1158,6 +1214,19 @@
           "Microsoft.NETCore.Platforms": "2.0.0",
           "Microsoft.NETCore.Targets": "1.1.0",
           "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Diagnostics.TraceSource/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "2.0.0",
+          "System.Collections": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Threading": "4.3.0",
+          "runtime.native.System": "4.3.0"
         }
       },
       "System.Diagnostics.Tracing/4.3.0": {
@@ -1776,6 +1845,7 @@
           "System.Runtime": "4.3.0"
         }
       },
+      "System.Threading.Tasks.Dataflow/4.8.0": {},
       "System.Threading.Tasks.Extensions/4.5.2": {},
       "System.Threading.Timer/4.3.0": {
         "dependencies": {
@@ -1856,7 +1926,9 @@
       },
       "GoodWeebs.Common/1.0.0": {
         "dependencies": {
-          "Azure.Storage.Blobs": "12.7.0"
+          "Azure.Storage.Blobs": "12.7.0",
+          "Microsoft.Azure.Functions.Extensions": "1.1.0",
+          "SendGrid": "9.22.0"
         },
         "runtime": {
           "GoodWeebs.Common.dll": {}
@@ -1869,9 +1941,11 @@
           "GoodWeebs.Data.Common": "1.0.0",
           "GoodWeebs.Data.Models": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.9",
+          "Microsoft.Azure.Functions.Extensions": "1.1.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.9",
           "Microsoft.Extensions.Configuration.UserSecrets": "3.1.9",
-          "Newtonsoft.Json": "12.0.3"
+          "Newtonsoft.Json": "12.0.3",
+          "SendGrid": "9.22.0"
         },
         "runtime": {
           "GoodWeebs.Data.dll": {}
@@ -1880,6 +1954,8 @@
       "GoodWeebs.Data.Common/1.0.0": {
         "dependencies": {
           "Azure.Storage.Blobs": "12.7.0",
+          "Microsoft.Azure.Functions.Extensions": "1.1.0",
+          "SendGrid": "9.22.0",
           "System.ComponentModel.Annotations": "4.7.0"
         },
         "runtime": {
@@ -1891,7 +1967,9 @@
           "Azure.Storage.Blobs": "12.7.0",
           "GoodWeebs.Data.Common": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.9",
-          "Newtonsoft.Json": "12.0.3"
+          "Microsoft.Azure.Functions.Extensions": "1.1.0",
+          "Newtonsoft.Json": "12.0.3",
+          "SendGrid": "9.22.0"
         },
         "runtime": {
           "GoodWeebs.Data.Models.dll": {}
@@ -1903,7 +1981,9 @@
           "GoodWeebs.Data": "1.0.0",
           "GoodWeebs.Data.Common": "1.0.0",
           "GoodWeebs.Data.Models": "1.0.0",
-          "GoodWeebs.Web.ViewModels": "1.0.0"
+          "GoodWeebs.Web.ViewModels": "1.0.0",
+          "Microsoft.Azure.Functions.Extensions": "1.1.0",
+          "SendGrid": "9.22.0"
         },
         "runtime": {
           "GoodWeebs.Services.dll": {}
@@ -1916,7 +1996,9 @@
           "GoodWeebs.Data.Common": "1.0.0",
           "GoodWeebs.Data.Models": "1.0.0",
           "GoodWeebs.Services.Mapping": "1.0.0",
-          "GoodWeebs.Web.ViewModels": "1.0.0"
+          "GoodWeebs.Web.ViewModels": "1.0.0",
+          "Microsoft.Azure.Functions.Extensions": "1.1.0",
+          "SendGrid": "9.22.0"
         },
         "runtime": {
           "GoodWeebs.Services.Data.dll": {}
@@ -1925,7 +2007,9 @@
       "GoodWeebs.Services.Mapping/1.0.0": {
         "dependencies": {
           "AutoMapper": "10.1.1",
-          "Azure.Storage.Blobs": "12.7.0"
+          "Azure.Storage.Blobs": "12.7.0",
+          "Microsoft.Azure.Functions.Extensions": "1.1.0",
+          "SendGrid": "9.22.0"
         },
         "runtime": {
           "GoodWeebs.Services.Mapping.dll": {}
@@ -1934,7 +2018,8 @@
       "GoodWeebs.Services.Messaging/1.0.0": {
         "dependencies": {
           "Azure.Storage.Blobs": "12.7.0",
-          "SendGrid": "9.21.0"
+          "Microsoft.Azure.Functions.Extensions": "1.1.0",
+          "SendGrid": "9.22.0"
         },
         "runtime": {
           "GoodWeebs.Services.Messaging.dll": {}
@@ -1945,7 +2030,9 @@
           "Azure.Storage.Blobs": "12.7.0",
           "GoodWeebs.Data.Models": "1.0.0",
           "GoodWeebs.Services.Mapping": "1.0.0",
-          "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.2.0"
+          "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.2.0",
+          "Microsoft.Azure.Functions.Extensions": "1.1.0",
+          "SendGrid": "9.22.0"
         },
         "runtime": {
           "GoodWeebs.Web.ViewModels.dll": {}
@@ -2197,6 +2284,27 @@
       "path": "microsoft.aspnetcore.webutilities/2.2.0",
       "hashPath": "microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512"
     },
+    "Microsoft.Azure.Functions.Extensions/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zYKtQQoS1fdzufxFApuMFiFtoi9QAGH6McXxntpylwLKgKjmCMWdgUd1dcekzTKNR9DPSDPRLiulvukqXnpWrQ==",
+      "path": "microsoft.azure.functions.extensions/1.1.0",
+      "hashPath": "microsoft.azure.functions.extensions.1.1.0.nupkg.sha512"
+    },
+    "Microsoft.Azure.WebJobs/3.0.18": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aYJ76yjPkIpsafqFp1Xz1sA06RvhUwqJnk4AqX4I0teuRjPyig9Sv7LTzxUMAppKXc4JyR/Asos2At/LMiblqg==",
+      "path": "microsoft.azure.webjobs/3.0.18",
+      "hashPath": "microsoft.azure.webjobs.3.0.18.nupkg.sha512"
+    },
+    "Microsoft.Azure.WebJobs.Core/3.0.18": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ajYI8pPzPn4qq7FL8C2tz9WmFEG5PorUlkw8W9CF5M+5egnFJaF7yH48WYC+zBoQIzv2vHmFq0zhQpnv+O8v5Q==",
+      "path": "microsoft.azure.webjobs.core/3.0.18",
+      "hashPath": "microsoft.azure.webjobs.core.3.0.18.nupkg.sha512"
+    },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
       "type": "package",
       "serviceable": true,
@@ -2378,6 +2486,13 @@
       "sha512": "sha512-5bnewG1aBiSESPNwcXGIxDDRN95uqdy+fqZZ8Z63Et5rRNlAwAfXHOrg+FTht7UjHobjvtjzquMCbAWhWEPHIw==",
       "path": "microsoft.extensions.filesystemglobbing/3.1.9",
       "hashPath": "microsoft.extensions.filesystemglobbing.3.1.9.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Hosting/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nqOrLtBqpwRT006vdQ2Vp87uiuYztiZcZAndFqH91ZH4SQgr8wImCVQwzUgTxx1DSrpIW765+xrZTZqsoGtvqg==",
+      "path": "microsoft.extensions.hosting/2.1.0",
+      "hashPath": "microsoft.extensions.hosting.2.1.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Hosting.Abstractions/2.2.0": {
       "type": "package",
@@ -2715,12 +2830,12 @@
       "path": "runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0",
       "hashPath": "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512"
     },
-    "SendGrid/9.21.0": {
+    "SendGrid/9.22.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-GY7NZcS0K4WjepDZhs5XxORqZDC1FmTz6iT/j9crCSCMBG4Y/9I/ia9b6ws8209Yv1uVjnDcNr0gf54ibIxIsw==",
-      "path": "sendgrid/9.21.0",
-      "hashPath": "sendgrid.9.21.0.nupkg.sha512"
+      "sha512": "sha512-5vXkfOqPhi6W5/tEmRcTVJakT69SXiCGqVRERYF4ZAtJ4alylzlOqin6w8Xrog0Brf3RL+4BKXI+CwKbFLtteA==",
+      "path": "sendgrid/9.22.0",
+      "hashPath": "sendgrid.9.22.0.nupkg.sha512"
     },
     "starkbank-ecdsa/1.2.0": {
       "type": "package",
@@ -2854,6 +2969,13 @@
       "sha512": "sha512-UUvkJfSYJMM6x527dJg2VyWPSRqIVB0Z7dbjHst1zmwTXz5CcXSYJFWRpuigfbO1Lf7yfZiIaEUesfnl/g5EyA==",
       "path": "system.diagnostics.tools/4.3.0",
       "hashPath": "system.diagnostics.tools.4.3.0.nupkg.sha512"
+    },
+    "System.Diagnostics.TraceSource/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VnYp1NxGx8Ww731y2LJ1vpfb/DKVNKEZ8Jsh5SgQTZREL/YpWRArgh9pI8CDLmgHspZmLL697CaLvH85qQpRiw==",
+      "path": "system.diagnostics.tracesource/4.3.0",
+      "hashPath": "system.diagnostics.tracesource.4.3.0.nupkg.sha512"
     },
     "System.Diagnostics.Tracing/4.3.0": {
       "type": "package",
@@ -3288,6 +3410,13 @@
       "sha512": "sha512-LbSxKEdOUhVe8BezB/9uOGGppt+nZf6e1VFyw6v3DN6lqitm0OSn2uXMOdtP0M3W4iMcqcivm2J6UgqiwwnXiA==",
       "path": "system.threading.tasks/4.3.0",
       "hashPath": "system.threading.tasks.4.3.0.nupkg.sha512"
+    },
+    "System.Threading.Tasks.Dataflow/4.8.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-PSIdcgbyNv7FZvZ1I9Mqy6XZOwstYYMdZiXuHvIyc0gDyPjEhrrP9OvTGDHp+LAHp1RNSLjPYssyqox9+Kt9Ug==",
+      "path": "system.threading.tasks.dataflow/4.8.0",
+      "hashPath": "system.threading.tasks.dataflow.4.8.0.nupkg.sha512"
     },
     "System.Threading.Tasks.Extensions/4.5.2": {
       "type": "package",

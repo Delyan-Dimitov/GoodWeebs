@@ -417,7 +417,6 @@ C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\Goo
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\GoodWeebs.Services.dll
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\GoodWeebs.Services.Mapping.dll
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\GoodWeebs.Services.Messaging.dll
-C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\GoodWeebs.Web.Infrastructure.dll
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\GoodWeebs.Web.ViewModels.dll
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\GoodWeebs.Common.pdb
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\GoodWeebs.Data.Models.pdb
@@ -426,7 +425,6 @@ C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\Goo
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\GoodWeebs.Services.Mapping.pdb
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\GoodWeebs.Services.Messaging.pdb
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\GoodWeebs.Services.pdb
-C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\GoodWeebs.Web.Infrastructure.pdb
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\GoodWeebs.Web.ViewModels.pdb
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\GoodWeebs.Data.Common.pdb
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Release\netcoreapp3.1\GoodWeebs.web.csprojAssemblyReference.cache
@@ -501,3 +499,15 @@ C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Release\netcoreapp3.1\Goo
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\Properties\serviceDependencies.GoodWeebs - Web Deploy.json
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\Properties\serviceDependencies.json
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\Properties\ServiceDependencies\GoodWeebs - Web Deploy\mssql1.arm.json
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\Properties\ServiceDependencies\GoodWeebs - Web Deploy\storage1.arm.json
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\Azure.Core.dll
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\Azure.Identity.dll
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\Azure.Storage.Blobs.dll
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\Azure.Storage.Common.dll
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\Azure.Storage.Files.Shares.dll
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\Azure.Storage.Queues.dll
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\Microsoft.Extensions.Azure.dll
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\Properties\ServiceDependencies\GoodWeebs - Web Deploy\storage2.arm.json
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\Microsoft.Azure.Functions.Extensions.dll
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\Microsoft.Azure.WebJobs.Host.dll
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Release\netcoreapp3.1\Microsoft.Azure.WebJobs.dll

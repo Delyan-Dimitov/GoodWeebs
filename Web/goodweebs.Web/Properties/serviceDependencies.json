@@ -1,5 +1,13 @@
 {
   "dependencies": {
+    "storage1": {
+      "type": "storage",
+      "connectionId": "blob-connection-string"
+    },
+    "storage2": {
+      "type": "storage",
+      "connectionId": "BlobConnectionString"
+    },
     "mssql1": {
       "type": "mssql",
       "connectionId": "DefaultConnection"

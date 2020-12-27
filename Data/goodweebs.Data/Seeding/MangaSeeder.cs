@@ -9,25 +9,26 @@
     using Entities;
     using GoodWeebs.Data;
     using GoodWeebs.Data.Models;
+    using Microsoft.Extensions.DependencyInjection;
     using Newtonsoft.Json;
 
-    public class MangaSeeder: ISeeder
+    public class MangaSeeder : ISeeder
     {
-        private readonly BlobServiceClient blobServiceClient;
-      
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
             if (dbContext.Mangas.Any())
             {
                 return;
             }
-            var container = this.blobServiceClient.GetBlobContainerClient("dbseeders");
-            var files = container.GetBlobClient("manga.json");
-            var mangaJson = files.Download();
+            var blob = serviceProvider.GetRequiredService<BlobServiceClient>();
+            var container = blob.GetBlobContainerClient("dbseeder2");
+            var files = container.GetBlobClient("mangas.json");
+            var stream = files.OpenRead();
             string json = null;
-            using (StreamReader r = new StreamReader(mangaJson.ToString()))
+            using (StreamReader r = new StreamReader(stream))
             {
                 json = r.ReadToEnd();
+                stream.Close();
             }
 
             var mangaDTOs = JsonConvert.DeserializeObject<MangaDto[]>(json);

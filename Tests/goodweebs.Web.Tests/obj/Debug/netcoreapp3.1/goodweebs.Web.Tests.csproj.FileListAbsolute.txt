@@ -496,7 +496,6 @@ C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\goodweebs.Services.Mapping.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\goodweebs.Services.Messaging.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\goodweebs.Web.dll
-C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\goodweebs.Web.Infrastructure.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\goodweebs.Web.ViewModels.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\goodweebs.Web.pdb
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\goodweebs.Common.pdb
@@ -507,7 +506,6 @@ C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\goodweebs.Services.Data.pdb
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\goodweebs.Services.Mapping.pdb
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\goodweebs.Services.Messaging.pdb
-C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\goodweebs.Web.Infrastructure.pdb
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\goodweebs.Web.ViewModels.pdb
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.csprojAssemblyReference.cache
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.AssemblyInfoInputs.cache
@@ -543,6 +541,15 @@ C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Azure.Core.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Azure.Storage.Blobs.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Azure.Storage.Common.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\GoodWeebs - Web Deploy\storage1.arm.json
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Azure.Identity.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Azure.Storage.Files.Shares.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Azure.Storage.Queues.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Azure.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Microsoft.Azure.Functions.Extensions.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Microsoft.Azure.WebJobs.Host.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Microsoft.Azure.WebJobs.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\GoodWeebs - Web Deploy\storage2.arm.json
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.csproj.CoreCompileInputs.cache
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\gunex\Desktop\GoodWeebs\Tests\goodweebs.Web.Tests\obj\Debug\netcoreapp3.1\goodweebs.Web.Tests.MvcApplicationPartsAssemblyInfo.cache

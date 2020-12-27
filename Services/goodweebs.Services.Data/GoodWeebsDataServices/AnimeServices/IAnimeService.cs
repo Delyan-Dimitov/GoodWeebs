@@ -9,7 +9,7 @@
 
     public interface IAnimeService
     {
-        IEnumerable<AnimeInListViewModel> GetAll(int page, int itemsPerPage);
+        ICollection<AnimeInListViewModel> GetAll(int page, int itemsPerPage);
 
         Task<IEnumerable<Anime>> GetTopGlobalAsync(int amount);
 

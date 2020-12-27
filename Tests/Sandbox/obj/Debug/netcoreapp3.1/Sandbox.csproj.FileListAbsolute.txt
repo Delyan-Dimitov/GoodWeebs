@@ -99,4 +99,7 @@ C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\bin\Debug\netcoreapp3.1\Newtonsof
 C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\bin\Debug\netcoreapp3.1\Azure.Core.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\bin\Debug\netcoreapp3.1\Azure.Storage.Blobs.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\bin\Debug\netcoreapp3.1\Azure.Storage.Common.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\bin\Debug\netcoreapp3.1\Microsoft.Azure.Functions.Extensions.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\bin\Debug\netcoreapp3.1\Microsoft.Azure.WebJobs.Host.dll
+C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\bin\Debug\netcoreapp3.1\Microsoft.Azure.WebJobs.dll
 C:\Users\gunex\Desktop\GoodWeebs\Tests\Sandbox\obj\Debug\netcoreapp3.1\Sandbox.csproj.CoreCompileInputs.cache
