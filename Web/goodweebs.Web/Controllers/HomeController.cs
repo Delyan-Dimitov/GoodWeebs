@@ -9,6 +9,7 @@
     using GoodWeebs.Services.Data.GoodWeebsDataServices.UpdatesServices;
     using GoodWeebs.Web.ViewModels;
     using GoodWeebs.Web.ViewModels.AnimeViewModels;
+    using GoodWeebs.Web.ViewModels.HomeViewModels;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
 
@@ -34,7 +35,7 @@
         public async Task<IActionResult> HomeLoggedOut()
         {
             var topAnimes = await this.animeService.GetTopGlobalAsync(6);
-            HomeAnimeViewModel model = new HomeAnimeViewModel { TopAnimes = topAnimes };
+            HomeLoggedOutViewModel model = new HomeLoggedOutViewModel { TopAnimes = topAnimes };
 
             return this.View(model);
         }
@@ -46,12 +47,13 @@
             {
                 return this.RedirectToAction("HomeLoggedOut");
             }
+            var model = new HomeViewModel();
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             if (this.animeReccomendationsService.CanUserGetReccomendations(userId))
             {
-                var reccomendations = this.animeReccomendationsService.FindRecomenations(userId);
+               model.AnimeReccomendations = this.animeReccomendationsService.FindRecomenations(userId);
             }
-            var model = await this.updateService.GetRelevantUpdatesAsViewModelAsync(userId);
+            model.Updates = await this.updateService.GetRelevantUpdatesAsViewModelAsync(userId);
             return this.View(model);
         }
 

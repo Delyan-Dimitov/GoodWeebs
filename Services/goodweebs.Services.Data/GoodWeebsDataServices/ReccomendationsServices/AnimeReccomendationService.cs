@@ -47,14 +47,14 @@
             var vaguelySimilar = this.FindVaguelySimilar(topGenres);
             var leaderBoard = this.CreateLeaderBoard(vaguelySimilar);
             leaderBoard = this.ProcessPoints(leaderBoard, topGenres, userId);
-           var sortedLeaderBoard =  leaderBoard.OrderByDescending(x => x.Value).ToDictionary(z=> z.Key, y => y.Value);
+            var sortedLeaderBoard = leaderBoard.OrderByDescending(x => x.Value).ToDictionary(z => z.Key, y => y.Value);
             if (sortedLeaderBoard.Count >= 5)
             {
                 sortedLeaderBoard = sortedLeaderBoard.Take(5).ToDictionary(z => z.Key, y => y.Value);
             }
-           
+
             var reccomendations = new List<AnimeInListViewModel>();
-            foreach (var item in leaderBoard)
+            foreach (var item in sortedLeaderBoard)
             {
                 reccomendations.Add(new AnimeInListViewModel { Title = item.Key.Title, AnimeId = item.Key.Id, Genre = item.Key.Genres, PictureUrl = item.Key.Picture, Synopsis = item.Key.Synopsis });
             }

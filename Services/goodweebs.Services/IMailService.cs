@@ -24,7 +24,7 @@ namespace GoodWeebs.Services
       
         public async Task SendEmailAsync(string toEmail, string subject, string content)
         {
-            var apiKey = configuration["SendGridAPIKey"];
+            var apiKey = this.configuration["SendGridAPIKey"];
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("gunexon@gmail.com", "GoodWeebds");
             var to = new EmailAddress(toEmail);
