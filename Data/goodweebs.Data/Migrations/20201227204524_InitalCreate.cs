@@ -57,43 +57,6 @@ namespace GoodWeebs.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Countries",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: false),
-                    UserCount = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Countries", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "HelperAnimes",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Sources = table.Column<string>(nullable: true),
-                    Title = table.Column<string>(nullable: true),
-                    Type = table.Column<string>(nullable: true),
-                    Episodes = table.Column<int>(nullable: false),
-                    Status = table.Column<string>(nullable: true),
-                    AnimeSeason = table.Column<string>(nullable: true),
-                    Picture = table.Column<string>(nullable: true),
-                    Thumbnail = table.Column<string>(nullable: true),
-                    Synonyms = table.Column<string>(nullable: true),
-                    Relations = table.Column<string>(nullable: true),
-                    Tags = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_HelperAnimes", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Mangas",
                 columns: table => new
                 {
@@ -358,7 +321,6 @@ namespace GoodWeebs.Data.Migrations
                     Content = table.Column<string>(nullable: true),
                     CommenterId = table.Column<string>(nullable: true),
                     PostId = table.Column<string>(nullable: true),
-                    Likes = table.Column<int>(nullable: false),
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
@@ -467,13 +429,6 @@ namespace GoodWeebs.Data.Migrations
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
                     DisplayName = table.Column<string>(nullable: true),
-                    FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
-                    DateOfBirth = table.Column<DateTime>(nullable: false),
-                    Gender = table.Column<int>(nullable: false),
-                    Country = table.Column<string>(nullable: true),
-                    LikesAnime = table.Column<bool>(nullable: false),
-                    LikesManga = table.Column<bool>(nullable: false),
                     AvatarUrl = table.Column<string>(nullable: true),
                     SubmissionsCount = table.Column<int>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
@@ -1169,9 +1124,6 @@ namespace GoodWeebs.Data.Migrations
                 name: "Comments");
 
             migrationBuilder.DropTable(
-                name: "Countries");
-
-            migrationBuilder.DropTable(
                 name: "CurrentlyReadingMaps");
 
             migrationBuilder.DropTable(
@@ -1182,9 +1134,6 @@ namespace GoodWeebs.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Friends");
-
-            migrationBuilder.DropTable(
-                name: "HelperAnimes");
 
             migrationBuilder.DropTable(
                 name: "MangaSubmissions");

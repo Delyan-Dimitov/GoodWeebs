@@ -2,6 +2,7 @@
 {
     using System.Reflection;
     using Azure.Storage.Blobs;
+    using Ganss.XSS;
     using GoodWeebs.Data;
     using GoodWeebs.Data.Common;
     using GoodWeebs.Data.Common.Repositories;
@@ -36,16 +37,23 @@
 
     public class Startup
     {
-        private readonly IConfiguration configuration;
 
-        public Startup(IConfiguration configuration)
+        private readonly IConfiguration configuration;
+        private readonly Microsoft.AspNetCore.Hosting.IHostingEnvironment env;
+
+        public Startup(IConfiguration configuration, Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
         {
             this.configuration = configuration;
+            this.env = env;
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var builder = new ConfigurationBuilder()
+        .SetBasePath(this.env.ContentRootPath)
+        .AddJsonFile("appsetting.s.json", optional: true, reloadOnChange: true);
+
             services.Configure<IdentityOptions>(options =>
             {
                 // User settings.
@@ -97,6 +105,7 @@
             services.AddTransient<IUpdateService, UpdateService>();
             services.AddTransient<IGroupService, GroupService>();
             services.AddTransient<IMailService, SendGridMailService>();
+            services.AddTransient<IHtmlSanitizer, HtmlSanitizer>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

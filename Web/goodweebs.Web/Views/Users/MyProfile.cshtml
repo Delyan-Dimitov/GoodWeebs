@@ -19,5 +19,5 @@
                 <a class="text-decoration-none text-dark" asp-action="FriendsList" asp-route-id=@Model.Id><p class="display-4">Friends</p></a>
             </div>
         </div>
-        <div class="col-md-2"><button type="button" class="btn btn-primary"> Edit</button></div>
+        <div class="col-md-2"><a asp-area="Identity" asp-controller="Account" asp-action="Manage" class="btn btn-primary"> Edit</a></div>
     </div>

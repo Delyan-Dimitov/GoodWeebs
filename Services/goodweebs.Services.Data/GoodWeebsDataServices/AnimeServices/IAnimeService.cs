@@ -11,7 +11,7 @@
     {
         ICollection<AnimeInListViewModel> GetAll(int page, int itemsPerPage);
 
-        Task<IEnumerable<Anime>> GetTopGlobalAsync(int amount);
+        Task<IEnumerable<AnimeInListViewModel>> GetTopGlobalAsync(int amount);
 
         int GetCount();
 

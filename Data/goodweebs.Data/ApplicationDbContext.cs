@@ -33,8 +33,6 @@
 
         public DbSet<Anime> Animes { get; set; }
 
-        public DbSet<Country> Countries { get; set; }
-
         public DbSet<Manga> Mangas { get; set; }
 
         public DbSet<WatchedMap> WatchedMaps { get; set; }
@@ -50,8 +48,6 @@
         public DbSet<WantToReadMap> WantToReadMaps { get; set; }
 
         public DbSet<Friends> Friends { get; set; }
-
-        public DbSet<HelperAnime> HelperAnimes { get; set; }
 
         public DbSet<AnimeSubmission> AnimeSumbissions { get; set; }
 

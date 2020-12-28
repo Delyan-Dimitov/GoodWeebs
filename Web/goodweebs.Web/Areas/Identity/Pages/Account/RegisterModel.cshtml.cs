@@ -9,6 +9,7 @@
     using System.Threading.Tasks;
 
     using GoodWeebs.Data.Models;
+    using GoodWeebs.Web.CustomValidationAttributes;
     using Microsoft.AspNetCore.Authentication;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
@@ -48,15 +49,22 @@
         public class InputModel
         {
             [Required]
-            [EmailAddress]
-            [Display(Name = "Email")]
-            public string Email { get; set; }
-
-            [Required]
+            [DisplayName]
             [MaxLength(20, ErrorMessage = "Display name too long!")]
             [MinLength(3, ErrorMessage = "Display name too short!")]
             [Display(Name = "Display Name")]
             public string DisplayName { get; set; }
+
+            [Required]
+            [Url]
+            public string Avatar { get; set; }
+
+            [Required]
+            [EmailAddress]
+            [Display(Name = "Email")]
+            public string Email { get; set; }
+
+
 
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
@@ -82,10 +90,11 @@
             this.ExternalLogins = (await this.signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (this.ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = this.Input.Email, Email = this.Input.Email, DisplayName = this.Input.DisplayName };
+                var user = new ApplicationUser { UserName = this.Input.Email, Email = this.Input.Email, DisplayName = this.Input.DisplayName, AvatarUrl = this.Input.Avatar };
                 var result = await this.userManager.CreateAsync(user, this.Input.Password);
                 if (result.Succeeded)
                 {
+                    await this.userManager.AddToRoleAsync(user, "User");
                     this.logger.LogInformation("User created a new account with password.");
 
                     var code = await this.userManager.GenerateEmailConfirmationTokenAsync(user);

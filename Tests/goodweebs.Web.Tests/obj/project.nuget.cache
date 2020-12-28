@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "1jjT9GkoTmW4B2g023kAY5JlzbGB0YbmDXmDoUcPiBqyMqqSGrSCWQUxX7yNjvIBbDKaFD3Riub+AlR/jzPoxA==",
+  "dgSpecHash": "BKdj5pK0xP+HzhdjvaeTZrYGOeDQxK2orTKnh8i0j5EggiV1ONo8SkFrcvMNCP7JIrgo1RmljK2Gb1mu8eizvg==",
   "success": true,
   "projectFilePath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Tests\\goodweebs.Web.Tests\\goodweebs.Web.Tests.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\gunex\\.nuget\\packages\\anglesharp\\0.14.0\\anglesharp.0.14.0.nupkg.sha512",
+    "C:\\Users\\gunex\\.nuget\\packages\\anglesharp.css\\0.14.2\\anglesharp.css.0.14.2.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\azure.core\\1.6.0\\azure.core.1.6.0.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\azure.identity\\1.0.0\\azure.identity.1.0.0.nupkg.sha512",
@@ -12,6 +14,7 @@
     "C:\\Users\\gunex\\.nuget\\packages\\azure.storage.files.shares\\12.1.0\\azure.storage.files.shares.12.1.0.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\azure.storage.queues\\12.2.0\\azure.storage.queues.12.2.0.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\buildbundlerminifier\\3.2.449\\buildbundlerminifier.3.2.449.nupkg.sha512",
+    "C:\\Users\\gunex\\.nuget\\packages\\htmlsanitizer\\5.0.372\\htmlsanitizer.5.0.372.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",

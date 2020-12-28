@@ -31,27 +31,66 @@
             this.userGenreRepo = userGenreRepo;
             this.watchedMapsRepo = watchedMapsRepo;
         }
+        public bool CanUserGetReccomendations(string userId)
+        {
+            var watchedMaps = this.watchedMapsRepo.AllAsNoTracking().Where(x => x.UserId == userId).ToList();
+            if (watchedMaps.Count >= 10)
+            {
+                return true;
+            }
+            return false;
+        }
 
-        public async Task<AnimeViewModel> FindRecomenationsAsync(string userId)
+        public List<AnimeInListViewModel> FindRecomenations(string userId)
         {
             var topGenres = this.GetTopGenres(userId);
             var vaguelySimilar = this.FindVaguelySimilar(topGenres);
             var leaderBoard = this.CreateLeaderBoard(vaguelySimilar);
-            leaderBoard = await this.ProcessPoints(leaderBoard, topGenres);
+            leaderBoard = this.ProcessPoints(leaderBoard, topGenres, userId);
+           var sortedLeaderBoard =  leaderBoard.OrderByDescending(x => x.Value).ToDictionary(z=> z.Key, y => y.Value);
+            if (sortedLeaderBoard.Count >= 5)
+            {
+                sortedLeaderBoard = sortedLeaderBoard.Take(5).ToDictionary(z => z.Key, y => y.Value);
+            }
+           
+            var reccomendations = new List<AnimeInListViewModel>();
+            foreach (var item in leaderBoard)
+            {
+                reccomendations.Add(new AnimeInListViewModel { Title = item.Key.Title, AnimeId = item.Key.Id, Genre = item.Key.Genres, PictureUrl = item.Key.Picture, Synopsis = item.Key.Synopsis });
+            }
 
-            return new AnimeViewModel();
+            return reccomendations;
         }
 
         private List<string> GetTopGenres(string userId)
         {
-            var topGenres = this.userGenreRepo.AllAsNoTracking()
-                .Where(x => x.UserId == userId)
-                .Where(x => x.Count != 0)
-                .OrderByDescending(x => x.Count)
-                .Take(3).Select(x => x.Genre)
-                .ToList();
+            var watchedMaps = this.watchedMapsRepo.AllAsNoTracking().Where(x => x.UserId == userId).ToList();
+            List<Anime> usersAnimes = new List<Anime>();
+            foreach (var watchedMap in watchedMaps)
+            {
+                var anime = this.animeRepo.AllAsNoTracking().Where(x => x.Id == watchedMap.AnimeId).FirstOrDefault();
+                usersAnimes.Add(anime);
+            }
+            Dictionary<string, int> topGenres = new Dictionary<string, int>();
+            foreach (var anime in usersAnimes)
+            {
+                List<string> genres = anime.Genres.Split(", ").ToList();
+                foreach (var genre in genres)
+                {
+                    if (topGenres.ContainsKey(genre))
+                    {
+                        var value = topGenres[genre];
+                        topGenres.Remove(genre);
+                        topGenres.Add(genre, value++);
+                    }
+                    else
+                    {
+                        topGenres.Add(genre, 0);
+                    }
 
-            return topGenres;
+                }
+            }
+            return topGenres.OrderByDescending(x => x.Value).Take(5).Select(x => x.Key).ToList();
         }
 
         private List<Anime> FindVaguelySimilar(List<string> topGenres)
@@ -63,8 +102,11 @@
                     .Where(x => x.Genres.ToUpper()
                     .Contains(genre.ToUpper()))
                     .ToList();
+                if (animes != null)
+                {
+                    vaguelySimilar.AddRange(animes);
+                }
 
-                vaguelySimilar.AddRange(animes);
             }
 
             return vaguelySimilar;
@@ -80,11 +122,17 @@
             return leaderBoard;
         }
 
-        private async Task<Dictionary<Anime, int>> ProcessPoints(Dictionary<Anime, int> leaderBoard, List<string> topGenres) // TODO cut the collection at some point to gain more performance
+        private Dictionary<Anime, int> ProcessPoints(Dictionary<Anime, int> leaderBoard, List<string> topGenres, string userId) // TODO cut the collection at some point to gain more performance
         {
-            var watchedAnime = this.watchedMapsRepo.AllAsNoTracking().Select(x => x.Anime).ToList();
+            var watchedMaps = this.watchedMapsRepo.AllAsNoTracking().Where(x => x.UserId == userId).ToList();
+            List<Anime> watchedAnime = new List<Anime>();
+            foreach (var watchedMap in watchedMaps)
+            {
+                var anime = this.animeRepo.AllAsNoTracking().Where(x => x.Id == watchedMap.AnimeId).FirstOrDefault();
+                watchedAnime.Add(anime);
+            }
+
             leaderBoard = this.ComputeTopGenreMatches(leaderBoard, topGenres); // MAX - > 6
-            leaderBoard = this.ComputeAiringCoeficientMatches(leaderBoard, watchedAnime); // MAX - 3 / total max - 9
             leaderBoard = this.ComputeEpisodeCoeficientMatches(leaderBoard, watchedAnime); // MAX - 2/ total max - 11
             leaderBoard = this.MatchRating(leaderBoard, watchedAnime); // MAX - 1 / TOTAL AMX 12
             leaderBoard = this.MatchStudios(leaderBoard, watchedAnime); // MAX - 1/ TOTAL MAX 13
@@ -118,76 +166,13 @@
 
         }
 
-        private Dictionary<Anime, int> ComputeAiringCoeficientMatches(Dictionary<Anime, int> leaderBoard, List<Anime> watchedAnime)
-        {
-            var animeWithCoeficientSum = new Dictionary<Anime, int>();
-            var updatedLaederboard = leaderBoard;
-            foreach (var item in leaderBoard)
-            {
-                var coeficientSum = 0;
-                foreach (var anime in watchedAnime)
-                {
-                    coeficientSum += this.ComputeAiringCoeficient(item.Key, anime);
-                }
-
-                animeWithCoeficientSum.Add(item.Key, coeficientSum);
-            }
-
-            animeWithCoeficientSum.OrderBy(x => x.Value);
-            var dictPointsBasedOnCoeficient = this.AssingPointsBasedOnAiringCoeficient(animeWithCoeficientSum);
-            foreach (var item in dictPointsBasedOnCoeficient)
-            {
-                var key = item.Key;
-                var value = item.Value;
-                if (updatedLaederboard.ContainsKey(key))
-                {
-                    var leaderBoardValueAtKey = updatedLaederboard[key];
-                    updatedLaederboard.Remove(key);
-                    updatedLaederboard.Add(key, leaderBoardValueAtKey + value);
-                }
-            }
-            return updatedLaederboard;
-
-        }
-
-        private int ComputeAiringCoeficient(Anime firstAnime, Anime secondAnime)
-        {
-            var firstAnimeAsArray = firstAnime.Aired.Split(" ").ToArray();
-            var secondAnimeAsArray = secondAnime.Aired.Split(" ").ToArray();
-
-            var coeficient =
-                Math.Abs(int.Parse(firstAnimeAsArray[0]) - int.Parse(secondAnimeAsArray[0])) +
-                Math.Abs(int.Parse(firstAnimeAsArray[2]) - int.Parse(secondAnimeAsArray[2]));
-            return coeficient;
-        }
-
-        private Dictionary<Anime, int> AssingPointsBasedOnAiringCoeficient(Dictionary<Anime, int> animeWithCoeficientSum)
-        {
-            var dictWithFinalPoints = new Dictionary<Anime, int>();
-            var TopMatches = animeWithCoeficientSum.Take(3);
-            var SecondaryMatches = animeWithCoeficientSum.Skip(3).Take(3);
-            var TertiaryMatches = animeWithCoeficientSum.Skip(6).Take(3);
-            foreach (var item in TopMatches)
-            {
-                dictWithFinalPoints.Add(item.Key, 3);
-            }
-            foreach (var item in SecondaryMatches)
-            {
-                dictWithFinalPoints.Add(item.Key, 2);
-            }
-            foreach (var item in TertiaryMatches)
-            {
-                dictWithFinalPoints.Add(item.Key, 1);
-            }
-            return dictWithFinalPoints;
-        }
-
         private Dictionary<Anime, int> ComputeEpisodeCoeficientMatches(Dictionary<Anime, int> leaderBoard, List<Anime> watchedAnime)
         {
             var animeWithCoeficientSum = new Dictionary<Anime, int>();
-            var updatedLaederboard = leaderBoard;
+            var updatedLaederboard = new Dictionary<Anime, int>();
             foreach (var item in leaderBoard)
             {
+                updatedLaederboard.Add(item.Key, item.Value);
                 var coeficientSum = 0;
                 foreach (var anime in watchedAnime)
                 {
@@ -197,7 +182,7 @@
                 animeWithCoeficientSum.Add(item.Key, coeficientSum);
             }
 
-            animeWithCoeficientSum.OrderBy(x => x.Value);
+            animeWithCoeficientSum.OrderByDescending(x => x.Value);
             var dictPointsBasedOnCoeficient = this.AssingPointsBasedOnEpisodeCoeficient(animeWithCoeficientSum);
             foreach (var item in dictPointsBasedOnCoeficient)
             {
@@ -214,7 +199,18 @@
             return updatedLaederboard;
         }
 
-        private int ComputeEpisodeCoeficient(Anime firstAnime, Anime secondAnime) => Math.Abs(int.Parse(firstAnime.Episodes) - int.Parse(secondAnime.Episodes)); // TODO this can blowup like hiroshima
+        private int ComputeEpisodeCoeficient(Anime firstAnime, Anime secondAnime)
+        {
+            var coef = 0;
+            if (int.TryParse(firstAnime.Episodes, out int result) && int.TryParse(firstAnime.Episodes, out int result2))
+            {
+                var firstEpCount = int.Parse(firstAnime.Episodes);
+                var secondEpCount = int.Parse(secondAnime.Episodes);
+                coef = Math.Abs(firstEpCount - secondEpCount);
+            }
+
+            return coef;
+        } // TODO this can blowup like hiroshima
 
         private Dictionary<Anime, int> AssingPointsBasedOnEpisodeCoeficient(Dictionary<Anime, int> animeWithCoeficientSum)
         {
@@ -234,19 +230,23 @@
 
         private Dictionary<Anime, int> MatchRating(Dictionary<Anime, int> leaderBoard, List<Anime> watchedAnime)
         {
-            var updatedLeaderBoard = leaderBoard;
+            var updatedLeaderBoard = new Dictionary<Anime, int>();
             foreach (var item in leaderBoard)
             {
                 var key = item.Key;
                 var value = item.Value;
-
+                updatedLeaderBoard.Add(key, value);
                 var counter = 0;
                 foreach (var anime in watchedAnime)
                 {
-                    if (item.Key.Rating.ToUpper() == anime.Rating.ToUpper())
+                    if (item.Key.Rating != null)
                     {
-                        counter++;
+                        if (item.Key.Rating.ToUpper() == anime.Rating.ToUpper())
+                        {
+                            counter++;
+                        }
                     }
+
                 }
 
                 if (counter > 0)
@@ -264,39 +264,44 @@
             var watchedAnimeStudios = new StringBuilder();
             watchedAnime.ForEach(x => watchedAnimeStudios.Append(x.Studios.ToUpper()));
             var studiosAsArray = watchedAnimeStudios.ToString().Split(",").Distinct().ToArray();
+            var updatedLeaderBoard = new Dictionary<Anime, int>();
             foreach (var item in leaderBoard)
             {
                 var key = item.Key;
                 var value = item.Value;
+                updatedLeaderBoard.Add(key, value);
                 if (studiosAsArray.Contains(item.Key.Studios.Split(",")[0].ToUpper())) // TODO this is pretty scuffed ngl literally the ugliest code i have written
                 {
-                    leaderBoard.Remove(key);
-                    leaderBoard.Add(key, value + 1);
+                    updatedLeaderBoard.Remove(key);
+                    updatedLeaderBoard.Add(key, value + 1);
                 }
             }
 
-            return leaderBoard;
+            return updatedLeaderBoard;
         }
 
         private Dictionary<Anime, int> MatchType(Dictionary<Anime, int> leaderBoard, List<Anime> watchedAnime)
         {
 
+            var updatedLeaderBoard = new Dictionary<Anime, int>();
 
             foreach (var item in leaderBoard)
             {
                 var key = item.Key;
                 var value = item.Value;
-                foreach (var anime  in watchedAnime)
+                updatedLeaderBoard.Add(key, value);
+
+                foreach (var anime in watchedAnime)
                 {
                     if (anime.Type.ToUpper().Contains(item.Key.Type.ToUpper()))
                     {
-                        leaderBoard.Remove(key);
-                        leaderBoard.Add(key, value + 1);
+                        updatedLeaderBoard.Remove(key);
+                        updatedLeaderBoard.Add(key, value + 1);
                         break;
                     }
                 }
             }
-            return leaderBoard;
+            return updatedLeaderBoard;
         }
     }
 }

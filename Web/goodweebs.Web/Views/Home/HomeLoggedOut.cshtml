@@ -50,10 +50,10 @@
         @foreach (var anime in Model.TopAnimes.Take(5))
         {
             <div class="card" style="width: 12rem;">
-                <img class="card-img-top img-fluid" src="@anime.Picture" alt="Card image cap" >
+                <img class="card-img-top img-fluid" src="@anime.PictureUrl" alt="Card image cap" >
                 <div class="card-body" >
                     <h5 class="card-title">@anime.Title</h5>
-                    <p class="card-text">@anime.Synopsis.Substring(0, 40)...</p>
+                    <p class="card-text">@anime.Synopsis.Substring(0, 30)...</p>
                 </div>
 
             </div>

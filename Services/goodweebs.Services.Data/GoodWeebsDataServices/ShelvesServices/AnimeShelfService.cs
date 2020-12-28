@@ -180,7 +180,8 @@
             var read = this.wantRepo.AllAsNoTracking().Where(x => x.UserId == userId).ToList();
             foreach (var map in read)
             {
-                model.ShelfItems.Add(new ShelfItemVIewModel { Title = map.Anime.Title });
+                var anime = this.animeRepo.AllAsNoTracking().FirstOrDefault(x => x.Id == map.AnimeId);
+                model.ShelfItems.Add(new ShelfItemVIewModel { Title = anime.Title, Id = anime.Id });
             }
 
             return model;

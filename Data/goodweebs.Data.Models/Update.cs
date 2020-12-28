@@ -16,7 +16,7 @@
 
         public ApplicationUser User { get; set; }
 
-        public int Type { get; set; } // 1 - Anime upadte ; 2 - MangaUpdate ;  2 - post in group
+        public int Type { get; set; } // 1 - Anime upadate ; 2 - MangaUpdate ;  2 - post in group
 
         public string UserId { get; set; }
 

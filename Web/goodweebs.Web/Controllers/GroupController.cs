@@ -2,6 +2,7 @@
 {
     using System.Security.Claims;
     using System.Threading.Tasks;
+    using Ganss.XSS;
     using GoodWeebs.Services.Data.GoodWeebsDataServices.GroupServices;
     using GoodWeebs.Web.ViewModels.GroupViewModel;
     using Microsoft.AspNetCore.Mvc;
@@ -9,10 +10,12 @@
     public class GroupController : BaseController
     {
         private readonly IGroupService groupService;
+        private readonly IHtmlSanitizer htmlSanitizer;
 
-        public GroupController(IGroupService groupService)
+        public GroupController(IGroupService groupService, IHtmlSanitizer htmlSanitizer)
         {
             this.groupService = groupService;
+            this.htmlSanitizer = htmlSanitizer;
         }
 
         public IActionResult CreateGroup()
@@ -28,6 +31,8 @@
             {
                 return this.View(model);
             }
+
+            model.Description = this.htmlSanitizer.Sanitize(model.Description);
 
             await this.groupService.CreateGroupAsync(model, userId);
             return this.View(); // TODO redirect somewhere
@@ -48,6 +53,7 @@
             {
                 return this.View(model);
             }
+            model.Content = this.htmlSanitizer.Sanitize(model.Content);
             await this.groupService.CreatePostAsync(model, userId);
 
             return this.RedirectToAction("Group", new { Id = id });  // TODO change
@@ -67,7 +73,7 @@
             {
                 return this.View(model);
             }
-
+            model.Content = this.htmlSanitizer.Sanitize(model.Content);
             await this.groupService.CreateCommentAsync(model, userId, id);
             return this.RedirectToAction("Post",  new { id });
         }

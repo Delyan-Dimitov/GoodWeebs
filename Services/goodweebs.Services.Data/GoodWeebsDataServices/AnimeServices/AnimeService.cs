@@ -18,12 +18,14 @@ namespace GoodWeebs.Services.GoodWeebs.Services.AnimeServices
         private readonly IRepository<Anime> animes;
         private readonly IRepository<WatchedMap> watchedMaps;
         private readonly ApplicationDbContext dbContext;
+        private readonly IDeletableEntityRepository<Anime> animeRepo;
 
         public AnimeService(IDeletableEntityRepository<Anime> anime, IDeletableEntityRepository<WatchedMap> watchedMaps, ApplicationDbContext dbContext)
         {
             this.animes = anime;
             this.watchedMaps = watchedMaps;
             this.dbContext = dbContext;
+            this.animeRepo = animeRepo;
         }
 
         public ICollection<AnimeInListViewModel> GetAll(int page, int itemsPerPage = 12)
@@ -45,7 +47,7 @@ namespace GoodWeebs.Services.GoodWeebs.Services.AnimeServices
             return animes;
         }
 
-        public async Task<IEnumerable<Anime>> GetTopGlobalAsync(int amount)
+        public async Task<IEnumerable<AnimeInListViewModel>> GetTopGlobalAsync(int amount)
         {
             var query = from p in this.dbContext.Set<WatchedMap>()
                         group p by p.AnimeId into g
@@ -61,10 +63,15 @@ namespace GoodWeebs.Services.GoodWeebs.Services.AnimeServices
 
             foreach (var item in query)
             {
-                topAnime.Add(await this.dbContext.Animes.FirstOrDefaultAsync(x => x.Id == item.Key));
+                topAnime.Add( this.animes.AllAsNoTracking().FirstOrDefault(x => x.Id == item.Key));
+            }
+            var animesAsViewModel = new List<AnimeInListViewModel>();
+            foreach (var item in topAnime)
+            {
+                animesAsViewModel.Add(new AnimeInListViewModel { Title = item.Title, AnimeId = item.Id, Genre = item.Genres, PictureUrl = item.Picture, Synopsis = item.Synopsis });
             }
 
-            return topAnime;
+            return animesAsViewModel;
         }
 
         public int GetCount() => this.animes.AllAsNoTracking().Count();

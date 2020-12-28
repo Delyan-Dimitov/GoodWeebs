@@ -10,17 +10,22 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using AngleSharp;
+    using AngleSharp.Html;
+    using Ganss.XSS;
 
     [Authorize]
     public class SubmissionController : BaseController
     {
         private readonly ICreateSubmissionsService subService;
         private readonly UserManager<ApplicationUser> userManager;
+        private readonly IHtmlSanitizer htmlSanitizer;
 
-        public SubmissionController(ICreateSubmissionsService subService, UserManager<ApplicationUser> userManager)
+        public SubmissionController(ICreateSubmissionsService subService, UserManager<ApplicationUser> userManager, IHtmlSanitizer htmlSanitizer)
         {
             this.subService = subService;
             this.userManager = userManager;
+            this.htmlSanitizer = htmlSanitizer;
         }
 
         // anime
@@ -57,6 +62,8 @@
             }
 
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            model.Synopsis = this.htmlSanitizer.Sanitize(model.Synopsis);
 
             await this.subService.SubmitAnimeFullAsync(model, userId, "Full");
 
@@ -98,6 +105,7 @@
 
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
+            model.Synopsis = this.htmlSanitizer.Sanitize(model.Synopsis);
             
             await this.subService.SubmitMangaFullAsync(model, userId, "Full");
           
@@ -118,6 +126,7 @@
             {
                 return this.View();
             }
+
             return this.Redirect("Home/Index");
         }
     }

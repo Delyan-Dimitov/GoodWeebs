@@ -24,8 +24,6 @@
 
         public string PostId { get; set; }
 
-        public int Likes { get; set; } = 0;
-
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }

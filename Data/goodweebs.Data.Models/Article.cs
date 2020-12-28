@@ -11,7 +11,6 @@
         [Key]
         public int Id { get; set; }
 
-        [MaxLength(5)]
         public string Title { get; set; }
 
         [MinLength(100)]

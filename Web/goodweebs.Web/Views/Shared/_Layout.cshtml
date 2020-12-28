@@ -24,7 +24,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item ">
-                            <a asp-area="" asp-controller="Home" asp-action="HomeLoggedOut" class="nav-link">
+                            <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">
                                 Home
 
                             </a>
@@ -86,7 +86,7 @@
 
     @this.RenderBody()
 
-    <footer class="ranna-bg-dark">
+    <footer class=" footer ranna-bg-dark">
         <div class="container">
             &copy; @DateTime.Now.Year - @GlobalConstants.SystemName - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
