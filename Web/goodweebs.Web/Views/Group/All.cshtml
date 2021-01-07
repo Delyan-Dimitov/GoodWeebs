@@ -4,7 +4,6 @@
 @if (Model.Groups.Count == 0)
 {
     <h1>No groups :(</h1>
-    <a asp-action="CreateGroup" class="btn-success text-black-50 text-decoration-none">Create Group</a>
 }
 else
 {
@@ -28,3 +27,5 @@ else
         <div class="col-md-1">   </div>
     </div>
 }
+<hr />
+<a asp-action="CreateGroup"><button type="button" class="btn-success btn-lg text-black-50 text-decoration-none">Create Group</button></a>

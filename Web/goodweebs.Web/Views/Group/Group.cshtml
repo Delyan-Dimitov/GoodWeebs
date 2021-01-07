@@ -1,5 +1,7 @@
 ﻿@model GoodWeebs.Web.ViewModels.GroupViewModel.GroupViewModel
-<h1 class="display-4">@Model.Name</h1>
+<h1 class="display-4">@Model.Name</h1> 
+<br />
+<a asp-action="CreatePost" asp-route-id="@Model.Id"> <button class="btn-dark btn-lg text-light"> Post</button>   </a>
 <hr />
 @if (Model.Posts.Count() != 0)
 {
@@ -10,7 +12,7 @@
             <div class="col-md-5 ">
                 <div class="card bg-dark">
                     <div class="card-block">
-                        <a asp-action="Post" asp-route-id ="@post.PostId" class="text-decoration-none text-white" ><h4 class="card-title text-center text-white">@post.Title</h4></a>
+                        <a asp-action="Post" asp-route-id="@post.PostId" class="text-decoration-none text-white"><h4 class="card-title text-center text-white">@post.Title</h4></a>
                         <a asp-controller="Users" asp-action="Profile" asp-route-id=@post.PosterId class="card-link text-decoration-none text-white">Go to @post.PosterDisplayName 's Profile</a>
                     </div>
                 </div>

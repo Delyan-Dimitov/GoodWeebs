@@ -9,5 +9,7 @@
             this.Friends = new List<ProfileViewModel>();
         }
         public ICollection<ProfileViewModel> Friends { get; set; }
+
+        public bool MyProfile { get; set; }
     }
 }

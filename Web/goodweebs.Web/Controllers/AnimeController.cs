@@ -6,9 +6,11 @@
     using GoodWeebs.Data.Models;
     using GoodWeebs.Services;
     using GoodWeebs.Web.ViewModels.AnimeViewModels;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
 
+    [Authorize]
     public class AnimeController : BaseController
     {
         private readonly IAnimeService animeService;
@@ -39,7 +41,6 @@
             var anime = this.animeService.GetById(id);
             var similar = this.animeService.GetSimilar(id, 3);
             var model = new AnimeInfoViewModel { Anime = anime, SimilarAnime = similar };
-            model.ProfileId = myId;
             model.AnimeId = id;
             return this.View(model);
         }

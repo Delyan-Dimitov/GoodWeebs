@@ -6,8 +6,6 @@
 
     public class WatchedMap : AnimeMap
     {
-        public DateTime DateStarted { get; set; }
-
-        public DateTime DateFinished { get; set; }
+       
     }
 }

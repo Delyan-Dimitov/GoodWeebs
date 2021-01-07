@@ -65,7 +65,7 @@
             if (this.IsInWant(userId, animeId))
             {
                 var toDelete = this.wantRepo.AllAsNoTracking().FirstOrDefault(x => x.UserId == userId && x.AnimeId == animeId);
-                this.wantRepo.Delete(toDelete);
+                this.wantRepo.HardDelete(toDelete);
                 await this.wantRepo.SaveChangesAsync();
                 await this.watchedRepo.AddAsync(new WatchedMap { User = user, Anime = anime });
                 await this.watchedRepo.SaveChangesAsync();
@@ -74,7 +74,7 @@
             else if (this.IsInWatching(userId, animeId))
             {
                 var toDelete = this.watchingRepo.AllAsNoTracking().First(x => x.UserId == userId && x.AnimeId == animeId);
-                this.watchingRepo.Delete(toDelete);
+                this.watchingRepo.HardDelete(toDelete);
                 await this.watchingRepo.SaveChangesAsync();
                 await this.watchedRepo.AddAsync(new WatchedMap { User = user, Anime = anime });
                 await this.watchedRepo.SaveChangesAsync();
@@ -99,7 +99,7 @@
             if (this.IsInWant(userId, animeId))
             {
                 var toDelete = this.wantRepo.AllAsNoTracking().First(x => x.UserId == userId && x.AnimeId == animeId);
-                this.wantRepo.Delete(toDelete);
+                this.wantRepo.HardDelete(toDelete);
                 await this.wantRepo.SaveChangesAsync();
                 await this.watchingRepo.AddAsync(new CurrentlyWatchingMap { User = user, Anime = anime });
                 result = true;
@@ -120,7 +120,7 @@
             if (this.IsInWatched(userId, animeId))
             {
                 var toDelete = this.watchedRepo.AllAsNoTracking().First(x => x.UserId == userId && x.AnimeId == animeId);
-                this.watchedRepo.Delete(toDelete);
+                this.watchedRepo.HardDelete(toDelete);
                 await this.watchedRepo.SaveChangesAsync();
             }
         }
@@ -130,7 +130,7 @@
             if (this.IsInWatching(userId, animeId))
             {
                 var toDelete = this.watchingRepo.AllAsNoTracking().First(x => x.UserId == userId && x.AnimeId == animeId);
-                this.watchingRepo.Delete(toDelete);
+                this.watchingRepo.HardDelete(toDelete);
                 await this.watchingRepo.SaveChangesAsync();
             }
         }
@@ -140,7 +140,7 @@
             if (this.IsInWant(userId, animeId))
             {
                 var toDelete = this.wantRepo.AllAsNoTracking().First(x => x.UserId == userId && x.AnimeId == animeId);
-                this.wantRepo.Delete(toDelete);
+                this.wantRepo.HardDelete(toDelete);
                 await this.wantRepo.SaveChangesAsync();
             }
         }
@@ -153,7 +153,7 @@
             foreach (var map in watched)
             {
                 var anime = this.animeRepo.AllAsNoTracking().FirstOrDefault(x => x.Id == map.AnimeId);
-                model.ShelfItems.Add(new ShelfItemVIewModel { Title = anime.Title, Id = anime.Id }); // TODO KYS
+                model.ShelfItems.Add(new ShelfItemVIewModel { Title = anime.Title, Id = anime.Id }); 
             }
 
             return model;

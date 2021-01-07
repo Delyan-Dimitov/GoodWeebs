@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0Li19fkljyoJINzJxONFYo2XSxX/97FBZBGd5zJmVaB+Fd1bmmNP1fxoHMAr4+3HrA9Yh7ftrUc6Qba07jrojg==",
+  "dgSpecHash": "GNoWRgCOtR5DLJQSs4yptAgzKAf2I5DrFyMZR+w0JN/5oPnibDp4PYFqY64Gc01fZ/Ldv4YXT+LhicDJw8O7uw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web.ViewModels\\GoodWeebs.Web.ViewModels.csproj",
+  "projectFilePath": "C:\\Users\\gunex\\Desktop\\BrickWork\\GoodWeebs\\Web\\goodweebs.Web.ViewModels\\GoodWeebs.Web.ViewModels.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gunex\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\azure.core\\1.6.0\\azure.core.1.6.0.nupkg.sha512",

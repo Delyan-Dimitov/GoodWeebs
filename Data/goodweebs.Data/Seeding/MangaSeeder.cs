@@ -21,7 +21,7 @@
                 return;
             }
             var blob = serviceProvider.GetRequiredService<BlobServiceClient>();
-            var container = blob.GetBlobContainerClient("dbseeder2");
+            var container = blob.GetBlobContainerClient("goodweebs");
             var files = container.GetBlobClient("mangas.json");
             var stream = files.OpenRead();
             string json = null;

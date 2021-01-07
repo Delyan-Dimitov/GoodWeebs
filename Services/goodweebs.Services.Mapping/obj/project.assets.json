@@ -2579,11 +2579,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Mapping\\GoodWeebs.Services.Mapping.csproj",
+      "projectUniqueName": "C:\\Users\\gunex\\Desktop\\BrickWork\\GoodWeebs\\Services\\goodweebs.Services.Mapping\\GoodWeebs.Services.Mapping.csproj",
       "projectName": "GoodWeebs.Services.Mapping",
-      "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Mapping\\GoodWeebs.Services.Mapping.csproj",
+      "projectPath": "C:\\Users\\gunex\\Desktop\\BrickWork\\GoodWeebs\\Services\\goodweebs.Services.Mapping\\GoodWeebs.Services.Mapping.csproj",
       "packagesPath": "C:\\Users\\gunex\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Mapping\\obj\\",
+      "outputPath": "C:\\Users\\gunex\\Desktop\\BrickWork\\GoodWeebs\\Services\\goodweebs.Services.Mapping\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\gunex\\AppData\\Roaming\\NuGet\\NuGet.Config",

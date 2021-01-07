@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5RipXO2XuyTNVhpXTKNMA8qRNwZhORxN1bjB3b7QwUzP2q8g20CtoN+tmb/kyJQ4D86UpPG6Vrg34LhSmCVXkA==",
+  "dgSpecHash": "jF4QC2DJqDM6Fv8yaPPhvxgDhPDdPtUF7FNBqvM3YeuTJPWbVqDiS0yFQPOd3hpTNZUUUaCS4TXqbzQCnslNbw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\goodweebs.Common\\GoodWeebs.Common.csproj",
+  "projectFilePath": "C:\\Users\\gunex\\Desktop\\BrickWork\\GoodWeebs\\goodweebs.Common\\GoodWeebs.Common.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gunex\\.nuget\\packages\\azure.core\\1.6.0\\azure.core.1.6.0.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\azure.storage.blobs\\12.7.0\\azure.storage.blobs.12.7.0.nupkg.sha512",

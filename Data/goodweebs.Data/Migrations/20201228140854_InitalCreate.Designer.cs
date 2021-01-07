@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GoodWeebs.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201227204524_InitalCreate")]
+    [Migration("20201228140854_InitalCreate")]
     partial class InitalCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -271,12 +271,6 @@ namespace GoodWeebs.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DateFinished")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateStarted")
-                        .HasColumnType("datetime2");
-
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
@@ -386,12 +380,6 @@ namespace GoodWeebs.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateFinished")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateStarted")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DeletedOn")

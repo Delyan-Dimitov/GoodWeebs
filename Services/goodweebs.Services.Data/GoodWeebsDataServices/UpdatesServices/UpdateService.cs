@@ -98,6 +98,7 @@
                                     SeriesId = update.ContentId,
                                     Content = string.Format(SeriesUpdateViewModel.WatchedContentString, update.UserDisplayName, update.ContentTitle),
                                     UpdateId = update.Id,
+                                    UserId = update.UserId,
                                     UserDisplayName = update.UserDisplayName,
                                 });
                         }
@@ -109,6 +110,7 @@
                                     SeriesId = update.ContentId,
                                     Content = string.Format(SeriesUpdateViewModel.WatchingContentString, update.UserDisplayName, update.ContentTitle),
                                     UpdateId = update.Id,
+                                    UserId = update.UserId,
                                     UserDisplayName = update.UserDisplayName,
                                 });
                         }
@@ -120,6 +122,7 @@
                                     SeriesId = update.ContentId,
                                     Content = string.Format(SeriesUpdateViewModel.WantToWatchContentString, update.UserDisplayName, update.ContentTitle),
                                     UpdateId = update.Id,
+                                    UserId = update.UserId,
                                     UserDisplayName = update.UserDisplayName,
                                 });
                         }
@@ -134,6 +137,7 @@
                                     SeriesId = update.ContentId,
                                     Content = string.Format(SeriesUpdateViewModel.ReadContentString, update.UserDisplayName, update.ContentTitle),
                                     UpdateId = update.Id,
+                                    UserId = update.UserId,
                                     UserDisplayName = update.UserDisplayName,
                                 });
                         }
@@ -145,6 +149,7 @@
                                     SeriesId = update.ContentId,
                                     Content = string.Format(SeriesUpdateViewModel.ReadingContentString, update.UserDisplayName, update.ContentTitle),
                                     UpdateId = update.Id,
+                                    UserId = update.UserId,
                                     UserDisplayName = update.UserDisplayName,
                                 });
                         }
@@ -156,6 +161,7 @@
                                     SeriesId = update.ContentId,
                                     Content = string.Format(SeriesUpdateViewModel.WantToReadContentString, update.UserDisplayName, update.ContentTitle),
                                     UpdateId = update.Id,
+                                    UserId = update.UserId,
                                     UserDisplayName = update.UserDisplayName,
                                 });
                         }

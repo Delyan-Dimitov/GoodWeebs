@@ -40,7 +40,7 @@
 
         public async Task RequestFriend(string requesterId, string requesteeId)
         {
-            Friends friendship = null;
+            Friends friendship = new Friends();
             if (this.FrindshipExists(requesterId, requesteeId))
             {
                 friendship = this.friendsRepo.AllAsNoTrackingWithDeleted().First(x =>
@@ -48,10 +48,10 @@
                 (x.FriendUserId == requesterId && x.MainUserId == requesteeId));
             }
 
-            if (!this.FrindshipExists(requesterId, requesteeId) || (this.FrindshipExists(requesterId, requesteeId) && friendship.IsDeleted))
+            if (!this.FrindshipExists(requesterId, requesteeId) && !this.FrindshipExists(requesterId, requesteeId))
             {
                 var requester = await this.userManager.FindByIdAsync(requesterId);
-                var requestee = await this.userManager.FindByIdAsync(requesterId);
+                var requestee = await this.userManager.FindByIdAsync(requesteeId);
                 await this.friendRequestRepo.AddAsync(new FriendRequest { Requester = requester, Requestee = requestee });
                 await this.friendRequestRepo.SaveChangesAsync();
             }
@@ -71,14 +71,14 @@
         {
             var friends = this.friendsRepo
                 .AllAsNoTrackingWithDeleted()
-                .First(x =>
+                .Where(x =>
                 (x.FriendUserId == addedId && x.MainUserId == adderId) |
-                (x.FriendUserId == adderId && x.MainUserId == addedId));
+                (x.FriendUserId == adderId && x.MainUserId == addedId)).FirstOrDefault();
             if (friends == null)
             {
                 var adder = await this.userManager.FindByIdAsync(adderId);
                 var added = await this.userManager.FindByIdAsync(addedId);
-                var friend = new Friends { MainUser = adder, FriendUser = added, MainUserId = adderId, FriendUserId = addedId };
+                var friend = new Friends { MainUser = adder, FriendUser = added };
                 await this.friendsRepo.AddAsync(friend);
                 await this.friendsRepo.SaveChangesAsync();
             }
@@ -106,13 +106,21 @@
             }
         }
 
-        private bool FrindshipExists(string mainUserId, string secondUserId)
+        public bool FrindshipExists(string mainUserId, string secondUserId)
         {
             return this.friendsRepo
                  .AllAsNoTrackingWithDeleted()
                  .Any(x =>
                  (x.FriendUserId == secondUserId && x.MainUserId == mainUserId) |
                  (x.FriendUserId == mainUserId && x.MainUserId == secondUserId));
+        }
+        public bool FrindshipRequestExists(string mainUserId, string secondUserId)
+        {
+            return this.friendRequestRepo
+                 .AllAsNoTrackingWithDeleted()
+                 .Any(x =>
+                 (x.RequesteeId == secondUserId && x.RequesterId == mainUserId) |
+                 (x.RequesteeId == mainUserId && x.RequesterId == secondUserId));
         }
 
         public async Task<FriendsListViewModel> GetAllFriends(string userId)
@@ -150,7 +158,7 @@
         public async Task<FriendRequestListViewModel> GetAllFriendRequests(string userId)
         {
             var requests = this.friendRequestRepo.AllAsNoTracking().Where(x => x.RequesteeId == userId);
-            FriendRequestListViewModel model = null;
+            FriendRequestListViewModel model = new FriendRequestListViewModel();
             if (requests == null)
             {
                 return model;
@@ -161,8 +169,6 @@
                 {
                     var sender = await this.userManager.FindByIdAsync(request.RequesterId);
                     model.FriendRequests.Add(new FriendRequestViewModel { Id = request.Id, Sender = new ProfileViewModel { Id = sender.Id, AvatarUrl = sender.AvatarUrl, DisplayName = sender.DisplayName } });
-
-                    // TODO cleanest code i have written in my life :)
                 }
             }
             return model;

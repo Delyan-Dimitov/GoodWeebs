@@ -12,9 +12,9 @@
 
        MangaViewModel GetInfoById(int id);
 
-       Task<IEnumerable<MangaViewModel>> GetTopGlobalAsync(int amount); // TODO MAKE THE ANIME VERSION OF THIS RETURN VIEW MODEL TOO
+       Task<IEnumerable<MangaInListViewModel>> GetTopGlobalAsync(int amount); 
 
-       IEnumerable<MangaViewModel> GetViewModels(IEnumerable<Manga> mangas);
+       IEnumerable<MangaInListViewModel> GetViewModels(IEnumerable<Manga> mangas);
 
        IEnumerable<MangaViewModel> GetSimilar(int id, int amount);
 

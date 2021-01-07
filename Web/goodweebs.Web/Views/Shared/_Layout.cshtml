@@ -12,6 +12,7 @@
     <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script>
 </head>
 <body>
+    <partial name="_CookieConsentPartial" />
     <header>
         <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark static-top">
             <div class="container">
@@ -49,6 +50,10 @@
                             </li>
                             <li class="nav-item">
                                 <a asp-area="" asp-controller="Users" asp-action="MyProfile" class="nav-link">Profile</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-area="" asp-controller="Group" asp-action="All" class="nav-link">Groups</a>
                             </li>
 
                             <li class="nav-item">

@@ -1,13 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "Ktx527FWegADIKAcmSQCoTJpg9LsqjZUKCAgo4RZWPbnqgjvQaEGthIzYaG/sMcPRXh4zJ5JVHeD8d78gnzY2g==",
+  "dgSpecHash": "oFc1tT5gbB+Zaztx0yZ9NuI+BOl4Hf15BtvIBGa7b1zLyFEgkM8jZzmA69HBvBX2exZF7//KcStap11UCZdltA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Data\\GoodWeebs.Services.Data.csproj",
+  "projectFilePath": "C:\\Users\\gunex\\Desktop\\BrickWork\\GoodWeebs\\Services\\goodweebs.Services.Data\\GoodWeebs.Services.Data.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\gunex\\.nuget\\packages\\anglesharp\\0.14.0\\anglesharp.0.14.0.nupkg.sha512",
+    "C:\\Users\\gunex\\.nuget\\packages\\anglesharp.css\\0.14.2\\anglesharp.css.0.14.2.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\azure.core\\1.6.0\\azure.core.1.6.0.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\azure.storage.blobs\\12.7.0\\azure.storage.blobs.12.7.0.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\azure.storage.common\\12.6.0\\azure.storage.common.12.6.0.nupkg.sha512",
+    "C:\\Users\\gunex\\.nuget\\packages\\htmlsanitizer\\5.0.372\\htmlsanitizer.5.0.372.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",

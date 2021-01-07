@@ -29,10 +29,40 @@ else
                     <tr>
                         <th scope="row">@item.Id</th>
                         <td>@item.Title</td>
+                        @if (Model.MyProfile)
+                        {
+                            <td>
+                                <a asp-action="AddToWatched" asp-route-id="@item.Id">
+                                    <button type="button" class="btn btn-warning">Watched</button>
+                                </a>
+                            </td>
                         <td>
-                                <a type="button"  asp-action="AddToWatched" asp-route-id="@item.Id" class="btn btn-warning">Watched</a>
-                                <a type="button" asp-action="RemoveFromWatching" asp-route-id="@item.Id" class="btn btn-warning">Remove</a>
-                        </td>
+                                <a asp-action="RemoveFromWatching" asp-route-id="@item.Id">
+                                    <button type="button" class="btn btn-warning">Remove</button>
+                                </a>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                <a asp-action="AddToWatched" asp-route-id="@item.Id">
+                                    <button type="button" class="btn btn-warning">Watched</button>
+                                </a>
+                            </td>
+
+                            <td>
+
+                                <a asp-action="AddToWatching" asp-route-id="@item.Id">
+                                    <button type="button" class="btn btn-warning">Watching</button>
+                                </a>
+                            </td>
+                            <td>
+
+                                <a asp-action="AddToWantToWatch" asp-route-id="@item.Id">
+                                    <button type="button" class="btn btn-warning">Want to watch</button>
+                                </a>
+                            </td>
+                        }
                     </tr>
                 }
 

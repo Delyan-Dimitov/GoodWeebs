@@ -2,6 +2,7 @@
 {
     public class ProfileViewModel
     {
+        public bool CanRequestFriendship { get; set; }
         public string Id { get; set; }
 
         public string DisplayName { get; set; }

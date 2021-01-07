@@ -501,13 +501,6 @@ C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\Micro
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\Microsoft.Azure.Functions.Extensions.dll
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\Microsoft.Azure.WebJobs.Host.dll
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\Microsoft.Azure.WebJobs.dll
-C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
-C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.GoodWeebs - Web Deploy.json
-C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.json
-C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\GoodWeebs - Web Deploy\mssql1.arm.json
-C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\GoodWeebs - Web Deploy\profile.arm.json
-C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\GoodWeebs - Web Deploy\storage1.arm.json
-C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\GoodWeebs - Web Deploy\storage2.arm.json
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\appsettings.Production.json
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\AngleSharp.dll
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\bin\Debug\netcoreapp3.1\AngleSharp.Css.dll
@@ -521,3 +514,6 @@ C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\Razor
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\ShowRecoveryCodes.cshtml.g.cs
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml.g.cs
 C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml.g.cs
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\Razor\Views\Home\_ReccomendationsPartial.cshtml.g.cs
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\Razor\Views\Home\_UpdatesPartial.cshtml.g.cs
+C:\Users\gunex\Desktop\GoodWeebs\Web\goodweebs.Web\obj\Debug\netcoreapp3.1\scopedcss\bundle\GoodWeebs.web.styles.css

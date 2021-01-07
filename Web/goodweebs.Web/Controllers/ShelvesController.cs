@@ -7,9 +7,11 @@
     using GoodWeebs.Services.Data.GoodWeebsDataServices.ShelvesServices;
     using GoodWeebs.Services.Data.GoodWeebsDataServices.UpdatesServices;
     using GoodwWebs.Services.Data.GoodWeebsDataServices.ShelvesServices;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
 
+    [Authorize]
     public class ShelvesController : BaseController
     {
         private readonly IAnimeShelfService animeShelfService;
@@ -29,14 +31,13 @@
             this.updateService = updateService;
         }
 
-        [Route("Shelves/Watched/{userId}")]
-        public async Task<IActionResult> Watched(string userId)
+        public async Task<IActionResult> Watched(string id)
         {
             var myId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            var model = await this.animeShelfService.GetWatched(userId);
-            model.ProfileId = userId;
+            var model = await this.animeShelfService.GetWatched(id);
+            model.ProfileId = id;
 
-            if (myId == userId)
+            if (myId == id)
             {
                 model.MyProfile = true;
             }
@@ -44,34 +45,37 @@
             return this.View(model);
         }
 
-        [Route("Shelves/Watching/{userId}")]
-        public async Task<IActionResult> WatchingAsync(string userId)
-        {
-            var model = await this.animeShelfService.GetWatching(userId);
-            model.ProfileId = userId;
-            return this.View(model);
-        }
-
-        [Route("Shelves/WantToWatch/{userId}")]
-        public async Task<IActionResult> WantToWatchAsync(string userId)
+        public async Task<IActionResult> WatchingAsync(string id)
         {
             var myId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            var model = await this.animeShelfService.GetWantToWatch(userId); // TODO rename
-            model.ProfileId = userId;
-            if (myId == userId)
+            var model = await this.animeShelfService.GetWatching(id);
+            model.ProfileId = id;
+            if (myId == id)
             {
                 model.MyProfile = true;
             }
             return this.View(model);
         }
 
-        [Route("Shelves/Read/{userId}")]
-        public async Task<IActionResult> ReadAsync(string userId)
+        public async Task<IActionResult> WantToWatchAsync(string id)
+        {
+            var myId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var model = await this.animeShelfService.GetWantToWatch(id); // TODO rename
+            model.ProfileId = id;
+            if (myId == id)
+            {
+                model.MyProfile = true;
+            }
+            return this.View(model);
+        }
+
+        public async Task<IActionResult> ReadAsync(string id)
         {
 
             var myId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            var model = await this.mangaShelfService.GetRead(userId);
-            if (myId == userId)
+            var model = await this.mangaShelfService.GetRead(id);
+            model.ProfileId = id; 
+            if (myId == id)
             {
                 model.MyProfile = true;
             }
@@ -79,24 +83,24 @@
             return this.View(model);
         }
 
-        [Route("Shelves/Reading/{userId}")]
-        public async Task<IActionResult> ReadingAsync(string userId)
+        public async Task<IActionResult> ReadingAsync(string id)
         {
             var myId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            var model = await this.mangaShelfService.GetReading(userId);
-            if (myId == userId)
+            var model = await this.mangaShelfService.GetReading(id);
+            model.ProfileId = id;
+            if (myId == id)
             {
                 model.MyProfile = true;
             }
             return this.View(model);
         }
 
-        [Route("Shelves/WantToRead/{userId}")]
-        public async Task<IActionResult> WantToReadAsync(string userId)
+        public async Task<IActionResult> WantToReadAsync(string id)
         {
             var myId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            var model = await this.mangaShelfService.GetWantToRead(userId);
-            if (myId == userId)
+            var model = await this.mangaShelfService.GetWantToRead(id);
+            model.ProfileId = id;
+            if (myId == id)
             {
                 model.MyProfile = true;
             }
@@ -104,116 +108,115 @@
         }
 
 
-        [Route("Shelves/AddToRead/{mangaId}")]
-        public async Task<IActionResult> AddToRead(int animeId)
+        public async Task<IActionResult> AddToRead(int id)
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            await this.mangaShelfService.AddToRead(userId, animeId);
-            return this.RedirectToAction("Read/{userId}");
-        }
-
-        [Route("Shelves/AddToReading/{mangaId}")]
-        public async Task<IActionResult> AddToReading(int animeId)
-        {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            await this.mangaShelfService.AddToReading(userId, animeId);
-            return this.RedirectToAction("Reading/{userId}");
-        }
-
-
-        [Route("Shelves/AddToWantToRead/{animeId}")]
-
-        public async Task<IActionResult> AddToWantToRead(int animeId)
-        {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            await this.mangaShelfService.AddToWant(userId, animeId);
-            return this.RedirectToAction("WantToRead/{userId}");
-        }
-
-        [Route("Shelves/AddToWatched/{animeId}")]
-        public async Task<IActionResult> AddToWatched(int animeId)
-        {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            var successfull = await this.animeShelfService.AddToWatched(userId, animeId);
+            var successfull = await this.mangaShelfService.AddToRead(userId, id);
             if (successfull)
             {
-                await this.updateService.CreateSeriesUpdate(userId, animeId, 1, "Watched");
+                await this.updateService.CreateSeriesUpdate(userId, id, 2, "Read");
             }
-
-            return this.RedirectToAction("Watched", new { id = userId });
-        }
-
-        [Route("Shelves/AddToWatching/{animeId}")]
-        public async Task<IActionResult> AddToWatching(int animeId)
-        {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            var successfull = await this.animeShelfService.AddToWatching(userId, animeId);
-            if (successfull)
-            {
-                await this.updateService.CreateSeriesUpdate(userId, animeId, 1, "Watching");
-            }
-
-            return this.RedirectToAction("Watching", new { id = userId });
-        }
-
-        [Route("Shelves/AddToWantToWatch/{animeId}")]
-        public async Task<IActionResult> AddToWantToWatch(int animeId)
-        {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            var successfull = await this.animeShelfService.AddToWantToWatch(userId, animeId);
-            if (successfull)
-            {
-                await this.updateService.CreateSeriesUpdate(userId, animeId, 1, "WantToWatch");
-            }
-
-            return this.RedirectToAction("WantToWatch", new { id = userId });
-        }
-
-        [Route("Shelves/RemoveFromWatched/{animeId}")]
-        public async Task<IActionResult> RemoveFromWatched(int animeId)
-        {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            await this.animeShelfService.RemoveFromWatched(userId, animeId);
-            return this.RedirectToAction("Watched", new { id = userId });
-        }
-
-        [Route("Shelves/RemoveFromWatching/{animeId}")]
-        public async Task<IActionResult> RemoveFromWatching(int animeId)
-        {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            await this.animeShelfService.RemoveFromWatching(userId, animeId);
-            return this.RedirectToAction("Watching", new { id = userId });
-        }
-
-        [Route("Shelves/RemoveFromWantToWatch/{animeId}")]
-        public async Task<IActionResult> RemoveFromWantToWatch(int animeId)
-        {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            await this.animeShelfService.RemoveFromWant(userId, animeId);
-            return this.RedirectToAction("WantToWatch", new { id = userId });
-        }
-
-        [Route("Shelves/RemoveFromRead/{mangaId}")]
-        public async Task<IActionResult> RemoveFromRead(int mangaId)
-        {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            await this.mangaShelfService.RemoveFromRead(userId, mangaId);
             return this.RedirectToAction("Read", new { id = userId });
         }
 
-        [Route("Shelves/RemoveFromReading/{mangaId}")]
-        public async Task<IActionResult> RemoveFromReading(int mangaId)
+        public async Task<IActionResult> AddToReading(int id)
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            await this.mangaShelfService.RemoveFromReading(userId, mangaId);
-            return this.RedirectToAction("Reading/{userId}");
+            var successfull = await this.mangaShelfService.AddToReading(userId, id);
+            if (successfull)
+            {
+                await this.updateService.CreateSeriesUpdate(userId, id, 2, "Reading");
+            }
+            return this.RedirectToAction("Reading", new { id = userId });
         }
 
-        [Route("Shelves/RemoveFromWantRead/{animeId}")]
-        public async Task<IActionResult> RemoveFromWantToRead(int mangaId)
+
+
+        public async Task<IActionResult> AddToWantToRead(int id)
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            await this.mangaShelfService.RemoveFromWant(userId, mangaId);
+            var successfull = await this.mangaShelfService.AddToWant(userId, id);
+            if (successfull)
+            {
+                await this.updateService.CreateSeriesUpdate(userId, id, 1, "WantToRead");
+            }
+            return this.RedirectToAction("WantToRead", new { id = userId });
+        }
+
+        public async Task<IActionResult> AddToWatched(int id)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var successfull = await this.animeShelfService.AddToWatched(userId, id);
+            if (successfull)
+            {
+                await this.updateService.CreateSeriesUpdate(userId, id, 1, "Watched");
+            }
+
+            return this.RedirectToAction("Watched", new { id = userId });
+        }
+        public async Task<IActionResult> AddToWatching(int id)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var successfull = await this.animeShelfService.AddToWatching(userId, id);
+            if (successfull)
+            {
+                await this.updateService.CreateSeriesUpdate(userId, id, 1, "Watching");
+            }
+
+            return this.RedirectToAction("Watching", new { id = userId });
+        }
+
+        public async Task<IActionResult> AddToWantToWatch(int id)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var successfull = await this.animeShelfService.AddToWantToWatch(userId, id);
+            if (successfull)
+            {
+                await this.updateService.CreateSeriesUpdate(userId, id, 1, "WantToWatch");
+            }
+
+            return this.RedirectToAction("WantToWatch", new { id = userId });
+        }
+
+        public async Task<IActionResult> RemoveFromWatched(int id)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            await this.animeShelfService.RemoveFromWatched(userId, id);
+            return this.RedirectToAction("Watched", new { id = userId });
+        }
+
+        public async Task<IActionResult> RemoveFromWatching(int id)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            await this.animeShelfService.RemoveFromWatching(userId, id);
+            return this.RedirectToAction("Watching", new { id = userId });
+        }
+
+        public async Task<IActionResult> RemoveFromWantToWatch(int id)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            await this.animeShelfService.RemoveFromWant(userId, id);
+            return this.RedirectToAction("WantToWatch", new { id = userId });
+        }
+
+        public async Task<IActionResult> RemoveFromRead(int id)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            await this.mangaShelfService.RemoveFromRead(userId, id);
+            return this.RedirectToAction("Read", new { id = userId });
+        }
+
+        public async Task<IActionResult> RemoveFromReading(int id)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            await this.mangaShelfService.RemoveFromReading(userId, id);
+            return this.RedirectToAction("Reading", new { id = userId });
+        }
+
+        public async Task<IActionResult> RemoveFromWantToRead(int id)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            await this.mangaShelfService.RemoveFromWant(userId, id);
             return this.RedirectToAction("WantToRead", new { id = userId });
 
         }

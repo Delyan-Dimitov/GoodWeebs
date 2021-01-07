@@ -1,0 +1,16 @@
+﻿@model GoodWeebs.Web.ViewModels.AnimeViewModels.AnimeReccViewModel
+
+@foreach (var anime in Model.Animes)
+{<div class="col-md-2">
+    <a class="text-dark text-decoration-none box" asp-controller="Anime" asp-action="AnimeInfo" asp-route-id="@anime.AnimeId">
+        <div class="card" style="width: 12rem;">
+            <img class="card-img-top img-fluid" src="@anime.PictureUrl" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@anime.Title</h5>
+                <p class="card-text">@anime.Synopsis.Substring(0, 30)...</p>
+            </div>
+
+        </div>
+    </a>
+</div>
+}

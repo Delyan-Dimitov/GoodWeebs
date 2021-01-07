@@ -41,18 +41,19 @@
 
         public MangaViewModel GetInfoById(int id)
         {
-            var manga = this.mangaRepo.AllAsNoTracking().Where(x => x.Id == id).Select(x => new MangaViewModel
+            var manga = this.mangaRepo.AllAsNoTracking().Where(x => x.Id == id).FirstOrDefault();
+            var model = new MangaViewModel
             {
-                Title = x.Title,
-                Authors = x.Authors,
-                Synopsis = x.Synopsis,
-                Volumes = x.Volumes,
-                Chapters = x.Chapters,
-                Published = x.Published,
-                PictureUrl = x.PictureUrl,
-                Genres = x.Genres,
-            }).ToList();
-            return manga[0];
+                Title = manga.Title,
+                Authors = manga.Authors,
+                Synopsis = manga.Synopsis,
+                Volumes = manga.Volumes,
+                Chapters = manga.Chapters,
+                Published = manga.Published,
+                PictureUrl = manga.PictureUrl,
+                Genres = manga.Genres,
+            };
+            return model;
         }
 
         public IEnumerable<MangaViewModel> GetSimilar(int id, int amount)
@@ -103,7 +104,7 @@
             return result;
         }
 
-        public async Task<IEnumerable<MangaViewModel>> GetTopGlobalAsync(int amount)
+        public async Task<IEnumerable<MangaInListViewModel>> GetTopGlobalAsync(int amount)
         {
             var query = from p in this.dbContext.Set<ReadMap>()
                         group p by p.MangaId into g
@@ -125,24 +126,17 @@
             return this.GetViewModels(topManga);
         }
 
-        public IEnumerable<MangaViewModel> GetViewModels(IEnumerable<Manga> mangas)
+        public IEnumerable<MangaInListViewModel> GetViewModels(IEnumerable<Manga> mangas)
         {
-            var mangaViewModels = new List<MangaViewModel>();
+            var mangaViewModels = new List<MangaInListViewModel>();
             foreach (var manga in mangas)
             {
-                mangaViewModels.Add(new MangaViewModel()
+                mangaViewModels.Add(new MangaInListViewModel()
                 {
                     Title = manga.Title,
-                    Status = manga.Status,
-                    Synopsis = manga.Synopsis,
-                    Chapters = manga.Chapters,
-                    Volumes = manga.Volumes,
                     PictureUrl = manga.PictureUrl,
-                    Authors = manga.PictureUrl,
-                    Genres = manga.Genres,
-                    Published = manga.Published,
-                    Type = manga.Type,
-                    Id = manga.Id,
+                    MangaId = manga.Id,
+                    Synposis = manga.Synopsis
                 });
             }
 

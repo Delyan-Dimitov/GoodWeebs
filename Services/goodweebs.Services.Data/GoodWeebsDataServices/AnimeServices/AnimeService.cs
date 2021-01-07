@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 using Entities;
 using Entities.Maps;
+using Ganss.XSS;
 using global::GoodWeebs.Data.Common.Repositories;
 using global::GoodWeebs.Data.Models;
 using GoodWeebs.Data;
@@ -25,7 +26,6 @@ namespace GoodWeebs.Services.GoodWeebs.Services.AnimeServices
             this.animes = anime;
             this.watchedMaps = watchedMaps;
             this.dbContext = dbContext;
-            this.animeRepo = animeRepo;
         }
 
         public ICollection<AnimeInListViewModel> GetAll(int page, int itemsPerPage = 12)
@@ -63,7 +63,7 @@ namespace GoodWeebs.Services.GoodWeebs.Services.AnimeServices
 
             foreach (var item in query)
             {
-                topAnime.Add( this.animes.AllAsNoTracking().FirstOrDefault(x => x.Id == item.Key));
+                topAnime.Add(this.animes.AllAsNoTracking().FirstOrDefault(x => x.Id == item.Key));
             }
             var animesAsViewModel = new List<AnimeInListViewModel>();
             foreach (var item in topAnime)
@@ -78,23 +78,26 @@ namespace GoodWeebs.Services.GoodWeebs.Services.AnimeServices
 
         public AnimeViewModel GetById(int id)
         {
-            var anime = this.dbContext.Animes.Where(x => x.Id == id).Select(x => new AnimeViewModel
+            var sanitizer = new HtmlSanitizer();
+            var anime = this.animes.AllAsNoTracking().Where(x => x.Id == id).FirstOrDefault();
+            var model = new AnimeViewModel
             {
-                Title = x.Title,
-                Studios = x.Studios,
-                Synopsis = x.Synopsis,
-                Rating = x.Rating,
-                Episodes = x.Episodes.ToString(), 
-                Duration = x.EpisodeDuration,
-                Aired = x.Aired,
-                PictureUrl = x.Picture,
-                Genres = x.Genres,
-            }).ToList();
-            return anime[0];
+                Title = anime.Title,
+                Studios = anime.Studios,
+                Synopsis = sanitizer.Sanitize( anime.Synopsis),
+                Rating = anime.Rating,
+                Episodes = anime.Episodes.ToString(),
+                Duration = anime.EpisodeDuration,
+                Aired = anime.Aired,
+                PictureUrl = anime.Picture,
+                Genres = anime.Genres,
+            };
+            return model;
         }
 
         public IEnumerable<AnimeViewModel> GetSimilar(int id, int amount)
         {
+
             var anime = this.GetById(id);
             var genres = anime.Genres.Split(", ").ToList();
             var vaguelySimilar = new List<AnimeViewModel>();
@@ -112,11 +115,11 @@ namespace GoodWeebs.Services.GoodWeebs.Services.AnimeServices
                     }).ToList());
             }
 
-            var bestMatches = this.GetBestHits(genres, vaguelySimilar, amount); 
+            var bestMatches = this.GetBestHits(genres, vaguelySimilar, amount);
             return bestMatches;
         }
 
-        public IEnumerable<AnimeViewModel> GetBestHits(IEnumerable<string> targets, IEnumerable<AnimeViewModel> collection, int amount) 
+        public IEnumerable<AnimeViewModel> GetBestHits(IEnumerable<string> targets, IEnumerable<AnimeViewModel> collection, int amount)
         {
             var result = new List<AnimeViewModel>();
             var leaderBoard = new Dictionary<AnimeViewModel, int>();

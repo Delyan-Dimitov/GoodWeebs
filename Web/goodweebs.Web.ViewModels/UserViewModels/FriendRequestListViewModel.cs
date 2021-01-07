@@ -7,6 +7,10 @@ namespace GoodWeebs.Web.ViewModels.UserViewModels
 {
     public class FriendRequestListViewModel
     {
+        public FriendRequestListViewModel()
+        {
+            FriendRequests = new List<FriendRequestViewModel>();
+        }
        public ICollection<FriendRequestViewModel> FriendRequests { get; set; }
     }
 }

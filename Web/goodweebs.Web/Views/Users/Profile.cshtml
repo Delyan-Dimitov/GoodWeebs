@@ -1,22 +1,24 @@
-﻿@model  GoodWeebs.Web.ViewModels.UserViewModels.ProfileViewModel
+﻿@model GoodWeebs.Web.ViewModels.UserViewModels.ProfileViewModel
 
-    <div class="container ">
-        <div class="row display-flex ">
-            <div class="col-md-2"></div>
-            <div class="col-md-8 border border-dark shadow p-3 mb-5 bg-white rounded">
-                <img src=@Model.AvatarUrl class="md-avatar rounded-circle size-4 mx-auto d-block" height="300">
-                <div class="text-center">
-                    <p class="display-4">@Model.DisplayName</p>
-                    <hr />
-                    <a class="text-decoration-none text-dark" asp-controller="Shelves" asp-action="Watched" asp-route-id=@Model.Id><p class="display-4">Anime Shelves</p></a>
-                    <hr />
-                    <a class="text-decoration-none text-dark" asp-controller="Shelves" asp-action="Read" asp-route-id=@Model.Id><p class="display-4">Manga Shelves</p></a>
-                    <hr>
-                    <p class="display-4">Groups</p>
-                    <hr>
-                    <p class="display-4">Bookmarks</p>
-                    <hr>
-                    <a class="text-decoration-none text-dark" asp-action="FriendsList" asp-route-id=@Model.Id><p class="display-4">Friends</p></a>
-                </div>
+<div class="container ">
+    <div class="row display-flex ">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 border border-dark shadow p-3 mb-5 bg-white rounded">
+            <img src=@Model.AvatarUrl class="md-avatar rounded-circle size-4 mx-auto d-block" height="300">
+            <div class="text-center">
+                <p class="display-4">@Model.DisplayName</p>
+                <hr />
+                <a class="text-decoration-none text-dark" asp-controller="Shelves" asp-action="Watched" asp-route-id=@Model.Id><p class="display-4">Anime Shelves</p></a>
+                <hr />
+                <a class="text-decoration-none text-dark" asp-controller="Shelves" asp-action="Read" asp-route-id=@Model.Id><p class="display-4">Manga Shelves</p></a>
+                <hr>
+                <a class="text-decoration-none text-dark" asp-action="FriendsList" asp-route-id=@Model.Id><p class="display-4">Friends</p></a>
+                <hr>
+                @if (Model.CanRequestFriendship)
+                {
+                    <a class="text-decoration-none text-dark" asp-action="SendFriendRequest" asp-route-id=@Model.Id><p class="display-4">Send Friend Request</p></a>
+                }
+
             </div>
         </div>
+    </div>

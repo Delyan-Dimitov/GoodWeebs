@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8fhC5O3zMdlmr2e/M1L+Gq4A2PyOi37c2Y4ChuYw1fFhPhUJyL95ps8yyEQVj41RDjxnEZWoSVeicgZwTI0pjw==",
+  "dgSpecHash": "iceTyneRAGSTTkchAEfG6DFsTCMaWS1BEqi4/TTt5psro6ofWtVZphS59J06Lmphk8QMAgw/GTVzdl88n9t50Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Services\\goodweebs.Services.Messaging\\GoodWeebs.Services.Messaging.csproj",
+  "projectFilePath": "C:\\Users\\gunex\\Desktop\\BrickWork\\GoodWeebs\\Services\\goodweebs.Services.Messaging\\GoodWeebs.Services.Messaging.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gunex\\.nuget\\packages\\azure.core\\1.6.0\\azure.core.1.6.0.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\azure.storage.blobs\\12.7.0\\azure.storage.blobs.12.7.0.nupkg.sha512",

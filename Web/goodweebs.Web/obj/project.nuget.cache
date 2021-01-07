@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6BwFEoTipCPhOcRSU7+3bBGlcno1ZaHhRm1SBDnRNI5mtOrCb3Ih2sNs1CkmicY7uW6mctgBKSb27BYdT/6R3Q==",
+  "dgSpecHash": "eHFifpdukhHw3tyXT9dIels6V7j0Krfz3KY9z/MWWpmHuJwcym6mOZQU35juvKCFp+jww1s8k5SlSYgZla/a/g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web\\GoodWeebs.web.csproj",
+  "projectFilePath": "C:\\Users\\gunex\\Desktop\\BrickWork\\GoodWeebs\\Web\\goodweebs.Web\\GoodWeebs.web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gunex\\.nuget\\packages\\anglesharp\\0.14.0\\anglesharp.0.14.0.nupkg.sha512",
     "C:\\Users\\gunex\\.nuget\\packages\\anglesharp.css\\0.14.2\\anglesharp.css.0.14.2.nupkg.sha512",

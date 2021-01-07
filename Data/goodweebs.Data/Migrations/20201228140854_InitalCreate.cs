@@ -182,9 +182,7 @@ namespace GoodWeebs.Data.Migrations
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
-                    ModifiedOn = table.Column<DateTime>(nullable: true),
-                    DateStarted = table.Column<DateTime>(nullable: false),
-                    DateFinished = table.Column<DateTime>(nullable: false)
+                    ModifiedOn = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -530,9 +528,7 @@ namespace GoodWeebs.Data.Migrations
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
-                    ModifiedOn = table.Column<DateTime>(nullable: true),
-                    DateStarted = table.Column<DateTime>(nullable: false),
-                    DateFinished = table.Column<DateTime>(nullable: false)
+                    ModifiedOn = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {

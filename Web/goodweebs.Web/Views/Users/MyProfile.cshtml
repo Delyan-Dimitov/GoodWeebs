@@ -12,11 +12,9 @@
                 <hr />
                 <a class="text-decoration-none text-dark" asp-controller="Shelves" asp-action="Read" asp-route-id=@Model.Id><p class="display-4">Manga Shelves</p></a>
                 <hr>
-                <p class="display-4">Groups</p>
-                <hr>
-                <p class="display-4">Bookmarks</p>
-                <hr>
                 <a class="text-decoration-none text-dark" asp-action="FriendsList" asp-route-id=@Model.Id><p class="display-4">Friends</p></a>
+                <hr>
+                <a class="text-decoration-none text-dark" asp-action="FriendRequests"><p class="display-4">Friend Requests</p></a>
             </div>
         </div>
         <div class="col-md-2"><a asp-area="Identity" asp-controller="Account" asp-action="Manage" class="btn btn-primary"> Edit</a></div>

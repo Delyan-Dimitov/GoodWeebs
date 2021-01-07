@@ -44,7 +44,7 @@
         public List<AnimeInListViewModel> FindRecomenations(string userId)
         {
             var topGenres = this.GetTopGenres(userId);
-            var vaguelySimilar = this.FindVaguelySimilar(topGenres);
+            var vaguelySimilar = this.FindVaguelySimilar(topGenres).Distinct().ToList();
             var leaderBoard = this.CreateLeaderBoard(vaguelySimilar);
             leaderBoard = this.ProcessPoints(leaderBoard, topGenres, userId);
             var sortedLeaderBoard = leaderBoard.OrderByDescending(x => x.Value).ToDictionary(z => z.Key, y => y.Value);

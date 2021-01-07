@@ -2806,11 +2806,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data.Models\\GoodWeebs.Data.Models.csproj",
+      "projectUniqueName": "C:\\Users\\gunex\\Desktop\\BrickWork\\GoodWeebs\\Data\\goodweebs.Data.Models\\GoodWeebs.Data.Models.csproj",
       "projectName": "GoodWeebs.Data.Models",
-      "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data.Models\\GoodWeebs.Data.Models.csproj",
+      "projectPath": "C:\\Users\\gunex\\Desktop\\BrickWork\\GoodWeebs\\Data\\goodweebs.Data.Models\\GoodWeebs.Data.Models.csproj",
       "packagesPath": "C:\\Users\\gunex\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data.Models\\obj\\",
+      "outputPath": "C:\\Users\\gunex\\Desktop\\BrickWork\\GoodWeebs\\Data\\goodweebs.Data.Models\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\gunex\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2826,8 +2826,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data.Common\\GoodWeebs.Data.Common.csproj": {
-              "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Data\\goodweebs.Data.Common\\GoodWeebs.Data.Common.csproj"
+            "C:\\Users\\gunex\\Desktop\\BrickWork\\GoodWeebs\\Data\\goodweebs.Data.Common\\GoodWeebs.Data.Common.csproj": {
+              "projectPath": "C:\\Users\\gunex\\Desktop\\BrickWork\\GoodWeebs\\Data\\goodweebs.Data.Common\\GoodWeebs.Data.Common.csproj"
             }
           }
         }

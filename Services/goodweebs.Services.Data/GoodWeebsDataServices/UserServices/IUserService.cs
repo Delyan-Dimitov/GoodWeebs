@@ -19,5 +19,8 @@
         Task<FriendsListViewModel> GetAllFriends(string userId);
 
         Task<FriendRequestListViewModel> GetAllFriendRequests(string userId);
+
+        bool FrindshipExists(string mainUserId, string secondUserId);
+        bool FrindshipRequestExists(string mainUserId, string secondUserId);
     }
 }

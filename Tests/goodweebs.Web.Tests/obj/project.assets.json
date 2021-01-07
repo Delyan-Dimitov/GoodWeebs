@@ -4276,6 +4276,7 @@
           "GoodWeebs.Data.Models": "1.0.0",
           "GoodWeebs.Services.Mapping": "1.0.0",
           "GoodWeebs.Web.ViewModels": "1.0.0",
+          "HtmlSanitizer": "5.0.372",
           "Microsoft.Azure.Functions.Extensions": "1.1.0",
           "SendGrid": "9.22.0"
         },
@@ -17281,11 +17282,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Tests\\goodweebs.Web.Tests\\goodweebs.Web.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\gunex\\Desktop\\BrickWork\\GoodWeebs\\Tests\\goodweebs.Web.Tests\\goodweebs.Web.Tests.csproj",
       "projectName": "goodweebs.Web.Tests",
-      "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Tests\\goodweebs.Web.Tests\\goodweebs.Web.Tests.csproj",
+      "projectPath": "C:\\Users\\gunex\\Desktop\\BrickWork\\GoodWeebs\\Tests\\goodweebs.Web.Tests\\goodweebs.Web.Tests.csproj",
       "packagesPath": "C:\\Users\\gunex\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Tests\\goodweebs.Web.Tests\\obj\\",
+      "outputPath": "C:\\Users\\gunex\\Desktop\\BrickWork\\GoodWeebs\\Tests\\goodweebs.Web.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\gunex\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -17301,8 +17302,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web\\GoodWeebs.web.csproj": {
-              "projectPath": "C:\\Users\\gunex\\Desktop\\GoodWeebs\\Web\\goodweebs.Web\\GoodWeebs.web.csproj"
+            "C:\\Users\\gunex\\Desktop\\BrickWork\\GoodWeebs\\Web\\goodweebs.Web\\GoodWeebs.web.csproj": {
+              "projectPath": "C:\\Users\\gunex\\Desktop\\BrickWork\\GoodWeebs\\Web\\goodweebs.Web\\GoodWeebs.web.csproj"
             }
           }
         }

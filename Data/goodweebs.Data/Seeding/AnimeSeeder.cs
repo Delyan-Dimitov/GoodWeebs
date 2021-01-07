@@ -22,7 +22,7 @@
                 return;
             }
             var blob = serviceProvider.GetRequiredService<BlobServiceClient>();
-            var container = blob.GetBlobContainerClient("dbseeders");
+            var container = blob.GetBlobContainerClient("goodweebs");
             var files = container.GetBlobClient("animes.json");
             string json = null;
             var stream = files.OpenRead();

@@ -44,7 +44,7 @@
             var result = false;
             if (!this.IsInWant(userId, mangaId) &&
                 !this.IsInRead(userId, mangaId) &&
-                !this.IsInWant(userId, mangaId))
+                !this.IsInReading(userId, mangaId))
             {
                 var user = await this.userManager.FindByIdAsync(userId);
                 var manga = this.mangaRepo.All().Where(x => x.Id == mangaId).FirstOrDefault();
@@ -65,16 +65,16 @@
             if (this.IsInWant(userId, mangaId))
             {
                 var toDelete = this.wantRepo.AllAsNoTracking().First(x => x.UserId == userId && x.MangaId == mangaId);
-                this.wantRepo.Delete(toDelete);
+                this.wantRepo.HardDelete(toDelete);
                 await this.wantRepo.SaveChangesAsync();
                 await this.readRepo.AddAsync(new ReadMap { User = user, Manga = manga });
                 await this.readRepo.SaveChangesAsync();
                 result = true;
             }
-            else if (this.IsInRead(userId, mangaId))
+            else if (this.IsInReading(userId, mangaId))
             {
                 var toDelete = this.readingRepo.AllAsNoTracking().First(x => x.UserId == userId && x.MangaId == mangaId);
-                this.readingRepo.Delete(toDelete);
+                this.readingRepo.HardDelete(toDelete);
                 await this.readingRepo.SaveChangesAsync();
                 await this.readRepo.AddAsync(new ReadMap { User = user, Manga = manga });
                 await this.readRepo.SaveChangesAsync();
@@ -86,6 +86,7 @@
                 await this.readRepo.SaveChangesAsync();
                 result = true;
             }
+
             return result;
         }
 
@@ -98,7 +99,7 @@
             if (this.IsInWant(userId, mangaId))
             {
                 var toDelete = this.wantRepo.AllAsNoTracking().First(x => x.UserId == userId && x.MangaId == mangaId);
-                this.wantRepo.Delete(toDelete);
+                this.wantRepo.HardDelete(toDelete);
                 await this.wantRepo.SaveChangesAsync();
                 await this.readingRepo.AddAsync(new CurrentlyReadingMap { User = user, Manga = manga });
                 result = true;
@@ -118,7 +119,7 @@
             if (this.IsInRead(userId, mangaId))
             {
                 var toDelete = this.readRepo.AllAsNoTracking().First(x => x.UserId == userId && x.MangaId == mangaId);
-                this.readRepo.Delete(toDelete);
+                this.readRepo.HardDelete(toDelete);
                 await this.readRepo.SaveChangesAsync();
             }
         }
@@ -128,7 +129,7 @@
             if (this.IsInReading(userId, mangaId))
             {
                 var toDelete = this.readingRepo.AllAsNoTracking().First(x => x.UserId == userId && x.MangaId == mangaId);
-                this.readingRepo.Delete(toDelete);
+                this.readingRepo.HardDelete(toDelete);
                 await this.readingRepo.SaveChangesAsync();
             }
         }
@@ -138,7 +139,7 @@
             if (this.IsInWant(userId, mangaId))
             {
                 var toDelete = this.wantRepo.AllAsNoTracking().First(x => x.UserId == userId && x.MangaId == mangaId);
-                this.wantRepo.Delete(toDelete);
+                this.wantRepo.HardDelete(toDelete);
                 await this.wantRepo.SaveChangesAsync();
             }
         }
@@ -147,11 +148,11 @@
         {
             var user = await this.userManager.FindByIdAsync(userId);
             var model = new ShelfViewModel();
-            model.ProfileId = userId;
             var read = this.readRepo.AllAsNoTracking().Where(x => x.UserId == userId).ToList();
             foreach (var map in read)
             {
-                model.ShelfItems.Add(new ShelfItemVIewModel { Id = map.Id, Title = map.Manga.Title });
+                var anime = this.mangaRepo.AllAsNoTracking().FirstOrDefault(x => x.Id == map.MangaId);
+                model.ShelfItems.Add(new ShelfItemVIewModel { Title = anime.Title, Id = anime.Id });
             }
 
             return model;
@@ -161,11 +162,11 @@
         {
             var user = await this.userManager.FindByIdAsync(userId);
             var model = new ShelfViewModel();
-            model.ProfileId = userId;
-            var read = this.readingRepo.AllAsNoTracking().Where(x => x.UserId == userId).ToList();
-            foreach (var map in read)
+            var reading = this.readingRepo.AllAsNoTracking().Where(x => x.UserId == userId).ToList();
+            foreach (var map in reading)
             {
-                model.ShelfItems.Add(new ShelfItemVIewModel { Id = map.Id, Title = map.Manga.Title });
+                var manga = this.mangaRepo.AllAsNoTracking().FirstOrDefault(x => x.Id == map.MangaId);
+                model.ShelfItems.Add(new ShelfItemVIewModel { Title = manga.Title, Id = manga.Id });
             }
 
             return model;
@@ -175,11 +176,11 @@
         {
             var user = await this.userManager.FindByIdAsync(userId);
             var model = new ShelfViewModel();
-            model.ProfileId = userId;
-            var read = this.wantRepo.AllAsNoTracking().Where(x => x.UserId == userId).ToList();
-            foreach (var map in read)
+            var want = this.wantRepo.AllAsNoTracking().Where(x => x.UserId == userId).ToList();
+            foreach (var map in want)
             {
-                model.ShelfItems.Add(new ShelfItemVIewModel { Id = map.Id, Title = map.Manga.Title });
+                var manga = this.mangaRepo.AllAsNoTracking().FirstOrDefault(x => x.Id == map.MangaId);
+                model.ShelfItems.Add(new ShelfItemVIewModel { Title = manga.Title, Id = manga.Id });
             }
 
             return model;

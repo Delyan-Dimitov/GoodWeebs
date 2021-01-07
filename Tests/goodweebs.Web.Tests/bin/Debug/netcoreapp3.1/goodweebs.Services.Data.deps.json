@@ -14,12 +14,35 @@
           "GoodWeebs.Data.Models": "1.0.0",
           "GoodWeebs.Services.Mapping": "1.0.0",
           "GoodWeebs.Web.ViewModels": "1.0.0",
+          "HtmlSanitizer": "5.0.372",
           "Microsoft.Azure.Functions.Extensions": "1.1.0",
           "SendGrid": "9.22.0",
           "StyleCop.Analyzers": "1.2.0-beta.205"
         },
         "runtime": {
           "GoodWeebs.Services.Data.dll": {}
+        }
+      },
+      "AngleSharp/0.14.0": {
+        "dependencies": {
+          "System.Text.Encoding.CodePages": "4.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/AngleSharp.dll": {
+            "assemblyVersion": "0.14.0.0",
+            "fileVersion": "0.14.0.0"
+          }
+        }
+      },
+      "AngleSharp.Css/0.14.2": {
+        "dependencies": {
+          "AngleSharp": "0.14.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/AngleSharp.Css.dll": {
+            "assemblyVersion": "0.14.2.0",
+            "fileVersion": "0.14.2.0"
+          }
         }
       },
       "AutoMapper/10.1.1": {
@@ -71,6 +94,18 @@
           "lib/netstandard2.0/Azure.Storage.Common.dll": {
             "assemblyVersion": "12.6.0.0",
             "fileVersion": "12.600.20.56002"
+          }
+        }
+      },
+      "HtmlSanitizer/5.0.372": {
+        "dependencies": {
+          "AngleSharp": "0.14.0",
+          "AngleSharp.Css": "0.14.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/HtmlSanitizer.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.372.0"
           }
         }
       },
@@ -2161,6 +2196,20 @@
       "serviceable": false,
       "sha512": ""
     },
+    "AngleSharp/0.14.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-34w9I7nyszfEYBY8g7T3B0AtWlOivNh+QoWc3KECRwbmcNyqWmb4huihtmpH2Ds7rIRRHMMPv9yfPBxxjBn03g==",
+      "path": "anglesharp/0.14.0",
+      "hashPath": "anglesharp.0.14.0.nupkg.sha512"
+    },
+    "AngleSharp.Css/0.14.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2USpPu9V/+1iBwHpanBsqr1eR+3vxKe19ZsnejbZfxNOadsMvUUkJ+0OjMsQmT0ExSW4vjCKXq9K/JWv0ie8JQ==",
+      "path": "anglesharp.css/0.14.2",
+      "hashPath": "anglesharp.css.0.14.2.nupkg.sha512"
+    },
     "AutoMapper/10.1.1": {
       "type": "package",
       "serviceable": true,
@@ -2188,6 +2237,13 @@
       "sha512": "sha512-plL0m1CA4UVKYpQxs3PaKyVyGmY0Z4pcizXLrHwYgmh7MCeYnm1r1WrbflFrzeSOpFSycsbErj7qxt3qqpz4zA==",
       "path": "azure.storage.common/12.6.0",
       "hashPath": "azure.storage.common.12.6.0.nupkg.sha512"
+    },
+    "HtmlSanitizer/5.0.372": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Rk6siqO7S1m2dHttEQ8w2sTCEF5HWa5gU/bq8Z2zPALJtstMa9zSYwvuzE5ag2Hndj57Bn5iNAaYGih+EUkqRQ==",
+      "path": "htmlsanitizer/5.0.372",
+      "hashPath": "htmlsanitizer.5.0.372.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Antiforgery/2.2.0": {
       "type": "package",

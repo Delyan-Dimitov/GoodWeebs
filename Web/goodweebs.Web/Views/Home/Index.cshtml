@@ -1,51 +1,22 @@
-﻿@model GoodWeebs.Web.ViewModels.UpdateViewModels.UpdateListViewModel
+﻿@model GoodWeebs.Web.ViewModels.HomeViewModels.HomeViewModel
 @using GoodWeebs.Common
 @{
     this.ViewData["Title"] = "Home Page";
 }
+<h1 class="text-center display-4">Top anime recommendations for you!</h1>
+<div class="row">
+    
+    <div class="col-md-1"></div>
+        <partial name="_ReccomendationsPartial" model="@Model.AnimeReccomendations" />
+</div>
+<hr />
+<h1 class="text-center display-4">Here are some updates from your friends!</h1>
+<div class="row">
 
+    <partial name="_UpdatesPartial" model="@Model.Updates" />
 
+</div>
 
-@*@foreach (var update in Model.PostUpdates)
-    {
-        <div class="col-md-5 ">
-            <div class="card bg-secondary">
-                <div class="card-block">
-                    <h4 class="card-title text-center text-white">@update.Content</h4>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a asp-controller="Users" asp-action="Profile" asp-route-id=@update.UserDisplayName class="card-link text-decoration-none text-white">Go to @update.UserDisplayName 's Profile</a>
-                        <a asp-controller="Group" asp-action="Post" asp-route-id=@update.PostId class="card-link text-decoration-none text-white">go to @update.PostTitle </a>
-
-                </div>
-            </div>
-        </div>
-    }*@
-@foreach (var update in Model.SeriesUpdates)
-{
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-5 ">
-            <div class="card bg-success">
-                <div class="card-block">
-                    <h4 class="card-title text-center text-white">@update.Content</h4>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a asp-controller="Users" asp-action="Profile" asp-route-id=@update.UserId class="card-link text-decoration-none text-white">Go to @update.UserDisplayName 's Profile</a>
-                    @if (update.SeriesType == 1)
-                    {
-                        <a asp-controller="Anime" asp-action="AnimeInfo" asp-route-id=@update.SeriesId class="card-link text-decoration-none text-white">Go to @update.UserDisplayName 's Profile</a>
-                    }
-                    else if (update.SeriesType == 2)
-                    {
-                        <a asp-controller="Manga" asp-action="Info" asp-route-id=@update.SeriesId class="card-link text-decoration-none text-white">go to the @update.SeriesTitle page</a>
-                    }
-
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="col-md-4"></div>
-    </div>
-}
 
 
 

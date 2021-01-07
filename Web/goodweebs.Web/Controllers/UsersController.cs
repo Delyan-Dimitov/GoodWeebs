@@ -3,11 +3,13 @@
     using GoodWeebs.Data.Models;
     using GoodWeebs.Services.GoodWeebs.Services.UserServices;
     using GoodWeebs.Web.ViewModels.UserViewModels;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using System.Security.Claims;
     using System.Threading.Tasks;
 
+    [Authorize]
     public class UsersController : BaseController
     {
         private readonly IUserService userService;
@@ -17,17 +19,21 @@
             this.userService = userService;
         }
 
-        [Route("Users/Profile/{userId}")]
-        public async Task<IActionResult> ProfileAsync(string userId)
+        public async Task<IActionResult> ProfileAsync(string id)
         {
             var myId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            if (myId == userId)
+            if (myId == id)
             {
                 return this.RedirectToAction("MyProfile");
             }
+            var model = await this.userService.GetUserById(id);
+            if (!this.userService.FrindshipExists(id, myId) && !this.userService.FrindshipRequestExists(id, myId))
+            {
+                model.CanRequestFriendship = true;
+            }
 
-            var model = await this.userService.GetUserById(userId);
+
             return this.View(model);
         }
 
@@ -37,49 +43,49 @@
             var model = await this.userService.GetUserById(myId);
             return this.View(model);
         }
-        [Route("Users/FriendsList/{userId}")]
-        public async Task<IActionResult> FriendsListAsync(string userId)
+        public async Task<IActionResult> FriendsListAsync(string id)
         {
-            var model = await this.userService.GetAllFriends(userId);
+            var myId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var model = await this.userService.GetAllFriends(id);
+            if (myId == id)
+            {
+                model.MyProfile = true;
+            }
             return this.View(model);
         }
 
-        public IActionResult FriendRequests()
+        public async Task<IActionResult> FriendRequestsAsync()
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            var model = this.userService.GetAllFriendRequests(userId);
+            var model = await this.userService.GetAllFriendRequests(userId);
             return this.View(model);
         }
 
-        [HttpPost]
         public async Task<IActionResult> SendFriendRequest(string id)
         {
             var requesterId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             await this.userService.RequestFriend(requesterId, id);
-            return this.RedirectToAction("Users/Profile", new { id = id });
+            return this.RedirectToAction("Profile", new { id });
         }
 
-        [HttpPost]
-        public async Task<IActionResult> RemoveFriend(string removedId)
+        public async Task<IActionResult> RemoveFriend(string id)
         {
             var removerId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            await this.userService.RemoveFriend(removerId, removedId);
-            return this.RedirectToAction("Users/MyProfile"); // TODO Make it return you to your friends list
+            await this.userService.RemoveFriend(removerId, id);
+            return this.RedirectToAction("MyProfile"); // TODO Make it return you to your friends list
         }
 
-        [HttpPost]
-        public async Task<IActionResult> RejectFriendRequest(string friendRequestId)
+        public async Task<IActionResult> RejectFriendRequest(string id)
         {
-            await this.userService.RejectFriendRequest(friendRequestId);
-            return this.Redirect("Users/FriendRequests"); // TODO Make it redirect to friend request list
+            await this.userService.RejectFriendRequest(id);
+            return this.Redirect("MyProfile"); // TODO Make it redirect to friend request list
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AddFriend(string adderId)
+        public async Task<IActionResult> AddFriend(string id)
         {
             var addedId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            await this.userService.AddFriend(adderId, addedId);
-            return this.RedirectToAction("Users/MyProfile"); // TODO redirect to friends list
+            await this.userService.AddFriend(id, addedId);
+            return this.RedirectToAction("MyProfile"); // TODO redirect to friends list
         }
     }
 }

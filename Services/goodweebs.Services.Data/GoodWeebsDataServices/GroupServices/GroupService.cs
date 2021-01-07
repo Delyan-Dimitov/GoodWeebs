@@ -2,7 +2,7 @@
 {
     using System.Linq;
     using System.Threading.Tasks;
-
+    using Ganss.XSS;
     using global::GoodWeebs.Data.Common.Repositories;
     using global::GoodWeebs.Data.Models;
     using global::GoodWeebs.Data.Models.MappingTables;
@@ -16,19 +16,22 @@
         private readonly IDeletableEntityRepository<UsersGroups> usersGroupsRepo;
         private readonly IDeletableEntityRepository<Post> postRepo;
         private readonly IDeletableEntityRepository<Comment> commentRepo;
+        private readonly IHtmlSanitizer htmlSanitizer;
 
         public GroupService(
             IDeletableEntityRepository<Group> groupRepo,
             UserManager<ApplicationUser> userManager,
             IDeletableEntityRepository<UsersGroups> usersGroupsRepo,
             IDeletableEntityRepository<Post> postRepo,
-            IDeletableEntityRepository<Comment> commentRepo)
+            IDeletableEntityRepository<Comment> commentRepo,
+            IHtmlSanitizer htmlSanitizer)
         {
             this.groupRepo = groupRepo;
             this.userManager = userManager;
             this.usersGroupsRepo = usersGroupsRepo;
             this.postRepo = postRepo;
             this.commentRepo = commentRepo;
+            this.htmlSanitizer = htmlSanitizer;
         }
 
         public async Task CreateGroupAsync(CreateGroupInputModel model, string userId)
@@ -51,6 +54,7 @@
             var user = await this.userManager.FindByIdAsync(userId);
             var model = new GroupListViewModel();
             var usersGroups = this.usersGroupsRepo.AllAsNoTracking().Where(x => x.User == user).Select(x => x.Group).ToList();
+            var sanitizer = new HtmlSanitizer();
             if (usersGroups.Count() != 0)
             {
 
@@ -59,7 +63,7 @@
                     model.Groups.Add(new GroupInListViewModel
                     {
                         Name = group.Name,
-                        Description = group.Description,
+                        Description = sanitizer.Sanitize(group.Description),
                         Id = group.Id,
                         Picture = group.Picture,
                     });
@@ -73,7 +77,7 @@
                     model.Groups.Add(new GroupInListViewModel
                     {
                         Name = adminGroup.Name,
-                        Description = adminGroup.Description,
+                        Description = sanitizer.Sanitize(adminGroup.Description),
                         Id = adminGroup.Id,
                         Picture = adminGroup.Picture,
                     });
@@ -91,7 +95,7 @@
                 .Where(x => x.Id == groupId)
                 .FirstOrDefault();
 
-            var model = new GroupViewModel { Id = group.Id, Admin = group.Admin, Description = group.Description, Name = group.Name, Picture = group.Picture };
+            var model = new GroupViewModel { Id = group.Id, Admin = group.Admin, Description = this.htmlSanitizer.Sanitize(group.Description), Name = group.Name, Picture = group.Picture };
             var posts = this.postRepo
                 .AllAsNoTracking()
                 .Where(x => x.GroupId == groupId)
@@ -132,12 +136,14 @@
 
         public async Task<PostViewModel> GetPostByIdAsync(string postId)
         {
+
             var post = this.postRepo.AllAsNoTracking().Where(x => x.Id == postId).FirstOrDefault();
             var comments = this.commentRepo.AllAsNoTracking().Where(x => x.Post == post).ToList();
+            var sanitizer = new HtmlSanitizer();
             var model = new PostViewModel
             {
                 Title = post.Title,
-                Content = post.Content,
+                Content = sanitizer.Sanitize(post.Content),
                 PosterId = post.PosterId,
                 Id = post.Id,
             };
@@ -146,7 +152,7 @@
                 foreach (var comment in comments)
                 {
                     var commenter = await this.userManager.FindByIdAsync(comment.CommenterId);
-                    model.Comments.Add(new CommentViewModel { CommenterDisplayName = commenter.DisplayName, CommenterId = commenter.Id, Content = comment.Content });
+                    model.Comments.Add(new CommentViewModel { CommenterDisplayName = commenter.DisplayName, CommenterId = commenter.Id, Content = sanitizer.Sanitize(comment.Content) });
                 }
             }
             return model;

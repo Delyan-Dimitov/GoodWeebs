@@ -3121,6 +3121,7 @@
           "GoodWeebs.Data.Models": "1.0.0",
           "GoodWeebs.Services.Mapping": "1.0.0",
           "GoodWeebs.Web.ViewModels": "1.0.0",
+          "HtmlSanitizer": "5.0.372",
           "Microsoft.Azure.Functions.Extensions": "1.1.0",
           "SendGrid": "9.22.0"
         },

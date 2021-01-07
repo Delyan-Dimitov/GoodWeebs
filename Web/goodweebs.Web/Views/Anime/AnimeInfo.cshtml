@@ -11,6 +11,7 @@
     <div class="col-md-1"> </div>
     <div class="col-md-2 border-bottom">
         <img src="@Model.Anime.PictureUrl" alt="">
+        <hr />
         <div class=" text-justify-left">
             <a class="text-dark text-decoration-none lead" asp-controller="Shelves" asp-action="AddToWatched" asp-route-id=@Model.AnimeId> Watched </a>
             <hr>

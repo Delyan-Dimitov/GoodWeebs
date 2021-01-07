@@ -23,18 +23,42 @@ else
                 <tbody>
                 <thead class="thead-dark">
                 </thead>
-                
+
                 @foreach (var item in Model.ShelfItems)
                 {
-            <tr>
-                <th scope="row">@item.Id</th>
-                <td>@item.Title</td>
-                <td>
-                    <a asp-action="RemoveFromWatched" asp-route-id="@item.Id">
-                         <button type="button" class="btn btn-warning" >Remove</button>
-                    </a>
-                </td>
-            </tr>
+                    <tr>
+                        <th scope="row">@item.Id</th>
+                        <td>@item.Title</td>
+                        @if (Model.MyProfile)
+                        {
+                            <td>
+                                <a asp-action="RemoveFromWatched" asp-route-id="@item.Id">
+                                    <button type="button" class="btn btn-warning">Remove</button>
+                                </a>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                <a asp-action="AddToWatched" asp-route-id="@item.Id">
+                                    <button type="button" class="btn btn-warning">Watched</button>
+                                </a>
+                            </td>
+
+                            <td>
+
+                                <a asp-action="AddToWatching" asp-route-id="@item.Id">
+                                    <button type="button" class="btn btn-warning">Watching</button>
+                                </a>
+                            </td>
+                            <td>
+
+                                <a asp-action="AddToWantToWatch" asp-route-id="@item.Id">
+                                    <button type="button" class="btn btn-warning">Want to watch</button>
+                                </a>
+                            </td>
+                        }
+                    </tr>
                 }
 
 

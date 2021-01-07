@@ -1,0 +1,22 @@
+﻿@model GoodWeebs.Web.ViewModels.UpdateViewModels.UpdateListViewModel
+
+@foreach (var update in Model.SeriesUpdates)
+{
+    <div class="container">
+            <div class="card bg-success">
+                <div class="card-block">
+                    <h4 class="card-title text-center text-white">@update.Content</h4>
+                    <a asp-controller="Users" asp-action="Profile" asp-route-id=@update.UserId class="card-link text-decoration-none text-white">Go to @update.UserDisplayName 's Profile</a>
+                    @if (update.SeriesType == 1)
+                    {
+                        <a asp-controller="Anime" asp-action="AnimeInfo" asp-route-id=@update.SeriesId class="card-link text-decoration-none text-white">Go to the @update.SeriesTitle info page</a>
+                    }
+                    else if (update.SeriesType == 2)
+                    {
+                        <a asp-controller="Manga" asp-action="Info" asp-route-id=@update.SeriesId class="card-link text-decoration-none text-white">go to the @update.SeriesTitle info page</a>
+                    }
+
+            </div>
+        </div>
+   </div>
+}

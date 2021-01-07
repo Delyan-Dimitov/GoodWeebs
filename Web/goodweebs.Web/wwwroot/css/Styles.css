@@ -13,7 +13,9 @@ body {
     margin-left: 20px;
     margin-top: 10px;
   }
-
+.row {
+    margin: 0;
+}
 .btn-primary-outline {
     background-color: transparent;
     border-color: #ccc;

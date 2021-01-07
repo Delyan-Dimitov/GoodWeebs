@@ -4,7 +4,6 @@
 
     public class MangaInfoViewModel
     {
-        public string ProfileId { get; set; }
 
         public int MangaId { get; set; }
 

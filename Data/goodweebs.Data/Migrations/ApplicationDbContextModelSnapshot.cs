@@ -269,12 +269,6 @@ namespace GoodWeebs.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DateFinished")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateStarted")
-                        .HasColumnType("datetime2");
-
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
@@ -384,12 +378,6 @@ namespace GoodWeebs.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateFinished")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateStarted")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DeletedOn")
